@@ -1,53 +1,36 @@
 <div class="header__container">
-  <img src="../../../assets/images/logofood.png"
-       class="header__logo">
+  <div class="header__first-line-container">
+    <img src="../../../assets/images/logofood.png"
+         class="header__logo">
 
-  <mat-form-field class="header__search-field">
+    <mat-form-field class="header__search-field">
+      <mat-label> Rechercher un plat, une spécialté, un restaurant ...</mat-label>
+      <input type="text" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+
+    <button class="header__button"
+            mat-raised-button
+            matBadge="8"
+            matBadgePosition="below after"
+            matBadgeColor="primary"
+            color="primary">
+      <mat-icon>shopping_cart</mat-icon><span class="header__button-text">&nbsp;Panier</span>
+    </button>
+
+    <button mat-raised-button
+            color="primary"
+            class="header__button" >
+      <mat-icon>menu</mat-icon><span class="header__button-text">&nbsp;Menu</span>
+    </button>
+  </div>
+
+  <mat-form-field
+    class="header__search-field-mobile">
     <mat-label> Rechercher un plat, une spécialté, un restaurant ...</mat-label>
     <input type="text" matInput>
     <mat-icon matSuffix>search</mat-icon>
   </mat-form-field>
-
-
-  <button class="header__button"
-          mat-raised-button
-          matBadge="8"
-          matBadgePosition="below after"
-          matBadgeColor="accent"
-          color="primary">
-    <mat-icon>shopping_cart</mat-icon>&nbsp;Panier
-  </button>
-
-  <button mat-raised-button
-          color="primary"
-          class="header__button" >
-    <mat-icon>menu</mat-icon>&nbsp;Menu
-  </button>
-  <!--<mat-menu #menu="matMenu">-->
-    <!--<button mat-menu-item>-->
-      <!--<mat-icon>dialpad</mat-icon>-->
-      <!--<span>Redial</span>-->
-    <!--</button>-->
-    <!--<button mat-menu-item disabled>-->
-      <!--<mat-icon>voicemail</mat-icon>-->
-      <!--<span>Check voice mail</span>-->
-    <!--</button>-->
-    <!--<button mat-menu-item>-->
-      <!--<mat-icon>notifications_off</mat-icon>-->
-      <!--<span>Disable alerts</span>-->
-    <!--</button>-->
-  <!--</mat-menu>-->
 </div>
 
-
-
-
-
-
-
-  <!--<img src="../../../assets/images/logofood.png">-->
-          <!--style="background-image: url('../../../assets/images/logofood.png');-->
-  <!--<button mat-raised-button color="primary"-->
-          <!--style="width: 150px; border-radius: 50px">-->
-    <!--<img style="width: 100%; height: 100%" src="../../../assets/images/logofood.png">-->
-  <!--</button>-->
