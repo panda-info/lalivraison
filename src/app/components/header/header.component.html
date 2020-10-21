@@ -20,10 +20,25 @@
     </button>
 
     <button mat-raised-button
+            [matMenuTriggerFor]="menu"
             color="primary"
-            class="header__button" >
+            class="header__button">
       <mat-icon>menu</mat-icon><span class="header__button-text">&nbsp;Menu</span>
     </button>
+    <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+      <button mat-menu-item>
+        <mat-icon>dialpad</mat-icon>
+        <span>Redial</span>
+      </button>
+      <button mat-menu-item disabled>
+        <mat-icon>voicemail</mat-icon>
+        <span>Check voice mail</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>notifications_off</mat-icon>
+        <span>Disable alerts</span>
+      </button>
+    </mat-menu>
   </div>
 
   <mat-form-field
