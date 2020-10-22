@@ -1,0 +1,76 @@
+:host {
+  ::ng-deep mat-icon {
+    background-repeat: no-repeat;
+    display: block;
+    fill: currentColor;
+    height: 24px;
+    width: 24px;
+    line-height: 9px !important;
+  }
+
+  ::ng-deep .mat-mini-fab {
+    height: 25px !important;
+    width: 25px !important;
+  }
+
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.swiper__content-button {
+  width: 50%;
+  height:50px;
+  border-radius: 50px;
+}
+
+@media (max-width: 768px) {
+  .swiper__text {
+    line-height: 45px !important;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 35px !important;
+  }
+
+  .swiper__content-button {
+    width: 200px;
+    height:50px;
+    border-radius: 50px;
+  }
+}
+
+@media (max-width: 880px) {
+  .swiper__text {
+    line-height: 42px !important;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 35px !important;
+  }
+
+}
+
+@media (max-width: 528px) {
+  .swiper__text {
+    line-height: 45px !important;
+    letter-spacing: 1px !important;
+    font-weight: 500;
+    font-size: 30px !important;
+    //line-height: 30px;
+    background-color: blue;
+  }
+}
+
+.swiper__text {
+  font-size: 30px;
+  height: 60%;
+  width: 80%;
+  //line-height: 60px;
+  line-height: 53px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  font-size: 45px;
+  text-align: center;
+  padding-top: 10px;
+  //position: fixed;
+  //bottom: 0;
+}
+
