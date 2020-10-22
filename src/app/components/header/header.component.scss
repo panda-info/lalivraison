@@ -1,0 +1,78 @@
+.header__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__first-line-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 5px 5px 5px;
+  background-color: white;
+  min-height: 50px;
+  max-height: 50px;
+}
+
+.header__logo {
+  width: 15%;
+  border-radius: 50px;
+  background-color: #21CCBB
+}
+
+.header__search-field {
+  width: 60%;
+  background-color: #F2F2F2;
+  border-radius: 50px;
+  padding: 0 15px 0 15px;
+}
+
+.header__button {
+  border-radius: 50px;
+  width: 10%;
+  background-color: #F2F2F2;
+  color: #3a3838;
+}
+
+.header__search-field-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header__button-text {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .header__search-field {
+    display: none;
+  }
+
+  .header__logo {
+    width: 60%;
+  }
+
+  .header__search-field-mobile {
+    display: block;
+    padding: 0 15px 0 15px;
+    background-color: #F2F2F2;
+    border-radius: 50px;
+    margin: 10px 5px 0 5px;
+  }
+}
+
+//margin for menu panel
+::ng-deep .cdk-overlay-pane {
+  margin-top: 15px;
+}
+
+//menu panel
+::ng-deep .mat-menu-panel {
+  border-radius: 25px !important;
+  background-color: #F2F2F2 !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

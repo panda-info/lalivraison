@@ -1,0 +1,47 @@
+<div class="header__container">
+  <div class="header__first-line-container">
+    <img src="../../../assets/images/logofood.png"
+         class="header__logo">
+
+    <mat-form-field class="header__search-field">
+      <mat-label> Rechercher un plat, une spécialté, un restaurant ...</mat-label>
+      <input type="text" matInput>
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+
+    <button class="header__button"
+            mat-raised-button
+            matBadge="8"
+            matBadgePosition="below after"
+            matBadgeColor="primary"
+            color="primary">
+      <mat-icon>shopping_cart</mat-icon><span class="header__button-text">&nbsp;Panier</span>
+    </button>
+
+    <button mat-raised-button
+            [matMenuTriggerFor]="menu"
+            color="primary"
+            class="header__button">
+      <mat-icon>menu</mat-icon><span class="header__button-text">&nbsp;Menu</span>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+      <button mat-menu-item>
+        <mat-icon>login</mat-icon>
+        <span>Se connecter</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>
+        <span>S'inscrire</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <mat-form-field
+    class="header__search-field-mobile">
+    <mat-label> Rechercher un plat, une spécialté, un restaurant ...</mat-label>
+    <input type="text" matInput>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+</div>
+
