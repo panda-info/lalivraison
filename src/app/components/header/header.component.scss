@@ -62,11 +62,17 @@
   }
 }
 
+//margin for menu panel
 ::ng-deep .cdk-overlay-pane {
   margin-top: 15px;
 }
 
+//menu panel
 ::ng-deep .mat-menu-panel {
   border-radius: 25px !important;
   background-color: #F2F2F2 !important;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
 }

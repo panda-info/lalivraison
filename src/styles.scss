@@ -47,28 +47,6 @@ $my-custom-primary-color: (
 );
 
 
-//$my-app-primary: mat-palette($my-custom-primary-color);
-//$my-app-accent:  mat-palette($my-custom-accent-color, 500, 900, A100);
-//$my-app-warn:    mat-palette($mat-deep-orange);
-//
-//$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-//
-//@include angular-material-theme($my-app-theme);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 $lalivraison-primary: mat-palette($my-custom-primary-color);
 $lalivraison-accent: mat-palette($mat-pink, A200, A100, A400);
 
