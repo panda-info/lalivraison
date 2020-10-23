@@ -1,0 +1,48 @@
+<div class="swiper__container">
+
+  <!--bouton fleche gauche-->
+  <div class="swiper__button-left">
+    <button mat-mini-fab (click)="previousImage()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+  </div>
+
+  <!--panel milieu-->
+  <div class="swiper__middle-panel" style="">
+
+    <!--contenu principal-->
+    <div class="swiper__middle-panel-main-zone">
+
+      <!--zone texte et bouton-->
+      <div class="swiper__middle-panel-main-zone-left">
+          <div style="" class="swiper__text">
+            Commander des plats à emporter ou en livraison
+          </div>
+        <button mat-raised-button color="accent" class="swiper__content-button">Faire une commande</button>
+      </div>
+
+
+      <!--zone image-->
+      <div class="swiper__middle-panel-main-zone-image-container">
+        <img class="swiper__middle-panel-main-zone-image" src="../../../assets/images/swiper-{{currentImageIndex}}.png">
+      </div>
+
+    </div>
+
+    <!--les 4 cercles de scooling-->
+    <div class="swiper__scroll-circles-container">
+      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 0"></div>
+      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 1"></div>
+      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 2"></div>
+      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 3"></div>
+    </div>
+
+  </div>
+
+  <!--bouton fleche droite-->
+  <div class="swiper__button-right">
+    <button mat-mini-fab (click)="nextImage()">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

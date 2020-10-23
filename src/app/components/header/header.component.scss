@@ -1,13 +1,15 @@
 .header__container {
   display: flex;
   flex-direction: column;
+  background-color: white;
+  border-bottom: 1px solid rgba(0,0,0,.12);
 }
 
 .header__first-line-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 15px 5px 5px 5px;
+  padding: 15px 5px 10px 5px;
   background-color: white;
   min-height: 50px;
   max-height: 50px;
@@ -58,7 +60,7 @@
     padding: 0 15px 0 15px;
     background-color: #F2F2F2;
     border-radius: 50px;
-    margin: 10px 5px 0 5px;
+    margin: 10px 5px 10px 5px;
   }
 }
 
@@ -71,6 +73,7 @@
 ::ng-deep .mat-menu-panel {
   border-radius: 25px !important;
   background-color: #F2F2F2 !important;
+  //color: #3a3838;
 }
 
 ::ng-deep .mat-form-field-underline {
