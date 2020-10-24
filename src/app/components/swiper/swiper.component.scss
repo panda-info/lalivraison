@@ -3,7 +3,11 @@
 .swiper__container {
   height: 350px;
   display: flex;
-  padding: 15px;
+  //padding: 15px;
+  margin: 15px;
+  border: 2px solid $black-lalivraison;
+  border-radius: 22px;
+  //background-color: lightsalmon;
 }
 
 :host {

@@ -10,12 +10,16 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import { SwiperComponent } from './components/swiper/swiper.component';
+import { CarouselCategoriesComponent } from './components/carousel-categories/carousel-categories.component';
+import { CarouselItemComponent } from './components/carousel-categories/carousel-item/carousel-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SwiperComponent
+    SwiperComponent,
+    CarouselCategoriesComponent,
+    CarouselItemComponent
   ],
   imports: [
     BrowserModule,

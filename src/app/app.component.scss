@@ -5,6 +5,21 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  &carousel-categories {
+    height: 250px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+  }
+
+  &body {
+    overflow-y: scroll;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column
+  }
 }
 
 @media (max-width: 768px) {
@@ -16,6 +31,16 @@
       margin-left: auto;
       margin-right: auto;
     }
+
+    &carousel-categories {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &body {
+      padding-top: 10px;
+    }
   }
 
 }
@@ -26,6 +51,12 @@
 
     &swiper {
       display: none;
+    }
+
+    &carousel-categories {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
