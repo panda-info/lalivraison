@@ -1,0 +1,55 @@
+@import "~src/sass/variables";
+
+.carousel-item__ {
+
+  &container {
+    background-color: $blue-lalivraison;
+    height: 100%;
+    width: 90px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 1px 1px darkgray;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #00f7de;
+      border: 2px $black-lalivraison solid;
+    }
+  }
+
+  &upper-zone {
+    height: 60%;
+    border-radius: 50px 50px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &circle {
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+
+  &image {
+    height: 60%;
+    width: 60%;
+    border-radius: 100%
+  }
+
+  &down-zone {
+    background-color: lightsalmon;
+    height: 40%;
+    border-radius: 0 0 50px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $black-lalivraison;
+  }
+}
