@@ -86,6 +86,11 @@
     &title {
       margin-bottom: 0;
     }
+
+    &item {
+      margin-right: 4px;
+      margin-left: 4px;
+    }
   }
 }
 
@@ -93,6 +98,7 @@
   .carousel__ {
     &items {
       width: 88%;
+      height: 70%;
     }
   }
 }
