@@ -11,7 +11,7 @@
     ::ng-deep .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent,
     .mat-mini-fab.mat-accent {
       color: $black-lalivraison;
-      background-color: lightgray;
+      background-color: gainsboro;
     }
   }
 
@@ -81,6 +81,7 @@
       overflow-x: scroll;
       padding-top: 0px;
       padding-bottom: 10px;
+      height: 70%;
     }
 
     &title {
@@ -98,7 +99,6 @@
   .carousel__ {
     &items {
       width: 88%;
-      height: 70%;
     }
   }
 }
