@@ -3,11 +3,11 @@
 .carousel__ {
   &container {
     height: 100%;
-    padding: 15px;
+    padding: 15px 0 0 15px;
     display: flex;
     flex-direction: column;
     //justify-content: space-between;
-    background-color: lightgreen;
+
 
     ::ng-deep .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
       //background-color: $gray-lalivraison ;
@@ -22,20 +22,28 @@
     font-weight: bold;
     display: flex;
     align-items: center;
+    //justify-content: start;
     height: 20%;
+    //background-color: lightblue;
+    margin-bottom: 15px;
   }
 
-  &items {
+  &items { /****************/
     display: flex;
     width: 90%;
-    background-color: lightblue;
-    border: 5px solid red;
+    //overflow-y: scroll;
+    //background-color: white;
+    overflow: hidden;
+    //height: 150px;
+    //background-color: lightblue;
+    //border: 5px solid red;
+    //background-color: #0bad96;
 
     &-container {
       display: flex;
-      border: 3px solid blue;
       height: 80%;
       padding-top: 20px;
+      padding-bottom: 20px;
     }
 
     &-container-button {
@@ -52,13 +60,10 @@
   }
 
   &item {
-    background-color: $blue-lalivraison;
-    height: 100%;
-    width: 100px;
-    border-radius: 50px 50px 50px 50px;
-    display: flex;
-    flex-direction: column;
-    //justify-content: space-between;
+    margin-right: 7px;
+    margin-left: 7px;
+    height: 140px;
+    //background-color: red;
   }
 }
 
@@ -68,6 +73,30 @@
 
     &items-container-button {
       display: none;
+    }
+
+    &items {
+      //background-color: #00f7de;
+      width: 100%;
+      overflow-x: scroll;
+      //background-color: lightblue;
+      //margin-right: 15px;
+      padding-top: 0px;
+      padding-bottom: 10px;
+      //background-color: #0bad96;
+    }
+
+    &title {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel__ {
+    &items {
+      width: 88%;
+      //background-color: lightsalmon;
     }
   }
 }

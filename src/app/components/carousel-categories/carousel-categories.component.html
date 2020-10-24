@@ -5,30 +5,52 @@
   </div>
   <div class="carousel__items-container">
 
-    <div class="carousel__items-container-button">
-      <button mat-mini-fab>
+    <div class="carousel__items-container-button" style="margin-right: 5px">
+      <button mat-mini-fab (click)="scrollLeft(carouselItems)">
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
     </div>
 
-    <div class="carousel__items">
+    <div class="carousel__items" #carouselItems>
 
-      <div class="carousel__item">
-        <div style="height: 60%; border-radius: 50px 50px 0 0; background-color: lightgray;
-         display: flex; align-items: center; justify-content: center">
-          <div style="height: 85px; width: 85px; border-radius: 100%; background-color: white; display: flex; align-items: center; justify-content: center">
-            <img src="../../../assets/images/categories/1.png" style="height: 70%; width: 70%; border-radius: 100%">
-          </div>
-        </div>
-        <div style="height: 40%; border-radius: 0 0 50px 50px"></div>
-      </div>
+      <!--<div class="carousel__item">-->
+        <!--<div style="height: 60%; border-radius: 50px 50px 0 0; background-color: lightgray;-->
+         <!--display: flex; align-items: center; justify-content: center">-->
+          <!--<div style="height: 85px; width: 85px; border-radius: 100%; background-color: white; display: flex; align-items: center; justify-content: center">-->
+            <!--<img src="../../../assets/images/categories/1.png" style="height: 70%; width: 70%; border-radius: 100%">-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div style="height: 40%; border-radius: 0 0 50px 50px"></div>-->
+      <!--</div>-->
+
+      <app-carousel-item class="carousel__item"
+                         text="Tout"
+                         imageSource="../../../assets/images/categories/1.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Pizza" imageSource="../../../assets/images/categories/2.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Asiatique" imageSource="../../../assets/images/categories/3.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Burgers" imageSource="../../../assets/images/categories/4.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Desserts" imageSource="../../../assets/images/categories/5.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item" text="Thaïe" imageSource="../../../assets/images/categories/6.png"></app-carousel-item>
+      <app-carousel-item class="carousel__item"
+                         text="Sushi" imageSource="../../../assets/images/categories/7.png"></app-carousel-item>
 
 
 
     </div>
 
-    <div class="carousel__items-container-button">
-      <button mat-mini-fab >
+    <div class="carousel__items-container-button" style="margin-left: 5px">
+      <button mat-mini-fab (click)="scrollRight(carouselItems)">
         <mat-icon class="carousel__items-swiper">keyboard_arrow_right</mat-icon>
       </button>
     </div>

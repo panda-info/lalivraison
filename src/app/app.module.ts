@@ -11,13 +11,15 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatMenuModule} from '@angular/material/menu';
 import { SwiperComponent } from './components/swiper/swiper.component';
 import { CarouselCategoriesComponent } from './components/carousel-categories/carousel-categories.component';
+import { CarouselItemComponent } from './components/carousel-categories/carousel-item/carousel-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SwiperComponent,
-    CarouselCategoriesComponent
+    CarouselCategoriesComponent,
+    CarouselItemComponent
   ],
   imports: [
     BrowserModule,

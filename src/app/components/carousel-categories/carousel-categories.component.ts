@@ -12,4 +12,17 @@ export class CarouselCategoriesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  scrollLeft(itemsContainer: HTMLElement): void {
+    itemsContainer.scrollBy({
+      left: -150,
+      behavior: 'smooth'
+    });
+  }
+
+  scrollRight(itemsContainer: HTMLElement): void {
+    itemsContainer.scrollBy({
+      left: 150,
+      behavior: 'smooth'
+    });
+  }
 }
