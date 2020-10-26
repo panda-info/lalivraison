@@ -13,6 +13,7 @@ import { SwiperComponent } from './components/swiper/swiper.component';
 import { CarouselCategoriesComponent } from './components/carousel-categories/carousel-categories.component';
 import { CarouselItemComponent } from './components/carousel-categories/carousel-item/carousel-item.component';
 import { JoinUsComponent } from './components/join-us/join-us.component';
+import {NewsletterComponent} from './components/newsletter-zone/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { JoinUsComponent } from './components/join-us/join-us.component';
     SwiperComponent,
     CarouselCategoriesComponent,
     CarouselItemComponent,
-    JoinUsComponent
+    JoinUsComponent,
+    NewsletterComponent
   ],
   imports: [
     BrowserModule,

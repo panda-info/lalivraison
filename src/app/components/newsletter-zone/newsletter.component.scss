@@ -1,0 +1,58 @@
+@import "~src/sass/variables";
+
+.newsletter-zone__ {
+
+  &container {
+    height: 100%;
+    background-color: $blue-lalivraison;
+    border: 2px solid $black-lalivraison;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $black-lalivraison;
+  }
+
+  &text {
+    font-size: 25px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    width: 500px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &text-field {
+    width: 250px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    padding: 0 15px 0 15px;
+    font-size: 12px
+  }
+
+  &form-zone {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+
+    &-button {
+      background-color: $black-lalivraison;
+      color: white;
+      border-radius: 50px;
+      width: 150px
+    }
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .google-apple-zone__ {
+
+    &form-zone {
+      width: 450px;
+    }
+  }
+}
