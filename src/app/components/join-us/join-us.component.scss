@@ -48,6 +48,7 @@
     align-items: center;
     justify-content: space-around;
     font-size: 20px;
+    letter-spacing: 2px;
 
     &-image {
       height: 60%;
@@ -75,6 +76,22 @@
   }
 }
 
+@media (max-width: 1190px) {
+  .join-us__ {
+
+    &button {
+
+      &-partner:after {
+        content: "Rejoindre";
+      }
+
+      &-delivery:after {
+        content: "Rejoindre";
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
 
   .join-us__ {
@@ -85,17 +102,6 @@
 
     &content {
       width: 100%;
-    }
-
-    &button {
-
-      &-partner:after {
-        content: "Commencer";
-      }
-
-      &-delivery:after {
-        content: "Commencer";
-      }
     }
   }
 }

@@ -24,6 +24,14 @@
     overflow: hidden;
   }
 
+  &google-apple-zone {
+    min-height: 200px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+  }
+
   &body {
     overflow-y: scroll;
     padding-top: 15px;
@@ -46,6 +54,10 @@
       width: 95%;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    &google-apple-zone {
+      width: 90%;
     }
 
     &body {
@@ -75,6 +87,10 @@
     &join-us {
       min-height: 200px;
       max-height: 200px;
+    }
+
+    &google-apple-zone {
+      display: none;
     }
   }
 
