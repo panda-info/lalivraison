@@ -12,6 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { SwiperComponent } from './components/swiper/swiper.component';
 import { CarouselCategoriesComponent } from './components/carousel-categories/carousel-categories.component';
 import { CarouselItemComponent } from './components/carousel-categories/carousel-item/carousel-item.component';
+import { JoinUsComponent } from './components/join-us/join-us.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CarouselItemComponent } from './components/carousel-categories/carousel
     HeaderComponent,
     SwiperComponent,
     CarouselCategoriesComponent,
-    CarouselItemComponent
+    CarouselItemComponent,
+    JoinUsComponent
   ],
   imports: [
     BrowserModule,

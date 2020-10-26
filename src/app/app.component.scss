@@ -7,7 +7,17 @@
   }
 
   &carousel-categories {
-    height: 250px;
+    min-height: 250px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  &join-us {
+    min-height: 450px;
+    max-height: 450px;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -40,7 +50,14 @@
 
     &body {
       padding-top: 10px;
+      padding-bottom: 50px;
     }
+
+    //&join-us {
+    //  min-height: 450px;
+    //  max-height: 450px;
+    //  //background-color: lightpink;
+    //}
   }
 
 }
@@ -57,6 +74,13 @@
       width: 100%;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 0;
+    }
+
+    &join-us {
+      min-height: 200px;
+      max-height: 200px;
+      //background-color: lightpink;
     }
   }
 
