@@ -1,6 +1,6 @@
 @import "~src/sass/variables";
 
-.google-apple-zone__ {
+.newsletter-zone__ {
 
   &container {
     height: 100%;
@@ -21,6 +21,15 @@
     width: 500px;
     text-align: center;
     margin-bottom: 20px;
+  }
+
+  &text-field {
+    width: 250px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: white;
+    padding: 0 15px 0 15px;
+    font-size: 12px
   }
 
   &form-zone {
