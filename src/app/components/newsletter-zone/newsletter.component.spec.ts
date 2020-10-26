@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GoogleAppleZoneComponent } from './google-apple-zone.component';
+import { NewsletterComponent } from './newsletter.component';
 
-describe('GoogleAppleZoneComponent', () => {
-  let component: GoogleAppleZoneComponent;
-  let fixture: ComponentFixture<GoogleAppleZoneComponent>;
+describe('NewsletterComponent', () => {
+  let component: NewsletterComponent;
+  let fixture: ComponentFixture<NewsletterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoogleAppleZoneComponent ]
+      declarations: [ NewsletterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoogleAppleZoneComponent);
+    fixture = TestBed.createComponent(NewsletterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
