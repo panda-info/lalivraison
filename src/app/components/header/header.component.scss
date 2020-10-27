@@ -1,47 +1,47 @@
 @import "~src/sass/variables";
 
-.header__container {
-  display: flex;
-  flex-direction: column;
-  //background-color: white;
-  background-color: $gray-lalivraison;
-  border-bottom: 1px solid rgba(0,0,0,.12);
-}
+.header__ {
 
-.header__first-line-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 15px 5px 10px 5px;
-  //background-color: white;
-  background-color: $gray-lalivraison;
-  min-height: 50px;
-  max-height: 50px;
-}
+  &container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-bottom: 1px solid rgba(0, 0, 0, .12);
+  }
 
-.header__logo {
-  width: 15%;
-  border-radius: 50px;
-  background-color: $blue-lalivraison
-}
+  &first-line-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 5px 10px 5px;
+    background-color: white;
+    min-height: 50px;
+    max-height: 50px;
+  }
 
-.header__search-field {
-  width: 60%;
-  //background-color: $gray-lalivraison;
-  background-color: white;
-  border-radius: 50px;
-  padding: 0 15px 0 15px;
-}
+  &logo {
+    width: 15%;
+    border-radius: 50px;
+    background-color: $blue-lalivraison
+  }
 
-.header__button {
-  border-radius: 50px;
-  width: 10%;
-  background-color: $gray-lalivraison;
-  color: #3a3838;
-}
+  &search-field {
+    width: 60%;
+    background-color: $gray-lalivraison;
+    border-radius: 50px;
+    padding: 0 15px 0 15px;
+  }
 
-.header__search-field-mobile {
-  display: none;
+  &button {
+    border-radius: 50px;
+    width: 10%;
+    background-color: $gray-lalivraison;
+    color: #3a3838;
+  }
+
+  &search-field-mobile {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -52,25 +52,26 @@
 
 @media (max-width: 480px) {
 
-  .header__search-field {
-    display: none;
-  }
+  .header__ {
 
-  .header__logo {
-    width: 60%;
-  }
+    &search-field {
+      display: none;
+    }
 
-  .header__search-field-mobile {
-    display: block;
-    padding: 0 15px 0 15px;
-    //background-color: $gray-lalivraison;
-    background-color: white;
-    border-radius: 50px;
-    margin: 10px 5px 10px 5px;
+    &logo {
+      width: 60%;
+    }
+
+    &search-field-mobile {
+      display: block;
+      padding: 0 15px 0 15px;
+      background-color: white;
+      border-radius: 50px;
+      margin: 10px 5px 10px 5px;
+    }
   }
 }
 
-//margin for menu panel
 ::ng-deep .cdk-overlay-pane {
   margin-top: 15px;
 }
@@ -79,7 +80,6 @@
 ::ng-deep .mat-menu-panel {
   border-radius: 25px !important;
   background-color: $gray-lalivraison !important;
-  //color: #3a3838;
 }
 
 ::ng-deep .mat-form-field-underline {

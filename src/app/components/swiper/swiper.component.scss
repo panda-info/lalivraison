@@ -1,13 +1,107 @@
 @import "~src/sass/variables";
 
-.swiper__container {
-  height: 350px;
-  display: flex;
-  //padding: 15px;
-  margin: 15px;
-  border: 2px solid $black-lalivraison;
-  border-radius: 22px;
-  //background-color: lightsalmon;
+.swiper__ {
+
+  &container {
+    height: 350px;
+    display: flex;
+    margin: 15px;
+    border-radius: 22px;
+  }
+
+  &middle-panel {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: $blue-lalivraison;
+
+    &-main-zone {
+      height: 90%;
+      display: flex;
+
+      &-left {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2% 0 2% 0;
+
+        &-text-image {
+          height: 65%;
+          width: 75%;
+        }
+      }
+
+      &-image {
+        margin: auto;
+        height: 60%;
+        width: 50%;
+
+        &-container {
+          width: 40%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  &text {
+    height: 60%;
+    width: 80%;
+    line-height: 53px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 45px;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  &button {
+    background-color: #21CCBB;
+    width: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    &-left {
+      @extend .swiper__button;
+      border-radius: 20px 0 0 20px;
+    }
+
+    &-right {
+      @extend .swiper__button;
+      border-radius: 0 20px 20px 0;
+    }
+  }
+
+  &scroll {
+
+    &-circle {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background-color: $gray-lalivraison;
+
+      &-selected {
+        @extend .swiper__scroll-circle;
+        background-color: $black-lalivraison;
+      }
+    }
+
+    &-circles-container {
+      height: 10%;
+      width: 60px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
 }
 
 :host {
@@ -24,148 +118,4 @@
     height: 25px !important;
     width: 25px !important;
   }
-
-  //margin-right: auto;
-  //margin-left: auto;
 }
-
-.swiper__content-button {
-  width: 50%;
-  height:50px;
-  border-radius: 50px;
-}
-
-@media (max-width: 768px) {
-  .swiper__text {
-    line-height: 45px !important;
-    letter-spacing: 2px;
-    font-weight: 500;
-    font-size: 35px !important;
-  }
-
-  .swiper__content-button {
-    width: 200px;
-    height:50px;
-    border-radius: 50px;
-  }
-}
-
-@media (max-width: 880px) {
-  .swiper__text {
-    line-height: 42px !important;
-    letter-spacing: 2px;
-    font-weight: 500;
-    font-size: 35px !important;
-  }
-
-}
-
-@media (max-width: 528px) {
-  .swiper__text {
-    line-height: 45px !important;
-    letter-spacing: 1px !important;
-    font-weight: 500;
-    font-size: 30px !important;
-    //line-height: 30px;
-    background-color: blue;
-  }
-}
-
-.swiper__text {
-  font-size: 30px;
-  height: 60%;
-  width: 80%;
-  //line-height: 60px;
-  line-height: 53px;
-  letter-spacing: 2px;
-  font-weight: 500;
-  font-size: 45px;
-  text-align: center;
-  padding-top: 10px;
-  //position: fixed;
-  //bottom: 0;
-}
-
-.swiper__button {
-  background-color: #21CCBB;
-  width: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-
-  &-left {
-    @extend .swiper__button;
-    border-radius: 20px 0 0 20px;
-  }
-
-  &-right {
-    @extend .swiper__button;
-    border-radius: 0 20px 20px 0;
-  }
-}
-
-.swiper__scroll-circle {
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background-color: $gray-lalivraison;
-
-  &-selected {
-    @extend .swiper__scroll-circle;
-    background-color: $black-lalivraison;
-  }
-}
-
-.swiper__scroll-circles-container {
-  height: 10%;
-  width: 60px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.swiper__middle-panel {
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  background-color: $blue-lalivraison;
-}
-
-.swiper__middle-panel-main-zone {
-  height: 90%;
-  display: flex;
-}
-
-.swiper__middle-panel-main-zone-left {
-  width: 60%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  padding: 2% 0 2% 0;
-}
-
-.swiper__middle-panel-main-zone-image {
-
-  margin: auto;
-  //height: 185px;
-  height: 60%;
-  //width: 185px;
-  width: 50%;
-
-  &-container {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.swiper__middle-panel-main-zone-left-text-image {
-  height: 65%;
-  width: 75%;
-}
-
