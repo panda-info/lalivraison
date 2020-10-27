@@ -5,7 +5,6 @@
   &container {
     height: 100%;
     background-color: $blue-lalivraison;
-    border: 2px solid $black-lalivraison;
     border-radius: 22px;
     display: flex;
     flex-direction: column;
@@ -49,7 +48,7 @@
 
 @media (max-width: 768px) {
 
-  .google-apple-zone__ {
+  .newsletter-zone__ {
 
     &form-zone {
       width: 450px;
