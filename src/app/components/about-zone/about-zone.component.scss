@@ -1,0 +1,65 @@
+@import "~src/sass/variables";
+
+.about-zone__ {
+
+  &container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    //align-items: center;
+    letter-spacing: 1.3px;
+    color: $black-lalivraison;
+    padding: 25px 20px 25px 20px;
+    //background-color: lightpink;
+  }
+
+  &block {
+
+    display: flex;
+    flex-direction: column;
+    //padding: 5px;
+    width: 33%;
+    border-left: 1px solid $black-lalivraison;
+    padding: 0px 5px 5px 15px;
+    //background-color: lightskyblue;
+
+    &-payment {
+      @extend .about-zone__block;
+      width: 34%;
+      border: none;
+
+      &-image {
+        &-logo {
+          background-color: $blue-lalivraison;
+          height: 30px;
+          width: 90px;
+          border-radius: 50px;
+        }
+
+        &-payment {
+          height: 40px;
+          width: 180px;
+        }
+      }
+    }
+
+    &-title {
+      font-size: 25px;
+      font-weight: bolder;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      margin-top: 5px;
+    }
+
+    &-line {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .about-zone__block-payment-image-payment {
+    width: 150px;
+  }
+}

@@ -14,6 +14,7 @@ import { CarouselCategoriesComponent } from './components/carousel-categories/ca
 import { CarouselItemComponent } from './components/carousel-categories/carousel-item/carousel-item.component';
 import { JoinUsComponent } from './components/join-us/join-us.component';
 import {NewsletterComponent} from './components/newsletter-zone/newsletter.component';
+import { AboutZoneComponent } from './components/about-zone/about-zone.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {NewsletterComponent} from './components/newsletter-zone/newsletter.compo
     CarouselCategoriesComponent,
     CarouselItemComponent,
     JoinUsComponent,
-    NewsletterComponent
+    NewsletterComponent,
+    AboutZoneComponent
   ],
   imports: [
     BrowserModule,
