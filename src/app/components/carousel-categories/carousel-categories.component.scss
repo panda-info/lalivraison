@@ -67,6 +67,10 @@
 @media (max-width: 480px) {
   .carousel__ {
 
+    &container {
+      height: 80%;
+    }
+
     &items-container-button {
       display: none;
     }
@@ -77,6 +81,11 @@
       padding-top: 0px;
       padding-bottom: 10px;
       height: 70%;
+
+      &-container {
+        padding-bottom: 0;
+        padding-top: 15px;
+      }
     }
 
     &title {
