@@ -4,12 +4,14 @@
 
   &container {
     height: 100%;
-    padding: 15px 0 0 15px;
+    padding: 15px 15px 0 15px; // up and left
     display: flex;
     flex-direction: column;
+    //background-color: lightsalmon;
   }
 
   &title {
+    //background-color: lightskyblue;
     color: $black-lalivraison;
     letter-spacing: 2px;
     font-size: 30px;
@@ -29,12 +31,16 @@
     display: flex;
     width: 90%;
     overflow: hidden;
+    //background-color: green;
+    //border-radius: 50px;
+    //border: 1px black solid;
 
     &-container {
       display: flex;
       height: 80%;
       padding-top: 20px;
       padding-bottom: 20px;
+      //background-color: lightgoldenrodyellow;
     }
 
     &-container-button {
@@ -69,6 +75,7 @@
 
     &container {
       min-height: 200px !important;
+      //background-color: lightsalmon;
     }
 
     &items-container-button {
@@ -76,7 +83,9 @@
     }
 
     &items {
-      width: 100%;
+
+      //background-color: red;
+      width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
       padding-bottom: 10px;
@@ -86,6 +95,7 @@
         min-height: 100%;
         padding-bottom: 0;
         padding-top: 15px;
+        //background-color: blue;
       }
     }
 
@@ -103,6 +113,17 @@
 
 @media (max-width: 768px) {
   .carousel__ {
+
+    &container {
+      padding: 15px 8px 0 15px; // up and left;
+
+      //::ng-deep .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
+      //  box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.2),
+      //  0px 6px 5px 0px rgba(0, 0, 0, 0.14),
+      //  0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+      //}
+    }
+
     &items {
       width: 88%;
     }
