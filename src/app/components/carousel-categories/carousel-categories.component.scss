@@ -68,7 +68,7 @@
   .carousel__ {
 
     &container {
-      height: 80%;
+      min-height: 200px !important;
     }
 
     &items-container-button {
@@ -83,6 +83,7 @@
       height: 70%;
 
       &-container {
+        min-height: 100%;
         padding-bottom: 0;
         padding-top: 15px;
       }
@@ -90,6 +91,7 @@
 
     &title {
       margin-bottom: 0;
+      height: 10%;
     }
 
     &item {
