@@ -20,6 +20,9 @@
   }
 
   &logo {
+    display: flex;
+    align-items: center;
+    //justify-content: center;
     width: 15%;
     border-radius: 50px;
     background-color: $blue-lalivraison

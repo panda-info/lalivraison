@@ -102,6 +102,15 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .carousel__ {
+
+    &items {
+      overflow-x: scroll;
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .carousel__ {
 
