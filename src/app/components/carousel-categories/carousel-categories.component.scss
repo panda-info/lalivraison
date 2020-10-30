@@ -7,11 +7,9 @@
     padding: 15px 15px 0 15px; // up and left
     display: flex;
     flex-direction: column;
-    //background-color: lightsalmon;
   }
 
   &title {
-    //background-color: lightskyblue;
     color: $black-lalivraison;
     letter-spacing: 2px;
     font-size: 30px;
@@ -31,16 +29,12 @@
     display: flex;
     width: 90%;
     overflow: hidden;
-    //background-color: green;
-    //border-radius: 50px;
-    //border: 1px black solid;
 
     &-container {
       display: flex;
       height: 80%;
       padding-top: 20px;
       padding-bottom: 20px;
-      //background-color: lightgoldenrodyellow;
     }
 
     &-container-button {
@@ -75,7 +69,6 @@
 
     &container {
       min-height: 200px !important;
-      //background-color: lightsalmon;
     }
 
     &items-container-button {
@@ -84,7 +77,6 @@
 
     &items {
 
-      //background-color: red;
       width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
@@ -95,7 +87,6 @@
         min-height: 100%;
         padding-bottom: 0;
         padding-top: 15px;
-        //background-color: blue;
       }
     }
 
@@ -126,6 +117,7 @@
 
     &items {
       width: 88%;
+      overflow-x: scroll;
     }
   }
 }
