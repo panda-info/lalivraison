@@ -6,7 +6,7 @@
   <div class="carousel__items-container">
 
     <div class="carousel__items-container-button-left">
-      <button mat-mini-fab (click)="scrollLeft(carouselItems)">
+      <button style="z-index: 99" mat-mini-fab (click)="scrollLeft(carouselItems)">
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
     </div>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="carousel__items-container-button-right">
-      <button mat-mini-fab (click)="scrollRight(carouselItems)">
+      <button style="z-index: 99" mat-mini-fab (click)="scrollRight(carouselItems)">
         <mat-icon class="carousel__items-swiper">keyboard_arrow_right</mat-icon>
       </button>
     </div>

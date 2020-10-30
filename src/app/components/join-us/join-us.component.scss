@@ -19,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     letter-spacing: 2px;
+    padding-bottom: 10px;
   }
 
   &content {
@@ -40,7 +41,7 @@
     padding: 10px 0 10px 0;
     height: 90%;
     width: 40%;
-    background-color: $gray-lalivraison;
+    background-color: white;
     box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     display: flex;
@@ -115,7 +116,10 @@
     }
 
     &content {
+      height: 60%;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
     &cards-container {
@@ -123,13 +127,15 @@
     }
 
     &title {
+      height: 30%;
       width: 100%;
       display: block;
       text-align: left;
+      padding-bottom: 15px;
     }
 
     &mobile-line {
-      height: 60px;
+      height: 70px;
       width: 95%;
       display: flex;
       background-color: $blue-lalivraison;
@@ -147,21 +153,33 @@
         padding-left: 10px
       }
 
-      &-button-container {
-        width: 15%;
+      &-button {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        &-container {
+          width: 15%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
       }
     }
   }
 }
 
 :host {
-  ::ng-deep .mat-mini-fab {
-    height: 40px !important;
-    width: 40px !important;
-    background-color: white;
-    color: $black-lalivraison;
+
+  .join-us__mobile-line {
+    ::ng-deep .mat-raised-button {
+      height: 40px !important;
+      width: 40px !important;
+      min-width: 40px;
+      border-radius: 100%;
+      background-color: $gray-lalivraison !important;
+      color: $black-lalivraison;
+    }
+
   }
 }

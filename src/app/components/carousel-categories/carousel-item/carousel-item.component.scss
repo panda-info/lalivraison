@@ -60,35 +60,12 @@
   .carousel-item__ {
 
     &container {
-      background-color: inherit;
-      height: 80%;
       width: 80px;
-      border-radius: 20px;
-      display: flex;
-      flex-direction: column;
-      border: none;
-      box-shadow: none;
-      color: $black-lalivraison;
-
-      &:hover {
-        background-color: inherit;
-        border: none;
-        color: $blue-lalivraison !important;
-      }
+      height: 90%;
     }
 
     &upper-zone {
       height: 60%;
-      border-radius: 30px;
-
-      &:hover {
-        border: 2px $blue-lalivraison solid;
-      }
-    }
-
-    &circle {
-      height: 100%;
-      width: 100%;
       border-radius: 30px;
     }
 

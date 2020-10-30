@@ -25,7 +25,7 @@
   }
 
   &newsletter-zone {
-    min-height: 200px;
+    height: 200px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -67,6 +67,10 @@
       width: 90%;
     }
 
+    &join-us {
+      min-height: 280px;
+    }
+
     &body {
       padding-top: 10px;
       padding-bottom: 50px;
@@ -88,13 +92,12 @@
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 0;
-      min-height: 150px;
+      min-height: 200px;
     }
 
     &join-us {
       width: 100%;
       min-height: 200px;
-      max-height: 200px;
     }
 
     &newsletter-zone {
