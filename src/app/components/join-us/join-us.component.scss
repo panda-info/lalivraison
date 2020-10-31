@@ -64,11 +64,11 @@
     color: white;
 
     &-partner:after {
-      content: "Commencer à gagner des clients"
+      content: "Gagner des clients"
     }
 
     &-delivery:after {
-      content: "Commencer à gagner de l'argent"
+      content: "Gagner de l'argent"
     }
   }
 
@@ -127,7 +127,7 @@
     }
 
     &title {
-      height: 30%;
+      height: 15%;
       width: 100%;
       display: block;
       text-align: left;
@@ -157,6 +157,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        height: 40px;
+        width: 40px;
+        min-width: 40px;
+        border-radius: 100%;
+        border: none;
+        background-color: $gray-lalivraison;
 
         &-container {
           width: 15%;
@@ -169,17 +175,11 @@
   }
 }
 
-:host {
-
-  .join-us__mobile-line {
-    ::ng-deep .mat-raised-button {
-      height: 40px !important;
-      width: 40px !important;
-      min-width: 40px;
-      border-radius: 100%;
-      background-color: $gray-lalivraison !important;
-      color: $black-lalivraison;
-    }
-
+.join-us__mobile-line {
+  ::ng-deep .mat-raised-button {
+    height: 40px !important;
+    width: 40px !important;
+    min-width: 40px;
+    border-radius: 100%;
   }
 }

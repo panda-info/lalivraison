@@ -20,6 +20,9 @@
   }
 
   &logo {
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
     width: 15%;
     border-radius: 50px;
     background-color: $blue-lalivraison
@@ -45,8 +48,15 @@
 }
 
 @media (max-width: 768px) {
-  .header__button-text {
-    display: none;
+  .header__ {
+
+    &button-text {
+      display: none;
+    }
+
+    &search-field {
+      font-size: 16px;
+    }
   }
 }
 
@@ -68,6 +78,7 @@
       background-color: $gray-lalivraison;
       border-radius: 50px;
       margin: 10px 5px 10px 5px;
+      font-size: 16px;
     }
   }
 }

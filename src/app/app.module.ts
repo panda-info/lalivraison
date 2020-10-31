@@ -15,6 +15,8 @@ import { CarouselItemComponent } from './components/carousel-categories/carousel
 import { JoinUsComponent } from './components/join-us/join-us.component';
 import {NewsletterComponent} from './components/newsletter-zone/newsletter.component';
 import { AboutZoneComponent } from './components/about-zone/about-zone.component';
+import { RestaurantsComponent } from './components/restaurants/restaurants.component';
+import { RestaurantComponent } from './components/restaurants/restaurant/restaurant.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { AboutZoneComponent } from './components/about-zone/about-zone.component
     CarouselItemComponent,
     JoinUsComponent,
     NewsletterComponent,
-    AboutZoneComponent
+    AboutZoneComponent,
+    RestaurantsComponent,
+    RestaurantComponent
   ],
   imports: [
     BrowserModule,
