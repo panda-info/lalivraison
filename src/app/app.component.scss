@@ -16,7 +16,6 @@
   }
 
   &restaurants {
-    //background-color: lightskyblue;
     min-height: 550px;
     width: 80%;
     margin-left: auto;
@@ -100,18 +99,12 @@
 
     &carousel-categories {
       width: 95%;
-      //margin-left: auto;
-      //margin-right: auto;
-      //margin-bottom: 0;
-      //margin-top: 20px;
       min-height: 200px;
       margin: 40px auto 0 auto;
     }
 
     &restaurants {
       width: 95%;
-      //max-height: 200px !important;
-      //background-color: lightsalmon;
       min-height: 230px;
       padding-bottom: 0px;
     }

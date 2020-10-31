@@ -4,7 +4,7 @@
 
   &container {
     height: 100%;
-    padding: 15px 15px 0 15px; // up and left
+    padding: 15px 15px 0 15px;
     display: flex;
     flex-direction: column;
   }
@@ -142,15 +142,12 @@
   .restaurants__ {
 
     &body {
-      //width: 100%;
       grid-template-columns: repeat(2, 1fr);
-      //background-color: lightsalmon;
       overflow-y: scroll;
     }
 
     &restaurant {
       height: 200px;
-      //width: 250px;
       width: 100%;
     }
 
