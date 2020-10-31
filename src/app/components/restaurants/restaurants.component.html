@@ -3,7 +3,7 @@
     Restaurants&nbsp;&nbsp;
     <img src="../../../assets/images/restaurants.png" class="restaurants__title-image">
   </div>
-  <!--<div class="restaurants__body-container">-->
+  <div class="restaurants__body-container">
     <div class="restaurants__body">
       <app-restaurant image="../../../assets/images/restaurants/restaurant-1.png"
                       city="Casablanca"
@@ -218,7 +218,16 @@
                       [takeAway]="true"
                       class="restaurants__restaurant">
       </app-restaurant>
+
+      <div class="restaurants__body-button-mobile-container">
+        <button class="restaurants__body-button-mobile"
+                mat-raised-button
+                color="primary">
+          Voir tout
+        </button>
+      </div>
+
     </div>
-    <!--<button mat-raised-button>Voir tout</button>-->
-  <!--</div>-->
+    <button class="restaurants__body-button" mat-raised-button color="primary">Voir tout</button>
+  </div>
 </div>
