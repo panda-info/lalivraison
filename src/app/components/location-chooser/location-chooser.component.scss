@@ -1,0 +1,70 @@
+@import "~src/sass/variables";
+
+.location-chooser__ {
+
+  &container {
+    height: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    //background-color: lightskyblue;
+  }
+
+  &input-field {
+    width: 30%;
+    background-color: $gray-lalivraison;
+    border-radius: 50px;
+    padding: 0 15px 0 15px;
+    height: 50px;
+    //font-size: 16px;
+  }
+
+  &button {
+    width: 30%;
+    border-radius: 50px;
+    padding: 0 15px 0 15px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-chooser__ {
+
+    &input-field {
+      width: 25%;
+    }
+
+    &button {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .location-chooser__ {
+
+    &container {
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &input-field {
+      width: 97%;
+      height: 50px;
+
+      &-text {
+        font-size: 16px;
+      }
+    }
+
+    &button {
+      width: 105%;
+      height: 50px;
+    }
+  }
+}
+
