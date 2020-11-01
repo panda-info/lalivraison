@@ -18,6 +18,7 @@ import { AboutZoneComponent } from './components/about-zone/about-zone.component
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
 import { RestaurantComponent } from './components/restaurants/restaurant/restaurant.component';
 import { LocationChooserComponent } from './components/location-chooser/location-chooser.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LocationChooserComponent } from './components/location-chooser/location
     AboutZoneComponent,
     RestaurantsComponent,
     RestaurantComponent,
-    LocationChooserComponent
+    LocationChooserComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

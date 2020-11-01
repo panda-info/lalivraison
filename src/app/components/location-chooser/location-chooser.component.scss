@@ -3,12 +3,12 @@
 .location-chooser__ {
 
   &container {
-    height: 100%;
-    padding: 15px;
+    min-height: 55px;
+    //padding: 15px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    //background-color: lightskyblue;
+    background-color: lightskyblue;
   }
 
   &input-field {
