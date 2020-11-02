@@ -3,6 +3,7 @@
 .join-us__ {
 
   &container {
+    padding-top: 3px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,7 +24,7 @@
   }
 
   &content {
-    background-color: lightskyblue;
+    //background-color: lightskyblue;
     height: 90%;
     //width: 75%;
     display: flex;
@@ -38,7 +39,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: lightsalmon;
+    //background-color: lightsalmon;
   }
 
   &card {
@@ -47,8 +48,10 @@
     height: 96%;
     width: 40%;
     background-color: white;
-    background-color: lightgreen;
+    //background-color: lightgreen;
     box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.1), 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+    //border: 2px solid $black-lalivraison;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -118,11 +121,12 @@
   .join-us__ {
 
     &container {
-      padding: 5px 5px 0 5px;
+      //padding: 2px 2px 0 2px;
     }
 
     &content {
-      height: 60%;
+      margin-top: 20px;
+      height: 90% !important;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -133,11 +137,17 @@
     }
 
     &title {
-      height: 15%;
+      height: 10%;
       width: 100%;
       display: block;
       text-align: left;
-      padding-bottom: 15px;
+      //padding-bottom: 15px;
+
+
+
+      letter-spacing: 2px;
+      font-size: 30px;
+      font-weight: bold;
     }
 
     &mobile-line {

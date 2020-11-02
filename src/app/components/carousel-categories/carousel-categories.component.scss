@@ -37,7 +37,7 @@
       height: 80%;
       //padding-top: 20px;
       //padding-bottom: 20px;
-      background-color: lightgoldenrodyellow;
+      //background-color: lightgoldenrodyellow;
     }
 
     &-container-button {
@@ -46,17 +46,18 @@
       align-items: center;
       justify-content: center;
       width: 5%;
+      min-width: 43px;
 
       &-left {
         @extend .carousel__items-container-button;
         margin-right: 5px;
-        background-color: lightskyblue;
+        //background-color: lightskyblue;
       }
 
       &-right {
         @extend .carousel__items-container-button;
         margin-left: 5px;
-        background-color: lightskyblue;
+        //background-color: lightskyblue;
       }
     }
   }
@@ -73,7 +74,9 @@
   .carousel__ {
 
     &container {
-      min-height: 200px !important;
+      padding: 0 !important;
+      min-height: 170px !important; /***********/
+      //background-color: lightseagreen;
     }
 
     &items-container-button {
@@ -85,19 +88,21 @@
       width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
-      padding-bottom: 10px;
-      height: 70%;
+      //padding-bottom: 10px;
+      //height: 70%;
 
       &-container {
-        min-height: 100%;
+        padding-top: 10px;
+        height: 90%;
         padding-bottom: 0;
-        padding-top: 15px;
+        //background-color: lightblue;
       }
     }
 
     &title {
       margin-bottom: 0;
       height: 10%;
+      //background-color: lightsalmon;
     }
 
     &item {
