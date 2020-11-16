@@ -2,7 +2,7 @@
   <img [src]="image" class="restaurant__image">
   <div class="restaurant__name">{{name}}</div>
   <div class="restaurant__details">{{city}}<span class="restaurant__details-open-time">, Ouvre à {{openTime}}</span></div>
-  <div class="restaurant__delivery-takeaway" style="">
+  <div class="restaurant__delivery-takeaway">
     <span [class.restaurant__no-takeaway-delivery]="delivery !== true">Livraison</span>&nbsp;
     <img style="height: 15px; width: 15px"
          [src]="delivery===true ? '../../../assets/images/restaurants/ok.png' :

@@ -17,6 +17,8 @@ import {NewsletterComponent} from './components/newsletter-zone/newsletter.compo
 import { AboutZoneComponent } from './components/about-zone/about-zone.component';
 import { RestaurantsComponent } from './components/restaurants/restaurants.component';
 import { RestaurantComponent } from './components/restaurants/restaurant/restaurant.component';
+import { LocationChooserComponent } from './components/location-chooser/location-chooser.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RestaurantComponent } from './components/restaurants/restaurant/restaur
     NewsletterComponent,
     AboutZoneComponent,
     RestaurantsComponent,
-    RestaurantComponent
+    RestaurantComponent,
+    LocationChooserComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

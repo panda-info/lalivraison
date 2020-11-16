@@ -4,7 +4,6 @@
 
   &container {
     height: 100%;
-    padding: 15px 15px 0 15px; // up and left
     display: flex;
     flex-direction: column;
   }
@@ -29,12 +28,11 @@
     display: flex;
     width: 90%;
     overflow: hidden;
+    align-items: center;
 
     &-container {
       display: flex;
       height: 80%;
-      padding-top: 20px;
-      padding-bottom: 20px;
     }
 
     &-container-button {
@@ -43,6 +41,7 @@
       align-items: center;
       justify-content: center;
       width: 5%;
+      min-width: 43px;
 
       &-left {
         @extend .carousel__items-container-button;
@@ -68,7 +67,8 @@
   .carousel__ {
 
     &container {
-      min-height: 200px !important;
+      padding: 0 !important;
+      min-height: 170px !important;
     }
 
     &items-container-button {
@@ -80,13 +80,11 @@
       width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
-      padding-bottom: 10px;
-      height: 70%;
 
       &-container {
-        min-height: 100%;
+        padding-top: 10px;
+        height: 90%;
         padding-bottom: 0;
-        padding-top: 15px;
       }
     }
 
@@ -113,16 +111,6 @@
 
 @media (max-width: 768px) {
   .carousel__ {
-
-    &container {
-      padding: 15px 8px 0 15px; // up and left;
-
-      //::ng-deep .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
-      //  box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.2),
-      //  0px 6px 5px 0px rgba(0, 0, 0, 0.14),
-      //  0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
-      //}
-    }
 
     &items {
       width: 88%;

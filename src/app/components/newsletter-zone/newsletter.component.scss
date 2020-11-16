@@ -3,7 +3,7 @@
 .newsletter-zone__ {
 
   &container {
-    height: 200px;
+    height: 150px;
     background-color: $blue-lalivraison;
     border-radius: 22px;
     display: flex;
@@ -24,11 +24,10 @@
 
   &text-field {
     width: 250px;
-    height: 40px;
+    height: 50px;
     border-radius: 50px;
     background-color: white;
     padding: 0 15px 0 15px;
-    font-size: 12px
   }
 
   &form-zone {

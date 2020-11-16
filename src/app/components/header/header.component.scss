@@ -20,19 +20,22 @@
   }
 
   &logo {
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
-    width: 15%;
+    width: 17%;
+    height: 50px;
     border-radius: 50px;
-    background-color: $blue-lalivraison
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   &search-field {
-    width: 60%;
+    width: 58%;
     background-color: $gray-lalivraison;
     border-radius: 50px;
     padding: 0 15px 0 15px;
+    height: 50px;
+    font-size: 14px;
   }
 
   &button {
@@ -50,12 +53,16 @@
 @media (max-width: 768px) {
   .header__ {
 
+    &logo {
+      width: 20%;
+    }
+
     &button-text {
       display: none;
     }
 
     &search-field {
-      font-size: 16px;
+      width: 53%;
     }
   }
 }
@@ -69,7 +76,8 @@
     }
 
     &logo {
-      width: 60%;
+      width: 61%;
+      height: 50px !important;
     }
 
     &search-field-mobile {
@@ -77,8 +85,9 @@
       padding: 0 15px 0 15px;
       background-color: $gray-lalivraison;
       border-radius: 50px;
-      margin: 10px 5px 10px 5px;
+      margin: 5px 5px 10px 5px;
       font-size: 16px;
+      height: 50px;
     }
   }
 }

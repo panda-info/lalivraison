@@ -1,63 +1,71 @@
-.app__ {
+.home-page__ {
 
-  &header {
-    min-height: 66px;
+  &container {
     width: 100%;
-    z-index: 999;
+    height: 100%;
+    overflow-y: scroll !important;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
   }
 
   &swiper {
+    margin-top: 30px;
+    height: 350px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 
   &location-chooser {
-    margin-bottom: 20px;
+    margin-top: 30px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    min-height: 100px;
+    min-height: 55px;
   }
 
   &carousel-categories {
-    min-height: 250px;
+    margin-top: 30px;
+    min-height: 205px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    margin-bottom: 15px;
   }
 
   &restaurants {
+    margin-top: 30px;
     min-height: 550px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    margin-bottom: 15px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
 
   &join-us {
-    min-height: 450px;
-    max-height: 450px;
-    width: 80%;
+    margin-top: 30px;
+    min-height: 370px;
+    height: 370px;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
   }
 
   &newsletter-zone {
-    height: 200px;
-    width: 60%;
+    margin-top: 30px;
+    height: 150px;
     margin-left: auto;
     margin-right: auto;
-    padding: 15px;
+    width: 55%;
+    min-width: 500px;
   }
 
   &about-zone {
-    min-height: 140px;
+    margin-top: 30px;
+    height: 130px;
     margin-left: auto;
     margin-right: auto;
     width: 80%;
@@ -73,11 +81,7 @@
 
 @media (max-width: 768px) {
 
-  ::ng-deep input.mat-input-element {
-    font-size: 18px !important;
-  }
-
-  .app__ {
+  .home-page__ {
 
     &swiper {
       width: 100%;
@@ -86,20 +90,16 @@
     }
 
     &location-chooser {
-      margin-top: 20px;
       width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
 
     &carousel-categories {
+      min-height: 230px;
       width: 95%;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    &newsletter-zone {
-      width: 90%;
     }
 
     &join-us {
@@ -116,36 +116,35 @@
 
 @media (max-width: 480px) {
 
-  .app__ {
-
-    &header {
-      min-height: 141px;
-    }
+  .home-page__ {
 
     &swiper {
       display: none;
     }
 
     &location-chooser {
+      margin-top: 10px;
       width: 95%;
       min-height: 180px;
-      margin: 50px auto 10px auto;
     }
 
     &carousel-categories {
+      margin-top: 25px;
       width: 95%;
-      min-height: 200px;
+      min-height: 185px;
     }
 
     &restaurants {
+      margin-top: 25px;
       width: 95%;
-      min-height: 230px;
+      min-height: 220px;
       padding-bottom: 0;
     }
 
     &join-us {
+      margin-top: 25px;
       width: 95%;
-      min-height: 200px;
+      min-height: 210px;
     }
 
     &newsletter-zone {
@@ -157,12 +156,4 @@
     }
   }
 
-}
-
-::ng-deep input.mat-input-element {
-  line-height: 20px !important;
-}
-
-::ng-deep .mat-form-field-label {
-  font-size: 14px !important;
 }

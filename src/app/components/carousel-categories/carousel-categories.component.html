@@ -6,7 +6,7 @@
   <div class="carousel__items-container">
 
     <div class="carousel__items-container-button-left">
-      <button style="z-index: 99" mat-mini-fab (click)="scrollLeft(carouselItems)">
+      <button style="z-index: 99" mat-icon-button (click)="scrollLeft(carouselItems)">
         <mat-icon>keyboard_arrow_left</mat-icon>
       </button>
     </div>
@@ -14,6 +14,7 @@
     <div class="carousel__items" #carouselItems>
 
       <app-carousel-item class="carousel__item"
+                         style="margin-left: 0"
                          text="Tout"
                          imageSource="../../../assets/images/categories/1.png">
       </app-carousel-item>
@@ -42,7 +43,7 @@
     </div>
 
     <div class="carousel__items-container-button-right">
-      <button style="z-index: 99" mat-mini-fab (click)="scrollRight(carouselItems)">
+      <button style="z-index: 99" mat-icon-button (click)="scrollRight(carouselItems)">
         <mat-icon class="carousel__items-swiper">keyboard_arrow_right</mat-icon>
       </button>
     </div>
