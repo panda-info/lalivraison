@@ -3,7 +3,6 @@
   &header {
     min-height: 66px;
     width: 100%;
-    //margin-bottom: 10px;
     z-index: 999;
   }
 
@@ -14,7 +13,6 @@
   }
 
   &location-chooser {
-    //margin-top: 20px;
     margin-bottom: 20px;
     width: 80%;
     margin-left: auto;
@@ -70,7 +68,6 @@
     padding: 15px 30px 15px 30px;
     display: flex;
     flex-direction: column;
-    //background-color: lightskyblue;
   }
 }
 
@@ -138,7 +135,6 @@
     &carousel-categories {
       width: 95%;
       min-height: 200px;
-      //margin: 40px auto 0 auto;
     }
 
     &restaurants {

@@ -4,7 +4,6 @@
 
   &container {
     height: 100%;
-    //padding: 15px 15px 0 15px; // up and left
     display: flex;
     flex-direction: column;
   }
@@ -18,7 +17,6 @@
     align-items: center;
     height: 20%;
     margin-bottom: 15px;
-    //background-color: lightgoldenrodyellow;
 
     &-image {
       height: 40px;
@@ -35,9 +33,6 @@
     &-container {
       display: flex;
       height: 80%;
-      //padding-top: 20px;
-      //padding-bottom: 20px;
-      //background-color: lightgoldenrodyellow;
     }
 
     &-container-button {
@@ -51,13 +46,11 @@
       &-left {
         @extend .carousel__items-container-button;
         margin-right: 5px;
-        //background-color: lightskyblue;
       }
 
       &-right {
         @extend .carousel__items-container-button;
         margin-left: 5px;
-        //background-color: lightskyblue;
       }
     }
   }
@@ -75,8 +68,7 @@
 
     &container {
       padding: 0 !important;
-      min-height: 170px !important; /***********/
-      //background-color: lightseagreen;
+      min-height: 170px !important;
     }
 
     &items-container-button {
@@ -88,21 +80,17 @@
       width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
-      //padding-bottom: 10px;
-      //height: 70%;
 
       &-container {
         padding-top: 10px;
         height: 90%;
         padding-bottom: 0;
-        //background-color: lightblue;
       }
     }
 
     &title {
       margin-bottom: 0;
       height: 10%;
-      //background-color: lightsalmon;
     }
 
     &item {
@@ -123,16 +111,6 @@
 
 @media (max-width: 768px) {
   .carousel__ {
-
-    &container {
-      //padding: 15px 8px 0 15px; // up and left;
-
-      //::ng-deep .mat-fab:not([class*=mat-elevation-z]), .mat-mini-fab:not([class*=mat-elevation-z]) {
-      //  box-shadow: 0px 3px 3px -1px rgba(0, 0, 0, 0.2),
-      //  0px 6px 5px 0px rgba(0, 0, 0, 0.14),
-      //  0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
-      //}
-    }
 
     &items {
       width: 88%;

@@ -3,10 +3,7 @@
   &container {
     width: 100%;
     height: 100%;
-    //background-color: lightpink;
     overflow-y: scroll !important;
-    //padding: 15px 30px 0 30px;
-    //padding-top: 15px;
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
@@ -18,17 +15,14 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    //background-color: lightgreen;
   }
 
   &location-chooser {
     margin-top: 30px;
-    //margin-bottom: 20px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     min-height: 55px;
-    //background-color: lightsalmon;
   }
 
   &carousel-categories {
@@ -38,8 +32,6 @@
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    //margin-bottom: 15px;
-    //background-color: lightgrey;
   }
 
   &restaurants {
@@ -49,21 +41,17 @@
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    //margin-bottom: 15px;
     padding-bottom: 10px;
-    //background-color: lightsalmon;
   }
 
   &join-us {
     margin-top: 30px;
     min-height: 370px;
     height: 370px;
-    //max-height: 450px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    //background-color: lightgoldenrodyellow;
   }
 
   &newsletter-zone {
@@ -71,8 +59,6 @@
     height: 150px;
     margin-left: auto;
     margin-right: auto;
-    //padding: 15px;
-    //background-color: lightgoldenrodyellow;
     width: 55%;
     min-width: 500px;
   }
@@ -95,10 +81,6 @@
 
 @media (max-width: 768px) {
 
-  //::ng-deep input.mat-input-element {
-  //  font-size: 18px !important;
-  //}
-
   .home-page__ {
 
     &swiper {
@@ -108,26 +90,17 @@
     }
 
     &location-chooser {
-      //margin-top: 20px;
       width: 100%;
       margin-left: auto;
       margin-right: auto;
     }
 
     &carousel-categories {
-      //height: 200px;
       min-height: 230px;
       width: 95%;
       margin-left: auto;
       margin-right: auto;
     }
-
-    &newsletter-zone {
-      //min-width: 500px !important;
-      //background-color: lightgoldenrodyellow;
-      //border: 2px solid red;
-    }
-
 
     &join-us {
       min-height: 280px;
@@ -153,14 +126,12 @@
       margin-top: 10px;
       width: 95%;
       min-height: 180px;
-      //margin: 50px auto 10px auto;
     }
 
     &carousel-categories {
       margin-top: 25px;
       width: 95%;
       min-height: 185px;
-      //margin: 40px auto 0 auto;
     }
 
     &restaurants {
