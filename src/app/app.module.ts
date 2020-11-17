@@ -19,6 +19,7 @@ import { RestaurantsComponent } from './components/restaurants/restaurants.compo
 import { RestaurantComponent } from './components/restaurants/restaurant/restaurant.component';
 import { LocationChooserComponent } from './components/location-chooser/location-chooser.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
     RestaurantsComponent,
     RestaurantComponent,
     LocationChooserComponent,
-    HomePageComponent
+    HomePageComponent,
+    RestaurantPageComponent
   ],
   imports: [
     BrowserModule,
