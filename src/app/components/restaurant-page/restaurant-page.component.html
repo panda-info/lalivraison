@@ -14,7 +14,12 @@
         <span class="restaurant-page__presentation-restaurant-speciality">Cuisine Nippone</span>
       </div>
       <span class="restaurant-page__presentation-restaurant-phone">05 22 99 48 77</span>
-      <mat-icon class="restaurant-page__presentation-restaurant-show-details">arrow_drop_down</mat-icon>
+      <button class="restaurant-page__presentation-restaurant-show-details-button"
+              mat-button (click)="showRestaurantDescription()">
+        <mat-icon style="display: flex; align-items: center; justify-content: center; font-size: 40px">
+          {{restaurantDescriptionOpened===true ?'arrow_drop_up' : 'arrow_drop_down'}}
+          </mat-icon>
+      </button>
     </div>
 
     <div class="restaurant-page__presentation-restaurant-infos">
@@ -27,13 +32,23 @@
       </div>
     </div>
 
-    <div class="restaurant-page__presentation-restaurant-description">
-      NIKKEI met un point d'honneur à développer
-      une large gamme de sushis, de plateaux... &nbsp;
-      <span class="restaurant-page__presentation-restaurant-description-details">Plus</span>
+    <div class="restaurant-page__presentation-restaurant-description-container"
+         style="">
+      <div class="restaurant-page__presentation-restaurant-description"
+           [ngClass]="{'restaurant-page__presentation-restaurant-description-opened' : restaurantDescriptionOpened===true}">
+        NIKKEI met un point d'honneur à développer
+        une large gamme de sushis, de plateaux... &nbsp;
+        <span class="restaurant-page__presentation-restaurant-description-details">Plus</span>
+
+      </div>
+      <div class="restaurant-page__presentation-restaurant-time-mobile">
+        <mat-icon class="restaurant-page__presentation-restaurant-time-icon">access_time</mat-icon>
+        <span class="restaurant-page__presentation-restaurant-time-text">11h - 22h</span>
+      </div>
     </div>
 
-    <hr>
+
+    <hr style="margin-top: 30px">
     <div class="restaurant-page__presentation-restaurant-menu">
       <div class="restaurant-page__presentation-restaurant-menu-item">Entrées</div>
       <div class="restaurant-page__presentation-restaurant-menu-item">Yakitori</div>
@@ -50,7 +65,9 @@
         <mat-icon class="restaurant-page__presentation-restaurant-menu-item-icon">keyboard_arrow_down</mat-icon>
       </div>
     </div>
-    <hr>
+    <hr style="margin-bottom: 20px">
+
+    <app-selected-heading name="Entrées" style="height: 400px; width: 100%; margin-bottom: 20px"></app-selected-heading>
 
 
   </div>

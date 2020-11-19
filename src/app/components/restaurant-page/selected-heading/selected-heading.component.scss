@@ -1,0 +1,29 @@
+.selected-heading__ {
+
+  &container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    //background-color: lightgreen;
+  }
+
+  &title {
+    height: 10%;
+    //background-color: lightsalmon;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+
+  &body {
+    height: 90%;
+    //background-color: lightskyblue;
+    display: flex;
+    align-items: flex-start;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}

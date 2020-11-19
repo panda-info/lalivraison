@@ -20,6 +20,8 @@ import { RestaurantComponent } from './components/restaurants/restaurant/restaur
 import { LocationChooserComponent } from './components/location-chooser/location-chooser.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
+import { SelectedHeadingComponent } from './components/restaurant-page/selected-heading/selected-heading.component';
+import { SelectedHeadingItemComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
     RestaurantComponent,
     LocationChooserComponent,
     HomePageComponent,
-    RestaurantPageComponent
+    RestaurantPageComponent,
+    SelectedHeadingComponent,
+    SelectedHeadingItemComponent
   ],
   imports: [
     BrowserModule,

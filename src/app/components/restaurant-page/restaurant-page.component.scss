@@ -11,13 +11,27 @@
     padding-top: 15px;
     color: $black-lalivraison;
     justify-content: center;
+    padding-bottom: 40px;
 
     hr {
       width: 100%;
+      background-color: black;
+      height: 1px;
     }
 
     .mat-icon {
       height: 17px !important;
+    }
+
+    .mat-button {
+      min-width: 10px !important;
+      width: 20px !important;
+      height: 30px !important;
+      //background-color: lightgreen;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $blue-lalivraison;
     }
   }
 
@@ -54,7 +68,9 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        //justify-content: space-around;
         width: 100%;
+        //background-color: lightskyblue;
 
         &-text {
           font-size: 14px;
@@ -83,8 +99,8 @@
         text-decoration: underline;
       }
 
-      &show-details {
-        display: none;
+      &show-details-button {
+        display: none !important;
       }
 
       &time {
@@ -96,8 +112,13 @@
         border-radius: 10px;
         height: 25px;
 
+        &-mobile {
+          display: none;
+        }
+
         &-text {
           margin-top: -2px;
+          font-weight: bolder;
         }
 
         &-icon {
@@ -106,7 +127,6 @@
       }
 
       &description {
-        //text-align: center;
         background-color: $gray-lalivraison;
         color: #777272;
         width: 320px;
@@ -125,16 +145,18 @@
       }
 
       &menu {
+        min-height: 50px;
         display: flex;
         overflow-x: scroll;
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer 10+ */
+        scrollbar-width: none; /* Firefox */
+
         &::-webkit-scrollbar {
           display: none;
         }
 
         &-item {
-          height: 60px;
+          height: 50px;
           min-width: 90px;
           padding: 0 10px 0 10px;
           display: flex;
@@ -144,12 +166,11 @@
           font-weight: 700;
           letter-spacing: 1.8px;
           margin-right: 10px;
-          //z-index: 99;
 
           &:hover {
             border-bottom: 4px $blue-lalivraison solid;
             cursor: pointer;
-            height: 56px;
+            height: 46px;
           }
 
           &-icon {
@@ -169,15 +190,20 @@
 
 }
 
+@media (max-width: 768px) {
+}
+
 @media (max-width: 480px) {
   .restaurant-page__ {
 
     &container {
-      width: 95%;
+      width: 100%;
+      padding-left: 0;
     }
 
     &presentation {
       width: 95%;
+      padding-right: 0;
 
       &-image {
         height: 190px;
@@ -187,6 +213,17 @@
 
         &description {
           display: none;
+
+          &-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          &-opened {
+            display: block;
+            width: 85%;
+          }
         }
 
         &phone {
@@ -194,13 +231,31 @@
         }
 
         &show-details {
-          display: block;
+          display: flex;
           font-size: 40px;
           color: $blue-lalivraison;
+          width: 40px;
+          border: none;
+          outline: none;
+
+          &-button {
+            display: flex !important;
+          }
         }
 
         &time {
           display: none;
+
+          &-mobile {
+            background-color: $gray-lalivraison;
+            width: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            height: 25px;
+            margin-top: 10px;
+          }
         }
 
         &infos-text {
