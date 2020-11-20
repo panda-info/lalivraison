@@ -6,7 +6,7 @@
     <div style="font-size: 15px; font-weight: bold">{{name | uppercase}}</div>
     <div style="display: flex; justify-content: space-between">
       <span class="selected-heading-item__price">{{price}}.00 Dhs</span>
-      <mat-icon>add_circle</mat-icon>
+      <mat-icon (click)="addToBasket()">add_circle</mat-icon>
     </div>
   </div>
 

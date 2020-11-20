@@ -22,6 +22,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { RestaurantPageComponent } from './components/restaurant-page/restaurant-page.component';
 import { SelectedHeadingComponent } from './components/restaurant-page/selected-heading/selected-heading.component';
 import { SelectedHeadingItemComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { SelectedHeadingItemComponent } from './components/restaurant-page/selec
     MatInputModule,
     MatIconModule,
     MatBadgeModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

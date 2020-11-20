@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-selected-heading-item',
@@ -15,9 +16,14 @@ export class SelectedHeadingItemComponent implements OnInit {
   @Input()
   price: number;
 
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
+  addToBasket(): void {
+    this.snackBar.open(this.name.toUpperCase(), 'Ajouté(e) au panier', {
+      duration: 2000,
+    });
+  }
 }
