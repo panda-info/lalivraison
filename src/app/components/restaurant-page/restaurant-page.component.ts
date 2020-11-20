@@ -13,6 +13,7 @@ export class RestaurantPageComponent implements OnInit {
   subImage: string;
 
   restaurantDescriptionOpened = false;
+  itemSelectedIndex = 0;
 
   constructor() { }
 
@@ -21,5 +22,9 @@ export class RestaurantPageComponent implements OnInit {
 
   showRestaurantDescription(): void {
     this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
+  }
+
+  setItemSelectedIndex(selectedIndex: number): void {
+    this.itemSelectedIndex = selectedIndex;
   }
 }

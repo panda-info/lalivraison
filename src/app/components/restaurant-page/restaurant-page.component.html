@@ -48,24 +48,48 @@
     </div>
 
 
-    <hr style="margin-top: 30px">
-    <div class="restaurant-page__presentation-restaurant-menu">
-      <div class="restaurant-page__presentation-restaurant-menu-item">Entrées</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Yakitori</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Tartare</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Sashimi</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Tataki</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Entrées</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Yakitori</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Tartare</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Sashimi</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">Tataki</div>
-      <div class="restaurant-page__presentation-restaurant-menu-item">
-        Liste complète
-        <mat-icon class="restaurant-page__presentation-restaurant-menu-item-icon">keyboard_arrow_down</mat-icon>
+    <div class="restaurant-page__presentation-restaurant-menu-container">
+      <hr style="margin-top: 30px">
+      <div class="restaurant-page__presentation-restaurant-menu">
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(0)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===0}">Entrées</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(1)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===1}">Yakitori</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(2)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===2}">Tartare</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(3)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===3}">Sashimi</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(4)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===4}">Tataki</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(5)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===5}">Entrées</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(6)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===6}">Yakitori</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(7)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===7}">Tartare</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(8)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===8}">Sashimi</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(9)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===9}">Tataki</div>
+        <div class="restaurant-page__presentation-restaurant-menu-item"
+             (click)="setItemSelectedIndex(10)"
+             [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===10}">
+          Liste complète
+          <mat-icon class="restaurant-page__presentation-restaurant-menu-item-icon">keyboard_arrow_down</mat-icon>
+        </div>
       </div>
+      <hr style="margin-bottom: 20px">
     </div>
-    <hr style="margin-bottom: 20px">
 
     <app-selected-heading name="Entrées"
                           style="min-height: 400px; width: 100%; margin-bottom: 20px;">
