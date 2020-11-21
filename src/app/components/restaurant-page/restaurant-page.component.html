@@ -99,198 +99,177 @@
   </div>
   <div class="restaurant-page__basket">
     <div class="restaurant-page__basket-header">
-      <div style="font-style: italic; font-size: 20px">Votre Panier</div>
-      <div style="display: flex; justify-content: center">
-        <img style="height:20px; width:20px; margin-top: -2px" src="../../../assets/images/map.png">&nbsp;&nbsp;
+      <div class="restaurant-page__basket-header-title">Votre Panier</div>
+      <div class="restaurant-page__basket-header-address">
+        <img class="restaurant-page__basket-header-address-image"
+             src="../../../assets/images/map.png">&nbsp;&nbsp;
         <span>N: 14, Rue Al Adarisaa, Maarif, Casablanca.</span>
       </div>
-      <div style="color: black; text-decoration: underline; cursor: pointer">(Changer)</div>
+      <div class="restaurant-page__basket-header-address-change">(Changer)</div>
     </div>
 
-    <div style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 405px; overflow-y: scroll">
+    <div class="restaurant-page__basket-items">
 
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; margin-top: 10px; -webkit-box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
+      <div class="restaurant-page__basket-item" style="margin-top: 10px">
+        <div class="restaurant-page__basket-item-remove">
           <button mat-icon-button>x</button>
         </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
                src="../../../assets/images/p2.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">WAKAME SAUMON</span>
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">WAKAME SAUMON</span>
             <div style="display: flex; align-items: center">
-              <div style="display: flex; align-items: center">
-                <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
                 <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-                <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
               </div>
-              <span style="color: #21CCBB;">65.00 Dhs</span>
+              <span class="restaurant-page__basket-item-body-details-price">65.00 Dhs</span>
             </div>
           </div>
         </div>
       </div>
 
-
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
+      <div class="restaurant-page__basket-item">
+        <div class="restaurant-page__basket-item-remove">
           <button mat-icon-button>x</button>
         </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
-               src="../../../assets/images/p1.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">SALADE DE CHOUX</span>
-            <div style="display: flex; align-items: center">
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
-              <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
-              <span style="color: #21CCBB;">50.00 Dhs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
-          <button mat-icon-button>x</button>
-        </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
                src="../../../assets/images/p2.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">WAKAME SAUMON</span>
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">SALADE DE CHOUX</span>
             <div style="display: flex; align-items: center">
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
-              <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
-              <span style="color: #21CCBB;">65.00 Dhs</span>
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
+                <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+              </div>
+              <span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>
             </div>
           </div>
         </div>
       </div>
 
 
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
+      <div class="restaurant-page__basket-item">
+        <div class="restaurant-page__basket-item-remove">
           <button mat-icon-button>x</button>
         </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
-               src="../../../assets/images/p1.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">SALADE DE CHOUX</span>
-            <div style="display: flex; align-items: center">
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
-              <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
-              <span style="color: #21CCBB;">50.00 Dhs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
-          <button mat-icon-button>x</button>
-        </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
                src="../../../assets/images/p2.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">WAKAME SAUMON</span>
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">WAKAME SAUMON</span>
             <div style="display: flex; align-items: center">
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
-              <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
-              <span style="color: #21CCBB;">65.00 Dhs</span>
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
+                <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+              </div>
+              <span class="restaurant-page__basket-item-body-details-price">65.00 Dhs</span>
             </div>
           </div>
         </div>
       </div>
 
-
-
-
-      <div style="width: 90%; min-height: 70px; border-radius: 15px; display: flex; flex-direction: column; background-color: white; margin-bottom: 10px; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="width: 100%; display: flex; justify-content: flex-end">
+      <div class="restaurant-page__basket-item">
+        <div class="restaurant-page__basket-item-remove">
           <button mat-icon-button>x</button>
         </div>
-        <div style="display: flex; padding: 0 10px 0 10px; margin-top: -10px">
-          <img style="height: 40px; width: 40px; border-radius: 10px; margin-right: 15px"
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
                src="../../../assets/images/p2.png">
-          <div style="display: flex; flex-direction: column">
-            <span style="font-weight: bold; font-size: 12px">WAKAME SAUMON</span>
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">SALADE DE CHOUX</span>
             <div style="display: flex; align-items: center">
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer">remove</mat-icon>
-              <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-              <mat-icon style="font-size: 16px; background-color: #21CCBB; display: flex; justify-content: center; border-radius: 15px; cursor: pointer; margin-right: 10px">add</mat-icon>
-              <span style="color: #21CCBB;">65.00 Dhs</span>
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
+                <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+              </div>
+              <span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>
             </div>
           </div>
         </div>
       </div>
 
 
+      <div class="restaurant-page__basket-item">
+        <div class="restaurant-page__basket-item-remove">
+          <button mat-icon-button>x</button>
+        </div>
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
+               src="../../../assets/images/p2.png">
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">WAKAME SAUMON</span>
+            <div style="display: flex; align-items: center">
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
+                <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+              </div>
+              <span class="restaurant-page__basket-item-body-details-price">65.00 Dhs</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
+      <div class="restaurant-page__basket-item">
+        <div class="restaurant-page__basket-item-remove">
+          <button mat-icon-button>x</button>
+        </div>
+        <div class="restaurant-page__basket-item-body">
+          <img class="restaurant-page__basket-item-body-image"
+               src="../../../assets/images/p2.png">
+          <div class="restaurant-page__basket-item-body-details">
+            <span class="restaurant-page__basket-item-body-details-name">SALADE DE CHOUX</span>
+            <div style="display: flex; align-items: center">
+              <div class="restaurant-page__basket-item-body-details-count">
+                <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
+                <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
+                <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+              </div>
+              <span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
 
 
-    <div style="width: 100%; display: flex; flex-direction: column; align-items: center">
+    <div class="restaurant-page__basket-bill">
 
-      <!--<div style="width: 90%; height: 35px; background-color: lightpink; margin-top: 10px; border-radius: 15px; display: flex">-->
-        <!--<div style="width: 50%; height: 100%; border-radius: 15px 0 0 15px; background-color: lightgoldenrodyellow; display: flex; align-items: center; justify-content: center">Livrer</div>-->
-        <!--<div style="width: 50%; height: 100%; border-radius: 0 15px 15px 0; background-color: lightsalmon; display: flex; align-items: center; justify-content: center">Emporter</div>-->
-      <!--</div>-->
-
-      <div style="width: 90%; min-height: 100px; background-color: white; margin-top: 10px; border-radius: 15px; display: flex; flex-direction: column; align-items: center; -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);">
-        <div style="display: flex; justify-content: space-between; width: 70%; margin-top: 10px">
+      <div class="restaurant-page__basket-bill-details-price">
+        <div class="restaurant-page__basket-bill-details-price-line-with-margin">
           <div>Sous-total</div>
           <div>765.00 Dhs</div>
         </div>
-        <div style="display: flex; justify-content: space-between; width: 70%; margin-top: 10px">
+        <div class="restaurant-page__basket-bill-details-price-line-with-margin">
           <div>Livraison</div>
           <div>0 Dhs</div>
         </div>
-        <hr style="width: 70%; border: none; color: lightgray">
-        <div style="display: flex; justify-content: space-between; width: 70%">
+        <hr class="restaurant-page__basket-bill-details-price-line-separator">
+        <div class="restaurant-page__basket-bill-details-price-line">
           <div>Total</div>
           <div>765.00 Dhs</div>
         </div>
-        <!--<div style="display: flex; justify-content: space-between; width: 100%; padding: 10px 20px 10px 20px">-->
-          <!--<div>Livraison</div>-->
-          <!--<div>0 Dhs</div>-->
-        <!--</div>-->
       </div>
 
-      <mat-button-toggle-group style="border-radius: 15px; height: 35px; width: 90%; display: flex; align-items: center; justify-content: center; margin-top: 10px;
-      box-shadow: 0px 0px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);">
-        <mat-button-toggle style="width: 50%">Livrer</mat-button-toggle>
-        <mat-button-toggle style="width: 50%">Emporter</mat-button-toggle>
+      <mat-button-toggle-group class="restaurant-page__basket-bill-toggle">
+        <mat-button-toggle class="restaurant-page__basket-bill-toggle-button">Livrer</mat-button-toggle>
+        <mat-button-toggle class="restaurant-page__basket-bill-toggle-button">Emporter</mat-button-toggle>
       </mat-button-toggle-group>
 
-      <button mat-raised-button style="width: 90%; border-radius: 15px; margin-top: 10px; margin-bottom: 10px" color="primary">Je commande</button>
-
+      <button mat-raised-button
+              color="primary"
+              class="restaurant-page__basket-bill-button">
+        Je commande
+      </button>
     </div>
-
-
-
 
   </div>
 </div>
