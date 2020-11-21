@@ -23,6 +23,7 @@ import { RestaurantPageComponent } from './components/restaurant-page/restaurant
 import { SelectedHeadingComponent } from './components/restaurant-page/selected-heading/selected-heading.component';
 import { SelectedHeadingItemComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatIconModule,
     MatBadgeModule,
     MatMenuModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
