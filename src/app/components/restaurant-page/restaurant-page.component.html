@@ -2,18 +2,18 @@
   <div class="restaurant-page__presentation">
 
     <div class="restaurant-page__presentation-images-container">
-      <img [src]=image class="restaurant-page__presentation-image">
-      <img [src]=subImage class="restaurant-page__presentation-sub-image"/>
+      <img [src]=restaurant.image class="restaurant-page__presentation-image">
+      <img [src]=restaurant.subImage class="restaurant-page__presentation-sub-image"/>
     </div>
 
     <div class="restaurant-page__presentation-restaurant-infos">
       <div>
         <span class="restaurant-page__presentation-restaurant-name">
-          NIKKEI.MA
+          {{restaurant.name}}
         </span>
-        <span class="restaurant-page__presentation-restaurant-speciality">Cuisine Nippone</span>
+        <span class="restaurant-page__presentation-restaurant-speciality">{{restaurant.kitchenType}}</span>
       </div>
-      <span class="restaurant-page__presentation-restaurant-phone">05 22 99 48 77</span>
+      <span class="restaurant-page__presentation-restaurant-phone">{{restaurant.phoneNumber}}</span>
       <button class="restaurant-page__presentation-restaurant-show-details-button"
               mat-button (click)="showRestaurantDescription()">
         <mat-icon style="display: flex; align-items: center; justify-content: center; font-size: 40px">
@@ -24,11 +24,13 @@
 
     <div class="restaurant-page__presentation-restaurant-infos">
       <span class="restaurant-page__presentation-restaurant-infos-text">
-        Livraison gratuite. Commande minimum 140dhs
+        Livraison gratuite. Commande minimum {{restaurant.orderFreeMinPrice}} dhs
       </span>
       <div class="restaurant-page__presentation-restaurant-time">
         <mat-icon class="restaurant-page__presentation-restaurant-time-icon">access_time</mat-icon>
-        <span class="restaurant-page__presentation-restaurant-time-text">11h - 22h</span>
+        <span class="restaurant-page__presentation-restaurant-time-text">
+          {{restaurant.openTime}}h - {{restaurant.closeTime}}h
+        </span>
       </div>
     </div>
 
@@ -43,7 +45,7 @@
       </div>
       <div class="restaurant-page__presentation-restaurant-time-mobile">
         <mat-icon class="restaurant-page__presentation-restaurant-time-icon">access_time</mat-icon>
-        <span class="restaurant-page__presentation-restaurant-time-text">11h - 22h</span>
+        <span class="restaurant-page__presentation-restaurant-time-text">{{restaurant.openTime}}h - {{restaurant.closeTime}}h</span>
       </div>
     </div>
 
@@ -57,36 +59,13 @@
           </button>
         </div>
         <div #menuItems class="restaurant-page__presentation-restaurant-menu">
+
           <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(0)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===0}">Entrées</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(1)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===1}">Yakitori</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(2)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===2}">Tartare</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(3)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===3}">Sashimi</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(4)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===4}">Tataki</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(5)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===5}">Entrées</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(6)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===6}">Yakitori</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(7)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===7}">Tartare</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(8)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===8}">Sashimi</div>
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setItemSelectedIndex(9)"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : itemSelectedIndex===9}">Tataki</div>
+               *ngFor="let heading of restaurant.headings; let i = index"
+               (click)="setSelectedHeadingIndex(i)"
+               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : selectedHeadingIndex===i}">
+            {{heading.name}}
+          </div>
         </div>
         <div class="restaurant-page__presentation-restaurant-menu-scroll-button">
           <button mat-icon-button (click)="scrollRight(menuItems)">
@@ -97,8 +76,8 @@
       <hr style="margin-bottom: 20px">
     </div>
 
-    <app-selected-heading name="Entrées"
-                          class="restaurant-page__presentation-selected-heading">
+    <app-selected-heading class="restaurant-page__presentation-selected-heading"
+                          [heading]="restaurant.headings[selectedHeadingIndex]">
     </app-selected-heading>
 
 

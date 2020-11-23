@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SelectedHeadingComponent implements OnInit {
   @Input()
-  name: string;
+  heading: any;
 
   constructor() { }
 

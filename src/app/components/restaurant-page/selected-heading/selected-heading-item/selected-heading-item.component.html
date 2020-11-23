@@ -1,6 +1,6 @@
 <div class="selected-heading-item__container">
 
-  <img [src]="image" class="selected-heading-item__upper-zone">
+  <img [src]="image" class="selected-heading-item__upper-zone" (click)="showItemDetails()">
 
   <div class="selected-heading-item__lower-zone">
     <div style="font-size: 13px; font-weight: bold">{{name | uppercase}}</div>
