@@ -22,7 +22,7 @@ export class RestaurantPageComponent implements OnInit {
     phoneNumber: '05 22 99 48 77',
     openTime: '11',
     closeTime: '22',
-    description: ' NIKKEI met un point d\'honneur à développer une large gamme de sushis, de plateaux...',
+    description: 'NIKKEI met un point d\'honneur à développer une large gamme de sushis, de plateaux...',
     headings: [
       {
         name: 'Entrées',
@@ -31,61 +31,61 @@ export class RestaurantPageComponent implements OnInit {
             image: '../../../assets/images/p1.png',
             name: 'SALADE DE CHOUX',
             price: '25',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p2.png',
             name: 'WAKAME SAUMON',
             price: '60',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p3.png',
             name: 'GAMBAS TEMPURA',
             price: '65',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p1.png',
             name: 'SALADE DE CHOUX',
             price: '25',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p2.png',
             name: 'WAKAME SAUMON',
             price: '60',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p3.png',
             name: 'GAMBAS TEMPURA',
             price: '65',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p1.png',
             name: 'SALADE DE CHOUX',
             price: '25',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p2.png',
             name: 'WAKAME SAUMON',
             price: '60',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p3.png',
             name: 'GAMBAS TEMPURA',
             price: '65',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
             image: '../../../assets/images/p1.png',
             name: 'SALADE DE CHOUX',
             price: '25',
-            description: ''
+            description: 'Chou et carotte émincé vinaigrette au soja.'
           }
         ]
       },

@@ -5,9 +5,7 @@
   <div class="selected-heading__body">
     <app-selected-heading-item class="selected-heading__body-item"
                                *ngFor="let item of heading.items"
-                               [name]="item.name"
-                               [price]="item.price"
-                               [image]="item.image">
+                               [headingItem]="item">
     </app-selected-heading-item>
   </div>
 

@@ -25,6 +25,7 @@ import { SelectedHeadingItemComponent } from './components/restaurant-page/selec
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SelectedHeadingItemDialogComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item-dialog/selected-heading-item-dialog.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     HomePageComponent,
     RestaurantPageComponent,
     SelectedHeadingComponent,
-    SelectedHeadingItemComponent
+    SelectedHeadingItemComponent,
+    SelectedHeadingItemDialogComponent
   ],
   imports: [
     BrowserModule,

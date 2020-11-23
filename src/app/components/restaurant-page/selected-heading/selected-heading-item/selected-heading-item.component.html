@@ -1,11 +1,11 @@
 <div class="selected-heading-item__container">
 
-  <img [src]="image" class="selected-heading-item__upper-zone" (click)="showItemDetails()">
+  <img [src]="headingItem.image" class="selected-heading-item__upper-zone" (click)="showItemDetails()">
 
   <div class="selected-heading-item__lower-zone">
-    <div style="font-size: 13px; font-weight: bold">{{name | uppercase}}</div>
-    <div style="display: flex; justify-content: space-between">
-      <span class="selected-heading-item__price">{{price}}.00 Dhs</span>
+    <div class="selected-heading-item__lower-zone-name">{{headingItem.name | uppercase}}</div>
+    <div class="selected-heading-item__lower-zone-price">
+      <span class="selected-heading-item__price">{{headingItem.price}}.00 Dhs</span>
       <mat-icon (click)="addToBasket()">add_circle</mat-icon>
     </div>
   </div>
