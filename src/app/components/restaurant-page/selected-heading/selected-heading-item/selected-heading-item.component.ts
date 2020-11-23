@@ -36,6 +36,7 @@ export class SelectedHeadingItemComponent implements OnInit {
     this.dialog.open(SelectedHeadingItemDialogComponent, {
       height: '420px',
       width: '400px',
+      autoFocus: false,
       data: {
         price: this.headingItem.price,
         name: this.headingItem.name,
