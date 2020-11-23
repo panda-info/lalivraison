@@ -27,4 +27,18 @@ export class RestaurantPageComponent implements OnInit {
   setItemSelectedIndex(selectedIndex: number): void {
     this.itemSelectedIndex = selectedIndex;
   }
+
+  scrollRight(menuItems: HTMLDivElement): void {
+    menuItems.scrollBy({
+      left: 150,
+      behavior: 'smooth'
+    });
+  }
+
+  scrollLeft(menuItems: HTMLDivElement): void {
+    menuItems.scrollBy({
+      left: -150,
+      behavior: 'smooth'
+    });
+  }
 }
