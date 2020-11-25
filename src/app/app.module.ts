@@ -26,6 +26,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SelectedHeadingItemDialogComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item-dialog/selected-heading-item-dialog.component';
+import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/radio';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,11 @@ import { SelectedHeadingItemDialogComponent } from './components/restaurant-page
     MatMenuModule,
     MatSnackBarModule,
     MatButtonToggleModule,
-    MatDialogModule
+    MatDialogModule,
+    MatRadioModule,
+    FormsModule
+    // MatRadioButton,
+    // MatRadioGroup
   ],
   providers: [],
   bootstrap: [AppComponent]

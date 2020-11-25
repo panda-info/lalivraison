@@ -11,9 +11,14 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
 
   @ViewChild('addToBasket') button: ElementRef;
 
+  itemDeclination: string;
+
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    // if (this.data.item.declinations) {
+    //   this.itemDeclination = this.data.item.declinations.values[0].name;
+    // }
   }
 
   addToBasket(): void {

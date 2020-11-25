@@ -27,21 +27,29 @@ export class SelectedHeadingItemComponent implements OnInit {
   }
 
   addToBasket(): void {
-    this.snackBar.open(this.headingItem.name.toUpperCase(), 'Ajouté(e) au panier', {
-      duration: 2000,
-    });
+    if (this.headingItem.declinations) {
+      this.dialog.open(SelectedHeadingItemDialogComponent, {
+        height: '480px',
+        width: '400px',
+        autoFocus: false,
+        data: {
+          item: this.headingItem
+        }
+      });
+    } else {
+      this.snackBar.open(this.headingItem.name.toUpperCase(), 'Ajouté(e) au panier', {
+        duration: 2000,
+      });
+    }
   }
 
   showItemDetails(): void {
     this.dialog.open(SelectedHeadingItemDialogComponent, {
-      height: '420px',
+      height: '480px',
       width: '400px',
       autoFocus: false,
       data: {
-        price: this.headingItem.price,
-        name: this.headingItem.name,
-        image: this.headingItem.image,
-        description: this.headingItem.description
+        item: this.headingItem
       }
     });
   }

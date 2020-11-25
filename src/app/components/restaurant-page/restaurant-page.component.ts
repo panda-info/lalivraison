@@ -86,6 +86,52 @@ export class RestaurantPageComponent implements OnInit {
             name: 'SALADE DE CHOUX',
             price: '25',
             description: 'Chou et carotte émincé vinaigrette au soja.'
+          },
+          {
+            id: 3,
+            image: '../../../assets/images/milkshake.jpeg',
+            name: 'Milkshake',
+            price: '20',
+            declinations: {
+              description: 'Parfum',
+              values: [
+                {
+                  id: 299,
+                  name: 'Fraise',
+                  price: 40,
+                },
+                {
+                  id: 298,
+                  name: 'Vanille',
+                  price: 30,
+                },
+                {
+                  id: 298,
+                  name: 'Chocolat',
+                  price: 32,
+                }
+              ]
+            }
+          },
+          {
+            id: 4,
+            image: '../../../assets/images/formule.jpg',
+            name: 'Formule sandwich',
+            price: '35',
+            formula: [
+              {
+                category: 'Boisson 33 cl',
+                items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
+              },
+              {
+                category: 'Sandwich',
+                items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
+              },
+              {
+                category: 'Dessert',
+                items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
+              }
+            ]
           }
         ]
       },

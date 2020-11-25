@@ -28,6 +28,7 @@
   &upper-zone {
     height: 60%;
     cursor: pointer;
+    border-radius: 10px 10px 0 0;
   }
 
   &lower-zone {
@@ -40,6 +41,7 @@
     &-name {
       font-size: 13px;
       font-weight: bold;
+      width: 110%;
     }
 
     &-price {
