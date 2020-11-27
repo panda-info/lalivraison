@@ -10,7 +10,10 @@
   <div class="selected-heading-item-dialog__lower-zone">
     <div class="selected-heading-item-dialog__lower-zone-name">{{data.item.name | uppercase}}</div>
     <div class="selected-heading-item-dialog__lower-zone-description">{{data.item.description}}</div>
-    <div class="selected-heading-item-dialog__lower-zone-price" *ngIf="!data.item.declinations">{{data.item.price}}.00 Dhs</div>
+    <div class="selected-heading-item-dialog__lower-zone-price"
+         *ngIf="headingItem.price!==null || !data.item.declinations || data.item.formula">
+      {{data.item.price}}.00 Dhs
+    </div>
 
     <mat-radio-group *ngIf="data.item.declinations"
                      aria-labelledby="example-radio-group-label"
@@ -19,24 +22,38 @@
       <div *ngIf="data.item.declinations"
            class="selected-heading-item-dialog__lower-zone-price"
            style="width: 150px; font-size: 15px; font-weight: 400; text-align: left; color: black">
-        <!--{{data.item.declinations.description}} :-->
       </div>
       <mat-radio-button *ngFor="let declination of data.item.declinations.values"
                         color="primary"
-                        style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400"
+                        style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400; color: #21CCBB"
                         [value]="declination.name">
-        {{declination.name}}
+        {{declination.name}}&nbsp;&nbsp;<span style="font-weight: bold; font-size: 14px; color: black">{{declination.price}}.00 Dhs</span>
       </mat-radio-button>
     </mat-radio-group>
 
 
 
+    <div *ngIf="item.formula">
+      <mat-radio-group *ngFor="let category of data.item.formula.categories"
+                       style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px">
+        <div style="width: 170px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-align: left; text-decoration: underline">
+          {{category.name}}
+        </div>
+        <mat-radio-button *ngFor="let i of category.items"
+                          color="primary"
+                          style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400"
+                          [value]="i">
+          {{i}}
+        </mat-radio-button>
+
+      </mat-radio-group>
+    </div>
 
 
 
     <div style="display: flex; align-items: center; justify-content: center; width: 400px">
       <button [mat-dialog-close]="true"
-              [disabled]="data.item.declinations && !itemDeclination"
+              [disabled]="(data.item.declinations && !itemDeclination) || disableAddButtonForFormula()"
               (click)="addToBasket()"
               mat-raised-button
               color="primary"

@@ -27,7 +27,7 @@ export class SelectedHeadingItemComponent implements OnInit {
   }
 
   addToBasket(): void {
-    if (this.headingItem.declinations) {
+    if (this.headingItem.declinations || this.headingItem.formula || this.headingItem.compositions) {
       this.dialog.open(SelectedHeadingItemDialogComponent, {
         height: '480px',
         width: '400px',

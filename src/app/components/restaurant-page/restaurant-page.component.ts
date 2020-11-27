@@ -98,7 +98,7 @@ export class RestaurantPageComponent implements OnInit {
                 {
                   id: 299,
                   name: 'Fraise',
-                  price: 40,
+                  price: 20,
                 },
                 {
                   id: 298,
@@ -118,18 +118,112 @@ export class RestaurantPageComponent implements OnInit {
             image: '../../../assets/images/formule.jpg',
             name: 'Formule sandwich',
             price: '35',
-            formula: [
+            formula: {
+              categories : [
+                {
+                  name: 'Boisson 33 cl',
+                  items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
+                },
+                {
+                  name: 'Sandwich',
+                  items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
+                },
+                {
+                  name: 'Dessert',
+                  items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
+                }
+              ]
+            }
+          },
+          {
+            id: 5,
+            image: '../../../assets/images/salade.jpeg',
+            name: 'Salade à composer',
+            price: null,
+            compositions: [
               {
-                category: 'Boisson 33 cl',
-                items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
+                name: 'Salades',
+                items: [
+                  {
+                    name: 'Iceberg',
+                    price: 15
+                  },
+                  {
+                    name: 'Romaine',
+                    price: 15
+                  },
+                  {
+                    name: 'Roquette',
+                    price: 20
+                  },
+                  {
+                    name: 'Mix salade',
+                    price: 20
+                  }
+                ]
               },
               {
-                category: 'Sandwich',
-                items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
+                name: 'Féculents et legumineuse',
+                items: [
+                  {
+                    name: 'Quinoa',
+                    price: 20
+                  },
+                  {
+                    name: 'Lentilles',
+                    price: 15
+                  },
+                  {
+                    name: 'Pates',
+                    price: 15
+                  },
+                  {
+                    name: 'Ebly',
+                    price: 15
+                  }
+                ]
               },
               {
-                category: 'Dessert',
-                items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
+                name: 'Sans base',
+                items: [
+                  {
+                    name: 'Sans base',
+                    price: 10
+                  }
+                ]
+              },
+              {
+                name: 'Légumes',
+                items: [
+                  {
+                    name: 'Échalote',
+                    price: 5
+                  },
+                  {
+                    name: 'Pommes de terre',
+                    price: 5
+                  },
+                  {
+                    name: 'Tomate cerise',
+                    price: 5
+                  },
+                  {
+                    name: 'Haricot vert',
+                    price: 5
+                  },
+                  {
+                    name: 'Concombre',
+                    price: 5
+                  },
+                  {
+                    name: 'Avocat',
+                    price: 15
+                  },
+                  {
+                    name: 'Champignons',
+                    price: 10
+                  },
+                ]
               }
             ]
           }
