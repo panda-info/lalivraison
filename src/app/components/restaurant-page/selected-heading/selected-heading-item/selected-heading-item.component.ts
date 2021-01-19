@@ -29,9 +29,13 @@ export class SelectedHeadingItemComponent implements OnInit {
   addToBasket(): void {
     if (this.headingItem.declinations || this.headingItem.formula || this.headingItem.compositions) {
       this.dialog.open(SelectedHeadingItemDialogComponent, {
-        height: '480px',
-        width: '400px',
+        // height: '480px',
+        // height: '100%',
+        // minWidth: '100%',
+        height: window.innerWidth < 500 ? '100%' : '70%',
+        minWidth: window.innerWidth < 500 ? '100%' : '70%',
         autoFocus: false,
+        // hasBackdrop: false,
         data: {
           item: this.headingItem
         }
@@ -45,9 +49,12 @@ export class SelectedHeadingItemComponent implements OnInit {
 
   showItemDetails(): void {
     this.dialog.open(SelectedHeadingItemDialogComponent, {
-      height: '480px',
-      width: '400px',
+      // height: '480px',
+      // width: '400px',
+      height: window.innerWidth < 500 ? '100%' : '70%', // 480px
+      minWidth: window.innerWidth < 500 ? '100%' : '70%',
       autoFocus: false,
+      // hasBackdrop: false,
       data: {
         item: this.headingItem
       }

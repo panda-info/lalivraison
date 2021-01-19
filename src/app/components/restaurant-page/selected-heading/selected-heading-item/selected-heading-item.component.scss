@@ -56,7 +56,10 @@
 }
 
 ::ng-deep .mat-dialog-container {
-  border-radius: 20px !important;
+  border-radius: 15px !important;
   //padding: 5px 5px 40px 5px !important;
   padding: 5px !important;
+  //height: 100% !important;
+  //width: 100% !important;
+  //background-color: lightgreen !important;
 }

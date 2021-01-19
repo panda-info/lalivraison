@@ -121,7 +121,8 @@ export class RestaurantPageComponent implements OnInit {
             formula: {
               categories : [
                 {
-                  name: 'Boisson 33 cl',
+                  // name: 'Boisson 33 cl',
+                  name: 'Choisissez votre boisson',
                   items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
                 },
                 {

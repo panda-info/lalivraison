@@ -9,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
+    background-color: lightblue;
   }
 
   &upper-zone {
@@ -19,6 +20,8 @@
   }
 
   &lower-zone {
+
+    background-color: lightgreen;
 
     &-name {
       font-size: 20px;
@@ -45,6 +48,7 @@
     &-button {
       width: 180px;
       border-radius: 15px;
+      color: white;
     }
   }
 

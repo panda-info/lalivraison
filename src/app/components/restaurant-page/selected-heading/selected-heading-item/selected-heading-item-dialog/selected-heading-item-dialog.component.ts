@@ -31,7 +31,7 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
   }
 
   addToBasket(): void {
-    this.snackBar.open(this.data.name.toUpperCase(), 'Ajouté(e) au panier', {
+    this.snackBar.open(this.data.item.name.toUpperCase(), 'Ajouté(e) au panier', {
       duration: 2000,
     });
   }

@@ -28,6 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { SelectedHeadingItemDialogComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item-dialog/selected-heading-item-dialog.component';
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/radio';
 import {FormsModule} from '@angular/forms';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -60,9 +61,8 @@ import {FormsModule} from '@angular/forms';
     MatButtonToggleModule,
     MatDialogModule,
     MatRadioModule,
-    FormsModule
-    // MatRadioButton,
-    // MatRadioGroup
+    FormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

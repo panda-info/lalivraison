@@ -11,14 +11,15 @@
     <div class="selected-heading-item-dialog__lower-zone-name">{{data.item.name | uppercase}}</div>
     <div class="selected-heading-item-dialog__lower-zone-description">{{data.item.description}}</div>
     <div class="selected-heading-item-dialog__lower-zone-price"
-         *ngIf="headingItem.price!==null || !data.item.declinations || data.item.formula">
-      {{data.item.price}}.00 Dhs
+         *ngIf="!data.item.declinations || data.item.formula || (!data.item.compositions && !data.item.compositions.length)">
+      <!--{{data.item.compositions|json}}<br>-->
+      <!--{{data.item.price}}.00 Dhs-->
     </div>
 
     <mat-radio-group *ngIf="data.item.declinations"
                      aria-labelledby="example-radio-group-label"
                      [(ngModel)]="itemDeclination"
-                     style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px">
+                     style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px; background-color: lightpink">
       <div *ngIf="data.item.declinations"
            class="selected-heading-item-dialog__lower-zone-price"
            style="width: 150px; font-size: 15px; font-weight: 400; text-align: left; color: black">
@@ -33,15 +34,15 @@
 
 
 
-    <div *ngIf="item.formula">
+    <div *ngIf="item.formula" style="background-color: lightgoldenrodyellow">
       <mat-radio-group *ngFor="let category of data.item.formula.categories"
                        style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px">
-        <div style="width: 170px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-align: left; text-decoration: underline">
+        <div style="width: 170px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-align: left; text-decoration: underline; color: #21CCBB; background-color: lightgray">
           {{category.name}}
         </div>
         <mat-radio-button *ngFor="let i of category.items"
                           color="primary"
-                          style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400"
+                          style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400; border: 1px lightgray solid; border-radius: 5px; height: 30px; display: flex; flex-direction: column; justify-content: center; padding-left: 5px"
                           [value]="i">
           {{i}}
         </mat-radio-button>
@@ -51,7 +52,26 @@
 
 
 
-    <div style="display: flex; align-items: center; justify-content: center; width: 400px">
+    <div *ngIf="item.compositions">
+      <div *ngFor="let composition of data.item.compositions"
+                       style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px;">
+        <div style="width: 200px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-align: left; text-decoration: underline">
+          {{composition.name}}
+        </div>
+        <mat-checkbox *ngFor="let i of composition.items"
+                          color="primary"
+                          style="margin-bottom: 10px; font-size: 15px; font-weight: 400; width: 180px">
+          <span style="min-width: 220px !important; width: 220px !important">
+            {{i.name}}
+          </span>&nbsp;&nbsp;
+          <span style="font-weight: bold; font-size: 14px; color: black">{{i.price}}.00 Dhs</span>
+        </mat-checkbox>
+      </div>
+    </div>
+
+
+
+    <div style="display: flex; align-items: center; justify-content: center; width: 400px; height: 100px;">
       <button [mat-dialog-close]="true"
               [disabled]="(data.item.declinations && !itemDeclination) || disableAddButtonForFormula()"
               (click)="addToBasket()"
