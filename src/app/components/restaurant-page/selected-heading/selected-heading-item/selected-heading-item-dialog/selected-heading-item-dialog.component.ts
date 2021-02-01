@@ -41,5 +41,4 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
     //   && this.itemFormula.filter(category => !category.item).length === 0;
     return false;
   }
-
 }

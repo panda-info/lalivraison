@@ -32,8 +32,8 @@ export class SelectedHeadingItemComponent implements OnInit {
         // height: '480px',
         // height: '100%',
         // minWidth: '100%',
-        height: window.innerWidth < 500 ? '100%' : '70%',
-        minWidth: window.innerWidth < 500 ? '100%' : '70%',
+        height: window.innerWidth < 500 ? '100%' : '75%',
+        minWidth: window.innerWidth < 500 ? '100%' : '60%',
         autoFocus: false,
         // hasBackdrop: false,
         data: {
@@ -51,8 +51,8 @@ export class SelectedHeadingItemComponent implements OnInit {
     this.dialog.open(SelectedHeadingItemDialogComponent, {
       // height: '480px',
       // width: '400px',
-      height: window.innerWidth < 500 ? '100%' : '70%', // 480px
-      minWidth: window.innerWidth < 500 ? '100%' : '70%',
+      height: window.innerWidth < 500 ? '100%' : '75%', // 480px
+      minWidth: window.innerWidth < 500 ? '100%' : '60%',
       autoFocus: false,
       // hasBackdrop: false,
       data: {

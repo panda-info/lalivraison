@@ -115,7 +115,7 @@ export class RestaurantPageComponent implements OnInit {
           },
           {
             id: 4,
-            image: '../../../assets/images/formule.jpg',
+            image: '../../../assets/images/fs.jpg',
             name: 'Formule sandwich',
             price: '35',
             formula: {
@@ -126,11 +126,11 @@ export class RestaurantPageComponent implements OnInit {
                   items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
                 },
                 {
-                  name: 'Sandwich',
+                  name: 'Choisissez votre sandwich',
                   items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
                 },
                 {
-                  name: 'Dessert',
+                  name: 'Choisissez votre dessert',
                   items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
                 }
               ]

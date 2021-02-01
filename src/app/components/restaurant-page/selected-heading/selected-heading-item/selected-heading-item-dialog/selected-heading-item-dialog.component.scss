@@ -1,6 +1,12 @@
 @import "~src/sass/variables";
 .selected-heading-item-dialog__ {
 
+  &close-zone {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
   &container {
     font-family: Lato;
     //height: 100%;
@@ -9,20 +15,19 @@
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    background-color: lightblue;
+    //background-color: lightblue;
   }
 
   &upper-zone {
     height: 200px;
-    width: 200px;
+    width: 270px;
     margin-bottom: 20px;
     border-radius: 20px;
   }
 
   &lower-zone {
 
-    background-color: lightgreen;
-
+    //background-color: lightgreen;
     &-name {
       font-size: 20px;
       font-weight: bold;
@@ -46,10 +51,66 @@
     }
 
     &-button {
-      width: 180px;
-      border-radius: 15px;
+      //width: 180px;
+      border-radius: 25px;
       color: white;
+      font-size: 16px;
+      width: 75%;
+      height: 50px;
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 60px;
+      }
+    }
+
+    &-radio-selection {
+
+      &:hover {
+        border: 2px solid $blue-lalivraison !important;
+        height: 39px !important;
+        color: $blue-lalivraison;
+
+        ::ng-deep .mat-radio-outer-circle {
+          border-color: $blue-lalivraison !important;
+        }
+      }
     }
   }
 
+}
+
+@media (max-width: 480px) {
+  .selected-heading-item-dialog__ {
+
+    &close-zone {
+      position: sticky;
+      position: -webkit-sticky; /* Safari */
+      top: 0;
+    }
+
+    &lower-zone-button {
+
+      margin-left: -25px;
+
+      &-container {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+
+}
+
+::ng-deep .mat-radio-outer-circle {
+  //border-width: 1px !important;
+  //border-color: rgba(0, 0, 0, 0.54) !important;
+}
+
+::ng-deep .mat-radio-label-content {
+  color: dimgray;
 }
