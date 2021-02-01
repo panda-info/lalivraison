@@ -29,6 +29,7 @@ import { SelectedHeadingItemDialogComponent } from './components/restaurant-page
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/radio';
 import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     RestaurantPageComponent,
     SelectedHeadingComponent,
     SelectedHeadingItemComponent,
-    SelectedHeadingItemDialogComponent
+    SelectedHeadingItemDialogComponent,
+    CheckoutPageComponent
   ],
   imports: [
     BrowserModule,
