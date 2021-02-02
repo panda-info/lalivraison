@@ -1,50 +1,103 @@
 @import "~src/sass/variables";
 
-.checkout-page__{
+.checkout-page__ {
 
   &container {
     height: 100%;
     width: 80%;
-    padding-top: 30px;
+    padding: 30px 0 30px 0;
     display: flex;
     justify-content: space-between;
+
+
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+      //color: $blue-lalivraison !important;
+    }
   }
 
   &info-zone {
-    background-color: lightblue;
-    width: 60%;
-    border-radius: 10px;
-    //-webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
-    //-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    //box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-  }
-
-  &order-zone {
-    //background-color: lightsalmon;
-    width: 37%;
-    height: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 60%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
 
+    &-title {
+      width: 70%;
+      font-size: 22px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      color: $black-lalivraison;
+    }
 
+    &-button {
+      border-radius: 50px;
+      //width: 40%;
+      width: 62%;
+      padding: 0 15px 0 15px;
+      color: white;
+      //height: 45px;
+      height: 50px;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+
+    &-text-field {
+      width: 58%;
+      background-color: $gray-lalivraison;
+      border-radius: 50px;
+      padding: 0 15px 0 15px;
+      height: 50px;
+      font-size: 14px;
+
+      &-margin {
+        margin-left: 10px;
+      }
+
+    }
+
+    &-toggle {
+      width: 62%;
+      border-radius: 50px;
+      //padding: 0 15px 0 15px;
+      height: 50px;
+      font-size: 14px;
+
+      &-button {
+        width: 50%;
+        height: 50px;
+        //padding: 0 15px 0 15px;
+      }
+    }
+  }
+
+  &order-zone {
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-radius: 10px 10px 0 0;
-    //position: sticky;
-    //position: -webkit-sticky; /* Safari */
-    //top: 0;
-    //-webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
-    //-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    //box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    //height: fit-content;
+    justify-content: flex-start;
 
-
-    -webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-    box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
+    &-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 70%;
+      border-radius: 10px 10px 0 0;
+      -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    }
 
     &-header {
       border-radius: 10px 10px 0 0;
@@ -66,30 +119,15 @@
 
     &-footer {
       height: 20px;
-      //background-color: lightpink;
       width: 100%;
       //transform:rotate(180deg);
-      //-webkit-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-      //-moz-box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-      //box-shadow: 0px -1px 8px 1px rgba(0,0,0,0.3);
-
-
-
-      //display: block;
-      //position: absolute;
-      //left: 0;
-      //right: 0;
-      //bottom: -20px;
-      //height: 20px;
-      //background-size: 20px 40px;
-      //background-position: 0 -20px;
     }
   }
 }
 
 @media (max-width: 480px) {
 
-  .checkout-page__{
+  .checkout-page__ {
 
     &container {
       display: flex;

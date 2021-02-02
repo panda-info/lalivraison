@@ -1,17 +1,75 @@
 <div class="checkout-page__container">
   <div class="checkout-page__info-zone">
 
+    <div class="checkout-page__info-zone-title"
+         style="">
+      Informations de commande
+    </div>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre nom</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre prénom</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre téléphone</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-icon matSuffix>phone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre email</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-icon matSuffix>alternate_email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre adresse</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Maarif</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
+      <mat-icon matSuffix>room</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="checkout-page__info-zone-text-field">
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Casablanca</mat-label>
+      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
+      <mat-icon matSuffix>location_city</mat-icon>
+    </mat-form-field>
+
+    <mat-button-toggle-group class="checkout-page__info-zone-toggle">
+      <mat-button-toggle class="checkout-page__info-zone-toggle-button">
+        Payer en ligne&nbsp;&nbsp;&nbsp;<mat-icon>payment</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle class="checkout-page__info-zone-toggle-button">
+        Payer en espèce&nbsp;&nbsp;&nbsp;<mat-icon>payments</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <button class="checkout-page__info-zone-button"
+            mat-raised-button
+            color="primary">
+      Commander
+    </button>
+
   </div>
-  <div class="checkout-page__order-zone" style="justify-content: flex-start; box-shadow: none">
-    <div class="checkout-page__order-zone" style="width: 100%">
+  <div class="checkout-page__order-zone">
+    <div class="checkout-page__order-zone-frame">
       <div class="checkout-page__order-zone-header">
         <span class="checkout-page__order-zone-header-text">Votre commande</span>
       </div>
-      <!--<div class="checkout-page__order-zone-footer">-->
-
-      <!--</div>-->
-      <!--<img  src="../../../assets/images/shape2.png" class="checkout-page__order-zone-footer">-->
     </div>
-    <img  src="../../../assets/images/shape8.png" class="checkout-page__order-zone-footer" style="margin-top: -5px">
+    <img  src="../../../assets/images/shape8.png" class="checkout-page__order-zone-footer" style="margin-top: -7px">
   </div>
 </div>
