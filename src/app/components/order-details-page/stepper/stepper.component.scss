@@ -5,33 +5,28 @@
   &container {
     height: 100%;
     width: 100%;
-    //background-color: lightblue;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   &step {
 
-    //background-color: lightpink;
     display: flex;
     flex-direction: column;
-    //align-items: flex-start;
-    //justify-content: center;
     height: 70px;
-    //width: 50px;
 
     &-circle-line-container {
       display: flex;
       align-items: center;
-      width: 170px;
-      //background-color: lightgreen;
+      max-width: 165px;
       margin-bottom: 5px;
     }
 
     &-circle {
       border-radius: 50%;
-      height: 50px !important;
-      width: 50px !important;
+      height: 45px;
+      width: 45px;
       background-color: $gray-lalivraison;
       display: flex;
       align-items: center;
