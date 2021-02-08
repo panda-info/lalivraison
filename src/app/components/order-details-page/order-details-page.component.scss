@@ -1,0 +1,219 @@
+@import "~src/sass/variables";
+
+.order-details-page__ {
+
+  &container {
+    height: 100%;
+    width: 80%;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &info-zone {
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+    padding-bottom: 10px;
+
+    &-title {
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-top: 30px;
+    }
+
+    &-stepper {
+      height: 100px;
+      width: 80%;
+      margin-top: 20px;
+    }
+
+    &-order-status {
+      margin-top: 35px;
+      font-size: 18px;
+      letter-spacing: 1px;
+      font-weight: bold;
+
+      &-text {
+        color: $blue-lalivraison;
+      }
+    }
+
+    &-order-address-zone {
+      margin-top: 35px;
+      font-size: 15px;
+      text-align: center;
+
+      &-text {
+        color: $blue-lalivraison;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &order-zone {
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+    justify-content: flex-start;
+
+    &-frame {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      height: 70%;
+      border-radius: 10px 10px 0 0;
+      -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+
+      &-items {
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+      }
+
+      &-bill {
+        font-family: Lato;
+        width: 80%;
+        padding: 0 15px 0 15px;
+        min-height: 120px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+        margin-bottom: 15px;
+        margin-top: 15px;
+
+        &-line {
+          width: 85%;
+          display: flex;
+          justify-content: space-between;
+
+          &-price {
+            color: $blue-lalivraison;
+            font-weight: bold;
+          }
+
+          &-separator {
+            width: 85% !important;
+            color: lightgray;
+          }
+        }
+      }
+
+      &-item {
+        padding: 0 10px 0 20px;
+
+
+        width: 80%;
+        min-height: 80px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
+
+
+
+
+        &-image {
+          height: 40px;
+          width: 40px;
+          border-radius: 10px;
+        }
+
+        &-details {
+          display: flex;
+          flex-direction: column;
+          margin-left: 10px;
+
+          &-name {
+            font-weight: bold;
+            font-size: 14px;
+          }
+
+          &-text {
+            font-weight: bold;
+
+            &-price {
+              color: $blue-lalivraison;
+            }
+          }
+        }
+      }
+    }
+
+    &-header {
+      border-radius: 10px 10px 0 0;
+      background-color: $blue-lalivraison;
+      width: 100%;
+      height: 15%;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+
+      &-text {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+    }
+
+    &-footer {
+      height: 20px;
+      width: 100%;
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .order-details-page__ {
+
+    &container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: fit-content;
+      width: 100%;
+      padding-top: 10px;
+
+    }
+
+    &info-zone {
+      width: 90%;
+      padding-bottom: 5px;
+      min-height: fit-content;
+      margin-bottom: 15px;
+      background-image: none;
+    }
+
+    &order-zone {
+      width: 90%;
+      min-height: 100%;
+    }
+  }
+}

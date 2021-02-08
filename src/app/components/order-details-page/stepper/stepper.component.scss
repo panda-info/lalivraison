@@ -1,0 +1,82 @@
+@import "~src/sass/variables";
+
+.stepper__ {
+
+  &container {
+    height: 100%;
+    width: 100%;
+    //background-color: lightblue;
+    display: flex;
+    align-items: center;
+  }
+
+  &step {
+
+    //background-color: lightpink;
+    display: flex;
+    flex-direction: column;
+    //align-items: flex-start;
+    //justify-content: center;
+    height: 70px;
+    //width: 50px;
+
+    &-circle-line-container {
+      display: flex;
+      align-items: center;
+      width: 170px;
+      //background-color: lightgreen;
+      margin-bottom: 5px;
+    }
+
+    &-circle {
+      border-radius: 50%;
+      height: 50px !important;
+      width: 50px !important;
+      background-color: $gray-lalivraison;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &-image {
+        height: 35px;
+        width: 35px;
+      }
+
+      &-filled {
+        @extend .stepper__step-circle;
+        background-color: $blue-lalivraison;
+      }
+    }
+
+    &-text {
+
+      font-size: 12px;
+      height: 10px;
+      width: 50px;
+      text-align: center;
+      margin-bottom: 3px;
+      color: $gray-lalivraison;
+
+      &-filled {
+        @extend .stepper__step-text;
+        font-weight: bold;
+        //background-color: $blue-lalivraison;
+        //background-color: lightgoldenrodyellow;
+        color: $blue-lalivraison;
+      }
+    }
+
+  }
+
+  &line {
+    height: 3px;
+    width: 120px;
+    background-color: $gray-lalivraison;
+
+    &-filled {
+      @extend .stepper__line;
+      background-color: $blue-lalivraison;
+    }
+  }
+
+}

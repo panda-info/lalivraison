@@ -30,6 +30,8 @@ import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/r
 import {FormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
+import { OrderDetailsPageComponent } from './components/order-details-page/order-details-page.component';
+import { StepperComponent } from './components/order-details-page/stepper/stepper.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { CheckoutPageComponent } from './components/checkout-page/checkout-page.
     SelectedHeadingComponent,
     SelectedHeadingItemComponent,
     SelectedHeadingItemDialogComponent,
-    CheckoutPageComponent
+    CheckoutPageComponent,
+    OrderDetailsPageComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
