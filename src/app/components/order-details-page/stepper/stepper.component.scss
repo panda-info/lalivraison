@@ -25,8 +25,8 @@
 
     &-circle {
       border-radius: 50%;
-      height: 45px;
-      width: 45px;
+      height: 45px !important;
+      width: 45px !important;
       background-color: $gray-lalivraison;
       display: flex;
       align-items: center;
@@ -51,16 +51,25 @@
       text-align: center;
       margin-bottom: 3px;
       color: $gray-lalivraison;
+      //display: flex;
+      //flex-direction: column;
+      //align-items: center;
+      //justify-content: center;
 
       &-filled {
         @extend .stepper__step-text;
         font-weight: bold;
-        //background-color: $blue-lalivraison;
-        //background-color: lightgoldenrodyellow;
         color: $blue-lalivraison;
+
+        &-hour-desktop {
+          @extend .stepper__step-text-filled;
+        }
+
+        &-hour-mobile {
+          display: none;
+        }
       }
     }
-
   }
 
   &line {
@@ -71,6 +80,81 @@
     &-filled {
       @extend .stepper__line;
       background-color: $blue-lalivraison;
+    }
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .stepper__ {
+
+    &container {
+      flex-direction: column;
+    }
+
+    &step {
+
+      height: 95px;
+      flex-direction: row;
+      //background-color: $gray-lalivraison;
+
+      &:last-child {
+        height: 45px;
+        //background-color: lightsalmon;
+      }
+
+      &-text-filled-hour{
+
+        &-mobile {
+          display: block;
+          font-weight: normal;
+          margin-top: -5px;
+        }
+
+        &-desktop {
+          display: none !important;
+        }
+      }
+
+      &-circle {
+        height: 45px !important;
+        width: 45px !important;
+
+        &-image {
+          height: 35px;
+          width: 35px;
+        }
+      }
+
+      &-circle-line-container {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+      }
+
+      &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 50px;
+        width: 60px;
+        //background-color: lightpink;
+        margin-left: 10px;
+        font-size: 13px;
+      }
+    }
+
+    &line {
+      height: 50px;
+      width: 3px;
+      background-color: $gray-lalivraison;
+
+      &-filled {
+        @extend .stepper__line;
+        background-color: $blue-lalivraison;
+      }
     }
   }
 

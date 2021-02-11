@@ -3,9 +3,11 @@
 .order-details-page__ {
 
   &container {
-    height: 100%;
+    min-height: 100%;
+    height: fit-content;
     width: 80%;
     padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     justify-content: space-between;
   }
@@ -29,6 +31,19 @@
       margin-top: 30px;
     }
 
+    &-image-stepper-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-image {
+      background-image: url("../../../assets/images/order_status_graphic_desktop1.png");
+      height: 300px;
+      width: 550px;
+      margin-top: 25px;
+    }
+
     &-stepper {
       height: 100px;
       width: 80%;
@@ -48,6 +63,7 @@
 
     &-order-address-zone {
       margin-top: 35px;
+      margin-bottom: 10px;
       font-size: 15px;
       text-align: center;
 
@@ -189,7 +205,8 @@
 
 }
 
-@media (max-width: 800px) {
+//@media (max-width: 800px) {
+@media (max-width: 480px) {
 
   .order-details-page__ {
 
@@ -209,6 +226,54 @@
       min-height: fit-content;
       margin-bottom: 15px;
       background-image: none;
+
+      &-title {
+        letter-spacing: 0;
+        background-color: $blue-lalivraison;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-top: 0;
+        min-height: 80px;
+        border-radius: 10px 10px 0 0;
+      }
+
+      &-stepper {
+        //height: 300px;
+        height: fit-content;
+        width: 40%;
+        margin-top: 0px;
+      }
+
+      &-image-stepper-container {
+        flex-direction: row;
+        width: 90%;
+        margin: 30px 0 30px 0;
+        //background-color: lightgreen;
+        //align-items: center;
+        //justify-content: center;
+      }
+
+      &-image {
+        background-image: url("../../../assets/images/order_status_graphic_mobile1.png");
+        background-repeat: no-repeat;
+        height: 100px;
+        //width: 170px;
+        width: 60%;
+        margin-top: 0;
+      }
+
+      &-order-status {
+        margin-top: 0px;
+        letter-spacing: 0;
+      }
+
+      &-order-address-zone {
+        width: 90%;
+        margin-top: 20px;
+      }
     }
 
     &order-zone {
