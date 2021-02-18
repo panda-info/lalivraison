@@ -14,8 +14,8 @@ export class RestaurantPageComponent implements OnInit {
 
   // @Input()
   restaurant = {
-    image: '../../../assets/images/nikkei.png',
-    subImage: '../../../assets/images/nikkei-logo.png',
+    image: '../../../assets/images/sushi.jpg',
+    subImage: '../../../assets/images/jap.jpg',
     name: 'NIKKEI.MA',
     kitchenType: 'Cuisine Nippone',
     orderFreeMinPrice: '140',
@@ -89,8 +89,10 @@ export class RestaurantPageComponent implements OnInit {
           },
           {
             id: 3,
-            image: '../../../assets/images/milkshake.jpeg',
+            image: '../../../assets/images/milkshake.jpg',
             name: 'Milkshake',
+            description: 'Un milk-shake est une boisson frappée à base de lait qui se prépare généralement en ajoutant' +
+              ' des fruits à du lait',
             price: '20',
             declinations: {
               description: 'Parfum',
@@ -106,8 +108,13 @@ export class RestaurantPageComponent implements OnInit {
                   price: 30,
                 },
                 {
-                  id: 298,
+                  id: 297,
                   name: 'Chocolat',
+                  price: 32,
+                },
+                {
+                  id: 296,
+                  name: 'Orange',
                   price: 32,
                 }
               ]
@@ -115,8 +122,10 @@ export class RestaurantPageComponent implements OnInit {
           },
           {
             id: 4,
-            image: '../../../assets/images/fs.jpg',
+            image: '../../../assets/images/sandwich.jpg',
             name: 'Formule sandwich',
+            description: 'Sandwich avec un mélange d\'épices riche en saveurs et en caractère, du poulet et une' +
+              ' protion frites.',
             price: '35',
             formula: {
               categories : [
@@ -138,8 +147,10 @@ export class RestaurantPageComponent implements OnInit {
           },
           {
             id: 5,
-            image: '../../../assets/images/salade.jpeg',
+            image: '../../../assets/images/salade.jp' +
+              'g',
             name: 'Salade à composer',
+            description: 'Une salade composée est une recette de cuisine à base de mélange de salade et de composition de divers ingrédients. Variante des assiettes composées, il en existe une multitude de recettes de toutes les cuisines du monde.',
             price: null,
             compositions: [
               {
