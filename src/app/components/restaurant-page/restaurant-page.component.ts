@@ -147,8 +147,7 @@ export class RestaurantPageComponent implements OnInit {
           },
           {
             id: 5,
-            image: '../../../assets/images/salade.jp' +
-              'g',
+            image: '../../../assets/images/salade.jpg',
             name: 'Salade à composer',
             description: 'Une salade composée est une recette de cuisine à base de mélange de salade et de composition de divers ingrédients. Variante des assiettes composées, il en existe une multitude de recettes de toutes les cuisines du monde.',
             price: null,

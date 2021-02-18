@@ -1,7 +1,6 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {isNull} from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-selected-heading-item-dialog',
@@ -16,6 +15,8 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
   itemFormula: any[];
 
   item: any;
+
+  itemCount = 1;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private snackBar: MatSnackBar) { }
 
@@ -40,5 +41,15 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
     // return this.data.item.formula
     //   && this.itemFormula.filter(category => !category.item).length === 0;
     return false;
+  }
+
+  decrementCount(): void {
+    if (this.itemCount > 1) {
+      --this.itemCount;
+    }
+  }
+
+  incrementCount(): void {
+    ++this.itemCount;
   }
 }

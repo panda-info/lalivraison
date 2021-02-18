@@ -14,9 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    //justify-content: center;
     overflow-x: hidden;
-    //background-color: lightblue;
   }
 
   &top {
@@ -24,17 +22,28 @@
     width: 100%;
     border-radius: 15px 15px 0 0;
 
+    &-close-button {
+      position: relative;
+      float: right;
+      z-index: 99;
+      background-color: white;
+      height: 25px;
+      width: 25px;
+      border-radius: 8px;
+      margin: 15px 15px 0 0;
+      opacity: 0.3;
+
+      &-icon {
+        color: black;
+        margin: -16px 0 0 0;
+        font-weight: bold;
+      }
+    }
+
     &-image {
       height: 100%;
       width: 100%;
       margin-top: -40px;
-      //padding-top: -50px;
-    }
-
-    &-close-button {
-      position: relative;
-      bottom: 20px;
-      right: 20px;
     }
   }
 
@@ -46,6 +55,97 @@
     align-items: center;
     overflow-y: auto;
     overflow-x: hidden;
+
+    &-items-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &-formula- {
+
+        &name {
+          width: 350px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #21CCBB;
+          text-align: left;
+          margin-left: 15px;
+        }
+
+        &label {
+          width: 320px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 10px;
+        }
+      }
+
+      &-composition- {
+
+        &name {
+          width: 340px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #21CCBB;
+          text-align: left;
+          margin-left: 15px;
+        }
+
+        &item {
+          width: 330px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+
+          &-label {
+            margin-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 270px;
+          }
+        }
+      }
+
+      &-declination- {
+
+        &item {
+          width: 330px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 10px;
+
+          &-label {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 280px;
+          }
+        }
+      }
+    }
   }
 
   &bottom  {
@@ -66,12 +166,16 @@
       justify-content: space-between;
     }
 
+    &-price {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
     &-counter {
       height: 40px;
       width: 100px;
       border-radius: 12px;
       background-color: $gray-lalivraison;
-      //opacity: 0.05;
       display: flex;
       align-items: center;
       justify-content: space-around;
@@ -82,38 +186,27 @@
         border-radius: 10px;
         color: white;
         background-color: $blue-lalivraison;
-        //background-color: #1e8100;
-        //display: flex;
-        //align-items: center;
-        //justify-content: center;
+
+        &-icon {
+          margin-top: -12px;
+          font-weight: bold;
+          margin-left: -1px;
+        }
       }
     }
 
     &-button {
-      //border-radius: 15px;
-      //color: white;
-      //font-size: 16px;
       width: 40px !important;
       height: 40px !important;
       border-radius: 12px;
-      //width: 10%;
       color: #3a3838;
-      //color: black;
       background-color: $blue-lalivraison;
     }
 
-    //&-button {
-    //  border-radius: 25px;
-    //  color: white;
-    //  font-size: 16px;
-    //  width: 80%;
-    //  height: 50px;
-    //}
   }
 
   &upper-zone {
     height: 220px;
-    //width: 270px;
     width: 100%;
     margin-bottom: 20px;
     border-radius: 15px 15px 0 0;
@@ -121,12 +214,10 @@
 
   &lower-zone {
 
-    //background-color: lightgreen;
     &-name {
       font-size: 21px;
       font-weight: bold;
       text-align: center;
-      //letter-spacing: 2.36px;
       margin-bottom: 10px;
       margin-top: 10px;
     }
@@ -148,7 +239,6 @@
     }
 
     &-button {
-      //width: 180px;
       border-radius: 25px;
       color: white;
       font-size: 16px;
@@ -163,19 +253,6 @@
         height: 60px;
       }
     }
-
-    &-radio-selection {
-
-      //&:hover {
-      //  border: 2px solid $blue-lalivraison !important;
-      //  height: 39px !important;
-      //  color: $blue-lalivraison;
-      //
-      //  ::ng-deep .mat-radio-outer-circle {
-      //    border-color: $blue-lalivraison !important;
-      //  }
-      //}
-    }
   }
 
 }
@@ -183,29 +260,44 @@
 @media (max-width: 480px) {
   .selected-heading-item-dialog__ {
 
-    &close-zone {
-      position: sticky;
-      position: -webkit-sticky; /* Safari */
-      top: 0;
-    }
+    &content-items-container-{
 
-    &lower-zone-button {
+      &declination {
+        &-item{
+          width: 260px;
 
-      margin-left: -25px;
-
-      &-container {
-        position: fixed;
-        left: 0;
-        bottom: 0;
+          &-label{
+            width: 200px;
+          }
+        }
       }
+
+      &composition {
+        &-name {
+          width: 290px;
+        }
+
+        &-item {
+          width: 270px;
+
+          &-label {
+            width: 210px;
+          }
+        }
+      }
+
+      &formula {
+        &-name {
+          width: 290px;
+        }
+
+        &-label {
+          width: 260px;
+        }
+      }
+
     }
   }
-
-}
-
-::ng-deep .mat-radio-outer-circle {
-  //border-width: 1px !important;
-  //border-color: rgba(0, 0, 0, 0.54) !important;
 }
 
 ::ng-deep .mat-radio-label-content {
@@ -214,4 +306,8 @@
 
 ::ng-deep .mat-checkbox-inner-container {
   margin: 0 0 0 15px !important;
+}
+
+::ng-deep .mat-checkbox-layout {
+  align-items: center !important;
 }

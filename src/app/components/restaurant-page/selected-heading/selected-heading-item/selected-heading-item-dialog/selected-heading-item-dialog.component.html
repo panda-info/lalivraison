@@ -1,20 +1,14 @@
-<!--<div class="selected-heading-item-dialog__close-zone">-->
-  <!--<button mat-icon-button [mat-dialog-close]="true">-->
-    <!--<mat-icon >close</mat-icon>-->
-  <!--</button>-->
-<!--</div>-->
 <div class="selected-heading-item-dialog__container">
 
   <div class="selected-heading-item-dialog__top">
 
-      <button mat-icon-button style="position: relative; float: right; z-index: 99; background-color: white; height: 25px; width: 25px; border-radius: 8px; margin: 15px 15px 0 0; opacity: 0.3;" [mat-dialog-close]="true">
-        <mat-icon style="color: black; margin: -15px 0 0 0px; font-weight: bold">close</mat-icon>
+      <button mat-icon-button
+              class="selected-heading-item-dialog__top-close-button"
+              [mat-dialog-close]="true">
+        <mat-icon class="selected-heading-item-dialog__top-close-button-icon">close</mat-icon>
       </button>
-
-
     <img [src]="data.item.image"
-         class="selected-heading-item-dialog__top-image"
-         style="height: 100%; width: 100%">
+         class="selected-heading-item-dialog__top-image">
   </div>
 
   <div class="selected-heading-item-dialog__content">
@@ -27,35 +21,17 @@
       {{data.item.description}}
     </div>
 
-    <!--<mat-radio-group *ngIf="data.item.declinations"-->
-                     <!--aria-labelledby="example-radio-group-label"-->
-                     <!--[(ngModel)]="itemDeclination"-->
-                     <!--style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px; background-color: lightpink">-->
-      <!--<div *ngIf="data.item.declinations"-->
-           <!--class="selected-heading-item-dialog__lower-zone-price"-->
-           <!--style="width: 150px; font-size: 15px; font-weight: 400; text-align: left; color: black">-->
-      <!--</div>-->
-      <!--<mat-radio-button *ngFor="let declination of data.item.declinations.values"-->
-                        <!--color="primary"-->
-                        <!--style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400; color: #21CCBB"-->
-                        <!--[value]="declination.name">-->
-        <!--{{declination.name}}&nbsp;&nbsp;<span-->
-        <!--style="font-weight: bold; font-size: 14px; color: black">{{declination.price}}.00 Dhs</span>-->
-      <!--</mat-radio-button>-->
-    <!--</mat-radio-group>-->
-
-
+    <!--Compositions-->
     <div *ngIf="item.compositions">
       <div *ngFor="let composition of data.item.compositions"
-           style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px">
-        <div style="width: 310px; margin-bottom: 10px; font-size: 18px; font-weight: bold; color: #21CCBB; text-align: left; margin-left: 15px">
+           class="selected-heading-item-dialog__content-items-container">
+        <div class="selected-heading-item-dialog__content-items-container-composition-name">
           {{composition.name}}
         </div>
         <mat-checkbox *ngFor="let i of composition.items"
-                      class="selected-heading-item-dialog__lower-zone-radio-selection"
-                      color="primary"
-                      style="width: 300px; margin-bottom: 10px; font-size: 16px; font-weight: 400; border: 2px lightgray solid; border-radius: 5px; height: 45px; display: flex; align-items: center">
-          <div style="margin-left: 10px; display: flex; justify-content: space-between; width: 250px">
+                      class="selected-heading-item-dialog__content-items-container-composition-item"
+                      color="primary">
+          <div class="selected-heading-item-dialog__content-items-container-composition-item-label">
             <span>{{i.name}}</span>
             <span>{{i.price}} Dhs</span>
           </div>
@@ -64,15 +40,14 @@
     </div>
 
 
-
+    <!--Déclinaisons-->
     <div *ngIf="data.item.declinations">
-      <mat-radio-group style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px">
+      <mat-radio-group class="selected-heading-item-dialog__content-items-container">
         <mat-radio-button *ngFor="let declination of data.item.declinations.values"
-                          class="selected-heading-item-dialog__lower-zone-radio-selection"
+                          class="selected-heading-item-dialog__content-items-container-declination-item"
                           color="primary"
-                          style="width: 280px; margin-bottom: 10px; font-size: 16px; font-weight: 400; border: 2px lightgray solid; border-radius: 5px; height: 45px; display: flex; flex-direction: column; justify-content: center; padding-left: 10px"
                           [value]="declination">
-          <div style="margin-left: 10px; display: flex; align-items: center; justify-content: space-between; width: 230px">
+          <div class="selected-heading-item-dialog__content-items-container-declination-item-label">
             <span>{{declination.name}}</span>
             <span>{{declination.price}} Dhs</span>
           </div>
@@ -82,55 +57,41 @@
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+    <!--Formule-->
     <div *ngIf="item.formula">
       <mat-radio-group *ngFor="let category of data.item.formula.categories"
-                       style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px">
-        <div
-          style="width: 310px; margin-bottom: 10px; font-size: 18px; font-weight: bold; color: #21CCBB; text-align: left; margin-left: 15px">
+                       class="selected-heading-item-dialog__content-items-container">
+        <div class="selected-heading-item-dialog__content-items-container-formula-name">
           {{category.name}}
         </div>
         <mat-radio-button *ngFor="let i of category.items"
-                          class="selected-heading-item-dialog__lower-zone-radio-selection"
+                          class="selected-heading-item-dialog__content-items-container-formula-label"
                           color="primary"
-                          style="width: 280px; margin-bottom: 10px; font-size: 16px; font-weight: 400; border: 2px lightgray solid; border-radius: 5px; height: 45px; display: flex; flex-direction: column; justify-content: center; padding-left: 10px"
                           [value]="i">
           &nbsp;&nbsp;&nbsp;&nbsp;{{i}}
         </mat-radio-button>
-
       </mat-radio-group>
     </div>
-
-
-
 
 
   </div>
 
   <div class="selected-heading-item-dialog__bottom">
     <div class="selected-heading-item-dialog__bottom-container">
-      <div style="font-weight: bold; font-size: 20px">{{data.item.price}} Dhs</div>
+      <div class="selected-heading-item-dialog__bottom-price">{{data.item.price}} Dhs</div>
 
       <div class="selected-heading-item-dialog__bottom-counter">
         <button mat-icon-button
                 style="background-color: #ed145b"
+                (click)="decrementCount()"
                 class="selected-heading-item-dialog__bottom-counter-button">
-          <mat-icon style="margin-top: -12px; font-weight: bold;">remove</mat-icon>
+          <mat-icon class="selected-heading-item-dialog__bottom-counter-button-icon">remove</mat-icon>
         </button>
-        1
+        <span style="font-weight: bold">{{itemCount}}</span>
         <button mat-icon-button
+                (click)="incrementCount()"
                 class="selected-heading-item-dialog__bottom-counter-button">
-          <mat-icon style="margin-top: -12px; font-weight: bold;">add</mat-icon>
+          <mat-icon class="selected-heading-item-dialog__bottom-counter-button-icon">add</mat-icon>
         </button>
       </div>
 
@@ -143,93 +104,6 @@
       </button>
     </div>
 
-    <!--<button [mat-dialog-close]="true"-->
-      <!--(click)="addToBasket()"-->
-      <!--mat-raised-button-->
-      <!--class="selected-heading-item-dialog__bottom-button"-->
-      <!--color="primary">-->
-      <!--Ajouter au panier-->
-    <!--</button>-->
-
   </div>
-
-  <!--<img [src]="data.item.image"-->
-       <!--class="selected-heading-item-dialog__upper-zone">-->
-  <!--<div class="selected-heading-item-dialog__lower-zone">-->
-    <!--<div class="selected-heading-item-dialog__lower-zone-name">{{data.item.name | uppercase}}</div>-->
-    <!--<div class="selected-heading-item-dialog__lower-zone-description">{{data.item.description}}</div>-->
-    <!--<div class="selected-heading-item-dialog__lower-zone-price"-->
-         <!--*ngIf="!data.item.declinations || data.item.formula || (!data.item.compositions && !data.item.compositions.length)">-->
-      <!--&lt;!&ndash;{{data.item.compositions|json}}<br>&ndash;&gt;-->
-      <!--&lt;!&ndash;{{data.item.price}}.00 Dhs&ndash;&gt;-->
-    <!--</div>-->
-
-    <!--<mat-radio-group *ngIf="data.item.declinations"-->
-                     <!--aria-labelledby="example-radio-group-label"-->
-                     <!--[(ngModel)]="itemDeclination"-->
-                     <!--style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px; background-color: lightpink">-->
-      <!--<div *ngIf="data.item.declinations"-->
-           <!--class="selected-heading-item-dialog__lower-zone-price"-->
-           <!--style="width: 150px; font-size: 15px; font-weight: 400; text-align: left; color: black">-->
-      <!--</div>-->
-      <!--<mat-radio-button *ngFor="let declination of data.item.declinations.values"-->
-                        <!--color="primary"-->
-                        <!--style="width: 150px; margin-bottom: 10px; font-size: 15px; font-weight: 400; color: #21CCBB"-->
-                        <!--[value]="declination.name">-->
-        <!--{{declination.name}}&nbsp;&nbsp;<span style="font-weight: bold; font-size: 14px; color: black">{{declination.price}}.00 Dhs</span>-->
-      <!--</mat-radio-button>-->
-    <!--</mat-radio-group>-->
-
-
-
-    <!--<div *ngIf="item.formula" style="margin-bottom: 50px">-->
-      <!--<mat-radio-group *ngFor="let category of data.item.formula.categories"-->
-                       <!--style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px">-->
-        <!--<div style="width: 310px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-decoration: underline; color: #21CCBB; text-align: center">-->
-          <!--{{category.name}}-->
-        <!--</div>-->
-        <!--<mat-radio-button *ngFor="let i of category.items"-->
-                          <!--class="selected-heading-item-dialog__lower-zone-radio-selection"-->
-                          <!--color="primary"-->
-                          <!--style="width: 280px; margin-bottom: 10px; font-size: 15px; font-weight: 400; border: 2px lightgray solid; border-radius: 5px; height: 40px; display: flex; flex-direction: column; justify-content: center; padding-left: 10px"-->
-                          <!--[value]="i">-->
-          <!--&nbsp;&nbsp;{{i}}-->
-        <!--</mat-radio-button>-->
-
-      <!--</mat-radio-group>-->
-    <!--</div>-->
-
-
-
-    <!--<div *ngIf="item.compositions">-->
-      <!--<div *ngFor="let composition of data.item.compositions"-->
-                       <!--style="display: flex; flex-direction: column; align-items: center; margin-bottom: 5px;">-->
-        <!--<div style="width: 200px; margin-bottom: 10px; font-size: 17px; font-weight: 400; text-align: left; text-decoration: underline">-->
-          <!--{{composition.name}}-->
-        <!--</div>-->
-        <!--<mat-checkbox *ngFor="let i of composition.items"-->
-                          <!--color="primary"-->
-                          <!--style="margin-bottom: 10px; font-size: 15px; font-weight: 400; width: 180px">-->
-          <!--<span style="min-width: 220px !important; width: 220px !important">-->
-            <!--{{i.name}}-->
-          <!--</span>&nbsp;&nbsp;-->
-          <!--<span style="font-weight: bold; font-size: 14px; color: black">{{i.price}}.00 Dhs</span>-->
-        <!--</mat-checkbox>-->
-      <!--</div>-->
-    <!--</div>-->
-
-
-
-    <!--<div class="selected-heading-item-dialog__lower-zone-button-container">-->
-      <!--<button [mat-dialog-close]="true"-->
-              <!--[disabled]="(data.item.declinations && !itemDeclination) || disableAddButtonForFormula()"-->
-              <!--(click)="addToBasket()"-->
-              <!--mat-raised-button-->
-              <!--color="primary"-->
-              <!--class="selected-heading-item-dialog__lower-zone-button">-->
-        <!--Ajouter au panier-->
-      <!--</button>-->
-    <!--</div>-->
-  <!--</div>-->
 
 </div>
