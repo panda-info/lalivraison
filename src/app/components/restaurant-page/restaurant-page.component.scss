@@ -282,13 +282,14 @@
       //margin-bottom: 20px;
 
       &-title {
-        font-style: italic;
-        font-size: 20px;
+        font-size: 21px;
+        font-weight: bold;
       }
 
       &-address {
         display: flex;
         justify-content: center;
+        margin-top: 10px;
 
         &-image {
           height: 20px;
@@ -300,6 +301,8 @@
           color: black;
           text-decoration: underline;
           cursor: pointer;
+          font-size: 12px;
+          margin-top: -5px;
         }
       }
     }
