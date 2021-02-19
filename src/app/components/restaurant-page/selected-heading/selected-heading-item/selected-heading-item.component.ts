@@ -32,8 +32,8 @@ export class SelectedHeadingItemComponent implements OnInit {
         // height: '480px',
         // height: '100%',
         // minWidth: '100%',
-        height: window.innerWidth < 500 ? '85%' : '640px',
-        minWidth: window.innerWidth < 500 ? '85%' : '400px',
+        height: window.innerWidth < 500 ? '85%' : '740px',
+        width: window.innerWidth < 500 ? '85%' : '400px',
         autoFocus: false,
         // hasBackdrop: false,
         data: {
