@@ -24,6 +24,8 @@
 
     .mat-icon {
       height: 17px !important;
+      width: 17px;
+      border-radius: 5px;
     }
 
     .mat-button {
@@ -253,13 +255,17 @@
     height: fit-content;
 
     .mat-icon-button {
-      height: 25px !important;
-      width: 25px;
+      height: 19px !important;
+      width: 19px;
       display: flex;
       align-items: center;
       justify-content: center;
       //background-color: lightgreen;
 
+      .mat-icon {
+        height: 24px !important;
+        margin-left: 1px;
+      }
     }
 
     .mat-button-wrapper {
@@ -271,6 +277,7 @@
     &-header {
       width: 100%;
       //height: 10%;
+      min-height: 80px;
       background-color: $blue-lalivraison;
       border-radius: 15px 15px 0 0;
       display: flex;
@@ -282,14 +289,16 @@
       //margin-bottom: 20px;
 
       &-title {
-        font-size: 21px;
+        font-size: 25px;
         font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-top: 4px;
       }
 
       &-address {
         display: flex;
         justify-content: center;
-        margin-top: 10px;
+        margin-top: 21px;
 
         &-image {
           height: 20px;
@@ -319,11 +328,12 @@
 
     &-item {
       width: 90%;
-      min-height: 70px;
+      min-height: 80px;
       border-radius: 15px;
       display: flex;
       flex-direction: column;
-      //background-color: white;
+      justify-content: center;
+      //background-color: lightgreen;
       margin-bottom: 10px;
       -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
       -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -333,19 +343,32 @@
       //box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
 
       &-remove {
-        width: 100%;
+        width: 97%;
         display: flex;
         justify-content: flex-end;
+        margin-top: -10px;
+
+        &-button {
+          opacity: 0.3;
+          border-radius: 5px;
+          height: 15px;
+
+          &-icon {
+            font-size: 15px;
+            font-weight: bold;
+          }
+        }
       }
 
       &-body {
         display: flex;
-        padding: 0 10px 0 10px;
+        padding: 0 10px 0 20px;
         margin-top: -10px;
+        //background-color: lightsalmon;
 
         &-image {
-          height: 40px;
-          width: 40px;
+          height: 50px;
+          width: 50px;
           border-radius: 10px;
           margin-right: 15px;
         }
@@ -353,15 +376,22 @@
         &-details {
           display: flex;
           flex-direction: column;
+          justify-content: center;
 
           &-name {
             font-weight: bold;
-            font-size: 12px;
+            font-size: 13px;
           }
 
           &-count {
             display: flex;
             align-items: center;
+            justify-content: space-evenly;
+            width: 65px;
+            border-radius: 5px;
+            height: 23px;
+            background-color: $gray-lalivraison;
+            margin-right: 10px;
 
             &-price {
               display: flex;
@@ -371,15 +401,16 @@
 
           &-icon {
             font-size: 16px;
-            background-color: #21CCBB;
+            background-color: #ed145b;
             display: flex;
             justify-content: center;
             border-radius: 15px;
             cursor: pointer;
+            color: white;
 
             &-add {
               @extend .restaurant-page__basket-item-body-details-icon;
-              margin-right: 10px;
+              background-color: $blue-lalivraison;
             }
           }
 
@@ -436,7 +467,7 @@
         align-items: center;
         justify-content: center;
         margin-top: 10px;
-        box-shadow: 0px 0px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        //box-shadow: 0px 0px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 
         &-button {
           width: 50%;
@@ -449,6 +480,7 @@
         border-radius: 15px;
         margin-top: 10px;
         margin-bottom: 10px;
+        color: white;
       }
     }
   }
@@ -606,4 +638,8 @@
       display: none;
     }
   }
+}
+
+::ng-deep .mat-button-toggle-checked {
+  color: white !important;
 }
