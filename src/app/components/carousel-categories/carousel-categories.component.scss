@@ -45,7 +45,7 @@
 
       &-left {
         @extend .carousel__items-container-button;
-        margin-right: 5px;
+        //margin-right: 5px;
       }
 
       &-right {
@@ -69,6 +69,8 @@
     &container {
       padding: 0 !important;
       min-height: 170px !important;
+      //min-height: 100% !important;
+      //background-color: lightgoldenrodyellow;
     }
 
     &items-container-button {
@@ -80,22 +82,36 @@
       width: 100% !important;
       overflow-x: scroll;
       padding-top: 0px;
+      //background-color: lightpink;
+      //height: 100% !important;
+      min-height: 150px;
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
 
       &-container {
+        //background-color: lightgreen;
         padding-top: 10px;
-        height: 90%;
+        //height: 80%;
+        height: 100% !important;
         padding-bottom: 0;
       }
     }
 
     &title {
       margin-bottom: 0;
-      height: 10%;
+      height: 20%;
+      letter-spacing: 0;
     }
 
     &item {
       margin-right: 4px;
       margin-left: 4px;
+      display: flex;
+      align-items: center;
     }
   }
 }

@@ -69,12 +69,12 @@
 
     &-left {
       @extend .swiper__button;
-      border-radius: 20px 0 0 20px;
+      border-radius: 13px 0 0 13px;
     }
 
     &-right {
       @extend .swiper__button;
-      border-radius: 0 20px 20px 0;
+      border-radius: 0 13px 13px 0;
     }
   }
 

@@ -5,10 +5,14 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    //background-color: lightsalmon;
   }
 
   &image {
-    height: 65%;
+    height: 85%;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
   }
 
   &name {
@@ -16,6 +20,7 @@
     font-weight: 700;
     letter-spacing: 1px;
     line-height: 30px;
+    max-width: 60%;
   }
 
   &details {
@@ -29,6 +34,7 @@
     display: flex;
     align-items: center;
     color: #55CE36;
+    overflow-x: auto;
   }
 
   &no-takeaway-delivery {
@@ -39,9 +45,9 @@
 @media (max-width: 480px) {
   .restaurant__ {
 
-    &delivery-takeaway {
-      display: none;
-    }
+    //&delivery-takeaway {
+    //  display: none;
+    //}
 
     &details-open-time {
       display: none;

@@ -27,7 +27,7 @@
 
   &carousel-categories {
     margin-top: 30px;
-    min-height: 205px;
+    min-height: 220px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -36,11 +36,11 @@
 
   &restaurants {
     margin-top: 30px;
-    min-height: 550px;
+    //min-height: 550px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    overflow: hidden;
+    //overflow: hidden;
     padding-bottom: 10px;
   }
 
@@ -131,14 +131,18 @@
     &carousel-categories {
       margin-top: 25px;
       width: 95%;
-      min-height: 185px;
+      min-height: 200px;
+      overflow: hidden;
     }
 
     &restaurants {
       margin-top: 25px;
       width: 95%;
-      min-height: 220px;
+      //min-height: 320px;
+      min-height: 295px;
       padding-bottom: 0;
+      overflow: hidden;
+      //background-color: lightpink;
     }
 
     &join-us {

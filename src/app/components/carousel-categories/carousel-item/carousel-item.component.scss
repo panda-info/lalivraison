@@ -9,14 +9,23 @@
     border-radius: 50px;
     display: flex;
     flex-direction: column;
-    box-shadow: 1px 1px darkgray;
+    //box-shadow: 1px 1px darkgray;
     color: $black-lalivraison;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 
     &:hover {
       cursor: pointer;
-      background-color: #00f7ce;
-      border: 2px $black-lalivraison solid;
-      color: black;
+      //background-color: #00f7ce;
+      border: 1px gray solid;
+      //color: black;
+      //height: 105%;
+      //width: 95px;
+      //padding: 0 5px 0 5px;
+      will-change: transform;
+      transform: scale(1.06);
+      animation-timing-function: cubic-bezier(.075,.82,.165,1);
     }
   }
 
@@ -39,8 +48,8 @@
   }
 
   &image {
-    height: 60%;
-    width: 60%;
+    height: 70%;
+    width: 70%;
     border-radius: 100%
   }
 
