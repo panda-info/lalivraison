@@ -4,9 +4,10 @@
     width: 100%;
     height: 100%;
     overflow-y: scroll !important;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
   }
 
   &swiper {
@@ -65,10 +66,10 @@
 
   &about-zone {
     margin-top: 30px;
-    height: 130px;
+    height: 420px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
   }
 
   &body {
@@ -156,7 +157,7 @@
     }
 
     &about-zone {
-      display: none;
+      height: 650px;
     }
   }
 

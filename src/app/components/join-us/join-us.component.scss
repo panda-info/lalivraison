@@ -58,6 +58,7 @@
     width: 70%;
     border-radius: 30px;
     color: white;
+    margin-bottom: 10px;
 
     &-partner:after {
       content: "Gagner des clients"
@@ -138,7 +139,7 @@
     }
 
     &mobile-line {
-      height: 70px;
+      height: 55px;
       width: 94%;
       display: flex;
       background-color: $blue-lalivraison;
@@ -180,9 +181,13 @@
 
 .join-us__mobile-line {
   ::ng-deep .mat-raised-button {
-    height: 40px !important;
-    width: 40px !important;
-    min-width: 40px;
+    height: 35px !important;
+    width: 35px !important;
+    min-width: 35px !important;
     border-radius: 100%;
   }
-}
+
+  ::ng-deep.material-icons {
+    font-size: 22px;
+    }
+  }
