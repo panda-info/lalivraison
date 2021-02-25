@@ -34,11 +34,16 @@
 
     mat-icon {
       //color: white;
-      height: 28px !important;
-      width: 18px;
-      border-radius: 5px;
-      font-size: 17px;
+      //height: 28px !important;
+      //width: 18px;
+      //border-radius: 5px;
+      //font-size: 17px;
       //background-color: lightpink;
+
+      height: 32px !important;
+      width: 17px;
+      border-radius: 5px;
+      font-size: 15px;
     }
 
     &-b {
@@ -46,12 +51,11 @@
       float: right;
       z-index: 99;
       background-color: white;
-      height: 20px;
-      width: 20px;
-      border-radius: 6px;
+      height: 17px;
+      width: 17px;
+      border-radius: 5px;
       margin: 5px 8px 0 0;
       opacity: 0.3;
-      background-color: lightblue;
 
       &-c {
         color: black;
@@ -64,7 +68,7 @@
       height: 100%;
       width: 100%;
       //margin-top: -40px;
-      margin-top: -25px;
+      margin-top: -22px;
     }
   }
 
@@ -122,15 +126,16 @@
       font-size: 13px;
       font-weight: bold;
       //width: 110%;
-      text-align: center;
+      //text-align: center;
+      //background-color: lightpink;
+      width: 88%;
     }
 
     &-price {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 85%;
-      //background-color: lightblue;
+      width: 88%;
     }
   }
 }

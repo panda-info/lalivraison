@@ -4,9 +4,10 @@
 
   &padding-maker {
     padding: 20px 0 20px 0;
-    width: 35%;
+    width: 40%;
     min-height: 50%;
     height: fit-content;
+    //overflow-x: hidden;
   }
 
   &container {
@@ -31,16 +32,23 @@
     color: white;
     letter-spacing: 0.5px;
     border-radius: 10px 10px 0 0;
+
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 90%;
+      //background-color: lightgrey;
+    }
   }
 
   &content {
     border-radius: 0 0 10px 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
     //background-color: lightpink;
-    padding: 10px 0 30px 0;
+    padding: 20px 0 30px 0;
     //min-height: 85%;
 
     //&-bill {
@@ -50,10 +58,11 @@
     //  align-items: center;
 
       &-details-price {
-        width: 80%;
+        width: 90%;
         min-height: 110px;
         background-color: white;
         margin-top: 10px;
+        margin-bottom: 10px;
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -85,7 +94,7 @@
       &-toggle {
         border-radius: 15px;
         height: 35px;
-        width: 80%;
+        width: 90%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -98,7 +107,7 @@
       }
 
       &-button {
-        width: 80%;
+        width: 90%;
         border-radius: 15px;
         margin-top: 10px;
         //margin-bottom: 10px;
@@ -107,13 +116,15 @@
     //}
 
     &-items {
-      //display: grid;
-      //grid-template-columns: repeat(2, 1fr);
-      //grid-row-gap: 10px;
-      display: flex;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 10px;
+      grid-column-gap: 10px;
+      margin-bottom: 10px;
+      //display: flex;
+      //justify-content: center;
 
-      width: 80%;
+      width: 90%;
     }
 
     &-item {
@@ -123,6 +134,51 @@
       //background-color: lightgoldenrodyellow;
     }
   }
+}
+
+@media (max-width: 480px) {
+  .basket-page__ {
+
+    &padding-maker {
+      width: 97%;
+    }
+
+    &content {
+
+      &-details-price {
+        width: 95%;
+
+        &-line {
+          width: 95%;
+
+          &-separator {
+            width: 95%;
+          }
+        }
+      }
+
+      &-items {
+        width: 95%;
+        grid-column-gap: 5px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      &-toggle {
+        height: 50px;
+        width: 95%;
+        border-radius: 50px;
+        font-size: 15px;
+      }
+
+      &-button {
+        height: 50px;
+        width: 95%;
+        border-radius: 50px;
+        font-size: 15px;
+      }
+    }
+  }
+
 }
 
 ::ng-deep .mat-button-toggle-checked {
