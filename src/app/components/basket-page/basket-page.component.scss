@@ -1,0 +1,134 @@
+@import "~src/sass/variables";
+
+.basket-page__ {
+
+  &padding-maker {
+    padding: 20px 0 20px 0;
+    width: 35%;
+    min-height: 50%;
+    height: fit-content;
+  }
+
+  &container {
+    //min-height: 50%;
+    //height: fit-content;
+    min-width: 35%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    //margin: 10px 0 10px 0;
+  }
+
+  &header {
+    min-height: 90px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: $blue-lalivraison;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    letter-spacing: 0.5px;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &content {
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    //background-color: lightpink;
+    padding: 10px 0 30px 0;
+    //min-height: 85%;
+
+    //&-bill {
+    //  width: 100%;
+    //  display: flex;
+    //  flex-direction: column;
+    //  align-items: center;
+
+      &-details-price {
+        width: 80%;
+        min-height: 110px;
+        background-color: white;
+        margin-top: 10px;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+        &-line {
+          display: flex;
+          justify-content: space-between;
+          width: 80%;
+
+          &-separator {
+            width: 80% !important;
+            //border: none;
+            color: lightgray;
+          }
+
+          //&-with-margin {
+          //  @extend .basket-page__content-bill-details-price-line;
+          //  //margin-top: 10px;
+          //}
+        }
+
+      }
+
+      &-toggle {
+        border-radius: 15px;
+        height: 35px;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+
+        &-button {
+          width: 50%;
+          font-weight: 500;
+        }
+      }
+
+      &-button {
+        width: 80%;
+        border-radius: 15px;
+        margin-top: 10px;
+        //margin-bottom: 10px;
+        color: white;
+      }
+    //}
+
+    &-items {
+      //display: grid;
+      //grid-template-columns: repeat(2, 1fr);
+      //grid-row-gap: 10px;
+      display: flex;
+      justify-content: center;
+
+      width: 80%;
+    }
+
+    &-item {
+      height: 200px;
+      width: 170px;
+      border-radius: 10px;
+      //background-color: lightgoldenrodyellow;
+    }
+  }
+}
+
+::ng-deep .mat-button-toggle-checked {
+  color: white !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: $blue-lalivraison;
+}

@@ -1,0 +1,82 @@
+<div class="basket-page__padding-maker">
+<div class="basket-page__container">
+  <div class="basket-page__header">
+    Votre Panier
+  </div>
+  <div class="basket-page__content">
+
+    <!--<div class="basket-page__content-bill">-->
+
+      <div class="basket-page__content-items">
+        <app-basket-page-item class="basket-page__content-item"
+                                   [headingItem]="{
+            image: '../../../assets/images/p1.png',
+            name: 'SALADE DE CHOUX',
+            price: '25',
+            description: 'Chou et carotte émincé vinaigrette au soja.'
+          }">
+        </app-basket-page-item>
+        <!--<app-basket-page-item class="basket-page__content-item"-->
+                                   <!--[headingItem]="{-->
+            <!--image: '../../../assets/images/p1.png',-->
+            <!--name: 'SALADE DE CHOUX',-->
+            <!--price: '25',-->
+            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
+          <!--}">-->
+        <!--</app-basket-page-item>-->
+        <!--<app-basket-page-item class="basket-page__content-item"-->
+                              <!--[headingItem]="{-->
+            <!--image: '../../../assets/images/p1.png',-->
+            <!--name: 'SALADE DE CHOUX',-->
+            <!--price: '25',-->
+            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
+          <!--}">-->
+        <!--</app-basket-page-item>-->
+        <!--<app-basket-page-item class="basket-page__content-item"-->
+                              <!--[headingItem]="{-->
+            <!--image: '../../../assets/images/p1.png',-->
+            <!--name: 'SALADE DE CHOUX',-->
+            <!--price: '25',-->
+            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
+          <!--}">-->
+        <!--</app-basket-page-item>-->
+        <!--<app-basket-page-item class="basket-page__content-item"-->
+                              <!--[headingItem]="{-->
+            <!--image: '../../../assets/images/p1.png',-->
+            <!--name: 'SALADE DE CHOUX',-->
+            <!--price: '25',-->
+            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
+          <!--}">-->
+        <!--</app-basket-page-item>-->
+      </div>
+
+      <div class="basket-page__content-details-price">
+        <div class="basket-page__content-details-price-line">
+          <div>Sous-total</div>
+          <div>765.00 Dhs</div>
+        </div>
+        <div class="basket-page__content-details-price-line">
+          <div>Livraison</div>
+          <div>0 Dhs</div>
+        </div>
+        <hr class="basket-page__content-details-price-line-separator">
+        <div class="basket-page__content-details-price-line">
+          <div>Total</div>
+          <div>765.00 Dhs</div>
+        </div>
+      </div>
+
+      <mat-button-toggle-group class="basket-page__content-toggle">
+        <mat-button-toggle class="basket-page__content-toggle-button">Livrer</mat-button-toggle>
+        <mat-button-toggle class="basket-page__content-toggle-button">Emporter</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <button mat-raised-button
+              color="primary"
+              class="basket-page__content-button">
+        Je commande
+      </button>
+    <!--</div>-->
+  </div>
+</div>
+</div>

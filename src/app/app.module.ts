@@ -32,6 +32,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { OrderDetailsPageComponent } from './components/order-details-page/order-details-page.component';
 import { StepperComponent } from './components/order-details-page/stepper/stepper.component';
+import { BasketPageComponent } from './components/basket-page/basket-page.component';
+import { BasketPageItemComponent } from './components/basket-page/basket-page-item/basket-page-item.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { StepperComponent } from './components/order-details-page/stepper/steppe
     SelectedHeadingItemDialogComponent,
     CheckoutPageComponent,
     OrderDetailsPageComponent,
-    StepperComponent
+    StepperComponent,
+    BasketPageComponent,
+    BasketPageItemComponent
   ],
   imports: [
     BrowserModule,

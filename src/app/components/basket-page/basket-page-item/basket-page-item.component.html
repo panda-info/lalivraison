@@ -1,0 +1,39 @@
+<div class="basket-page-item__container">
+
+  <!--<div class="basket-page-item__close-zone">-->
+
+    <!--<button mat-icon-button-->
+            <!--class="basket-page-item__close-zone-close-button">-->
+      <!--<mat-icon class="selected-heading-item-dialog__top-close-button-icon">close</mat-icon>-->
+    <!--</button>-->
+    <!--&lt;!&ndash;<img [src]="data.item.image"&ndash;&gt;-->
+         <!--&lt;!&ndash;class="selected-heading-item-dialog__top-image">&ndash;&gt;-->
+  <!--</div>-->
+
+  <div class="basket-page-item__a">
+
+    <button mat-icon-button
+            class="basket-page-item__a-b">
+      <mat-icon class="basket-page-item__a-b-c">close</mat-icon>
+    </button>
+    <img [src]="headingItem.image"
+         class="basket-page-item__a-d">
+  </div>
+
+  <!--<img [src]="headingItem.image" class="basket-page-item__upper-zone">-->
+
+  <div class="basket-page-item__lower-zone">
+    <div class="basket-page-item__lower-zone-name">{{headingItem.name | uppercase}}</div>
+    <div class="basket-page-item__lower-zone-price">
+      <div class="basket-page-item__counter">
+        <mat-icon class="basket-page-item__counter-icon">remove</mat-icon>
+        <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
+        <mat-icon class="basket-page-item__counter-icon-add">add</mat-icon>
+      </div>
+      <span class="basket-page-item__price">
+        {{headingItem.price}}<span *ngIf="headingItem.price!==null">.00 Dhs</span>
+      </span>
+    </div>
+  </div>
+
+</div>
