@@ -26,8 +26,8 @@
 
 
 
-  &a {
-    height: 60%;
+  &upper-zone {
+    min-height: 60%;
     width: 100%;
     border-radius: 15px 15px 0 0;
     //background-color: lightsalmon;
@@ -46,7 +46,7 @@
       font-size: 15px;
     }
 
-    &-b {
+    &-button {
       position: relative;
       float: right;
       z-index: 99;
@@ -57,17 +57,18 @@
       margin: 5px 8px 0 0;
       opacity: 0.3;
 
-      &-c {
+      &-icon {
         color: black;
         margin: -16px 0 0 0;
         font-weight: bold;
       }
     }
 
-    &-d {
+    &-image {
       height: 100%;
       width: 100%;
       //margin-top: -40px;
+      border-radius: 10px 10px 0 0;
       margin-top: -22px;
     }
   }
@@ -136,6 +137,17 @@
       justify-content: space-between;
       align-items: center;
       width: 88%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+
+  .basket-page-item__ {
+    &upper-zone {
+      mat-icon {
+        height: 30px !important;
+      }
     }
   }
 }

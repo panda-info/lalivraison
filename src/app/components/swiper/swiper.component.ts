@@ -19,11 +19,11 @@ export class SwiperComponent implements OnInit, OnDestroy {
   }
 
   nextImage(): void {
-    this.currentImageIndex = ++this.currentImageIndex % 4;
+    this.currentImageIndex = ++this.currentImageIndex % 6;
   }
 
   previousImage(): void {
-    this.currentImageIndex = (--this.currentImageIndex + 4) % 4;
+    this.currentImageIndex = (--this.currentImageIndex + 6) % 6;
   }
 
   ngOnDestroy(): void {

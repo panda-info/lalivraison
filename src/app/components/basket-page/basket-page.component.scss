@@ -4,7 +4,8 @@
 
   &padding-maker {
     padding: 20px 0 20px 0;
-    width: 40%;
+    //width: 600px;
+    width: 450px;
     min-height: 50%;
     height: fit-content;
     //overflow-x: hidden;
@@ -13,6 +14,7 @@
   &container {
     //min-height: 50%;
     //height: fit-content;
+    //width: 100%;
     min-width: 35%;
     display: flex;
     flex-direction: column;
@@ -58,7 +60,7 @@
     //  align-items: center;
 
       &-details-price {
-        width: 90%;
+        width: 83%;
         min-height: 110px;
         background-color: white;
         margin-top: 10px;
@@ -75,10 +77,10 @@
         &-line {
           display: flex;
           justify-content: space-between;
-          width: 80%;
+          width: 90%;
 
           &-separator {
-            width: 80% !important;
+            width: 90% !important;
             //border: none;
             color: lightgray;
           }
@@ -92,23 +94,36 @@
       }
 
       &-toggle {
-        border-radius: 15px;
-        height: 35px;
-        width: 90%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        //border-radius: 15px;
+        border-radius: 50px;
+        height: 50px;
+        width: 83%;
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
         margin-top: 10px;
 
         &-button {
           width: 50%;
           font-weight: 500;
+
+          &-left {
+            @extend .basket-page__content-toggle-button;
+            border-radius: 50px 0 0 50px;
+          }
+
+          &-right {
+            @extend .basket-page__content-toggle-button;
+            border-radius: 0 50px 50px 0;
+          }
         }
       }
 
       &-button {
-        width: 90%;
-        border-radius: 15px;
+        height: 50px;
+        width: 83%;
+        //border-radius: 15px;
+        border-radius: 50px;
         margin-top: 10px;
         //margin-bottom: 10px;
         color: white;
@@ -116,22 +131,33 @@
     //}
 
     &-items {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-row-gap: 10px;
-      grid-column-gap: 10px;
+      //display: grid;
+      //grid-template-columns: repeat(3, 1fr);
+      //grid-row-gap: 10px;
+      //grid-column-gap: 10px;
       margin-bottom: 10px;
-      //display: flex;
-      //justify-content: center;
-
-      width: 90%;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      //background-color: lightblue;
+      width: 92%;
+      //padding-left: 10px;
+      //margin-left: -8px;
+      //margin-right: -8px;
     }
 
     &-item {
       height: 200px;
       width: 170px;
+      //flex-basis: 33%;
       border-radius: 10px;
+      //margin-right: 10px;
+      //margin-left: 8px;
+      margin-bottom: 10px;
       //background-color: lightgoldenrodyellow;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-bottom: 10px;
     }
   }
 }
@@ -140,7 +166,9 @@
   .basket-page__ {
 
     &padding-maker {
-      width: 97%;
+      //width: 360px;
+      width: 96%;
+      //background-color: lightgreen;
     }
 
     &content {
@@ -149,7 +177,8 @@
         width: 95%;
 
         &-line {
-          width: 95%;
+          width: 90%;
+          //background-color: lightpink;
 
           &-separator {
             width: 95%;
@@ -158,9 +187,15 @@
       }
 
       &-items {
-        width: 95%;
-        grid-column-gap: 5px;
-        grid-template-columns: repeat(2, 1fr);
+        width: 98%;
+        //grid-column-gap: 5px;
+        //grid-template-columns: repeat(2, 1fr);
+        //background-color: lightpink;
+      }
+
+      &-item {
+        padding-left: 3px;
+        padding-right: 3px;
       }
 
       &-toggle {
@@ -183,8 +218,24 @@
 
 ::ng-deep .mat-button-toggle-checked {
   color: white !important;
+  line-height: 30px;
 }
 
 .mat-button-toggle-checked {
   background-color: $blue-lalivraison;
+  border: 2px solid $blue-lalivraison;
+  //height: 50px;
+}
+//
+//::ng-deep .mat-button-toggle-checked .mat-button-toggle-focus-overlay {
+//  height: 50px;
+//}
+//
+//
+//::ng-deep .mat-button-toggle-group {
+//  -webkit-tap-highlight-color: lightgrey;
+//}
+
+::ng-deep .mat-button-toggle-focus-overlay {
+  position: static !important;
 }

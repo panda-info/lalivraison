@@ -260,6 +260,13 @@
 @media (max-width: 480px) {
   .selected-heading-item-dialog__ {
 
+    &top {
+
+      .mat-icon-button {
+        line-height: 42px;
+      }
+    }
+
     &content-items-container-{
 
       &declination {

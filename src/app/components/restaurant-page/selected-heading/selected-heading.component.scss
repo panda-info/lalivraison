@@ -40,6 +40,7 @@
     &-item {
       height: 200px;
       width: 170px;
+      padding-bottom: 10px;
     }
   }
 }
@@ -75,6 +76,22 @@
 @media (max-width: 480px) {
 
   .selected-heading__ {
+
+    &container {
+      //background-color: lightgreen;
+    }
+
+    &body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-around;
+      flex-wrap: wrap;
+
+      //&-item {
+      //  padding-left: 3px;
+      //  padding-right: 3px;
+      //}
+    }
 
     &title {
       text-align: center;
