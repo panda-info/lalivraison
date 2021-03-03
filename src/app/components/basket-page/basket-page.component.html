@@ -2,7 +2,9 @@
 <div class="basket-page__container">
   <div class="basket-page__header">
     <div class="basket-page__header-container">
-      <button mat-button style="height: 50px; width: 20px; margin-left: -20px; border-radius: 8px">
+      <button mat-button
+              (click)="back()"
+              style="height: 50px; width: 20px; margin-left: -20px; border-radius: 8px">
         <mat-icon style="color: white; font-weight: bold; margin-top: -4px; margin-left: 8px;">arrow_back_ios</mat-icon>
       </button>
       <div>Votre Panier</div>
@@ -94,6 +96,7 @@
         <!--</button>-->
 
         <button mat-raised-button
+                (click)="validate()"
                 color="primary"
                 class="basket-page__content-button">
           Je commande

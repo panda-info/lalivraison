@@ -60,6 +60,7 @@
 
     <button class="checkout-page__info-zone-button"
             mat-raised-button
+            (click)="validate()"
             color="primary">
       Commander
     </button>
@@ -120,6 +121,7 @@
         </div>
 
         <button class="checkout-page__order-zone-button"
+                (click)="validate()"
                 mat-raised-button
                 color="primary">
           Commander

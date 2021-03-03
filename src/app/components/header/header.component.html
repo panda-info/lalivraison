@@ -1,6 +1,7 @@
 <div class="header__container">
   <div class="header__first-line-container">
     <img src="../../../assets/images/Lalivraison_logo.svg"
+         [routerLink]="['/']"
          class="header__logo">
 
     <mat-form-field class="header__search-field">
@@ -15,6 +16,7 @@
             matBadge="4"
             matBadgePosition="below after"
             matBadgeColor="primary"
+            [routerLink]="['/panier']"
             color="primary">
       <mat-icon>shopping_cart</mat-icon><span class="header__button-text">&nbsp;Panier</span>
     </button>

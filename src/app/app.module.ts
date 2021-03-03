@@ -34,6 +34,17 @@ import { OrderDetailsPageComponent } from './components/order-details-page/order
 import { StepperComponent } from './components/order-details-page/stepper/stepper.component';
 import { BasketPageComponent } from './components/basket-page/basket-page.component';
 import { BasketPageItemComponent } from './components/basket-page/basket-page-item/basket-page-item.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'home', component: HomePageComponent },
+  { path: 'restaurant/:name', component: RestaurantPageComponent },
+  { path: 'checkout', component: CheckoutPageComponent },
+  { path: 'suivi-commande', component: OrderDetailsPageComponent },
+  { path: 'panier', component: BasketPageComponent },
+  { path: '**', component: HomePageComponent }
+];
 
 @NgModule({
   declarations: [
@@ -62,6 +73,7 @@ import { BasketPageItemComponent } from './components/basket-page/basket-page-it
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes),
     MatButtonModule,
     MatInputModule,
     MatIconModule,
@@ -75,6 +87,7 @@ import { BasketPageItemComponent } from './components/basket-page/basket-page-it
     MatCheckboxModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule { }

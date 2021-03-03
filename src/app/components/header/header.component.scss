@@ -27,6 +27,10 @@
     &:hover {
       cursor: pointer;
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   &search-field {

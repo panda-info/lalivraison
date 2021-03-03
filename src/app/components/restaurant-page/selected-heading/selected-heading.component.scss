@@ -41,6 +41,8 @@
       height: 200px;
       width: 170px;
       padding-bottom: 10px;
+      //padding-right: 5px;
+      //padding-left: 5px;
     }
   }
 }
@@ -86,11 +88,12 @@
       align-items: flex-start;
       justify-content: space-around;
       flex-wrap: wrap;
+      width: 100%;
 
-      //&-item {
-      //  padding-left: 3px;
-      //  padding-right: 3px;
-      //}
+      &-item {
+        padding-left: 3px;
+        padding-right: 3px;
+      }
     }
 
     &title {

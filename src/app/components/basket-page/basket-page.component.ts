@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Location} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-basket-page',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasketPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private location: Location) { }
 
   ngOnInit(): void {
   }
 
+  back(): void {
+    this.location.back();
+  }
+
+  validate(): void {
+    this.router.navigate(['/checkout']);
+  }
 }
