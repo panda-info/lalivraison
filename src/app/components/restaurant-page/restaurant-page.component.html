@@ -96,62 +96,95 @@
 
       <div class="restaurant-page__basket-items">
 
-        <div class="restaurant-page__basket-item" style="margin-top: 10px">
+        <div *ngFor="let item of basketService.items" class="restaurant-page__basket-item" style="margin-top: 10px">
           <div class="restaurant-page__basket-item-remove">
-            <button mat-icon-button class="restaurant-page__basket-item-remove-button">
+            <button (click)="removeItem(item)"
+                    mat-icon-button class="restaurant-page__basket-item-remove-button">
               <mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>
             </button>
           </div>
           <div class="restaurant-page__basket-item-body">
             <img class="restaurant-page__basket-item-body-image"
-                 src="../../../assets/images/p2.png">
+                 [src]="item.image">
             <div class="restaurant-page__basket-item-body-details">
-              <span class="restaurant-page__basket-item-body-details-name">WAKAME SAUMON</span>
+              <span class="restaurant-page__basket-item-body-details-name">{{item.name}}</span>
               <div class="restaurant-page__basket-item-body-details-count-price">
                 <div class="restaurant-page__basket-item-body-details-count">
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
-                  <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
+                  <mat-icon (click)="decrementItemCount(item)"
+                            class="restaurant-page__basket-item-body-details-icon">
+                    remove</mat-icon>
+                  <span>&nbsp;&nbsp;{{item.count}}&nbsp;&nbsp;</span>
+                  <mat-icon (click)="incrementItemCount(item)"
+                            class="restaurant-page__basket-item-body-details-icon-add">
+                    add
+                  </mat-icon>
                 </div>
-                <span class="restaurant-page__basket-item-body-details-price">65.00 Dhs</span>
+                <span class="restaurant-page__basket-item-body-details-price">{{item.unitPrice * item.count}} Dhs</span>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="restaurant-page__basket-item">
-          <div class="restaurant-page__basket-item-remove">
-            <button mat-icon-button class="restaurant-page__basket-item-remove-button">
-              <mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>
-            </button>
-          </div>
-          <div class="restaurant-page__basket-item-body">
-            <img class="restaurant-page__basket-item-body-image"
-                 src="../../../assets/images/p1.png">
-            <div class="restaurant-page__basket-item-body-details">
-              <span class="restaurant-page__basket-item-body-details-name">SALADE DE CHOUX</span>
-              <div class="restaurant-page__basket-item-body-details-count-price">
-                <div class="restaurant-page__basket-item-body-details-count">
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
-                  <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
-                </div>
-                <span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!--<div class="restaurant-page__basket-item">-->
+          <!--<div class="restaurant-page__basket-item-remove">-->
+            <!--<button mat-icon-button class="restaurant-page__basket-item-remove-button">-->
+              <!--<mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>-->
+            <!--</button>-->
+          <!--</div>-->
+          <!--<div class="restaurant-page__basket-item-body">-->
+            <!--<img class="restaurant-page__basket-item-body-image"-->
+                 <!--src="../../../assets/images/p1.png">-->
+            <!--<div class="restaurant-page__basket-item-body-details">-->
+              <!--<span class="restaurant-page__basket-item-body-details-name">SALADE DE CHOUX</span>-->
+              <!--<div class="restaurant-page__basket-item-body-details-count-price">-->
+                <!--<div class="restaurant-page__basket-item-body-details-count">-->
+                  <!--<mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>-->
+                  <!--<span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>-->
+                  <!--<mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>-->
+                <!--</div>-->
+                <!--<span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
 
 
         <!--<div class="restaurant-page__basket-item">-->
           <!--<div class="restaurant-page__basket-item-remove">-->
-            <!--<button mat-icon-button>x</button>-->
+            <!--<button mat-icon-button class="restaurant-page__basket-item-remove-button">-->
+              <!--<mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>-->
+            <!--</button>-->
           <!--</div>-->
           <!--<div class="restaurant-page__basket-item-body">-->
             <!--<img class="restaurant-page__basket-item-body-image"-->
-                 <!--src="../../../assets/images/p2.png">-->
+                 <!--src="../../../assets/images/p3.png">-->
             <!--<div class="restaurant-page__basket-item-body-details">-->
-              <!--<span class="restaurant-page__basket-item-body-details-name">WAKAME SAUMON</span>-->
+              <!--<span class="restaurant-page__basket-item-body-details-name">GAMBAS TEMPURA</span>-->
+              <!--<div class="restaurant-page__basket-item-body-details-count-price">-->
+                <!--<div class="restaurant-page__basket-item-body-details-count">-->
+                  <!--<mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>-->
+                  <!--<span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>-->
+                  <!--<mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>-->
+                <!--</div>-->
+                <!--<span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="restaurant-page__basket-item">-->
+          <!--<div class="restaurant-page__basket-item-remove">-->
+            <!--<button mat-icon-button class="restaurant-page__basket-item-remove-button">-->
+              <!--<mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>-->
+            <!--</button>-->
+          <!--</div>-->
+          <!--<div class="restaurant-page__basket-item-body">-->
+            <!--<img class="restaurant-page__basket-item-body-image"-->
+                 <!--src="../../../assets/images/salade.jpg">-->
+            <!--<div class="restaurant-page__basket-item-body-details">-->
+              <!--<span class="restaurant-page__basket-item-body-details-name">SALADE A COMPOSER</span>-->
               <!--<div class="restaurant-page__basket-item-body-details-count-price">-->
                 <!--<div class="restaurant-page__basket-item-body-details-count">-->
                   <!--<mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>-->
@@ -164,53 +197,6 @@
           <!--</div>-->
         <!--</div>-->
 
-        <div class="restaurant-page__basket-item">
-          <div class="restaurant-page__basket-item-remove">
-            <button mat-icon-button class="restaurant-page__basket-item-remove-button">
-              <mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>
-            </button>
-          </div>
-          <div class="restaurant-page__basket-item-body">
-            <img class="restaurant-page__basket-item-body-image"
-                 src="../../../assets/images/p3.png">
-            <div class="restaurant-page__basket-item-body-details">
-              <span class="restaurant-page__basket-item-body-details-name">GAMBAS TEMPURA</span>
-              <div class="restaurant-page__basket-item-body-details-count-price">
-                <div class="restaurant-page__basket-item-body-details-count">
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
-                  <span>&nbsp;&nbsp;2&nbsp;&nbsp;</span>
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
-                </div>
-                <span class="restaurant-page__basket-item-body-details-price">50.00 Dhs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="restaurant-page__basket-item">
-          <div class="restaurant-page__basket-item-remove">
-            <button mat-icon-button class="restaurant-page__basket-item-remove-button">
-              <mat-icon class="restaurant-page__basket-item-remove-button-icon">close</mat-icon>
-            </button>
-          </div>
-          <div class="restaurant-page__basket-item-body">
-            <img class="restaurant-page__basket-item-body-image"
-                 src="../../../assets/images/salade.jpg">
-            <div class="restaurant-page__basket-item-body-details">
-              <span class="restaurant-page__basket-item-body-details-name">SALADE A COMPOSER</span>
-              <div class="restaurant-page__basket-item-body-details-count-price">
-                <div class="restaurant-page__basket-item-body-details-count">
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon">remove</mat-icon>
-                  <span>&nbsp;&nbsp;1&nbsp;&nbsp;</span>
-                  <mat-icon class="restaurant-page__basket-item-body-details-icon-add">add</mat-icon>
-                </div>
-                <span class="restaurant-page__basket-item-body-details-price">65.00 Dhs</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
 
@@ -219,7 +205,7 @@
         <div class="restaurant-page__basket-bill-details-price">
           <div class="restaurant-page__basket-bill-details-price-line-with-margin">
             <div>Sous-total</div>
-            <div>765.00 Dhs</div>
+            <div>{{basketService.total()}} Dhs</div>
           </div>
           <div class="restaurant-page__basket-bill-details-price-line-with-margin">
             <div>Livraison</div>
@@ -228,7 +214,7 @@
           <hr class="restaurant-page__basket-bill-details-price-line-separator">
           <div class="restaurant-page__basket-bill-details-price-line">
             <div>Total</div>
-            <div>765.00 Dhs</div>
+            <div>{{basketService.total()}} Dhs</div>
           </div>
         </div>
 

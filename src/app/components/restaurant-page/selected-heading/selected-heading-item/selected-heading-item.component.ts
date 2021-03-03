@@ -2,6 +2,9 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialog} from '@angular/material/dialog';
 import {SelectedHeadingItemDialogComponent} from './selected-heading-item-dialog/selected-heading-item-dialog.component';
+import {Router} from '@angular/router';
+import {BasketService} from '../../../../services/basket.service';
+import {Item} from '../../../../models/item';
 
 @Component({
   selector: 'app-selected-heading-item',
@@ -21,7 +24,7 @@ export class SelectedHeadingItemComponent implements OnInit {
   @Input()
   headingItem: any;
 
-  constructor(private snackBar: MatSnackBar, public dialog: MatDialog) { }
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog, private basketService: BasketService) { }
 
   ngOnInit(): void {
   }
@@ -41,6 +44,9 @@ export class SelectedHeadingItemComponent implements OnInit {
         }
       });
     } else {
+      console.log('----------------', this.headingItem.id)
+      this.basketService.addItem(new Item(this.headingItem.id, this.headingItem.name.toUpperCase(),
+        this.headingItem.price, 1, this.headingItem.image))
       this.snackBar.open(this.headingItem.name.toUpperCase(), 'Ajouté(e) au panier', {
         duration: 2000,
       });

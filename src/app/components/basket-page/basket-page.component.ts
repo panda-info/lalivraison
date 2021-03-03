@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {Router} from '@angular/router';
+import {BasketService} from '../../services/basket.service';
 
 @Component({
   selector: 'app-basket-page',
@@ -9,7 +10,7 @@ import {Router} from '@angular/router';
 })
 export class BasketPageComponent implements OnInit {
 
-  constructor(private router: Router, private location: Location) { }
+  constructor(private router: Router, private location: Location, public basketService: BasketService) { }
 
   ngOnInit(): void {
   }

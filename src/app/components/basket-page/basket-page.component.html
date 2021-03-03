@@ -9,100 +9,46 @@
       </button>
       <div>Votre Panier</div>
       <div style="height: 55px; width: 45px; margin-top: -35px; background-color: white; border-radius: 0 0 10px 10px; box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2); color: #21CCBB; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 18px">
-        <span style="margin-top: 15px">4</span>
+        <span style="margin-top: 15px">{{basketService.count()}}</span>
       </div>
     </div>
   </div>
   <div class="basket-page__content">
 
-    <!--<div class="basket-page__content-bill">-->
+    <div class="basket-page__content-items">
+      <app-basket-page-item *ngFor="let item of basketService.items" class="basket-page__content-item"
+                                 [headingItem]="item">
+      </app-basket-page-item>
+    </div>
 
-      <div class="basket-page__content-items">
-        <app-basket-page-item class="basket-page__content-item"
-                                   [headingItem]="{
-            image: '../../../assets/images/p1.png',
-            name: 'SALADE DE CHOUX',
-            price: '125',
-            description: 'Chou et carotte émincé vinaigrette au soja.'
-          }">
-        </app-basket-page-item>
-        <app-basket-page-item class="basket-page__content-item"
-                                   [headingItem]="{
-            image: '../../../assets/images/p2.png',
-            name: 'SALADE DE CHOUX',
-            price: '25',
-            description: 'Chou et carotte émincé vinaigrette au soja.'
-          }">
-        </app-basket-page-item>
-        <app-basket-page-item class="basket-page__content-item"
-                              [headingItem]="{
-            image: '../../../assets/images/p3.png',
-            name: 'SALADE DE CHOUX',
-            price: '25',
-            description: 'Chou et carotte émincé vinaigrette au soja.'
-          }">
-        </app-basket-page-item>
-        <app-basket-page-item class="basket-page__content-item"
-                              [headingItem]="{
-            image: '../../../assets/images/milkshake.jpg',
-            name: 'SALADE DE CHOUX',
-            price: '25',
-            description: 'Chou et carotte émincé vinaigrette au soja.'
-          }">
-        </app-basket-page-item>
-        <!--<app-basket-page-item class="basket-page__content-item"-->
-                              <!--[headingItem]="{-->
-            <!--image: '../../../assets/images/p1.png',-->
-            <!--name: 'SALADE DE CHOUX',-->
-            <!--price: '25',-->
-            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
-          <!--}">-->
-        <!--</app-basket-page-item>-->
-        <!--<app-basket-page-item class="basket-page__content-item"-->
-                              <!--[headingItem]="{-->
-            <!--image: '../../../assets/images/p1.png',-->
-            <!--name: 'SALADE DE CHOUX',-->
-            <!--price: '25',-->
-            <!--description: 'Chou et carotte émincé vinaigrette au soja.'-->
-          <!--}">-->
-        <!--</app-basket-page-item>-->
+    <div class="basket-page__content-details-price">
+      <div class="basket-page__content-details-price-line">
+        <div>Sous-total</div>
+        <div>{{basketService.total()}} Dhs</div>
       </div>
-
-      <div class="basket-page__content-details-price">
-        <div class="basket-page__content-details-price-line">
-          <div>Sous-total</div>
-          <div>765.00 Dhs</div>
-        </div>
-        <div class="basket-page__content-details-price-line">
-          <div>Livraison</div>
-          <div>0 Dhs</div>
-        </div>
-        <hr class="basket-page__content-details-price-line-separator">
-        <div class="basket-page__content-details-price-line">
-          <div>Total</div>
-          <div>765.00 Dhs</div>
-        </div>
+      <div class="basket-page__content-details-price-line">
+        <div>Livraison</div>
+        <div>0 Dhs</div>
       </div>
+      <hr class="basket-page__content-details-price-line-separator">
+      <div class="basket-page__content-details-price-line">
+        <div>Total</div>
+        <div>{{basketService.total()}} Dhs</div>
+      </div>
+    </div>
 
-      <mat-button-toggle-group class="basket-page__content-toggle">
-        <mat-button-toggle class="basket-page__content-toggle-button-left">Livrer</mat-button-toggle>
-        <mat-button-toggle class="basket-page__content-toggle-button-right">Emporter</mat-button-toggle>
-      </mat-button-toggle-group>
+    <mat-button-toggle-group class="basket-page__content-toggle">
+      <mat-button-toggle class="basket-page__content-toggle-button-left">Livrer</mat-button-toggle>
+      <mat-button-toggle class="basket-page__content-toggle-button-right">Emporter</mat-button-toggle>
+    </mat-button-toggle-group>
 
-      <!--<div style="display: flex; width: 90%; justify-content: space-between">-->
-        <!--<button mat-raised-button-->
-                <!--class="basket-page__content-back-button">-->
-          <!--Continuer mes achats-->
-        <!--</button>-->
+    <button mat-raised-button
+            (click)="validate()"
+            color="primary"
+            class="basket-page__content-button">
+      Je commande
+    </button>
 
-        <button mat-raised-button
-                (click)="validate()"
-                color="primary"
-                class="basket-page__content-button">
-          Je commande
-        </button>
-      <!--</div>-->
-    <!--</div>-->
   </div>
 </div>
 </div>

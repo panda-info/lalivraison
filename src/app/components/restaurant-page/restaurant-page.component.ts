@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {BasketService} from '../../services/basket.service';
+import {Item} from '../../models/item';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -29,109 +31,126 @@ export class RestaurantPageComponent implements OnInit {
         name: 'Tout',
         items: [
           {
+            id: 100,
             image: '../../../assets/images/p1.png',
             name: 'SALADE DE CHOUX',
             price: '25',
             description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
+            id: 101,
             image: '../../../assets/images/p2.png',
             name: 'WAKAME SAUMON',
             price: '60',
             description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
+            id: 102,
             image: '../../../assets/images/p3.png',
             name: 'GAMBAS TEMPURA',
             price: '65',
             description: 'Chou et carotte émincé vinaigrette au soja.'
           },
           {
+            id: 103,
             name: 'SALMON AVOCADO TARTARE',
             image: '../../../assets/images/SALMON-AVOCADO-TARTARE.png',
             price: '55',
             description: 'Saumon, avocat, sésame, boulette de riz vinaigré, sauce Nikkei servie à part'
           },
           {
+            id: 104,
             name: 'TUNA SALMON TARTARE (NEW)',
             image: '../../../assets/images/TUNA-SALMON-TARTARE-(NEW).jpg',
             price: '65',
             description: 'Poisson blanc, mangue, avocat, menthe ciselée, boulette de riz vinaigré, sauce Ponzu servie à part'
           },
           {
+            id: 105,
             name: 'CRABE TARTARE',
             image: '../../../assets/images/CRABE-TARTARE.png',
             price: '59',
             description: 'Tartare de crabe, avocat, masago, boulette de riz vinaigré, Mayo épicé'
           },
           {
+            id: 106,
             name: 'SALMON TIRADITO',
             image: '../../../assets/images/SALMON-TIRADITO.png',
             price: '55',
             description: '7P. Saumon, oignon, ciboulette, coriandre, sauce nikkei'
           },
           {
+            id: 107,
             name: 'TUNA TIRADITO',
             image: '../../../assets/images/TUNA-TIRADITO.png',
             price: '55',
             description: '7P. Thon, poireaux, graines de sésame, sauce Ponzu'
           },
           {
+            id: 108,
             name: 'MAHI MAHI TIRADITO',
             image: '../../../assets/images/MAHI-MAHI-TIRADITO.png',
             price: '55',
             description: '7P. Poisson blanc, menthe, graines de sésame, sauce Ponzu'
           },
           {
+            id: 109,
             name: 'SALMON TATAKI',
             image: '../../../assets/images/SALMON-TATAKI.png',
             price: '50',
             description: '5P. Saumon mi-cuit, sésame, sauce NIKKEI'
           },
           {
+            id: 110,
             name: 'TUNA TATAKI',
             image: '../../../assets/images/TUNA-TATAKI.png',
             price: '50',
             description: '5P. Thon mi-cuit, sésame, sauce PONZU'
           },
           {
+            id: 111,
             name: 'SALMON CHIRACHI',
             image: '../../../assets/images/SALMON-CHIRACHI.png',
             price: '55',
             description: 'Sashimi saumon, riz vinaigré , sésame, soja sauce'
           },
           {
+            id: 112,
             name: 'SALMON AVOCADO CHIRACHI',
             image: '../../../assets/images/SALMON-AVOCADO-CHIRACHI.png',
             price: '60',
             description: 'Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce'
           },
           {
+            id: 113,
             name: 'TUNA SALMON CHIRASHI',
             image: '../../../assets/images/TUNA-SALMON-CHIRASHI.jpg',
             price: '60',
             description: 'Sashimi saumon, avocat, riz vinaigré, sésame, soja sauce'
           },
           {
+            id: 114,
             name: 'CHICKEN BALL\'S',
             image: '../../../assets/images/CHICKEN-BALLS.png',
             price: '39',
             description: 'Boulette de poulet, sauce teriyaki'
           },
           {
+            id: 115,
             name: 'CHICKEN YAKI (NEW)',
             image: '../../../assets/images/CHICKEN-YAKI-(NEW).png',
             price: '39',
             description: 'Boulette de poulet, sauce teriyaki'
           },
           {
+            id: 116,
             name: 'BEEF CHEESE',
             image: '../../../assets/images/BEEF-CHEESE.png',
             price: '45',
             description: 'Bœuf fromage, sauce teriyaki'
           },
           {
-            id: 3,
+            id: 117,
             image: '../../../assets/images/milkshake.jpg',
             name: 'Milkshake',
             description: 'Un milk-shake est une boisson frappée à base de lait qui se prépare généralement en ajoutant' +
@@ -572,7 +591,7 @@ export class RestaurantPageComponent implements OnInit {
   restaurantDescriptionOpened = false;
   selectedHeadingIndex = 0;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, public basketService: BasketService) { }
 
   ngOnInit(): void {
   }
@@ -601,5 +620,17 @@ export class RestaurantPageComponent implements OnInit {
 
   validateBasket(): void {
     this.router.navigate(['/checkout']);
+  }
+
+  incrementItemCount(item: Item): void {
+    this.basketService.incrementItemCount(item);
+  }
+
+  decrementItemCount(item: Item): void {
+    this.basketService.decrementItemCount(item);
+  }
+
+  removeItem(item: Item): void {
+    this.basketService.removeItem(item);
   }
 }
