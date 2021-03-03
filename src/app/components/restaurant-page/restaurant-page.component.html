@@ -105,6 +105,7 @@
           </div>
           <div class="restaurant-page__basket-item-body">
             <img class="restaurant-page__basket-item-body-image"
+                 (click)="showDialogDetails(item)"
                  [src]="item.image">
             <div class="restaurant-page__basket-item-body-details">
               <span class="restaurant-page__basket-item-body-details-name">{{item.name}}</span>

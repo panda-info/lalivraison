@@ -35,6 +35,7 @@ import { StepperComponent } from './components/order-details-page/stepper/steppe
 import { BasketPageComponent } from './components/basket-page/basket-page.component';
 import { BasketPageItemComponent } from './components/basket-page/basket-page-item/basket-page-item.component';
 import {RouterModule, Routes} from '@angular/router';
+import { BasketItemDialogComponent } from './components/basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -68,7 +69,8 @@ const routes: Routes = [
     OrderDetailsPageComponent,
     StepperComponent,
     BasketPageComponent,
-    BasketPageItemComponent
+    BasketPageItemComponent,
+    BasketItemDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -39,7 +39,8 @@ export class SelectedHeadingItemDialogComponent implements OnInit{
       duration: 2000,
     });
     this.basketService.addItem(new Item(this.data.item.id, this.data.item.name,
-      this.data.item.price, this.itemCount, this.data.item.image));
+      this.data.item.price, this.itemCount, this.data.item.image, this.data.item.description,
+      this.data.item.restaurant));
   }
 
   disableAddButtonForFormula(): boolean {

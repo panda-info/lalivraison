@@ -1,0 +1,115 @@
+<div class="basket-item-dialog__container">
+
+  <div class="basket-item-dialog__top">
+
+    <button mat-icon-button
+            class="basket-item-dialog__top-close-button"
+            [mat-dialog-close]="true">
+      <mat-icon class="basket-item-dialog__top-close-button-icon">close</mat-icon>
+    </button>
+    <img [src]="data.item.image"
+         class="basket-item-dialog__top-image">
+  </div>
+
+  <div class="basket-item-dialog__content">
+
+    <div class="basket-item-dialog__lower-zone-name">
+      {{data.item.name | uppercase}}
+    </div>
+
+    <div class="basket-item-dialog__lower-zone-description">
+      {{data.item.description}}
+    </div>
+
+
+    <!--&lt;!&ndash;Compositions&ndash;&gt;-->
+    <!--<div *ngIf="item.compositions">-->
+      <!--<div *ngFor="let composition of data.item.compositions"-->
+           <!--class="basket-item-dialog__content-items-container">-->
+        <!--<div class="basket-item-dialog__content-items-container-composition-name">-->
+          <!--{{composition.name}}-->
+        <!--</div>-->
+        <!--<mat-checkbox *ngFor="let i of composition.items"-->
+                      <!--class="basket-item-dialog__content-items-container-composition-item"-->
+                      <!--color="primary">-->
+          <!--<div class="basket-item-dialog__content-items-container-composition-item-label">-->
+            <!--<span>{{i.name}}</span>-->
+            <!--<span>{{i.price}} Dhs</span>-->
+          <!--</div>-->
+        <!--</mat-checkbox>-->
+      <!--</div>-->
+    <!--</div>-->
+
+
+    <!--Déclinaisons-->
+    <!--<div *ngIf="data.item.declinations">-->
+      <!--<mat-radio-group class="basket-item-dialog__content-items-container">-->
+        <!--<mat-radio-button *ngFor="let declination of data.item.declinations.values"-->
+                          <!--class="basket-item-dialog__content-items-container-declination-item"-->
+                          <!--color="primary"-->
+                          <!--[value]="declination">-->
+          <!--<div class="basket-item-dialog__content-items-container-declination-item-label">-->
+            <!--<span>{{declination.name}}</span>-->
+            <!--<span>{{declination.price}} Dhs</span>-->
+          <!--</div>-->
+        <!--</mat-radio-button>-->
+
+      <!--</mat-radio-group>-->
+    <!--</div>-->
+
+
+    <!--Formule-->
+    <!--<div *ngIf="item.formula">-->
+      <!--<mat-radio-group *ngFor="let category of data.item.formula.categories"-->
+                       <!--class="basket-item-dialog__content-items-container">-->
+        <!--<div class="basket-item-dialog__content-items-container-formula-name">-->
+          <!--{{category.name}}-->
+        <!--</div>-->
+        <!--<mat-radio-button *ngFor="let i of category.items"-->
+                          <!--class="basket-item-dialog__content-items-container-formula-label"-->
+                          <!--color="primary"-->
+                          <!--[value]="i">-->
+          <!--&nbsp;&nbsp;&nbsp;&nbsp;{{i}}-->
+        <!--</mat-radio-button>-->
+      <!--</mat-radio-group>-->
+    <!--</div>-->
+
+
+  </div>
+
+  <div class="basket-item-dialog__bottom">
+    <button mat-button
+            [mat-dialog-close]="true"
+            (click)="navigateToRestautant()">
+      Revisiter le restaurant
+    </button>
+    <!--<div class="basket-item-dialog__bottom-container">-->
+      <!--<div class="basket-item-dialog__bottom-price">{{data.item.price * itemCount}} Dhs</div>-->
+
+      <!--<div class="basket-item-dialog__bottom-counter">-->
+        <!--<button mat-icon-button-->
+                <!--style="background-color: #ed145b"-->
+                <!--(click)="decrementCount()"-->
+                <!--class="basket-item-dialog__bottom-counter-button">-->
+          <!--<mat-icon class="basket-item-dialog__bottom-counter-button-icon">remove</mat-icon>-->
+        <!--</button>-->
+        <!--<span style="font-weight: bold">{{itemCount}}</span>-->
+        <!--<button mat-icon-button-->
+                <!--(click)="incrementCount()"-->
+                <!--class="basket-item-dialog__bottom-counter-button">-->
+          <!--<mat-icon class="basket-item-dialog__bottom-counter-button-icon">add</mat-icon>-->
+        <!--</button>-->
+      <!--</div>-->
+
+      <!--<button [mat-dialog-close]="true"-->
+              <!--(click)="addToBasket()"-->
+              <!--mat-icon-button-->
+              <!--class="basket-item-dialog__bottom-button"-->
+              <!--color="primary">-->
+        <!--<mat-icon>shopping_cart</mat-icon>-->
+      <!--</button>-->
+    <!--</div>-->
+
+  </div>
+
+</div>

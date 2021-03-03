@@ -16,8 +16,9 @@
   <div class="basket-page__content">
 
     <div class="basket-page__content-items">
-      <app-basket-page-item *ngFor="let item of basketService.items" class="basket-page__content-item"
-                                 [headingItem]="item">
+      <app-basket-page-item *ngFor="let item of basketService.items"
+                            class="basket-page__content-item"
+                            [item]="item">
       </app-basket-page-item>
     </div>
 

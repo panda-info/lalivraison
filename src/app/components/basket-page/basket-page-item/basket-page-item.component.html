@@ -1,30 +1,31 @@
 <div class="basket-page-item__container">
 
-  <div class="basket-page-item__upper-zone">
+  <div (click)="showDialogDetails()"
+       class="basket-page-item__upper-zone">
 
     <button mat-icon-button
-            (click)="removeItem(headingItem)"
+            (click)="removeItem(item)"
             class="basket-page-item__upper-zone-button">
       <mat-icon class="basket-page-item__upper-zone-button-icon">close</mat-icon>
     </button>
-    <img [src]="headingItem.image"
+    <img [src]="item.image"
          class="basket-page-item__upper-zone-image">
   </div>
 
   <div class="basket-page-item__lower-zone">
-    <div class="basket-page-item__lower-zone-name">{{headingItem.name | uppercase}}</div>
+    <div class="basket-page-item__lower-zone-name">{{item.name | uppercase}}</div>
     <div class="basket-page-item__lower-zone-price">
       <div class="basket-page-item__counter">
-        <mat-icon (click)="decrementItemCount(headingItem)"
+        <mat-icon (click)="decrementItemCount(item)"
                   class="basket-page-item__counter-icon">remove</mat-icon>
-        <span>&nbsp;{{headingItem.count}}&nbsp;</span>
-        <mat-icon (click)="incrementItemCount(headingItem)"
+        <span>&nbsp;{{item.count}}&nbsp;</span>
+        <mat-icon (click)="incrementItemCount(item)"
                   class="basket-page-item__counter-icon-add">
           add
         </mat-icon>
       </div>
       <span class="basket-page-item__price">
-        {{headingItem.unitPrice}}<span *ngIf="headingItem.unitPrice!==null">.00 Dhs</span>
+        {{item.unitPrice}}<span *ngIf="item.unitPrice!==null">.00 Dhs</span>
       </span>
     </div>
   </div>

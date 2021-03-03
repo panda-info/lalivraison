@@ -1,0 +1,275 @@
+@import "~src/sass/variables";
+.basket-item-dialog__ {
+
+  &close-zone {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  &container {
+    font-family: Lato;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  &top {
+    height: 35%;
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+
+    &-close-button {
+      position: relative;
+      float: right;
+      z-index: 99;
+      background-color: white;
+      height: 25px;
+      width: 25px;
+      border-radius: 8px;
+      margin: 15px 15px 0 0;
+      opacity: 0.3;
+
+      &-icon {
+        color: black;
+        margin: -16px 0 0 0;
+        font-weight: bold;
+      }
+    }
+
+    &-image {
+      height: 100%;
+      width: 100%;
+      margin-top: -40px;
+    }
+  }
+
+  &content {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &-items-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &-formula- {
+
+        &name {
+          width: 350px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #21CCBB;
+          text-align: left;
+          margin-left: 15px;
+        }
+
+        &label {
+          width: 320px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 10px;
+        }
+      }
+
+      &-composition- {
+
+        &name {
+          width: 340px;
+          margin-bottom: 10px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #21CCBB;
+          text-align: left;
+          margin-left: 15px;
+        }
+
+        &item {
+          width: 330px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          align-items: center;
+
+          &-label {
+            margin-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 270px;
+          }
+        }
+      }
+
+      &-declination- {
+
+        &item {
+          width: 330px;
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-weight: 400;
+          border: 2px lightgray solid;
+          border-radius: 5px;
+          height: 35px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding-left: 10px;
+
+          &-label {
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 280px;
+          }
+        }
+      }
+    }
+  }
+
+  &bottom  {
+    height: 10%;
+    width: 100%;
+    -webkit-box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
+    box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  &upper-zone {
+    height: 220px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  &lower-zone {
+
+    &-name {
+      font-size: 21px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    &-description {
+      font-size: 15px;
+      margin-bottom: 20px;
+      text-align: center;
+      width: 90%;
+      font-style: italic;
+    }
+
+    &-price {
+      text-align: center;
+      font-weight: bold;
+      font-size: 15px;
+      color: $blue-lalivraison;
+      margin-bottom: 5px;
+    }
+
+    &-button {
+      border-radius: 25px;
+      color: white;
+      font-size: 16px;
+      width: 75%;
+      height: 50px;
+
+      &-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        height: 60px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 480px) {
+  .basket-item-dialog__ {
+
+    &top {
+
+      .mat-icon-button {
+        line-height: 42px;
+      }
+    }
+
+    &content-items-container-{
+
+      &declination {
+        &-item{
+          width: 260px;
+
+          &-label{
+            width: 200px;
+          }
+        }
+      }
+
+      &composition {
+        &-name {
+          width: 290px;
+        }
+
+        &-item {
+          width: 270px;
+
+          &-label {
+            width: 210px;
+          }
+        }
+      }
+
+      &formula {
+        &-name {
+          width: 290px;
+        }
+
+        &-label {
+          width: 260px;
+        }
+      }
+
+    }
+  }
+}
+
+::ng-deep .mat-radio-label-content {
+  color: dimgray;
+}
+
+::ng-deep .mat-checkbox-inner-container {
+  margin: 0 0 0 15px !important;
+}
+
+::ng-deep .mat-checkbox-layout {
+  align-items: center !important;
+}
