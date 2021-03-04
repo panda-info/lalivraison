@@ -13,19 +13,19 @@
     <!--contenu principal-->
     <div class="swiper__middle-panel-main-zone">
 
-      <div class="swiper__button-left">
-        <button mat-icon-button (click)="previousImage()">
-          <mat-icon style="color: white; font-weight: bold">keyboard_arrow_left</mat-icon>
-        </button>
-      </div>
+      <!--<div class="swiper__button-left">-->
+        <!--<button mat-icon-button (click)="previousImage()">-->
+          <!--<mat-icon style="color: white; font-weight: bold">keyboard_arrow_left</mat-icon>-->
+        <!--</button>-->
+      <!--</div>-->
 
-      <img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px;">
+      <img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">
 
-      <div class="swiper__button-right">
-        <button mat-icon-button (click)="nextImage()">
-          <mat-icon style="color: white; font-weight: bold">keyboard_arrow_right</mat-icon>
-        </button>
-      </div>
+      <!--<div class="swiper__button-right">-->
+        <!--<button mat-icon-button (click)="nextImage()">-->
+          <!--<mat-icon style="color: white; font-weight: bold">keyboard_arrow_right</mat-icon>-->
+        <!--</button>-->
+      <!--</div>-->
 
 
 
@@ -48,12 +48,30 @@
 
     <!--les 4 cercles de scooling-->
     <div class="swiper__scroll-circles-container">
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 0"></div>
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 1"></div>
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 2"></div>
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 3"></div>
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 4"></div>
-      <div class="swiper__scroll-circle" [class.swiper__scroll-circle-selected]="currentImageIndex === 5"></div>
+      <div (click)="setCurrentImageIndex(0)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 0">
+      </div>
+      <div (click)="setCurrentImageIndex(1)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 1">
+      </div>
+      <div (click)="setCurrentImageIndex(2)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 2">
+      </div>
+      <div (click)="setCurrentImageIndex(3)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 3">
+      </div>
+      <div (click)="setCurrentImageIndex(4)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 4">
+      </div>
+      <div (click)="setCurrentImageIndex(5)"
+           class="swiper__scroll-circle"
+           [class.swiper__scroll-circle-selected]="currentImageIndex === 5">
+      </div>
     </div>
 
   </div>

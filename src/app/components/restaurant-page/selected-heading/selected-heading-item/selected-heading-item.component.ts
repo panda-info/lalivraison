@@ -49,7 +49,7 @@ export class SelectedHeadingItemComponent implements OnInit {
       // console.log('>>>>>>>>>>>>>>>>>>', item)
       this.basketService.addItem(new Item(this.headingItem.id, this.headingItem.name.toUpperCase(),
         this.headingItem.price, 1, this.headingItem.image, this.headingItem.description,
-        this.headingItem.restaurant, this.headingItem.type as ItemType))
+        this.headingItem.restaurant, this.headingItem.type as ItemType, null, null))
       this.snackBar.open(this.headingItem.name.toUpperCase(), 'Ajouté(e) au panier', {
         duration: 2000,
       });

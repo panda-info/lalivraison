@@ -14,6 +14,7 @@
     <button class="header__button"
             mat-raised-button
             [matBadge]="basketService.count()"
+            [matBadgeHidden]="!basketService.count()"
             matBadgePosition="below after"
             matBadgeColor="primary"
             [routerLink]="['/panier']"

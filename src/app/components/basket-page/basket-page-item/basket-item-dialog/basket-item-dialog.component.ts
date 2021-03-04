@@ -12,6 +12,7 @@ export class BasketItemDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private router: Router) { }
 
   ngOnInit(): void {
+    console.log('<<<<<<<<<<<<<<<<', this.data.item);
   }
 
   navigateToRestautant(): void {

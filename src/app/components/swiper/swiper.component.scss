@@ -101,6 +101,8 @@
       width: 8px;
       border-radius: 50%;
       background-color: $gray-lalivraison;
+      cursor: pointer;
+
 
       &-selected {
         @extend .swiper__scroll-circle;

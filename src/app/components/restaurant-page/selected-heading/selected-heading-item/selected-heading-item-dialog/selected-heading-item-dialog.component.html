@@ -62,7 +62,8 @@
 
     <!--Formule-->
     <div *ngIf="item.formula">
-      <mat-radio-group *ngFor="let category of data.item.formula.categories"
+      <mat-radio-group *ngFor="let category of selectedFormula"
+                       [(ngModel)]="category.selectedItem"
                        class="selected-heading-item-dialog__content-items-container">
         <div class="selected-heading-item-dialog__content-items-container-formula-name">
           {{category.name}}
@@ -71,7 +72,7 @@
                           class="selected-heading-item-dialog__content-items-container-formula-label"
                           color="primary"
                           [value]="i">
-          &nbsp;&nbsp;&nbsp;&nbsp;{{i}}
+          &nbsp;&nbsp;&nbsp;&nbsp;{{i.name}}
         </mat-radio-button>
       </mat-radio-group>
     </div>
@@ -105,6 +106,7 @@
 
       <button [mat-dialog-close]="true"
               (click)="addToBasket()"
+              [disabled]="disableButton()"
               mat-icon-button
               class="selected-heading-item-dialog__bottom-button"
               color="primary">

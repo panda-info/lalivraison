@@ -6,7 +6,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
   styleUrls: ['./swiper.component.scss']
 })
 export class SwiperComponent implements OnInit, OnDestroy {
-  public currentImageIndex = 0
+  public currentImageIndex = 3
   private interval;
 
   constructor() { }
@@ -30,5 +30,9 @@ export class SwiperComponent implements OnInit, OnDestroy {
     if (this.interval) {
       clearInterval(this.interval);
     }
+  }
+
+  setCurrentImageIndex(currentImageIndex: number) {
+    this.currentImageIndex = currentImageIndex;
   }
 }

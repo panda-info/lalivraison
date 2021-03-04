@@ -22,7 +22,7 @@
       </app-basket-page-item>
     </div>
 
-    <div class="basket-page__content-details-price">
+    <div class="basket-page__content-details-price" *ngIf="basketService.count()">
       <div class="basket-page__content-details-price-line">
         <div>Sous-total</div>
         <div>{{basketService.total()}} Dhs</div>
@@ -38,13 +38,21 @@
       </div>
     </div>
 
-    <mat-button-toggle-group class="basket-page__content-toggle">
+    <mat-button-toggle-group class="basket-page__content-toggle" *ngIf="basketService.count()">
       <mat-button-toggle class="basket-page__content-toggle-button-left">Livrer</mat-button-toggle>
       <mat-button-toggle class="basket-page__content-toggle-button-right">Emporter</mat-button-toggle>
     </mat-button-toggle-group>
 
+    <img src="../../../assets/images/empty-basket-2.png"
+         style="background-color: lightsalmon; width: 75%; height: 300px; opacity: 0.7"
+         *ngIf="!basketService.count()">
+    <div *ngIf="!basketService.count()" style="margin-top: -80px; z-index: 99; font-size: 16px; margin-bottom: 20px; color: #21CCBB; font-weight: bold">
+      Votre panier est vide
+    </div>
+
     <button mat-raised-button
             (click)="validate()"
+            [disabled]="!basketService.count()"
             color="primary"
             class="basket-page__content-button">
       Je commande

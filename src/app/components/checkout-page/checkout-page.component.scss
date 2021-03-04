@@ -49,7 +49,7 @@
       width: 70%;
       font-size: 25px;
       font-weight: bold;
-      letter-spacing: 2px;
+      //letter-spacing: 2px;
       margin-top: 20px;
       color: $black-lalivraison;
       display: flex;
@@ -106,6 +106,7 @@
     align-items: center;
     border-radius: 10px 10px 0 0;
     justify-content: flex-start;
+    height: fit-content;
 
     &-button {
       display: none;
@@ -116,7 +117,8 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      height: 70%;
+      min-height: 70%;
+      height: fit-content;
       border-radius: 10px 10px 0 0;
       -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
       -moz-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
@@ -222,7 +224,6 @@
         color: white;
         font-size: 20px;
         font-weight: bold;
-        letter-spacing: 2px;
       }
     }
 
@@ -241,9 +242,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-height: fit-content;
+      height: fit-content;
       width: 100%;
-      padding-top: 10px;
+      padding-top: 20px;
+      padding-bottom: 20px;
 
       .mat-button-toggle-checked {
         background-color: $blue-lalivraison !important;

@@ -63,20 +63,22 @@
 
 
     <!--Formule-->
-    <!--<div *ngIf="item.formula">-->
-      <!--<mat-radio-group *ngFor="let category of data.item.formula.categories"-->
-                       <!--class="basket-item-dialog__content-items-container">-->
-        <!--<div class="basket-item-dialog__content-items-container-formula-name">-->
-          <!--{{category.name}}-->
-        <!--</div>-->
-        <!--<mat-radio-button *ngFor="let i of category.items"-->
-                          <!--class="basket-item-dialog__content-items-container-formula-label"-->
-                          <!--color="primary"-->
-                          <!--[value]="i">-->
-          <!--&nbsp;&nbsp;&nbsp;&nbsp;{{i}}-->
-        <!--</mat-radio-button>-->
-      <!--</mat-radio-group>-->
-    <!--</div>-->
+    <div *ngIf="data.item.categories">
+      <mat-radio-group *ngFor="let category of data.item.categories"
+                       disabled
+                       [(ngModel)]="category.selectedItem"
+                       class="basket-item-dialog__content-items-container">
+        <div class="basket-item-dialog__content-items-container-formula-name">
+          {{category.name}}
+        </div>
+        <mat-radio-button *ngFor="let i of category.items"
+                          class="basket-item-dialog__content-items-container-formula-label"
+                          color="primary"
+                          [value]="i">
+          &nbsp;&nbsp;&nbsp;&nbsp;{{i.name}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
 
 
   </div>

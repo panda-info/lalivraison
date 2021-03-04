@@ -216,15 +216,31 @@ export class RestaurantPageComponent implements OnInit {
                 {
                   // name: 'Boisson 33 cl',
                   name: 'Choisissez votre boisson',
-                  items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
+                  items: [
+                    {name: 'Eau', id: 1},
+                    {name: 'Coca-cola', id: 2},
+                    {name: 'Fanta', id: 3},
+                    {name: 'Sprite', id: 4},
+                    {name: 'Jus d\'orange', id: 5}
+                  ]
                 },
                 {
                   name: 'Choisissez votre sandwich',
-                  items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
+                  items: [
+                    {name: 'Thon', id: 6},
+                    {name: 'Saumon', id: 7},
+                    {name: 'Viande hachée', id: 8},
+                    {name: 'Dinde fumée', id: 9},
+                  ]
                 },
                 {
                   name: 'Choisissez votre dessert',
-                  items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
+                  items: [
+                    {name: 'Tarte au citron', id: 10},
+                    {name: 'Brownie', id: 11},
+                    {name: 'Chocolat fondu', id: 12},
+                    {name: 'Fruit de saison', id: 13},
+                  ],
                 }
               ]
             }

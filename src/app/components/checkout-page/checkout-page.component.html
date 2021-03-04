@@ -80,34 +80,36 @@
       </div>
       <div class="checkout-page__order-zone-frame-items">
 
-        <div class="checkout-page__order-zone-frame-item">
+        <div *ngFor="let item of basketService.items" class="checkout-page__order-zone-frame-item">
           <img class="checkout-page__order-zone-frame-item-image"
-               src="../../../assets/images/p2.png">
+               [src]="item.image">
           <div class="checkout-page__order-zone-frame-item-details">
-            <span class="checkout-page__order-zone-frame-item-details-name">WAKAME SAUMON</span>
+            <span class="checkout-page__order-zone-frame-item-details-name">{{item.name}}</span>
             <div class="checkout-page__order-zone-frame-item-details-text">
-              <span>1&nbsp;&nbsp;</span>x
-              <span class="checkout-page__order-zone-frame-item-details-text-price">&nbsp;&nbsp;65.00 Dhs</span>
+              <span>{{item.count}}&nbsp;&nbsp;</span>x
+              <span class="checkout-page__order-zone-frame-item-details-text-price">
+                &nbsp;&nbsp;{{item.unitPrice}} Dhs
+              </span>
             </div>
           </div>
         </div>
 
-        <div class="checkout-page__order-zone-frame-item">
-          <img class="checkout-page__order-zone-frame-item-image"
-               src="../../../assets/images/p1.png">
-          <div class="checkout-page__order-zone-frame-item-details">
-            <span class="checkout-page__order-zone-frame-item-details-name">SALADE DE CHOUX</span>
-            <div class="checkout-page__order-zone-frame-item-details-text">
-              <span>2&nbsp;&nbsp;</span>x
-              <span class="checkout-page__order-zone-frame-item-details-text-price">&nbsp;&nbsp;50.00 Dhs</span>
-            </div>
-          </div>
-        </div>
+        <!--<div class="checkout-page__order-zone-frame-item">-->
+          <!--<img class="checkout-page__order-zone-frame-item-image"-->
+               <!--src="../../../assets/images/p1.png">-->
+          <!--<div class="checkout-page__order-zone-frame-item-details">-->
+            <!--<span class="checkout-page__order-zone-frame-item-details-name">SALADE DE CHOUX</span>-->
+            <!--<div class="checkout-page__order-zone-frame-item-details-text">-->
+              <!--<span>2&nbsp;&nbsp;</span>x-->
+              <!--<span class="checkout-page__order-zone-frame-item-details-text-price">&nbsp;&nbsp;50.00 Dhs</span>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
 
         <div class="checkout-page__order-zone-frame-bill">
           <div class="checkout-page__order-zone-frame-bill-line">
             <div>Sous-total</div>
-            <div class="checkout-page__order-zone-frame-bill-line-price">115.00 Dhs</div>
+            <div class="checkout-page__order-zone-frame-bill-line-price">{{basketService.total()}} Dhs</div>
           </div>
           <div class="checkout-page__order-zone-frame-bill-line">
             <div>Livraison</div>
@@ -116,7 +118,7 @@
           <hr class="checkout-page__order-zone-frame-bill-line-separator">
           <div class="checkout-page__order-zone-frame-bill-line">
             <div>Total</div>
-            <div class="checkout-page__order-zone-frame-bill-line-price">115.00 Dhs</div>
+            <div class="checkout-page__order-zone-frame-bill-line-price">{{basketService.total()}} Dhs</div>
           </div>
         </div>
 
