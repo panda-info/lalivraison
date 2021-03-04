@@ -42,20 +42,22 @@
 
 
     <!--Déclinaisons-->
-    <!--<div *ngIf="data.item.declinations">-->
-      <!--<mat-radio-group class="basket-item-dialog__content-items-container">-->
-        <!--<mat-radio-button *ngFor="let declination of data.item.declinations.values"-->
-                          <!--class="basket-item-dialog__content-items-container-declination-item"-->
-                          <!--color="primary"-->
-                          <!--[value]="declination">-->
-          <!--<div class="basket-item-dialog__content-items-container-declination-item-label">-->
-            <!--<span>{{declination.name}}</span>-->
-            <!--<span>{{declination.price}} Dhs</span>-->
-          <!--</div>-->
-        <!--</mat-radio-button>-->
+    <div *ngIf="data.item.declinations">
+      <mat-radio-group class="basket-item-dialog__content-items-container"
+                       disabled
+                       [(ngModel)]="data.item.declinations.selectedValue">
+        <mat-radio-button *ngFor="let declination of data.item.declinations.values"
+                          class="basket-item-dialog__content-items-container-declination-item"
+                          color="primary"
+                          [value]="declination">
+          <div class="basket-item-dialog__content-items-container-declination-item-label">
+            <span>{{declination.name}}</span>
+            <span>{{declination.price}} Dhs</span>
+          </div>
+        </mat-radio-button>
 
-      <!--</mat-radio-group>-->
-    <!--</div>-->
+      </mat-radio-group>
+    </div>
 
 
     <!--Formule-->

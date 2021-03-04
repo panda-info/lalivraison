@@ -42,7 +42,8 @@
 
     <!--Déclinaisons-->
     <div *ngIf="data.item.declinations">
-      <mat-radio-group class="selected-heading-item-dialog__content-items-container">
+      <mat-radio-group [(ngModel)]="selectedDeclination"
+                       class="selected-heading-item-dialog__content-items-container">
         <mat-radio-button *ngFor="let declination of data.item.declinations.values"
                           class="selected-heading-item-dialog__content-items-container-declination-item"
                           color="primary"
@@ -78,7 +79,12 @@
 
   <div class="selected-heading-item-dialog__bottom">
     <div class="selected-heading-item-dialog__bottom-container">
-      <div class="selected-heading-item-dialog__bottom-price">{{data.item.price * itemCount}} Dhs</div>
+      <div class="selected-heading-item-dialog__bottom-price" *ngIf="!data.item.declinations">
+        {{data.item.price * itemCount}} Dhs
+      </div>
+      <div class="selected-heading-item-dialog__bottom-price" *ngIf="data.item.declinations && selectedDeclination">
+        {{selectedDeclination.price * itemCount}} Dhs
+      </div>
 
       <div class="selected-heading-item-dialog__bottom-counter">
         <button mat-icon-button

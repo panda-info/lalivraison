@@ -30,6 +30,7 @@ export class BasketService {
       this.items.push(item);
     }
     this.itemsCount += item.count;
+    console.log('###############', this.items);
   }
 
   decrementItemCount(item: Item): void {

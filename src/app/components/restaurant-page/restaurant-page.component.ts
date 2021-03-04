@@ -175,6 +175,8 @@ export class RestaurantPageComponent implements OnInit {
             description: 'Un milk-shake est une boisson frappée à base de lait qui se prépare généralement en ajoutant' +
               ' des fruits à du lait',
             price: '20',
+            type: 'Declination',
+            restaurant: 'NIKKEI',
             declinations: {
               description: 'Parfum',
               values: [
@@ -196,7 +198,7 @@ export class RestaurantPageComponent implements OnInit {
                 {
                   id: 296,
                   name: 'Orange',
-                  price: 32,
+                  price: 33,
                 }
               ]
             }
@@ -207,6 +209,7 @@ export class RestaurantPageComponent implements OnInit {
             name: 'Formule sandwich',
             description: 'Sandwich avec un mélange d\'épices riche en saveurs et en caractère, du poulet et une' +
               ' protion frites.',
+            restaurant: 'NIKKEI',
             price: '35',
             formula: {
               categories : [
@@ -232,6 +235,7 @@ export class RestaurantPageComponent implements OnInit {
             name: 'Salade à composer',
             description: 'Une salade composée est une recette de cuisine à base de mélange de salade et de composition de divers ingrédients. Variante des assiettes composées, il en existe une multitude de recettes de toutes les cuisines du monde.',
             price: null,
+            restaurant: 'NIKKEI',
             compositions: [
               {
                 name: 'Salades',
@@ -344,158 +348,7 @@ export class RestaurantPageComponent implements OnInit {
             price: '65',
             description: 'Chou et carotte émincé vinaigrette au soja.',
             restaurant: 'NIKKEI'
-          },
-          // {
-          //   id: 3,
-          //   image: '../../../assets/images/milkshake.jpg',
-          //   name: 'Milkshake',
-          //   description: 'Un milk-shake est une boisson frappée à base de lait qui se prépare généralement en ajoutant' +
-          //     ' des fruits à du lait',
-          //   price: '20',
-          //   declinations: {
-          //     description: 'Parfum',
-          //     values: [
-          //       {
-          //         id: 299,
-          //         name: 'Fraise',
-          //         price: 20,
-          //       },
-          //       {
-          //         id: 298,
-          //         name: 'Vanille',
-          //         price: 30,
-          //       },
-          //       {
-          //         id: 297,
-          //         name: 'Chocolat',
-          //         price: 32,
-          //       },
-          //       {
-          //         id: 296,
-          //         name: 'Orange',
-          //         price: 32,
-          //       }
-          //     ]
-          //   }
-          // },
-          // {
-          //   id: 4,
-          //   image: '../../../assets/images/sandwich.jpg',
-          //   name: 'Formule sandwich',
-          //   description: 'Sandwich avec un mélange d\'épices riche en saveurs et en caractère, du poulet et une' +
-          //     ' protion frites.',
-          //   price: '35',
-          //   formula: {
-          //     categories : [
-          //       {
-          //         // name: 'Boisson 33 cl',
-          //         name: 'Choisissez votre boisson',
-          //         items: ['Eau', 'Coca-cola', 'Fanta', 'Sprite', 'Jus d\'orange']
-          //       },
-          //       {
-          //         name: 'Choisissez votre sandwich',
-          //         items: ['Thon', 'Saumon', 'Viande hachée', 'Dinde fumée']
-          //       },
-          //       {
-          //         name: 'Choisissez votre dessert',
-          //         items: ['Tarte au citron', 'Brownie', 'Chocolat fondu', 'Fruit de saison'],
-          //       }
-          //     ]
-          //   }
-          // },
-          // {
-          //   id: 5,
-          //   image: '../../../assets/images/salade.jpg',
-          //   name: 'Salade à composer',
-          //   description: 'Une salade composée est une recette de cuisine à base de mélange de salade et de composition de divers ingrédients. Variante des assiettes composées, il en existe une multitude de recettes de toutes les cuisines du monde.',
-          //   price: null,
-          //   compositions: [
-          //     {
-          //       name: 'Salades',
-          //       items: [
-          //         {
-          //           name: 'Iceberg',
-          //           price: 15
-          //         },
-          //         {
-          //           name: 'Romaine',
-          //           price: 15
-          //         },
-          //         {
-          //           name: 'Roquette',
-          //           price: 20
-          //         },
-          //         {
-          //           name: 'Mix salade',
-          //           price: 20
-          //         }
-          //       ]
-          //     },
-          //     {
-          //       name: 'Féculents et legumineuse',
-          //       items: [
-          //         {
-          //           name: 'Quinoa',
-          //           price: 20
-          //         },
-          //         {
-          //           name: 'Lentilles',
-          //           price: 15
-          //         },
-          //         {
-          //           name: 'Pates',
-          //           price: 15
-          //         },
-          //         {
-          //           name: 'Ebly',
-          //           price: 15
-          //         }
-          //       ]
-          //     },
-          //     {
-          //       name: 'Sans base',
-          //       items: [
-          //         {
-          //           name: 'Sans base',
-          //           price: 10
-          //         }
-          //       ]
-          //     },
-          //     {
-          //       name: 'Légumes',
-          //       items: [
-          //         {
-          //           name: 'Échalote',
-          //           price: 5
-          //         },
-          //         {
-          //           name: 'Pommes de terre',
-          //           price: 5
-          //         },
-          //         {
-          //           name: 'Tomate cerise',
-          //           price: 5
-          //         },
-          //         {
-          //           name: 'Haricot vert',
-          //           price: 5
-          //         },
-          //         {
-          //           name: 'Concombre',
-          //           price: 5
-          //         },
-          //         {
-          //           name: 'Avocat',
-          //           price: 15
-          //         },
-          //         {
-          //           name: 'Champignons',
-          //           price: 10
-          //         },
-          //       ]
-          //     }
-          //   ]
-          // }
+          }
         ]
       },
       {
