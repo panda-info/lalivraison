@@ -242,19 +242,23 @@ export class RestaurantPageComponent implements OnInit {
                 items: [
                   {
                     name: 'Iceberg',
-                    price: 15
+                    price: 15,
+                    id: 1
                   },
                   {
                     name: 'Romaine',
-                    price: 15
+                    price: 15,
+                    id: 2
                   },
                   {
                     name: 'Roquette',
-                    price: 20
+                    price: 20,
+                    id: 3
                   },
                   {
                     name: 'Mix salade',
-                    price: 20
+                    price: 20,
+                    id: 4
                   }
                 ]
               },
@@ -263,19 +267,23 @@ export class RestaurantPageComponent implements OnInit {
                 items: [
                   {
                     name: 'Quinoa',
-                    price: 20
+                    price: 20,
+                    id: 5
                   },
                   {
                     name: 'Lentilles',
-                    price: 15
+                    price: 15,
+                    id: 6
                   },
                   {
                     name: 'Pates',
-                    price: 15
+                    price: 15,
+                    id: 7
                   },
                   {
                     name: 'Ebly',
-                    price: 15
+                    price: 15,
+                    id: 8
                   }
                 ]
               },
@@ -284,7 +292,8 @@ export class RestaurantPageComponent implements OnInit {
                 items: [
                   {
                     name: 'Sans base',
-                    price: 10
+                    price: 10,
+                    id: 9
                   }
                 ]
               },
@@ -293,31 +302,38 @@ export class RestaurantPageComponent implements OnInit {
                 items: [
                   {
                     name: 'Échalote',
-                    price: 5
+                    price: 5,
+                    id: 10
                   },
                   {
                     name: 'Pommes de terre',
-                    price: 5
+                    price: 5,
+                    id: 11
                   },
                   {
                     name: 'Tomate cerise',
-                    price: 5
+                    price: 5,
+                    id: 12
                   },
                   {
                     name: 'Haricot vert',
-                    price: 5
+                    price: 5,
+                    id: 13
                   },
                   {
                     name: 'Concombre',
-                    price: 5
+                    price: 5,
+                    id: 14
                   },
                   {
                     name: 'Avocat',
-                    price: 15
+                    price: 15,
+                    id: 15
                   },
                   {
                     name: 'Champignons',
-                    price: 10
+                    price: 10,
+                    id: 16
                   },
                 ]
               }

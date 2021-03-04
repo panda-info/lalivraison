@@ -23,12 +23,14 @@
 
     <!--Compositions-->
     <div *ngIf="item.compositions">
-      <div *ngFor="let composition of data.item.compositions"
+      <div *ngFor="let composition of selectedComposition"
            class="selected-heading-item-dialog__content-items-container">
         <div class="selected-heading-item-dialog__content-items-container-composition-name">
           {{composition.name}}
         </div>
         <mat-checkbox *ngFor="let i of composition.items"
+                      (change)="updatePrice()"
+                      [(ngModel)]="i.selected"
                       class="selected-heading-item-dialog__content-items-container-composition-item"
                       color="primary">
           <div class="selected-heading-item-dialog__content-items-container-composition-item-label">
