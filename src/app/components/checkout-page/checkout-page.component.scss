@@ -17,6 +17,10 @@
     display: flex;
     justify-content: space-between;
 
+    .mat-button-toggle-checked {
+      background-color: $blue-lalivraison !important;
+    }
+
     .mat-form-field {
       line-height: 14px !important;
     }
@@ -35,7 +39,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 60%;
     border-radius: 10px;
     -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
@@ -49,27 +53,27 @@
       width: 70%;
       font-size: 25px;
       font-weight: bold;
-      //letter-spacing: 2px;
+      //letter-spacing: 0px;
       margin-top: 20px;
       color: $black-lalivraison;
       display: flex;
       align-items: center;
 
       &-image {
-        height: 50px;
-        width: 50px;
+        height: 45px;
+        width: 45px;
         margin-left: 15px;
       }
     }
 
     &-button {
       border-radius: 50px;
-      width: 40%;
+      width: 62%;
       padding: 0 15px 0 15px;
       color: white;
-      height: 45px;
+      height: 40px;
       font-size: 15px;
-      letter-spacing: 1px;
+      //letter-spacing: 1px;
     }
 
     &-text-field {
@@ -187,12 +191,13 @@
           height: 40px;
           width: 40px;
           border-radius: 10px;
+          object-fit: cover;
         }
 
         &-details {
           display: flex;
           flex-direction: column;
-          margin-left: 10px;
+          margin-left: 15px;
 
           &-name {
             font-weight: bold;
@@ -214,7 +219,7 @@
       border-radius: 10px 10px 0 0;
       background-color: $blue-lalivraison;
       width: 100%;
-      height: 15%;
+      height: 80px;
       min-height: 80px;
       display: flex;
       align-items: center;
@@ -224,6 +229,8 @@
         color: white;
         font-size: 20px;
         font-weight: bold;
+        //margin-left: 25px;
+        //margin-right: 50px;
       }
     }
 
@@ -247,10 +254,6 @@
       padding-top: 20px;
       padding-bottom: 20px;
 
-      .mat-button-toggle-checked {
-        background-color: $blue-lalivraison !important;
-      }
-
       ::ng-deep .mat-form-field-label-wrapper {
         top: -10px !important;
       }
@@ -261,19 +264,28 @@
     }
 
     &info-zone {
-      width: 90%;
+      width: 96%;
       padding-bottom: 5px;
       min-height: fit-content;
       margin-bottom: 15px;
       background-image: none;
+      //justify-content: space-between;
+      //background-color: lightpink;
 
       &-title {
-        width: 90%;
-        font-size: 18px;
+        width: 100%;
+        font-size: 20px;
         font-weight: bold;
         letter-spacing: 0px;
-        margin-top: 20px;
+        margin-top: 0px;
         margin-bottom: 20px;
+        height: 80px;
+        border-radius: 10px 10px 0 0;
+        display: flex;
+        justify-content: center;
+        background-color: $blue-lalivraison;
+        color: white;
+
 
         &-image {
           height: 40px;
@@ -283,13 +295,13 @@
       }
 
       &-text-field {
-        width: 85%;
+        width: 80%;
         background-color: $gray-lalivraison;
         border-radius: 50px;
         padding: 0 15px 0 15px;
         height: 50px;
         font-size: 14px;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
 
         &-margin {
           margin-left: 10px;
@@ -298,8 +310,8 @@
       }
 
       &-toggle {
-        width: 94%;
-        margin-bottom: 5px;
+        width: 87%;
+        margin-bottom: 15px;
         height: 50px !important;
 
         &-button {
@@ -314,8 +326,18 @@
     }
 
     &order-zone {
-      width: 90%;
+      width: 96%;
       min-height: 100%;
+
+      &-header {
+        justify-content: space-around;
+        //background-color: li;
+
+        &-text {
+          //margin-left: 25px;
+          //margin-right: 50px;
+        }
+      }
 
       &-button {
         display: block;

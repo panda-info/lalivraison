@@ -34,14 +34,14 @@
 
   &header {
     min-height: 90px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
     background-color: $blue-lalivraison;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    letter-spacing: 0.5px;
+    //letter-spacing: 0.5px;
     border-radius: 10px 10px 0 0;
 
     &-container {
@@ -88,6 +88,11 @@
           justify-content: space-between;
           width: 90%;
 
+          &-value {
+            color: $blue-lalivraison;
+            font-weight: bold;
+          }
+
           &-separator {
             width: 90% !important;
             //border: none;
@@ -100,6 +105,18 @@
           //}
         }
 
+      }
+
+      &-image {
+        height: 200px;
+        width: 90%;
+
+        &-text {
+          font-size: 16px;
+          margin-bottom: 20px;
+          color: #21CCBB;
+          font-weight: bold;
+        }
       }
 
       &-toggle {
@@ -181,6 +198,11 @@
     }
 
     &content {
+
+      &-image {
+        height: 200px;
+        width: 100%;
+      }
 
       &-details-price {
         width: 95%;

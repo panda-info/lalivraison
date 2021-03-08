@@ -206,34 +206,41 @@
         <div class="restaurant-page__basket-bill-details-price" *ngIf="basketService.count()">
           <div class="restaurant-page__basket-bill-details-price-line-with-margin">
             <div>Sous-total</div>
-            <div>{{basketService.total()}} Dhs</div>
+            <div class="restaurant-page__basket-bill-details-price-line-value">{{basketService.total()}} Dhs</div>
           </div>
           <div class="restaurant-page__basket-bill-details-price-line-with-margin">
             <div>Livraison</div>
-            <div>0 Dhs</div>
+            <div class="restaurant-page__basket-bill-details-price-line-value">0 Dhs</div>
           </div>
           <hr class="restaurant-page__basket-bill-details-price-line-separator">
           <div class="restaurant-page__basket-bill-details-price-line">
             <div>Total</div>
-            <div>{{basketService.total()}} Dhs</div>
+            <div class="restaurant-page__basket-bill-details-price-line-value">{{basketService.total()}} Dhs</div>
           </div>
         </div>
 
-        <mat-button-toggle-group class="restaurant-page__basket-bill-toggle" *ngIf="basketService.count()">
-          <mat-button-toggle class="restaurant-page__basket-bill-toggle-button">Livrer</mat-button-toggle>
-          <mat-button-toggle class="restaurant-page__basket-bill-toggle-button">Emporter</mat-button-toggle>
+        <!--{{basketService.getService().toString()}}-->
+        <mat-button-toggle-group class="restaurant-page__basket-bill-toggle"
+                                 #group="matButtonToggleGroup"
+                                 [value]="basketService.getService().toString()"
+                                 (change)="onServiceChange(group.value)"
+                                 *ngIf="basketService.count()">
+          <mat-button-toggle (click)="setService('Delivery')"
+                             class="restaurant-page__basket-bill-toggle-button">Livrer</mat-button-toggle>
+          <mat-button-toggle (click)="setService('Takeaway')"
+                             class="restaurant-page__basket-bill-toggle-button">Emporter</mat-button-toggle>
         </mat-button-toggle-group>
 
-        <img src="../../../assets/images/empty-basket-2.png"
-             style="background-color: lightsalmon; width: 75%; height: 300px; opacity: 0.7"
+        <img src="../../../assets/images/panier_vide.png"
+             style="width: 100%; height: 180px; margin-top: 10px;"
              *ngIf="!basketService.count()">
-        <div *ngIf="!basketService.count()" style="margin-top: -80px; z-index: 99; font-size: 16px; margin-bottom: 20px; color: #21CCBB; font-weight: bold">
+        <div *ngIf="!basketService.count()" style="margin-top: -5px; font-size: 17px; margin-bottom: 20px; color: #21CCBB; font-weight: bold">
           Votre panier est vide
         </div>
         <button mat-raised-button
                 color="primary"
                 (click)="validateBasket()"
-                [disabled]="!basketService.count()"
+                [disabled]="disableButton()"
                 class="restaurant-page__basket-bill-button">
           Je commande
         </button>

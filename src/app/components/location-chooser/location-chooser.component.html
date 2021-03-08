@@ -3,21 +3,65 @@
   <button class="location-chooser__button"
           mat-raised-button
           color="primary"
+          (click)="getLocation()"
           style="display: flex; align-items: center; justify-content: center">
-    <mat-icon style="margin-right: 10px" matSuffix>my_location</mat-icon>
-    Me localiser
+    <mat-icon style="margin-right: 5px" matSuffix>location_on</mat-icon>
+    Localisation
   </button>
 
-  <mat-form-field class="location-chooser__input-field">
-    <mat-icon matSuffix>location_city</mat-icon>
-    <mat-label> Sélectionnez votre ville</mat-label>
-    <input type="text" matInput>
+  <!--<mat-form-field class="location-chooser__input-field">-->
+    <!--<mat-icon matSuffix>location_city</mat-icon>-->
+    <!--<mat-label> Sélectionnez votre ville</mat-label>-->
+    <!--<input type="text" matInput>-->
+  <!--</mat-form-field>-->
+  <!--<form class="example-form">-->
+             <!--placeholder="Ville"-->
+             <!--[formControl]="myControl"-->
+  <!--<form class="example-form">-->
+
+
+
+    <!--<mat-form-field class="location-chooser__input-field">-->
+      <!--<mat-icon matSuffix>location_city</mat-icon>-->
+      <!--<mat-label>Sélectionnez votre ville</mat-label>-->
+      <!--<input type="text"-->
+             <!--aria-label="Number"-->
+             <!--matInput-->
+             <!--(change)="filterCities()"-->
+             <!--[ngModel]="city"-->
+             <!--[matAutocomplete]="auto">-->
+      <!--<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">-->
+        <!--<mat-option *ngFor="let c of filteredOptions | async" [value]="c">-->
+          <!--{{c}}-->
+        <!--</mat-option>-->
+      <!--</mat-autocomplete>-->
+    <!--</mat-form-field>-->
+    <!--</form>-->
+  <mat-form-field class="location-chooser__input-field" appearance="standard">
+    <mat-icon matSuffix style="border-top: 3px transparent solid !important;">location_city</mat-icon>
+    <mat-label style="">Choisissez votre ville</mat-label>
+    <mat-select [(value)]="city" (selectionChange)="handleCityChange()">
+      <mat-option *ngFor="let c of getCities()" [value]="c">{{c}}</mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="location-chooser__input-field">
-    <mat-icon matSuffix>home</mat-icon>
-    <mat-label> Sélectionnez votre quartier</mat-label>
-    <input class="location-chooser__input-field-text" type="text" matInput>
+  <mat-form-field class="location-chooser__input-field" appearance="standard">
+    <mat-icon matSuffix style="">home</mat-icon>
+    <mat-label>Choisissez votre quartier</mat-label>
+    <mat-select [(value)]="district">
+      <mat-option *ngFor="let d of getDistricts()" [value]="d">{{d}}</mat-option>
+    </mat-select>
   </mat-form-field>
+
+
+
+    <!--<mat-form-field class="location-chooser__input-field">-->
+      <!--<mat-icon matSuffix>home</mat-icon>-->
+      <!--<mat-label> Sélectionnez votre quartier</mat-label>-->
+      <!--<input class="location-chooser__input-field-text" type="text" matInput>-->
+    <!--</mat-form-field>-->
+
+  <!--<div style="height: 50px; width: 50px; background-color: lightskyblue">{{city}} &nbsp;&nbsp;{{district}}</div>-->
+  <!--</form>-->
 </div>
 

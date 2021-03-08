@@ -14,7 +14,6 @@ export class SwiperComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.interval = setInterval(() => {
       this.nextImage();
-      console.log(this.currentImageIndex);
     }, 4000);
   }
 
@@ -32,7 +31,7 @@ export class SwiperComponent implements OnInit, OnDestroy {
     }
   }
 
-  setCurrentImageIndex(currentImageIndex: number) {
+  setCurrentImageIndex(currentImageIndex: number): void {
     this.currentImageIndex = currentImageIndex;
   }
 }

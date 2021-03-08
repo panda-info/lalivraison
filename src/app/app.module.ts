@@ -27,7 +27,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import { SelectedHeadingItemDialogComponent } from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item-dialog/selected-heading-item-dialog.component';
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CheckoutPageComponent } from './components/checkout-page/checkout-page.component';
 import { OrderDetailsPageComponent } from './components/order-details-page/order-details-page.component';
@@ -36,6 +36,9 @@ import { BasketPageComponent } from './components/basket-page/basket-page.compon
 import { BasketPageItemComponent } from './components/basket-page/basket-page-item/basket-page-item.component';
 import {RouterModule, Routes} from '@angular/router';
 import { BasketItemDialogComponent } from './components/basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -76,6 +79,8 @@ const routes: Routes = [
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    // ReactiveFormsModule,
     MatButtonModule,
     MatInputModule,
     MatIconModule,
@@ -85,8 +90,9 @@ const routes: Routes = [
     MatButtonToggleModule,
     MatDialogModule,
     MatRadioModule,
-    FormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    // MatAutocompleteModule
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

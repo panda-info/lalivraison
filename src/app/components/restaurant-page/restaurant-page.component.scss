@@ -295,7 +295,6 @@
       &-title {
         font-size: 25px;
         font-weight: bold;
-        letter-spacing: 0.5px;
         margin-top: 4px;
       }
 
@@ -450,6 +449,11 @@
           display: flex;
           justify-content: space-between;
           width: 70%;
+
+          &-value {
+            color: $blue-lalivraison;
+            font-weight: bold;
+          }
 
           &-separator {
             width: 70% !important;

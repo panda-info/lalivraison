@@ -4,6 +4,7 @@ import {BasketService} from '../../services/basket.service';
 import {Item} from '../../models/item';
 import {BasketItemDialogComponent} from '../basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
+import {Service} from '../../models/service.enum';
 
 @Component({
   selector: 'app-restaurant-page',
@@ -21,7 +22,7 @@ export class RestaurantPageComponent implements OnInit {
   restaurant = {
     image: '../../../assets/images/sushi.jpg',
     subImage: '../../../assets/images/jap.jpg',
-    name: 'NIKKEI.MA',
+    name: 'NIKKEI.MA 6',
     kitchenType: 'Cuisine Nippone',
     orderFreeMinPrice: '140',
     phoneNumber: '05 22 99 48 77',
@@ -564,5 +565,20 @@ export class RestaurantPageComponent implements OnInit {
         item: selectedItem
       }
     });
+  }
+
+  setService(service: Service): void {
+    console.log('**************', this.basketService.getService())
+    this.basketService.setService(service as Service);
+    let service1 = this.basketService.getService();
+    console.log('**************', service1);
+  }
+
+  disableButton(): boolean {
+    return !this.basketService.count();
+  }
+
+  onServiceChange(service: Service): void {
+    this.setService(service);
   }
 }
