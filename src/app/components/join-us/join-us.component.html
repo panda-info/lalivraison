@@ -48,7 +48,9 @@
     <div class="join-us__mobile-line">
       <div class="join-us__mobile-line-text" >Devenir livreur</div>
       <div class="join-us__mobile-line-button-container">
-        <button mat-raised-button class="join-us__mobile-line-button">
+        <button mat-raised-button
+                [routerLink]="['/devenir-livreur']"
+                class="join-us__mobile-line-button">
           <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
       </div>
