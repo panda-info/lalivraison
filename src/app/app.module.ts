@@ -36,8 +36,8 @@ import { BasketPageComponent } from './components/basket-page/basket-page.compon
 import { BasketPageItemComponent } from './components/basket-page/basket-page-item/basket-page-item.component';
 import {RouterModule, Routes} from '@angular/router';
 import { BasketItemDialogComponent } from './components/basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSelectModule} from '@angular/material/select';
+import { DelivrerPageComponent } from './components/delivrer-page/delivrer-page.component';
 
 
 const routes: Routes = [
@@ -47,6 +47,7 @@ const routes: Routes = [
   { path: 'checkout', component: CheckoutPageComponent },
   { path: 'suivi-commande', component: OrderDetailsPageComponent },
   { path: 'panier', component: BasketPageComponent },
+  { path: 'devenir-livreur', component: DelivrerPageComponent },
   { path: '**', component: HomePageComponent }
 ];
 
@@ -73,7 +74,8 @@ const routes: Routes = [
     StepperComponent,
     BasketPageComponent,
     BasketPageItemComponent,
-    BasketItemDialogComponent
+    BasketItemDialogComponent,
+    DelivrerPageComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +93,6 @@ const routes: Routes = [
     MatDialogModule,
     MatRadioModule,
     MatCheckboxModule,
-    // MatAutocompleteModule
     MatSelectModule
   ],
   providers: [],
