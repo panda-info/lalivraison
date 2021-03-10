@@ -1,12 +1,27 @@
 @import "~src/sass/variables";
 
+:host {
+  //height: fit-content;
+}
+
 .about-zone__ {
+
+  //&container-desktop {
+  //  height: 100%;
+  //  width: 100%;
+  //  display: flex;
+  //  justify-content: center;
+  //  align-items: center;
+  //  color: white;
+  //  background-color: $blue-lalivraison;
+  //}
 
   &container-desktop {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
     color: white;
     background-color: $blue-lalivraison;
@@ -27,12 +42,13 @@
     &-contact {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      //align-items: center;
+      //justify-content: center;
       text-align: center;
+      height: 100px;
 
       &-title {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
       }
@@ -41,15 +57,16 @@
     &-cities {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      //align-items: center;
+      //justify-content: center;
+      height: 100px;
 
       &-margin {
         margin-top: -2px;
       }
 
       &-title {
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
 
@@ -63,7 +80,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 70%;
+    //height: 70%;
+    //background-color: lightskyblue;
+    //padding-bottom: 30px;
 
     &-text {
       text-align: center;
@@ -105,7 +124,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-evenly;
-      height: 250px;
+      height: 350px;
     }
   }
 }
