@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CarouselItemComponent implements OnInit {
   @Input() text: string;
   @Input() imageSource: string;
+  @Input() selected: boolean
 
   constructor() { }
 

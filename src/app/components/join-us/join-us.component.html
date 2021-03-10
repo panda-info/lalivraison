@@ -17,6 +17,7 @@
             et la clientèle qui font venir une ville tout entière jusqu'à chez vous.
           </div>
           <button class="join-us__button"
+                  [routerLink]="['/devenir-partenaire']"
                   mat-raised-button
                   color="primary">
             <span class="join-us__button-partner"></span>
@@ -59,7 +60,9 @@
     <div class="join-us__mobile-line">
       <div class="join-us__mobile-line-text">Devenir Partenaire</div>
       <div class="join-us__mobile-line-button-container">
-        <button mat-raised-button class="join-us__mobile-line-button">
+        <button mat-raised-button
+                [routerLink]="['/devenir-partenaire']"
+                class="join-us__mobile-line-button">
           <mat-icon>keyboard_arrow_right</mat-icon>
         </button>
       </div>

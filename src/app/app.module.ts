@@ -38,6 +38,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { BasketItemDialogComponent } from './components/basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import { DelivrerPageComponent } from './components/delivrer-page/delivrer-page.component';
+import { PartnerPageComponent } from './components/partner-page/partner-page.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'suivi-commande', component: OrderDetailsPageComponent },
   { path: 'panier', component: BasketPageComponent },
   { path: 'devenir-livreur', component: DelivrerPageComponent },
+  { path: 'devenir-partenaire', component: PartnerPageComponent },
   { path: '**', component: HomePageComponent }
 ];
 
@@ -75,7 +77,8 @@ const routes: Routes = [
     BasketPageComponent,
     BasketPageItemComponent,
     BasketItemDialogComponent,
-    DelivrerPageComponent
+    DelivrerPageComponent,
+    PartnerPageComponent
   ],
   imports: [
     BrowserModule,

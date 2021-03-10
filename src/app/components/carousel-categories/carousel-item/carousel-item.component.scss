@@ -15,6 +15,13 @@
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 
+    &-selected {
+      border: 1px gray solid;
+      will-change: transform;
+      transform: scale(1.06);
+      animation-timing-function: cubic-bezier(.075,.82,.165,1);
+    }
+
     &:hover {
       cursor: pointer;
       //background-color: #00f7ce;

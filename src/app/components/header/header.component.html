@@ -29,13 +29,15 @@
       <mat-icon>menu</mat-icon><span class="header__button-text">&nbsp;Menu</span>
     </button>
     <mat-menu #menu="matMenu" xPosition="before" yPosition="below">
-      <button mat-menu-item>
-        <mat-icon color="accent">login</mat-icon>
-        <span>Se connecter</span>
+      <button [routerLink]="['/devenir-partenaire']"
+              mat-menu-item>
+        <mat-icon color="accent">room_service</mat-icon>
+        <span>Devenir partenaire</span>
       </button>
-      <button mat-menu-item>
-        <mat-icon color="accent">account_circle</mat-icon>
-        <span>S'inscrire</span>
+      <button [routerLink]="['/devenir-livreur']"
+              mat-menu-item>
+        <mat-icon color="accent">delivery_dining</mat-icon>
+        <span>Devenir livreur</span>
       </button>
     </mat-menu>
   </div>

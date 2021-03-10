@@ -73,7 +73,7 @@
 
   &about-zone {
     margin-top: 30px;
-    height: 420px;
+    min-height: 420px;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
@@ -164,7 +164,7 @@
     }
 
     &about-zone {
-      height: 650px;
+      min-height: 250px;
     }
   }
 
