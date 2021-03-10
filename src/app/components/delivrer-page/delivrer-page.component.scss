@@ -73,6 +73,7 @@
     justify-content: center;
     min-height: 100px;
     border-radius: 10px 10px 0 0;
+    background-color: $blue-lalivraison;
 
     &-image {
       height: 40px;
@@ -112,6 +113,10 @@
     height: 40px;
     font-size: 14px;
     margin-bottom: 20px;
+
+    &:first-child {
+      margin-top: 20px;
+    }
 
     &-margin {
       margin-left: 10px;
@@ -173,9 +178,9 @@
     }
 
     &title {
-      background-color: $blue-lalivraison;
+      //background-color: $blue-lalivraison;
       min-height: 90px;
-      margin-bottom: 20px;
+      //margin-bottom: 20px;
       color: white;
     }
 

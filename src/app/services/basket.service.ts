@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Item} from '../models/item';
+import {Location} from '../models/location';
 import {Service} from '../models/service.enum';
 
 @Injectable({
@@ -13,6 +14,7 @@ export class BasketService {
   service: Service;
   latitude: number;
   longitude: number;
+  location: Location = new Location();
 
   constructor() {
     this.service = Service.Takeaway;
@@ -69,5 +71,9 @@ export class BasketService {
 
   setService(service: Service): void {
     this.service = service;
+  }
+
+  getLocation(): Location {
+    return this.location;
   }
 }

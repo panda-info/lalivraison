@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import {MatDialog} from '@angular/material/dialog';
 import {BasketItemDialogComponent} from '../basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
+import {BasketService} from '../../services/basket.service';
 
 @Component({
   selector: 'app-location-chooser',
@@ -14,7 +12,6 @@ export class LocationChooserComponent implements OnInit {
   city: string;
   district: string;
 
-  myControl = new FormControl();
   cities = [
     {
       name: 'Casablanca',
@@ -40,39 +37,11 @@ export class LocationChooserComponent implements OnInit {
     }
   ];
 
-  districts: string[] = []
-  // options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
-
-  constructor(public dialog: MatDialog) {
-
-  }
+  constructor(public dialog: MatDialog, private basketService: BasketService) {}
 
   ngOnInit(): void {
-    // this.filteredOptions = this.myControl.valueChanges
-    // .pipe(
-    //   startWith(''),
-    //   map(value => this._filter(value))
-    // );
-
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition((location => console.log('@@@@@@@@@@@@@@@@', location)));
-    // }
-  }
-
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-  //
-  //   return this.cities.filter(option => option.toLowerCase().includes(filterValue));
-  // }
-
-  filterCities(): void {
-    // console.log('§§§§§§§§§§§§§§§')
-    // this.filteredOptions = this.myControl.valueChanges
-    // .pipe(
-    //   startWith(''),
-    //   map(value => this._filter(value))
-    // );
+    this.city = this.basketService.getLocation().city;
+    this.district = this.basketService.getLocation().district;
   }
 
   getCities(): string[] {
@@ -87,6 +56,12 @@ export class LocationChooserComponent implements OnInit {
 
   handleCityChange(): void {
     this.district = this.cities.filter(city => city.name === this.city)[0].districts[0];
+    this.basketService.getLocation().city = this.city;
+    this.basketService.getLocation().district = this.district;
+  }
+
+  handleDistrictChange(): void {
+    this.basketService.getLocation().district = this.district;
   }
 
   getLocation(): void {
