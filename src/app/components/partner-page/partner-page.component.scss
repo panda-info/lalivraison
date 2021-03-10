@@ -73,11 +73,81 @@
     min-height: 100px;
     border-radius: 10px 10px 0 0;
     background-color: $blue-lalivraison;
+    color: white;
 
     &-image {
       height: 40px;
       width: 40px;
       margin-left: 15px;
+    }
+  }
+
+  &frame-info {
+    width: 85%;
+    border: 2px solid $blue-lalivraison;
+    height: 85px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+
+    &:first-child {
+      margin-top: 20px;
+    }
+
+    &-mobile {
+      display: none;
+    }
+
+    &-left {
+      @extend .partner-page__frame-info;
+      margin-left: 20px;
+
+      &-last {
+        @extend .partner-page__frame-info-left;
+        margin-bottom: 40px;
+      }
+
+    }
+
+    &-right {
+      @extend .partner-page__frame-info;
+      margin-right: 20px;
+    }
+
+    &-image-zone {
+      width: 25%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //background-color: lightskyblue;
+
+      &-image {
+        height: 60px;
+        width: 60px;
+      }
+    }
+
+    &-text-zone {
+      display: flex;
+      flex-direction: column;
+      //background-color: lightgreen;
+      justify-content: center;
+      width: 75%;
+      padding: 0 5px 0 5px;
+
+      &-title {
+        font-size: 16px;
+        //color: #21CCBB;
+        font-weight: bold;
+        color: $black-lalivraison;
+      }
+
+      &-description {
+        margin-top: 5px;
+        font-size: 12px;
+        line-height: 15px;
+        color: $blue-lalivraison;
+      }
     }
   }
 
@@ -93,6 +163,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      //background-color: lightskyblue;
     }
 
     &-right {
@@ -100,7 +171,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      //justify-content: center;
     }
   }
 
@@ -113,9 +184,9 @@
     font-size: 14px;
     margin-bottom: 20px;
 
-    &:first-child {
-      margin-top: 20px;
-    }
+    //&:first-child {
+    //  margin-top: 20px;
+    //}
 
     &-margin {
       margin-left: 10px;
@@ -191,6 +262,50 @@
 
       &-right {
         display: none;
+      }
+    }
+
+    &frame-info {
+
+      width: 93%;
+      height: 85px;
+
+      &-mobile {
+        width: 93%;
+        height: 85px;
+        border: 2px solid $blue-lalivraison;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        display: flex;
+        //display: block;
+      }
+
+      &-right {
+        @extend .partner-page__frame-info;
+        margin-left: 0;
+      }
+
+      &-left {
+        margin-left: 0;
+
+        &-last {
+          margin-bottom: 10px;
+        }
+      }
+
+      &-text-zone {
+        &-description {
+          margin-top: 2px;
+        }
+      }
+
+      &-image-zone {
+        width: 20%;
+
+      }
+
+      &-text-zone {
+        width: 80%;
       }
     }
 
