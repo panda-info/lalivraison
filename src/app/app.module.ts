@@ -83,7 +83,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'}),
     FormsModule,
     // ReactiveFormsModule,
     MatButtonModule,

@@ -6,4 +6,8 @@ export class Location {
     this.city = city;
     this.district = location;
   }
+
+  isEmpty(): boolean {
+    return !this.city && !this.district;
+  }
 }

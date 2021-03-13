@@ -95,7 +95,7 @@
   .join-us__ {
 
     &container {
-      padding: 15px 0 15px 0;
+      //margin: 15px 0 15px 0;
     }
 
     &content {
@@ -117,11 +117,11 @@
     }
 
     &content {
-      margin-top: 20px;
+      margin-top: 30px;
       height: 90% !important;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     &cards-container {
@@ -136,6 +136,7 @@
       font-size: 30px;
       font-weight: bold;
       letter-spacing: 0px;
+      //background-color: lightsalmon;
     }
 
     &mobile-line {

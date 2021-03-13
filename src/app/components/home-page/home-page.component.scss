@@ -35,7 +35,7 @@
 
   &carousel-categories {
     margin-top: 30px;
-    min-height: 220px;
+    height: 220px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -54,8 +54,8 @@
 
   &join-us {
     margin-top: 30px;
-    min-height: 570px;
-    height: 370px;
+    height: 570px;
+    //height: 370px;
     width: 60%;
     margin-left: auto;
     margin-right: auto;
@@ -69,6 +69,7 @@
     margin-right: auto;
     width: 55%;
     min-width: 500px;
+    margin-bottom: 30px;
   }
 
   &about-zone {
@@ -111,7 +112,8 @@
     }
 
     &join-us {
-      min-height: 280px;
+      height: 0;
+      min-height: 215px;
     }
 
     &body {
@@ -157,6 +159,7 @@
       margin-top: 25px;
       width: 95%;
       min-height: 210px;
+      //background-color: lightgoldenrodyellow;
     }
 
     &newsletter-zone {

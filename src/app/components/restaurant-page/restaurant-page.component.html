@@ -86,14 +86,16 @@
     <div class="restaurant-page__basket-container">
       <div class="restaurant-page__basket-header">
         <div class="restaurant-page__basket-header-title">Votre Panier</div>
-        <div class="restaurant-page__basket-header-address">
+        <div *ngIf="basketService.count() && !basketService.getLocation().isEmpty()"
+             class="restaurant-page__basket-header-address">
           <!--<img class="restaurant-page__basket-header-address-image"-->
                <!--src="../../../assets/images/map.png">&nbsp;&nbsp;-->
           <mat-icon style="font-weight: normal; font-size: 20px; margin-right: 10px;
           margin-top: -5px">location_on</mat-icon>
           <span>{{basketService.getLocation().district}}, {{basketService.getLocation().city}}</span>
         </div>
-        <div class="restaurant-page__basket-header-address-change">Changer</div>
+        <div *ngIf="basketService.count() && !basketService.getLocation().isEmpty()"
+             class="restaurant-page__basket-header-address-change">Changer</div>
       </div>
 
       <div class="restaurant-page__basket-items">
@@ -251,3 +253,5 @@
     </div>
   </div>
 </div>
+
+<!--<app-about-zone class=""></app-about-zone>-->

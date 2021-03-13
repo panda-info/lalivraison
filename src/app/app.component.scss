@@ -1,9 +1,17 @@
 .app__ {
 
   &header {
+    height: 10%;
     min-height: 75px;
     width: 100%;
-    z-index: 999;
+    z-index: 99;
+    position: fixed;
+    //top: 0;
+
+  }
+
+  &outlet-container {
+    padding-top: 75px;
   }
 
   &swiper {
@@ -57,10 +65,10 @@
   }
 
   &about-zone {
-    min-height: 140px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    min-height: 500px;
+    //margin-left: auto;
+    //margin-right: auto;
+    //width: 80%;
   }
 
   &body {
@@ -122,6 +130,10 @@
       min-height: 141px;
     }
 
+    &outlet-container {
+      padding-top: 141px;
+    }
+
     &swiper {
       display: none;
     }
@@ -153,7 +165,7 @@
     }
 
     &about-zone {
-      display: none;
+      min-height: 350px;
     }
   }
 

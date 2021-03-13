@@ -22,7 +22,7 @@ export class RestaurantPageComponent implements OnInit {
   restaurant = {
     image: '../../../assets/images/sushi.jpg',
     subImage: '../../../assets/images/jap.jpg',
-    name: 'NIKKEI.MA 7',
+    name: 'NIKKEI.MA 8',
     kitchenType: 'Cuisine Nippone',
     orderFreeMinPrice: '140',
     phoneNumber: '05 22 99 48 77',
