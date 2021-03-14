@@ -1,9 +1,10 @@
-<div style="display: flex; flex-direction: column; background-color: white; width: 100%">
+<div style="display: flex; flex-direction: column; width: 100%; height: 100%; overflow: hidden">
   <app-header class="app__header"></app-header>
 
-  <div class="app__outlet-container">
-    <router-outlet></router-outlet>
-    <app-about-zone class="app__about-zone"></app-about-zone>
+  <div class="app__outlet-container"
+       [ngClass]="{'app__outlet-container-scroll' : showFooter()===true}">
+    <router-outlet #routerContainer (activate)="onActivate($event, routerContainer)"></router-outlet>
+    <app-about-zone *ngIf="showFooter" class="app__about-zone"></app-about-zone>
   </div>
 
   <!--<div style="overflow-y: scroll;">-->

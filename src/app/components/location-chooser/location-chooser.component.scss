@@ -1,5 +1,9 @@
 @import "~src/sass/variables";
 
+:host {
+  height: fit-content;
+}
+
 .location-chooser__ {
 
   &container {
@@ -7,6 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    //background-color: lightgoldenrodyellow;
 
     //::ng-deep .mat-select-panel:not([class*=mat-elevation-z]) {
     //::ng-deep .mat-select-panel {

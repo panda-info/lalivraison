@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselCategoriesComponent implements OnInit {
   selectedCategory = 'Tout';
+  // selectedCategory: string;
 
   constructor() { }
 

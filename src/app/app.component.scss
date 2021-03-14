@@ -4,14 +4,20 @@
     height: 10%;
     min-height: 75px;
     width: 100%;
-    z-index: 99;
-    position: fixed;
+    //z-index: 99;
+    //position: fixed;
     //top: 0;
 
   }
 
   &outlet-container {
-    padding-top: 75px;
+    //padding-top: 75px;
+    height: 90%;
+
+    &-scroll {
+      overflow-y: scroll !important;
+    }
+    //background-color: lightpink;
   }
 
   &swiper {
@@ -131,7 +137,7 @@
     }
 
     &outlet-container {
-      padding-top: 141px;
+      //padding-top: 141px;
     }
 
     &swiper {

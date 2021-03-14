@@ -1,7 +1,7 @@
 @import "~src/sass/variables";
 
 :host {
-  width: 100%; min-height: 100%; overflow-y: scroll; overflow-x: hidden; display: flex; justify-content: center;
+  width: 100%; height: 100%; overflow-y: scroll; overflow-x: hidden; display: flex; justify-content: center;
 }
 
 .restaurant-page__ {
@@ -9,15 +9,18 @@
   &container {
     font-family: Lato;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: fit-content;
     //width: 75%;
-    width: 90%;
-    padding-left: 10px;
+    //min-height: 100%;
+    width: 100%;
+    //padding-left: 10px;
     //padding-top: 15px;
     color: $black-lalivraison;
     //justify-content: center;
-    padding-bottom: 20px;
+    //padding-bottom: 20px;
+    //background-color: lightgoldenrodyellow;
+    flex-wrap: wrap;
 
     hr {
       width: 100%;
@@ -48,7 +51,7 @@
 
   &presentation {
     padding-top: 15px;
-    width: 70%;
+    width: 64%;
     //width: 68%;
     display: flex;
     flex-direction: column;
@@ -234,18 +237,22 @@
       width: 99%;
       //height: fit-content;
       margin: auto;
+      padding-bottom: 200px;
     }
   }
 
   &basket {
     padding-top: 15px;
-    width: 28%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: sticky;
     position: -webkit-sticky; /* Safari */
     top: 0;
+    z-index: 99;
+    background-color: white;
+    border-radius: 15px;
 
     &-container {
       height: 100%;
@@ -493,10 +500,19 @@
     }
   }
 
+  &footer {
+    min-height: 500px;
+    width: 100vw !important;
+  }
+
 }
 
 @media (max-width: 1092px) {
   .restaurant-page__ {
+
+    &presentation-selected-heading {
+      padding-bottom: 100px;
+    }
 
     &basket {
 
@@ -645,7 +661,12 @@
     &basket {
       display: none;
     }
+
+    &footer {
+      min-height: 420px;
+    }
   }
+
 }
 
 ::ng-deep .mat-button-toggle-checked {
