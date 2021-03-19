@@ -4,7 +4,7 @@
   <div class="app__outlet-container"
        [ngClass]="{'app__outlet-container-scroll' : showFooter()===true}">
     <router-outlet #routerContainer (activate)="onActivate($event, routerContainer)"></router-outlet>
-    <app-about-zone *ngIf="showFooter" class="app__about-zone"></app-about-zone>
+    <!--<app-about-zone *ngIf="showFooter" class="app__about-zone"></app-about-zone>-->
   </div>
 
   <!--<div style="overflow-y: scroll;">-->

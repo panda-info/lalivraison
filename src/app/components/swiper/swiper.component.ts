@@ -1,4 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-swiper',
@@ -8,13 +10,17 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 export class SwiperComponent implements OnInit, OnDestroy {
   public currentImageIndex = 3
   private interval;
+  images: string[];
 
-  constructor() { }
+  constructor(private http: HttpClient, private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.interval = setInterval(() => {
-      this.nextImage();
-    }, 4000);
+    this.httpService.getSwiperImages().subscribe((images: string[]) => {
+      this.images = images;
+      this.interval = setInterval(() => {
+        this.nextImage();
+      }, 4000);
+    });
   }
 
   nextImage(): void {

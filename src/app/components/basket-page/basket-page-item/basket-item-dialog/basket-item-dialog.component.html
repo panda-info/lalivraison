@@ -8,7 +8,7 @@
             [mat-dialog-close]="true">
       <mat-icon class="basket-item-dialog__top-close-button-icon">close</mat-icon>
     </button>
-    <img [src]="data.item.image"
+    <img [src]="'data:image/png;base64,' + data.item.image"
          class="basket-item-dialog__top-image">
   </div>
 

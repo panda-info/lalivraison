@@ -1,6 +1,7 @@
 <div class="selected-heading-item__container">
 
-  <img [src]="headingItem.image" class="selected-heading-item__upper-zone" (click)="showItemDetails()">
+  <img [src]="'data:image/png;base64,' + headingItem.image"
+       class="selected-heading-item__upper-zone" (click)="showItemDetails()">
 
   <div class="selected-heading-item__lower-zone">
     <div class="selected-heading-item__lower-zone-name">{{headingItem.name | uppercase}}</div>

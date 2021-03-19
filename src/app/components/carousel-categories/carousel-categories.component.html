@@ -14,74 +14,81 @@
 
     <div class="carousel__items" #carouselItems>
 
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Tout')"
-                         text="Tout"
-                         [selected]="selectedCategory==='Tout'"
-                         imageSource="../../../assets/images/categories/food_1.png">
-      </app-carousel-item>
-      <app-carousel-item (click)="selectCategory('Plats')"
-                         [selected]="selectedCategory==='Plats'"
+      <app-carousel-item *ngFor="let category of categories"
                          class="carousel__item"
-                         text="Plats"
-                         imageSource="../../../assets/images/categories/food_2.png">
+                         (click)="selectCategory(category.name)"
+                         [text]="category.name"
+                         [selected]="selectedCategory===category.name"
+                         [imageSource]="'data:image/png;base64,' + category.image">
       </app-carousel-item>
-      <app-carousel-item (click)="selectCategory('Asiatique')"
-                         [selected]="selectedCategory==='Asiatique'"
-                         class="carousel__item"
-                         text="Asiatique"
-                         imageSource="../../../assets/images/categories/food_3.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Pizza')"
-                         [selected]="selectedCategory==='Pizza'"
-                         text="Pizza"
-                         imageSource="../../../assets/images/categories/food_4.png">
-      </app-carousel-item>
-      <app-carousel-item (click)="selectCategory('Pâtes')"
-                         [selected]="selectedCategory==='Pâtes'"
-                         class="carousel__item"
-                         text="Pâtes"
-                         imageSource="../../../assets/images/categories/food_5.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Salades')"
-                         [selected]="selectedCategory==='Salades'"
-                         text="Salades"
-                         imageSource="../../../assets/images/categories/food_6.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Brunch')"
-                         [selected]="selectedCategory==='Brunch'"
-                         text="Brunch"
-                         imageSource="../../../assets/images/categories/food_7.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Américain')"
-                         [selected]="selectedCategory==='Américain'"
-                         text="Américain"
-                         imageSource="../../../assets/images/categories/food_8.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Thaïe')"
-                         [selected]="selectedCategory==='Thaïe'"
-                         text="Thaïe"
-                         imageSource="../../../assets/images/categories/food_9.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Burger')"
-                         [selected]="selectedCategory==='Burger'"
-                         text="Burger"
-                         imageSource="../../../assets/images/categories/food_10.png">
-      </app-carousel-item>
-      <app-carousel-item class="carousel__item"
-                         (click)="selectCategory('Boissons')"
-                         [selected]="selectedCategory==='Boissons'"
-                         style="padding-right: 5px;"
-                         text="Boissons"
-                         imageSource="../../../assets/images/categories/food_11.png">
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Tout')"-->
+                         <!--text="Tout"-->
+                         <!--[selected]="selectedCategory==='Tout'"-->
+                         <!--imageSource="../../../assets/images/categories/food_1.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item (click)="selectCategory('Plats')"-->
+                         <!--[selected]="selectedCategory==='Plats'"-->
+                         <!--class="carousel__item"-->
+                         <!--text="Plats"-->
+                         <!--imageSource="../../../assets/images/categories/food_2.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item (click)="selectCategory('Asiatique')"-->
+                         <!--[selected]="selectedCategory==='Asiatique'"-->
+                         <!--class="carousel__item"-->
+                         <!--text="Asiatique"-->
+                         <!--imageSource="../../../assets/images/categories/food_3.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Pizza')"-->
+                         <!--[selected]="selectedCategory==='Pizza'"-->
+                         <!--text="Pizza"-->
+                         <!--imageSource="../../../assets/images/categories/food_4.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item (click)="selectCategory('Pâtes')"-->
+                         <!--[selected]="selectedCategory==='Pâtes'"-->
+                         <!--class="carousel__item"-->
+                         <!--text="Pâtes"-->
+                         <!--imageSource="../../../assets/images/categories/food_5.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Salades')"-->
+                         <!--[selected]="selectedCategory==='Salades'"-->
+                         <!--text="Salades"-->
+                         <!--imageSource="../../../assets/images/categories/food_6.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Brunch')"-->
+                         <!--[selected]="selectedCategory==='Brunch'"-->
+                         <!--text="Brunch"-->
+                         <!--imageSource="../../../assets/images/categories/food_7.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Américain')"-->
+                         <!--[selected]="selectedCategory==='Américain'"-->
+                         <!--text="Américain"-->
+                         <!--imageSource="../../../assets/images/categories/food_8.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Thaïe')"-->
+                         <!--[selected]="selectedCategory==='Thaïe'"-->
+                         <!--text="Thaïe"-->
+                         <!--imageSource="../../../assets/images/categories/food_9.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Burger')"-->
+                         <!--[selected]="selectedCategory==='Burger'"-->
+                         <!--text="Burger"-->
+                         <!--imageSource="../../../assets/images/categories/food_10.png">-->
+      <!--</app-carousel-item>-->
+      <!--<app-carousel-item class="carousel__item"-->
+                         <!--(click)="selectCategory('Boissons')"-->
+                         <!--[selected]="selectedCategory==='Boissons'"-->
+                         <!--style="padding-right: 5px;"-->
+                         <!--text="Boissons"-->
+                         <!--imageSource="../../../assets/images/categories/food_11.png">-->
 
-      </app-carousel-item>
+      <!--</app-carousel-item>-->
     </div>
 
     <div class="carousel__items-container-button-right">

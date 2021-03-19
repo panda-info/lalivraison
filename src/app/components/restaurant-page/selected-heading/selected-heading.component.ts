@@ -9,9 +9,10 @@ export class SelectedHeadingComponent implements OnInit {
   @Input()
   heading: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
+    window.scroll(0, 0);
   }
 
 }

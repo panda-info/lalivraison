@@ -5,139 +5,29 @@
   </div>
   <div class="restaurants__body-container">
     <div class="restaurants__body">
-      <app-restaurant image="../../../assets/images/restaurants/nikkei.jpg"
-                      city="Casablanca"
-                      name="NIKKEI"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'NIKKEI']"
+      <app-restaurant *ngFor="let restaurant of getRestaurants()"
+                      [image]="'data:image/png;base64,' + restaurant.image"
+                      [city]="restaurant.city"
+                      [name]="restaurant.name | uppercase"
+                      [delivery]="restaurant.delivery"
+                      [takeAway]="restaurant.takeAway"
+                      [routerLink]="['/restaurant', restaurant.name]"
                       class="restaurants__restaurant">
       </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/marocain.jpeg"
-                      city="Casablanca"
-                      name="MAMOUNIA"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="false"
-                      [routerLink]="['/restaurant', 'MAMOUNIA']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-
-      <app-restaurant image="../../../assets/images/restaurants/burger.jpg"
-                      city="Casablanca"
-                      name="TEXAS"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'TEXAS']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/oriental.jpg"
-                      city="Casablanca"
-                      name="DAMASCUS"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'DAMASCUS']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/pizza.jpg"
-                      city="Casablanca"
-                      name="ROMA"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'ROMA']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/pho.jpg"
-                      city="Casablanca"
-                      name="BANGKOK"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'BANGKOK']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/pasta.jpg"
-                      city="Casablanca"
-                      name="VENIZIA"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'VENIZIA']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/couscous.jpeg"
-                      city="Casablanca"
-                      name="L'AUTHENTIQUE"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="false"
-                      [routerLink]="['/restaurant', 'L\'AUTHENTIQUE']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-
-      <app-restaurant image="../../../assets/images/restaurants/arabica.jpg"
-                      city="Casablanca"
-                      name="ARABICA"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'ARABICA']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/bali.jpg"
-                      city="Casablanca"
-                      name="BALI"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'BALI']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/boissons3.jpg"
-                      city="Casablanca"
-                      name="HAWAI"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'HAWAI']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
-      <app-restaurant image="../../../assets/images/restaurants/healthy.jpg"
-                      city="Casablanca"
-                      name="HEALTHY"
-                      openTime="10:00"
-                      [delivery]="true"
-                      [takeAway]="true"
-                      [routerLink]="['/restaurant', 'HEALTHY']"
-                      class="restaurants__restaurant">
-      </app-restaurant>
-
 
       <div class="restaurants__body-button-mobile-container">
         <button class="restaurants__body-button-mobile"
                 mat-icon-button
+                (click)="getMore()"
                 color="primary">
           <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
     <div class="restaurants__body-button-container">
-      <button class="restaurants__body-button" mat-raised-button color="primary" >Voir plus</button>
+      <button class="restaurants__body-button"
+              (click)="getMore()"
+              mat-raised-button color="primary" >Voir plus</button>
     </div>
   </div>
 </div>

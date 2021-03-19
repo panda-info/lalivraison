@@ -19,7 +19,9 @@
         <!--</button>-->
       <!--</div>-->
 
-      <img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">
+      <!--<img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">-->
+
+      <img *ngIf="images && images.length" [src]="'data:image/png;base64,' + images[currentImageIndex]" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">
 
       <!--<div class="swiper__button-right">-->
         <!--<button mat-icon-button (click)="nextImage()">-->
