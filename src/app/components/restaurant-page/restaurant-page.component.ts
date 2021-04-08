@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BasketService} from '../../services/basket.service';
 import {Item} from '../../models/item';
@@ -7,18 +7,248 @@ import {MatDialog} from '@angular/material/dialog';
 import {Service} from '../../models/service.enum';
 import {HttpService} from '../../services/http.service';
 import {ViewportScroller} from '@angular/common';
+import {SelectedHeadingComponent} from './selected-heading/selected-heading.component';
 
 @Component({
   selector: 'app-restaurant-page',
   templateUrl: './restaurant-page.component.html',
   styleUrls: ['./restaurant-page.component.scss']
 })
-export class RestaurantPageComponent implements OnInit {
+export class RestaurantPageComponent implements OnInit, AfterViewInit {
   @Input()
   image: string;
 
   @Input()
   subImage: string;
+
+  @ViewChild('x') parent: ElementRef;
+  @ViewChildren(SelectedHeadingComponent, {read: ElementRef}) components: QueryList<ElementRef>;
+
+  restaurant: any;
+
+  restaurantDescriptionOpened = false;
+  selectedHeadingIndex = 0;
+  selectedHeading = 'Tout';
+  visibleHeading = 'Entrées';
+  visiblesHeadings = [];
+  allHeadings = [];
+  completelyVisibleHeadings = []
+
+  intersectionObserver: IntersectionObserver;
+  // emitter: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
+  // @ViewChildren(SelectedHeadingComponent) viewChildren!: QueryList<ChildDirective>;
+
+  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router,
+              public basketService: BasketService, private httpService: HttpService,
+              private viewportScroller: ViewportScroller) { }
+
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      console.log('????????????', this.parent);
+      this.intersectionObserver = new IntersectionObserver((entries, observer) => {
+        this.checkForIntersection(entries , observer);
+      }, {
+        // rootMargin: window.innerWidth > 500 ? '-185px 0px -76% 0px' : '0px 0px -70% 0px',
+        // rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -10px 0px',
+        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -10px 0px',
+        // root: this.parent.nativeElement,
+        threshold: [...Array(100).keys()].filter(x => x % 5 === 0).map(x => x / 100)
+      });
+      this.components.forEach(c => this.intersectionObserver.observe(c.nativeElement));
+      // this.components.forEach(c => console.log('******', c));
+    }, 400);
+  }
+
+  private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
+    // const max = entries.reduce(
+    //   (prev, current) => (prev.intersectionRect.top < current.intersectionRect.top) ? prev : current);
+    // console.log('####################', max.target.id);
+    entries.forEach((entry: IntersectionObserverEntry) => {
+
+
+      if (entry.intersectionRatio > 0.9 && !this.completelyVisibleHeadings.find(heading => heading.name === entry.target.id)) {
+        this.completelyVisibleHeadings.push(
+          {
+            name: entry.target.id,
+            index: this.allHeadings.find(heading => heading.name === entry.target.id).index
+          }
+        );
+      } else if (entry.intersectionRatio < 0.05 &&
+        this.completelyVisibleHeadings.find(heading => heading.name === entry.target.id)) {
+        // this.completelyVisibleHeadings.splice(this.completelyVisibleHeadings.indexOf(entry.target.id), 1);
+        this.completelyVisibleHeadings
+          = this.completelyVisibleHeadings.filter(heading => heading.name !== entry.target.id);
+      }
+
+
+      if (this.completelyVisibleHeadings.length) {
+        // const index = this.completelyVisibleHeadings[0].index;
+        const minIndex = this.completelyVisibleHeadings.reduce(
+          (prev, current) => (prev.index < current.index) ? prev : current);
+        console.log('*****************', entry.target.id, '    ', this.allHeadings.find(heading => heading.name === entry.target.id).index)
+        if (minIndex.index < this.allHeadings.find(heading => heading.name === entry.target.id).index) {
+          console.log('--------------------', minIndex.name, '   ',
+            this.completelyVisibleHeadings);
+          // this.visibleHeading = this.completelyVisibleHeadings[0].name;
+          if (this.allHeadings.find(heading => heading.name === this.visibleHeading).index < minIndex.index) {
+            return;
+          }
+          this.visibleHeading = minIndex.name;
+        } else {
+          console.log('####################', entry.target.id);
+          this.visibleHeading = entry.target.id;
+        }
+      } else {
+        console.log('@@@@@@@@@@@@@@@@@@@@', entry.target.id);
+        this.visibleHeading = entry.target.id;
+      }
+    });
+  }
+
+  // private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
+  //   entries.forEach((entry: IntersectionObserverEntry) => {
+  //     if (this.checkIfIntersecting(entry)) {
+  //       console.log('####################', entry.intersectionRatio, '   ', entry.target);
+  //       console.log('@@@@@@@@@@@@@@@@@@@@', entry.boundingClientRect, '   ', entry.intersectionRect);
+  //       // const boundingRect = entry.boundingClientRect;
+  //       // const intersectionRect = entry.intersectionRect;
+  //       // this.emitter.emit(entry);
+  //       // this.intersectionObserver.unobserve(this.element.nativeElement);
+  //       // this.intersectionObserver.disconnect();
+  //       // this.visibleHeading = ;
+  //     }
+  //   });
+  // }
+
+  private checkIfIntersecting(entry: IntersectionObserverEntry): boolean {
+    // console.log('&&&&&&&&&&&', entry.intersectionRatio)
+    // return entry.isIntersecting && entry.target === this.element.nativeElement;
+    return entry.isIntersecting;
+  }
+
+  ngOnInit(): void {
+    this.httpService.getRestaurant('1', '11')
+    .subscribe(restaurant => {
+      this.restaurant = restaurant
+      let index = 0;
+      this.allHeadings = this.restaurant.headings.map(heading => { return {name: heading.name, index: index++}; });
+      // this.allHeading = {
+      //   name: 'Tout',
+      //   items: this.restaurant.headings.flatMap(heading => heading.items)
+      // };
+      // this.restaurant.headings.unshift({
+      //   name: 'Tout',
+      //   headings: this.restaurant.headings
+      // });
+      console.log('___________________', this.allHeadings);
+
+    });
+  }
+
+  showRestaurantDescription(): void {
+    this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
+  }
+
+  setSelectedHeadingIndex(selectedIndex: number): void {
+    this.selectedHeadingIndex = selectedIndex;
+  }
+
+  setSelectedHeading(selectedHeading: string): void {
+    this.viewportScroller.scrollToAnchor(selectedHeading);
+    // window.scrollTo({
+    //   top:  document.getElementById(selectedHeading).offsetTop,
+    //   behavior: 'smooth'
+    // });
+    let elementById = document.getElementById(selectedHeading);
+    if (!elementById) {
+      elementById = document.getElementById(this.restaurant.headings[0].name);
+    }
+    elementById.scrollIntoView({behavior: 'smooth', block: 'center'});
+    // document.getElementById(selectedHeading).scrollTop -= 150;
+    setTimeout(() => {
+      this.selectedHeading = selectedHeading;
+      this.visibleHeading = selectedHeading;
+    }, 600);
+  }
+
+  scrollRight(menuItems: HTMLDivElement): void {
+    menuItems.scrollBy({
+      left: 150,
+      behavior: 'smooth'
+    });
+  }
+
+  scrollLeft(menuItems: HTMLDivElement): void {
+    menuItems.scrollBy({
+      left: -150,
+      behavior: 'smooth'
+    });
+  }
+
+  validateBasket(): void {
+    this.router.navigate(['/checkout']);
+  }
+
+  incrementItemCount(item: Item): void {
+    this.basketService.incrementItemCount(item);
+  }
+
+  decrementItemCount(item: Item): void {
+    this.basketService.decrementItemCount(item);
+  }
+
+  removeItem(item: Item): void {
+    this.basketService.removeItem(item);
+  }
+
+  showDialogDetails(selectedItem: Item): void {
+    this.dialog.open(BasketItemDialogComponent, {
+      height: window.innerWidth < 500 ? '85%' : '740px',
+      width: window.innerWidth < 500 ? '85%' : '400px',
+      autoFocus: false,
+      data: {
+        item: selectedItem
+      }
+    });
+  }
+
+  setService(service: Service): void {
+    console.log('**************', this.basketService.getService())
+    this.basketService.setService(service as Service);
+    let service1 = this.basketService.getService();
+    console.log('**************', service1);
+  }
+
+  disableButton(): boolean {
+    return !this.basketService.count();
+  }
+
+  onServiceChange(service: Service): void {
+    this.setService(service);
+  }
+
+  handle(event: any): void {
+    console.log('°°°°°°°°°°°°°°°°°°°°°°°°', event);
+    this.visibleHeading = event;
+  }
+
+  highlightTitle(headingName: string): boolean {
+    return headingName === this.visibleHeading;
+    // this.restaurant.headings.
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // @Input()
   // restaurant = {
@@ -511,113 +741,4 @@ export class RestaurantPageComponent implements OnInit {
   //     }
   //   ]
   // }
-  restaurant: any;
-  allHeading: any;
-
-  restaurantDescriptionOpened = false;
-  selectedHeadingIndex = 0;
-  selectedHeading = 'Tout';
-
-  constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router,
-              public basketService: BasketService, private httpService: HttpService,
-              private viewportScroller: ViewportScroller) { }
-
-  ngOnInit(): void {
-    this.httpService.getRestaurant('1', '11')
-    .subscribe(restaurant => {
-      this.restaurant = restaurant
-      // this.allHeading = {
-      //   name: 'Tout',
-      //   items: this.restaurant.headings.flatMap(heading => heading.items)
-      // };
-      // this.restaurant.headings.unshift({
-      //   name: 'Tout',
-      //   headings: this.restaurant.headings
-      // });
-      console.log('___________________', this.restaurant);
-
-    });
-  }
-
-  showRestaurantDescription(): void {
-    this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
-  }
-
-  setSelectedHeadingIndex(selectedIndex: number): void {
-    this.selectedHeadingIndex = selectedIndex;
-  }
-
-  setSelectedHeading(selectedHeading: string): void {
-    this.selectedHeading = selectedHeading;
-    this.viewportScroller.scrollToAnchor(selectedHeading);
-    // window.scrollTo({
-    //   top:  document.getElementById(selectedHeading).offsetTop,
-    //   behavior: 'smooth'
-    // });
-    let elementById = document.getElementById(selectedHeading);
-    if (!elementById) {
-      elementById = document.getElementById(this.restaurant.headings[0].name);
-    }
-    elementById.scrollIntoView({behavior: 'smooth', block: 'center'});
-  }
-
-  scrollRight(menuItems: HTMLDivElement): void {
-    menuItems.scrollBy({
-      left: 150,
-      behavior: 'smooth'
-    });
-  }
-
-  scrollLeft(menuItems: HTMLDivElement): void {
-    menuItems.scrollBy({
-      left: -150,
-      behavior: 'smooth'
-    });
-  }
-
-  validateBasket(): void {
-    this.router.navigate(['/checkout']);
-  }
-
-  incrementItemCount(item: Item): void {
-    this.basketService.incrementItemCount(item);
-  }
-
-  decrementItemCount(item: Item): void {
-    this.basketService.decrementItemCount(item);
-  }
-
-  removeItem(item: Item): void {
-    this.basketService.removeItem(item);
-  }
-
-  showDialogDetails(selectedItem: Item): void {
-    this.dialog.open(BasketItemDialogComponent, {
-      height: window.innerWidth < 500 ? '85%' : '740px',
-      width: window.innerWidth < 500 ? '85%' : '400px',
-      autoFocus: false,
-      data: {
-        item: selectedItem
-      }
-    });
-  }
-
-  setService(service: Service): void {
-    console.log('**************', this.basketService.getService())
-    this.basketService.setService(service as Service);
-    let service1 = this.basketService.getService();
-    console.log('**************', service1);
-  }
-
-  disableButton(): boolean {
-    return !this.basketService.count();
-  }
-
-  onServiceChange(service: Service): void {
-    this.setService(service);
-  }
-
-  onWindowScroll(name: string): void {
-    console.log('----------------', name);
-  }
 }

@@ -9,6 +9,8 @@ export class SelectedHeadingComponent implements OnInit {
   @Input()
   heading: any;
 
+  @Input() highlightTitle: boolean;
+
   constructor() {}
 
   ngOnInit(): void {

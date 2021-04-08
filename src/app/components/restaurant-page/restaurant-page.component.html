@@ -3,11 +3,17 @@
 
     <div class="restaurant-page__presentation-images-container">
       <img [src]="'data:image/png;base64,' + restaurant.image" class="restaurant-page__presentation-image">
-      <img [src]="'data:image/png;base64,' + restaurant.subImage" class="restaurant-page__presentation-sub-image"/>
+      <img [src]="'data:image/png;base64,' + restaurant.subImage"
+           class="restaurant-page__presentation-sub-image"/>
     </div>
 
     <div class="restaurant-page__presentation-restaurant-infos">
       <div>
+        <!--<span class="restaurant-page__presentation-restaurant-name"-->
+              <!--(appDeferLoad)="handle($event)"-->
+              <!--[containerTitle]="restaurant.headings[0].name">-->
+          <!--{{restaurant.name}}-->
+        <!--</span>-->
         <span class="restaurant-page__presentation-restaurant-name">
           {{restaurant.name}}
         </span>
@@ -60,16 +66,17 @@
         </div>
         <div #menuItems class="restaurant-page__presentation-restaurant-menu">
 
-          <div class="restaurant-page__presentation-restaurant-menu-item"
-               (click)="setSelectedHeading('Tout')"
-               [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : selectedHeading==='Tout'}">
-            Tout
-          </div>
+          <!--<div class="restaurant-page__presentation-restaurant-menu-item"-->
+               <!--(click)="setSelectedHeading('Tout')"-->
+               <!--[ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' : selectedHeading==='Tout'}">-->
+            <!--Tout-->
+          <!--</div>-->
+               <!--[id]="heading.name"-->
           <div class="restaurant-page__presentation-restaurant-menu-item"
                *ngFor="let heading of restaurant.headings"
                (click)="setSelectedHeading(heading.name)"
                [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' :
-               selectedHeading===heading.name}">
+               visibleHeading===heading.name}">
             {{heading.name}}
           </div>
         </div>
@@ -89,18 +96,33 @@
 
     <!--*ngIf="restaurant.headings[selectedHeadingIndex].headings"-->
     <!---->
-    <!--<div class="restaurant-page__presentation-selected-heading"-->
-         <!--style="display: flex; flex-direction: column; background-color: lightpink">-->
+    <div #x
+         style="display: flex; background-color: lightgreen; flex-direction: column; padding-bottom: 200px;">
 
-      <app-selected-heading class="restaurant-page__presentation-selected-heading"
-                            [id]="h.name"
-                            style="padding-bottom: 5px"
-                            *ngFor="let h of restaurant.headings"
-                            (scroll)="onWindowScroll(h.name)"
-                            [heading]="h">
-      </app-selected-heading>
+      {{visibleHeading}}
+      <!--<app-selected-heading class="restaurant-page__presentation-selected-heading"-->
+                            <!--[id]="h.name"-->
+                            <!--style="padding-bottom: 5px; border: 1px red solid"-->
+                            <!--*ngFor="let h of restaurant.headings"-->
+                            <!--(appDeferLoad)="handle($event)"-->
+                            <!--[containerTitle]="h.name"-->
+                            <!--[highlightTitle]="highlightTitle(h.name)"-->
+                            <!--[intersectionObserver]="intersectionObserver"-->
+                            <!--[parent]="parentHeading"-->
+                            <!--[heading]="h">-->
+      <!--</app-selected-heading>-->
 
-    <!--</div>-->
+      <!--<ng-container *ngIf="intersectionObserver">-->
+        <app-selected-heading class="restaurant-page__presentation-selected-heading"
+                              [id]="h.name"
+                              style="padding-bottom: 5px; border: 1px red solid"
+                              *ngFor="let h of restaurant.headings"
+                              [highlightTitle]="highlightTitle(h.name)"
+                              [heading]="h">
+        </app-selected-heading>
+      <!--</ng-container>-->
+
+    </div>
 
 
 

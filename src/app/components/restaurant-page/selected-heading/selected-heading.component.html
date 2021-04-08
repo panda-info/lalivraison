@@ -1,5 +1,7 @@
 <div class="selected-heading__container">
-  <div *ngIf="heading.items" class="selected-heading__title">
+  <div *ngIf="heading.items"
+       [ngClass]="{'selected-heading__title-highlighted' : highlightTitle===true}"
+       class="selected-heading__title">
     {{heading.name}}
   </div>
   <div class="selected-heading__body">
