@@ -1,4 +1,4 @@
-<div class="order-details-page__container">
+<div class="order-details-page__container" *ngIf="orderStatus">
   <div class="order-details-page__info-zone">
 
     <div class="order-details-page__info-zone-title">
@@ -7,17 +7,21 @@
 
     <div class="order-details-page__info-zone-image-stepper-container">
       <div class="order-details-page__info-zone-image"></div>
-      <app-stepper class="order-details-page__info-zone-stepper"></app-stepper>
+      <app-stepper [state]="orderStatus.state"
+                   [times]="orderStatus.times"
+                   [serviceType]="orderStatus.service.type"
+                   class="order-details-page__info-zone-stepper">
+      </app-stepper>
     </div>
 
     <div class="order-details-page__info-zone-order-status">
-      Votre commande est <span class="order-details-page__info-zone-order-status-text">préparée</span>
+      Votre commande est <span class="order-details-page__info-zone-order-status-text">{{orderStatus.status}}</span>
     </div>
 
     <div class="order-details-page__info-zone-order-address-zone">
       Adresse de livraison :
       <span class="order-details-page__info-zone-order-address-zone-text">
-        Al mohades, résidence Malik appt 9 quartier palmiers, Casablanca
+        {{orderStatus.address}}
       </span>
     </div>
 
@@ -37,9 +41,9 @@
       </div>
       <div class="order-details-page__order-zone-frame-items">
 
-        <div *ngFor="let item of basketService.items" class="order-details-page__order-zone-frame-item">
+        <div *ngFor="let item of orderStatus.items" class="order-details-page__order-zone-frame-item">
           <img class="order-details-page__order-zone-frame-item-image"
-               [src]="item.image">
+               [src]="'data:image/png;base64,' + item.image">
           <div class="order-details-page__order-zone-frame-item-details">
             <span class="order-details-page__order-zone-frame-item-details-name">{{item.name}}</span>
             <div class="order-details-page__order-zone-frame-item-details-text">
@@ -64,16 +68,19 @@
         <div class="order-details-page__order-zone-frame-bill">
           <div class="order-details-page__order-zone-frame-bill-line">
             <div>Sous-total</div>
-            <div class="order-details-page__order-zone-frame-bill-line-price">{{basketService.total()}} Dhs</div>
+            <div class="order-details-page__order-zone-frame-bill-line-price">{{orderStatus.total}} Dhs</div>
           </div>
-          <div class="order-details-page__order-zone-frame-bill-line">
+          <div *ngIf="orderStatus.service.type === 'DELIVERY'"
+               class="order-details-page__order-zone-frame-bill-line">
             <div>Livraison</div>
-            <div class="order-details-page__order-zone-frame-bill-line-price">0 Dhs</div>
+            <div class="order-details-page__order-zone-frame-bill-line-price">{{orderStatus.service.fees}} Dhs</div>
           </div>
           <hr class="order-details-page__order-zone-frame-bill-line-separator">
           <div class="order-details-page__order-zone-frame-bill-line">
             <div>Total</div>
-            <div class="order-details-page__order-zone-frame-bill-line-price">{{basketService.total()}} Dhs</div>
+            <div class="order-details-page__order-zone-frame-bill-line-price">
+              {{orderStatus.total + orderStatus.service.fees}} Dhs
+            </div>
           </div>
           <div class="order-details-page__order-zone-frame-bill-line">
             <div>Paiement</div>

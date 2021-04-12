@@ -97,9 +97,10 @@
     <!--*ngIf="restaurant.headings[selectedHeadingIndex].headings"-->
     <!---->
     <div #x
-         style="display: flex; background-color: lightgreen; flex-direction: column; padding-bottom: 200px;">
+         style="display: flex; flex-direction: column; padding-bottom: 200px;">
+      <!--background-color: lightgreen;-->
 
-      {{visibleHeading}}
+      <!--{{visibleHeading}}-->
       <!--<app-selected-heading class="restaurant-page__presentation-selected-heading"-->
                             <!--[id]="h.name"-->
                             <!--style="padding-bottom: 5px; border: 1px red solid"-->
@@ -115,10 +116,10 @@
       <!--<ng-container *ngIf="intersectionObserver">-->
         <app-selected-heading class="restaurant-page__presentation-selected-heading"
                               [id]="h.name"
-                              style="padding-bottom: 5px; border: 1px red solid"
                               *ngFor="let h of restaurant.headings"
                               [highlightTitle]="highlightTitle(h.name)"
                               [heading]="h">
+                              <!--style="padding-bottom: 5px; border: 1px red solid"-->
         </app-selected-heading>
       <!--</ng-container>-->
 

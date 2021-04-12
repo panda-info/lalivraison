@@ -33,4 +33,12 @@ export class HttpService {
     }
     return this.http.get<any>(url);
   }
+
+  getOrderStatus(orderId: string): Observable<any[]> {
+    return this.http.get<string[]>(`api/suivi-commande/${orderId}`);
+  }
+
+  getOrderStatusSummary(orderId: string): Observable<any[]> {
+    return this.http.get<string[]>(`api/suivi-commande/${orderId}/summary`);
+  }
 }

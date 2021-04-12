@@ -27,10 +27,8 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   restaurant: any;
 
   restaurantDescriptionOpened = false;
-  selectedHeadingIndex = 0;
   selectedHeading = 'Tout';
   visibleHeading = 'Entrées';
-  visiblesHeadings = [];
   allHeadings = [];
   completelyVisibleHeadings = []
 
@@ -50,7 +48,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
       }, {
         // rootMargin: window.innerWidth > 500 ? '-185px 0px -76% 0px' : '0px 0px -70% 0px',
         // rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -10px 0px',
-        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -10px 0px',
+        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -30PX 0px',
         // root: this.parent.nativeElement,
         threshold: [...Array(100).keys()].filter(x => x % 5 === 0).map(x => x / 100)
       });
@@ -60,11 +58,8 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   }
 
   private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
-    // const max = entries.reduce(
-    //   (prev, current) => (prev.intersectionRect.top < current.intersectionRect.top) ? prev : current);
-    // console.log('####################', max.target.id);
+    console.log('&&&&&&&&&&&&&&&&&&&', entries.length);
     entries.forEach((entry: IntersectionObserverEntry) => {
-
 
       if (entry.intersectionRatio > 0.9 && !this.completelyVisibleHeadings.find(heading => heading.name === entry.target.id)) {
         this.completelyVisibleHeadings.push(
@@ -85,45 +80,18 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
         // const index = this.completelyVisibleHeadings[0].index;
         const minIndex = this.completelyVisibleHeadings.reduce(
           (prev, current) => (prev.index < current.index) ? prev : current);
-        console.log('*****************', entry.target.id, '    ', this.allHeadings.find(heading => heading.name === entry.target.id).index)
         if (minIndex.index < this.allHeadings.find(heading => heading.name === entry.target.id).index) {
-          console.log('--------------------', minIndex.name, '   ',
-            this.completelyVisibleHeadings);
-          // this.visibleHeading = this.completelyVisibleHeadings[0].name;
           if (this.allHeadings.find(heading => heading.name === this.visibleHeading).index < minIndex.index) {
             return;
           }
           this.visibleHeading = minIndex.name;
         } else {
-          console.log('####################', entry.target.id);
           this.visibleHeading = entry.target.id;
         }
       } else {
-        console.log('@@@@@@@@@@@@@@@@@@@@', entry.target.id);
         this.visibleHeading = entry.target.id;
       }
     });
-  }
-
-  // private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
-  //   entries.forEach((entry: IntersectionObserverEntry) => {
-  //     if (this.checkIfIntersecting(entry)) {
-  //       console.log('####################', entry.intersectionRatio, '   ', entry.target);
-  //       console.log('@@@@@@@@@@@@@@@@@@@@', entry.boundingClientRect, '   ', entry.intersectionRect);
-  //       // const boundingRect = entry.boundingClientRect;
-  //       // const intersectionRect = entry.intersectionRect;
-  //       // this.emitter.emit(entry);
-  //       // this.intersectionObserver.unobserve(this.element.nativeElement);
-  //       // this.intersectionObserver.disconnect();
-  //       // this.visibleHeading = ;
-  //     }
-  //   });
-  // }
-
-  private checkIfIntersecting(entry: IntersectionObserverEntry): boolean {
-    // console.log('&&&&&&&&&&&', entry.intersectionRatio)
-    // return entry.isIntersecting && entry.target === this.element.nativeElement;
-    return entry.isIntersecting;
   }
 
   ngOnInit(): void {
@@ -132,25 +100,11 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
       this.restaurant = restaurant
       let index = 0;
       this.allHeadings = this.restaurant.headings.map(heading => { return {name: heading.name, index: index++}; });
-      // this.allHeading = {
-      //   name: 'Tout',
-      //   items: this.restaurant.headings.flatMap(heading => heading.items)
-      // };
-      // this.restaurant.headings.unshift({
-      //   name: 'Tout',
-      //   headings: this.restaurant.headings
-      // });
-      console.log('___________________', this.allHeadings);
-
     });
   }
 
   showRestaurantDescription(): void {
     this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
-  }
-
-  setSelectedHeadingIndex(selectedIndex: number): void {
-    this.selectedHeadingIndex = selectedIndex;
   }
 
   setSelectedHeading(selectedHeading: string): void {
@@ -236,19 +190,6 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
     return headingName === this.visibleHeading;
     // this.restaurant.headings.
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   // @Input()
   // restaurant = {
