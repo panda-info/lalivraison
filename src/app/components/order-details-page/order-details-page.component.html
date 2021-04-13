@@ -6,7 +6,10 @@
     </div>
 
     <div class="order-details-page__info-zone-image-stepper-container">
-      <div class="order-details-page__info-zone-image"></div>
+      <div class="order-details-page__info-zone-image"
+           [ngClass]="{'order-details-page__info-zone-image-takeaway' : orderStatus.service.type === 'TAKEAWAY'}">
+
+      </div>
       <app-stepper [state]="orderStatus.state"
                    [times]="orderStatus.times"
                    [serviceType]="orderStatus.service.type"
@@ -48,22 +51,12 @@
             <span class="order-details-page__order-zone-frame-item-details-name">{{item.name}}</span>
             <div class="order-details-page__order-zone-frame-item-details-text">
               <span>{{item.count}}&nbsp;&nbsp;</span>x
-              <span class="order-details-page__order-zone-frame-item-details-text-price">&nbsp;&nbsp;{{item.unitPrice}} Dhs</span>
+              <span class="order-details-page__order-zone-frame-item-details-text-price">
+                &nbsp;&nbsp;{{item.unitPrice}} Dhs
+              </span>
             </div>
           </div>
         </div>
-
-        <!--<div class="order-details-page__order-zone-frame-item">-->
-          <!--<img class="order-details-page__order-zone-frame-item-image"-->
-               <!--src="../../../assets/images/p1.png">-->
-          <!--<div class="order-details-page__order-zone-frame-item-details">-->
-            <!--<span class="order-details-page__order-zone-frame-item-details-name">SALADE DE CHOUX</span>-->
-            <!--<div class="order-details-page__order-zone-frame-item-details-text">-->
-              <!--<span>2&nbsp;&nbsp;</span>x-->
-              <!--<span class="order-details-page__order-zone-frame-item-details-text-price">&nbsp;&nbsp;50.00 Dhs</span>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
 
         <div class="order-details-page__order-zone-frame-bill">
           <div class="order-details-page__order-zone-frame-bill-line">

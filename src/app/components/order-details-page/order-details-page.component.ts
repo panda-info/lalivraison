@@ -31,5 +31,4 @@ export class OrderDetailsPageComponent implements OnInit, OnDestroy {
       clearInterval(this.interval);
     }
   }
-
 }
