@@ -42,55 +42,36 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      console.log('????????????', this.parent);
       this.intersectionObserver = new IntersectionObserver((entries, observer) => {
         this.checkForIntersection(entries , observer);
       }, {
-        // rootMargin: window.innerWidth > 500 ? '-185px 0px -76% 0px' : '0px 0px -70% 0px',
-        // rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -10px 0px',
-        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -30PX 0px',
-        // root: this.parent.nativeElement,
-        threshold: [...Array(100).keys()].filter(x => x % 5 === 0).map(x => x / 100)
+        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -30px 0px',
+        threshold: [...Array(100).keys()].filter(x => x % 3 === 0).map(x => x / 100)
       });
       this.components.forEach(c => this.intersectionObserver.observe(c.nativeElement));
-      // this.components.forEach(c => console.log('******', c));
     }, 400);
   }
 
   private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
-    console.log('&&&&&&&&&&&&&&&&&&&', entries.length);
+    // console.log('&&&&&&&&&&&&&&&&&&&', entries);
+    if (entries.length > 1) {
+      // let indexes: number[];
+      // indexes = entries.map(entry => this.allHeadings.find(heading => heading.name === entry.target.id).index);
+      // let min = Math.min(...indexes);
+      // console.log('@@@@@@@@@@@@@', this.allHeadings[min].name);
+      this.visibleHeading = entries[0].target.id
+      console.log('--------------', entries[0].target.id);
+      this.allHeadings.find(heading => heading.name === entries[0].target.id).ratio = entries[0].intersectionRatio;
+    } else {
+      console.log('++++++++++++++', entries[0].target.id);
+      let find = this.allHeadings.find(heading => heading.name === this.visibleHeading);
+      if (find.ratio < 0.05) {
+        this.visibleHeading = entries[0].target.id;
+        // this.allHeadings.find(heading => heading.name === entries[0].target.id).ratio = entries[0].intersectionRatio;
+      }
+      this.allHeadings.find(heading => heading.name === entries[0].target.id).ratio = entries[0].intersectionRatio;
+    }
     entries.forEach((entry: IntersectionObserverEntry) => {
-
-      if (entry.intersectionRatio > 0.9 && !this.completelyVisibleHeadings.find(heading => heading.name === entry.target.id)) {
-        this.completelyVisibleHeadings.push(
-          {
-            name: entry.target.id,
-            index: this.allHeadings.find(heading => heading.name === entry.target.id).index
-          }
-        );
-      } else if (entry.intersectionRatio < 0.05 &&
-        this.completelyVisibleHeadings.find(heading => heading.name === entry.target.id)) {
-        // this.completelyVisibleHeadings.splice(this.completelyVisibleHeadings.indexOf(entry.target.id), 1);
-        this.completelyVisibleHeadings
-          = this.completelyVisibleHeadings.filter(heading => heading.name !== entry.target.id);
-      }
-
-
-      if (this.completelyVisibleHeadings.length) {
-        // const index = this.completelyVisibleHeadings[0].index;
-        const minIndex = this.completelyVisibleHeadings.reduce(
-          (prev, current) => (prev.index < current.index) ? prev : current);
-        if (minIndex.index < this.allHeadings.find(heading => heading.name === entry.target.id).index) {
-          if (this.allHeadings.find(heading => heading.name === this.visibleHeading).index < minIndex.index) {
-            return;
-          }
-          this.visibleHeading = minIndex.name;
-        } else {
-          this.visibleHeading = entry.target.id;
-        }
-      } else {
-        this.visibleHeading = entry.target.id;
-      }
     });
   }
 
@@ -99,7 +80,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
     .subscribe(restaurant => {
       this.restaurant = restaurant
       let index = 0;
-      this.allHeadings = this.restaurant.headings.map(heading => { return {name: heading.name, index: index++}; });
+      this.allHeadings = this.restaurant.headings.map(heading => { return {name: heading.name, index: index++, ratio: 0}; });
     });
   }
 
