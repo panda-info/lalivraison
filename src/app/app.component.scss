@@ -4,20 +4,10 @@
     height: 10%;
     min-height: 75px;
     width: 100%;
-    //z-index: 99;
+    z-index: 100;
     //position: fixed;
     //top: 0;
 
-  }
-
-  &outlet-container {
-    //padding-top: 75px;
-    height: 90%;
-
-    &-scroll {
-      overflow-y: scroll !important;
-    }
-    //background-color: lightpink;
   }
 
   &swiper {
@@ -68,13 +58,6 @@
     margin-left: auto;
     margin-right: auto;
     padding: 15px;
-  }
-
-  &about-zone {
-    min-height: 500px;
-    //margin-left: auto;
-    //margin-right: auto;
-    //width: 80%;
   }
 
   &body {
@@ -136,10 +119,6 @@
       min-height: 141px;
     }
 
-    &outlet-container {
-      //padding-top: 141px;
-    }
-
     &swiper {
       display: none;
     }
@@ -170,9 +149,6 @@
       display: none;
     }
 
-    &about-zone {
-      min-height: 350px;
-    }
   }
 
 }

@@ -1,9 +1,10 @@
 @import "~src/sass/variables";
 
 :host {
-  //height: 90%;
+  height: fit-content;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   overflow-y: auto;
 }
@@ -13,10 +14,10 @@
   &container {
     width: 800px;
     padding-top: 20px;
-    padding-bottom: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    //padding-bottom: 100px;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
     height: fit-content;
 
     ::ng-deep .cdk-overlay-pane {
@@ -41,7 +42,7 @@
     }
 
     &-frame {
-      height: 100%;
+      min-height: 100%;
       width: 100%;
       border-radius: 10px;
       -webkit-box-shadow: 0px -1px 8px 1px rgba(0, 0, 0, 0.3);
@@ -60,6 +61,14 @@
     ::ng-deep .mat-form-field-label-wrapper {
       top: -16px !important;
     }
+  }
+
+  &about-zone {
+    margin-top: 100px;
+    min-height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
   }
 
   &title {
@@ -245,6 +254,11 @@
       ::ng-deep .mat-button-toggle-button {
         margin-top: 0px;
       }
+    }
+
+    &about-zone {
+      min-height: 350px;
+      width: 100vw;
     }
 
     &title {
