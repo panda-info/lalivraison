@@ -45,8 +45,9 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
       this.intersectionObserver = new IntersectionObserver((entries, observer) => {
         this.checkForIntersection(entries , observer);
       }, {
-        rootMargin: window.innerWidth > 500 ? '-185px 0px -30px 0px' : '-105px 0px -30px 0px',
-        threshold: [...Array(100).keys()].filter(x => x % 3 === 0).map(x => x / 100)
+        rootMargin: window.innerWidth > 500 ? '-185px 0px -75% 0px' : '-105px 0px -90% 0px',
+        // threshold: [...Array(100).keys()].filter(x => x % 3 === 0).map(x => x / 100)
+        threshold: [0, 0.2, 0.4, 0.6, 0.8, 1]
       });
       this.components.forEach(c => this.intersectionObserver.observe(c.nativeElement));
     }, 400);
@@ -59,13 +60,18 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
       // indexes = entries.map(entry => this.allHeadings.find(heading => heading.name === entry.target.id).index);
       // let min = Math.min(...indexes);
       // console.log('@@@@@@@@@@@@@', this.allHeadings[min].name);
-      this.visibleHeading = entries[0].target.id
-      console.log('--------------', entries[0].target.id);
+      if (entries[0].isIntersecting === true) {
+        this.visibleHeading = entries[0].target.id
+      }
+      // console.log('--------------', entries[0].target.id, entries[0].isIntersecting);
+      entries.forEach(entry => console.log('--------------', entry.target.id, '    ', entry.isIntersecting))
       this.allHeadings.find(heading => heading.name === entries[0].target.id).ratio = entries[0].intersectionRatio;
     } else {
-      console.log('++++++++++++++', entries[0].target.id);
+      console.log('++++++++++++++', entries[0].target.id , '    ', entries[0].isIntersecting);
+      // entries.forEach(entry => console.log('+++++++++++++++++', entry.target.id, '    ', entry.isIntersecting))
       let find = this.allHeadings.find(heading => heading.name === this.visibleHeading);
-      if (find.ratio < 0.05) {
+      // if (find.ratio < 0.05) {
+      if (entries[0].isIntersecting === true) {
         this.visibleHeading = entries[0].target.id;
         // this.allHeadings.find(heading => heading.name === entries[0].target.id).ratio = entries[0].intersectionRatio;
       }

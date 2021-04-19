@@ -15,7 +15,7 @@
   }
 
   &title {
-    height: 10%;
+    //height: 10%;
     font-size: 30px;
     line-height: 40px;
     font-weight: 700;
@@ -103,6 +103,7 @@
       &-item {
         padding-left: 3px;
         padding-right: 3px;
+        padding-bottom: 8px;
       }
     }
 
