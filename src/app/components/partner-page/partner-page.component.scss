@@ -9,6 +9,20 @@
   overflow-y: auto;
 }
 
+::ng-deep .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
+  color: $blue-lalivraison !important;
+}
+
+//::ng-deep .mat-simple-snackbar {
+//  display: inline-block !important;
+//}
+//
+//::ng-deep .mat-snack-bar-handset .mat-snack-bar-container {
+//  margin: auto !important;
+//  margin-bottom: 20px;
+//  width: 80% !important;
+//}
+
 .partner-page__ {
 
   &container {
@@ -39,6 +53,14 @@
 
     ::ng-deep .mat-form-field-appearance-standard.mat-form-field-has-label .mat-select:not(.mat-select-empty) .mat-select-arrow-wrapper {
       border-top: 10px solid transparent;
+    }
+
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+      margin-top: 0 !important;
+    }
+
+    mat-error {
+      margin-left: 10px;
     }
 
     &-frame {
@@ -254,6 +276,10 @@
       ::ng-deep .mat-button-toggle-button {
         margin-top: 0px;
       }
+
+      ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+        margin-top: -2px !important;
+      }
     }
 
     &about-zone {
@@ -326,7 +352,7 @@
     &text-field {
       width: 80%;
       height: 50px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
 
       ::ng-deep .mat-form-field-infix {
         border-top: 10px solid transparent !important;

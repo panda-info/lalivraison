@@ -7,8 +7,8 @@
            src="../../../assets/images/order_icon_1.png">
     </div>
 
-    <div class="partner-page__zones">
-      <div class="partner-page__zones-left">
+    <div class="partner-page__zones" *ngIf="myForm">
+      <form [formGroup]="myForm" class="partner-page__zones-left">
 
         <div class="partner-page__frame-info-left">
           <div class="partner-page__frame-info-image-zone">
@@ -97,44 +97,62 @@
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre nom
           </mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="lastName" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="myForm.get('lastName').invalid">
+            {{getErrorMessage('lastName')}}
+          </mat-error>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre prénom
           </mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="firstName" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="myForm.get('firstName').invalid">
+            {{getErrorMessage('firstName')}}
+          </mat-error>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre téléphone
           </mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="phone" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="myForm.get('phone').invalid">
+            {{getErrorMessage('phone')}}
+          </mat-error>
           <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre email
           </mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="email" class="partner-page__text-field-margin" email="true" matInput>
+          <mat-error *ngIf="myForm.get('email').invalid">
+            {{getErrorMessage('email')}}
+          </mat-error>
           <mat-icon matSuffix>alternate_email</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre ville</mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="city" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="myForm.get('city').invalid">
+            {{getErrorMessage('city')}}
+          </mat-error>
           <mat-icon matSuffix>location_city</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre type d'activité</mat-label>
-          <input class="partner-page__text-field-margin" type="text" matInput>
+          <input formControlName="activity" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="myForm.get('activity').invalid">
+            {{getErrorMessage('activity')}}
+          </mat-error>
           <mat-icon matSuffix>room_service</mat-icon>
         </mat-form-field>
 
-      </div>
+      </form>
       <div class="partner-page__zones-right">
 
         <div class="partner-page__frame-info-right">
@@ -182,6 +200,7 @@
     </div>
     <button class="partner-page__button"
             mat-raised-button
+            [disabled]="myForm.invalid"
             (click)="validate()"
             color="primary">
       Rejoindre

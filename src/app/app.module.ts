@@ -27,7 +27,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
 import {SelectedHeadingItemDialogComponent} from './components/restaurant-page/selected-heading/selected-heading-item/selected-heading-item-dialog/selected-heading-item-dialog.component';
 import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {CheckoutPageComponent} from './components/checkout-page/checkout-page.component';
 import {OrderDetailsPageComponent} from './components/order-details-page/order-details-page.component';
@@ -94,6 +94,7 @@ const routes: Routes = [
       }
     ),
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     // ReactiveFormsModule,
     MatButtonModule,
