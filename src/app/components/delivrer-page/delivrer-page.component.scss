@@ -44,6 +44,14 @@
       border-top: 10px solid transparent;
     }
 
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+      margin-top: 0 !important;
+    }
+
+    mat-error {
+      margin-left: 10px;
+    }
+
     &-frame {
       min-height: 100%;
       //height: max-content;
@@ -254,6 +262,10 @@
       ::ng-deep .mat-button-toggle-button {
         margin-top: 0px;
       }
+
+      ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-subscript-wrapper {
+        margin-top: -2px !important;
+      }
     }
 
     &title {
@@ -318,7 +330,7 @@
     &text-field {
       width: 80%;
       height: 50px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
 
       ::ng-deep .mat-form-field-infix {
         border-top: 10px solid transparent !important;
