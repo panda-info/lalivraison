@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {HttpService} from '../../services/http.service';
 
 @Component({
   selector: 'app-delivrer-page',
@@ -11,7 +12,7 @@ export class DelivrerPageComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(private fb: FormBuilder, private snackBar: MatSnackBar) { }
+  constructor(private fb: FormBuilder, private snackBar: MatSnackBar, private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
@@ -33,7 +34,7 @@ export class DelivrerPageComponent implements OnInit {
     this.snackBar.openFromComponent(MessageComponent, {
       duration: 3500,
     });
-    this.formGroup.reset();
+    this.httpService.postDelivrer(this.formGroup.value).subscribe(result => this.formGroup.reset());
   }
 
   getErrorMessage(field: string): string {

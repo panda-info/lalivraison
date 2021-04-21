@@ -41,4 +41,12 @@ export class HttpService {
   getOrderStatusSummary(orderId: string): Observable<any[]> {
     return this.http.get<string[]>(`api/suivi-commande/${orderId}/summary`);
   }
+
+  postPartner(partner: any): Observable<any> {
+    return this.http.post<any>('api/devenir-partenaire', partner);
+  }
+
+  postDelivrer(delivrer: any): Observable<any> {
+    return this.http.post<any>('api/devenir-livreur', delivrer);
+  }
 }
