@@ -4,7 +4,7 @@
     <img src="../../../assets/images/categories/restaurants.png" class="restaurants__title-image">
   </div>
   <div class="restaurants__body-container">
-    <div class="restaurants__body">
+    <div class="restaurants__body"  *ngIf="restaurants.length">
       <app-restaurant *ngFor="let restaurant of getRestaurants()"
                       [image]="'data:image/png;base64,' + restaurant.image"
                       [city]="restaurant.city"

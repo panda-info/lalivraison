@@ -1,5 +1,5 @@
 <div class="checkout-page__container">
-  <div class="checkout-page__info-zone">
+  <form [formGroup]="formGroup" class="checkout-page__info-zone">
 
     <div class="checkout-page__info-zone-title">
       <span style="margin-left: 8px">Informations de commande</span>
@@ -8,63 +8,82 @@
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre nom</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="lastName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('lastName').invalid">
+        {{getErrorMessage('lastName')}}
+      </mat-error>
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre prénom</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="firstName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('firstName').invalid">
+        {{getErrorMessage('firstName')}}
+      </mat-error>
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre téléphone</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="phone" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('phone').invalid">
+        {{getErrorMessage('phone')}}
+      </mat-error>
       <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre email</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="email" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('email').invalid">
+        {{getErrorMessage('email')}}
+      </mat-error>
       <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre adresse</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="address" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('address').invalid">
+        {{getErrorMessage('address')}}
+      </mat-error>
       <mat-icon matSuffix>home</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
-      <mat-label class="checkout-page__info-zone-text-field-margin"> Maarif</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Quartier</mat-label>
+      <input formControlName="district" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
       <mat-icon matSuffix>room</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
-      <mat-label class="checkout-page__info-zone-text-field-margin"> Casablanca</mat-label>
-      <input class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
+      <mat-label class="checkout-page__info-zone-text-field-margin"> Ville</mat-label>
+      <input formControlName="city" class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
       <mat-icon matSuffix>location_city</mat-icon>
     </mat-form-field>
 
-    <mat-button-toggle-group class="checkout-page__info-zone-toggle">
-      <mat-button-toggle class="checkout-page__info-zone-toggle-button">
+    <mat-button-toggle-group formControlName="payment" class="checkout-page__info-zone-toggle">
+      <mat-button-toggle value="CARD" class="checkout-page__info-zone-toggle-button">
         Payer en ligne&nbsp;&nbsp;&nbsp;<mat-icon>payment</mat-icon>
       </mat-button-toggle>
-      <mat-button-toggle class="checkout-page__info-zone-toggle-button">
+      <mat-button-toggle value="CASH" class="checkout-page__info-zone-toggle-button">
         Payer en espèce&nbsp;&nbsp;&nbsp;<mat-icon>payments</mat-icon>
       </mat-button-toggle>
+      <mat-error *ngIf="formGroup.get('payment').invalid">
+        {{getErrorMessage('payment')}}
+      </mat-error>
     </mat-button-toggle-group>
 
     <button class="checkout-page__info-zone-button"
             mat-raised-button
+            [disabled]="formGroup.invalid"
             (click)="validate()"
             color="primary">
       Commander
     </button>
 
-  </div>
+  </form>
   <div class="checkout-page__order-zone">
     <div class="checkout-page__order-zone-frame">
       <div class="checkout-page__order-zone-header">
@@ -110,6 +129,7 @@
         </div>
 
         <button class="checkout-page__order-zone-button"
+                [disabled]="formGroup.invalid"
                 (click)="validate()"
                 mat-raised-button
                 color="primary">

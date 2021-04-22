@@ -49,4 +49,8 @@ export class HttpService {
   postDelivrer(delivrer: any): Observable<any> {
     return this.http.post<any>('api/devenir-livreur', delivrer);
   }
+
+  postCheckout(checkout: any): Observable<any> {
+    return this.http.post<any>('api/checkout', checkout);
+  }
 }
