@@ -11,13 +11,15 @@ export class BasketService {
   // basket: Basket = new Basket();
   itemsCount = 0;
   items: Item[] = [];
-  service: Service;
+  // service: Service;
+  service = 'Takeaway';
   latitude: number;
   longitude: number;
   location: Location = new Location();
 
+
   constructor() {
-    this.service = Service.Takeaway;
+    // this.service = Service.Takeaway;
   }
 
   incrementItemCount(item: Item): void {
@@ -65,11 +67,11 @@ export class BasketService {
     return this.items.map(item => item.unitPrice * item.count).reduce((acc, val) => acc += val, 0);
   }
 
-  getService(): Service {
+  getService(): string {
     return this.service;
   }
 
-  setService(service: Service): void {
+  setService(service: string): void {
     this.service = service;
   }
 

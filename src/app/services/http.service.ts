@@ -12,6 +12,7 @@ export class HttpService {
 
   getSwiperImages(): Observable<string[]> {
     return this.http.get<string[]>('api/home/swiper-image');
+    // return this.http.get<string[]>('api/banners/read');
   }
 
   getCategories(): Observable<any[]> {

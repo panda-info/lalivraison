@@ -11,7 +11,7 @@ export class RestaurantsComponent implements OnInit {
   @Input()
   category: string;
 
-  restaurants: any[];
+  restaurants = [];
   pageSize = 12;
   page = 0;
 

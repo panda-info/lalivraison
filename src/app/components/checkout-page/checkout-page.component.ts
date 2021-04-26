@@ -43,6 +43,7 @@ export class CheckoutPageComponent implements OnInit {
   validate(): void {
     const checkout = this.formGroup.getRawValue();
     checkout.items = this.basketService.items.map(item => {return {id: item.id, count: item.count}; });
+    // checkout.service = {type: this.basketService.service, fees: }
     this.httpService.postCheckout(checkout).subscribe(result => this.router.navigate(['/suivi-commande']));
   }
 

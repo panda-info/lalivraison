@@ -153,9 +153,10 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
     });
   }
 
-  setService(service: Service): void {
+  setService(service: string): void {
     console.log('**************', this.basketService.getService())
-    this.basketService.setService(service as Service);
+    console.log('@@@@@@@@@@@@@', service)
+    this.basketService.setService(service);
     let service1 = this.basketService.getService();
     console.log('**************', service1);
   }
@@ -164,7 +165,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
     return !this.basketService.count();
   }
 
-  onServiceChange(service: Service): void {
+  onServiceChange(service: string): void {
     this.setService(service);
   }
 
@@ -175,7 +176,6 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
 
   highlightTitle(headingName: string): boolean {
     return headingName === this.visibleHeading;
-    // this.restaurant.headings.
   }
 
   // @Input()

@@ -58,6 +58,7 @@
     padding-right: 10px;
     min-height: 100% !important;
     //background-color: lightblue;
+    margin-left: 40px;
 
     &-images-container {
       display: flex;
@@ -254,6 +255,7 @@
     z-index: 99;
     background-color: white;
     border-radius: 15px;
+    margin-right: 40px;
 
     &-container {
       height: 100%;
@@ -573,6 +575,7 @@
     &presentation {
       width: 95%;
       padding-right: 0;
+      margin-left: 0;
 
       &-image {
         height: 200px;

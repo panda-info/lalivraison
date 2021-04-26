@@ -28,11 +28,11 @@ export class BasketPageComponent implements OnInit {
     return !this.basketService.count();
   }
 
-  setService(service: Service): void {
-    this.basketService.setService(service as Service);
+  setService(service: string): void {
+    this.basketService.setService(service);
   }
 
-  onServiceChange(service: Service): void {
+  onServiceChange(service: string): void {
     this.setService(service);
   }
 }

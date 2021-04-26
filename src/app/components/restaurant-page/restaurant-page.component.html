@@ -273,12 +273,14 @@
         <!--{{basketService.getService().toString()}}-->
         <mat-button-toggle-group class="restaurant-page__basket-bill-toggle"
                                  #group="matButtonToggleGroup"
-                                 [value]="basketService.getService().toString()"
+                                 [value]="basketService.getService()"
                                  (change)="onServiceChange(group.value)"
                                  *ngIf="basketService.count()">
           <mat-button-toggle (click)="setService('Delivery')"
+                             value="Delivery"
                              class="restaurant-page__basket-bill-toggle-button">Livrer</mat-button-toggle>
           <mat-button-toggle (click)="setService('Takeaway')"
+                             value="Takeaway"
                              class="restaurant-page__basket-bill-toggle-button">Emporter</mat-button-toggle>
         </mat-button-toggle-group>
 

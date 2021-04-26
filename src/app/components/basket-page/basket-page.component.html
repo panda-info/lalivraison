@@ -56,7 +56,7 @@
 
     <mat-button-toggle-group class="basket-page__content-toggle"
                              #group="matButtonToggleGroup"
-                             [value]="basketService.getService().toString()"
+                             [value]="basketService.getService()"
                              (change)="onServiceChange(group.value)"
                              *ngIf="basketService.count()">
       <mat-button-toggle (click)="setService('Delivery')"
