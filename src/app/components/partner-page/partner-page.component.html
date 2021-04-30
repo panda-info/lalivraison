@@ -97,9 +97,9 @@
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre nom
           </mat-label>
-          <input formControlName="lastName" class="partner-page__text-field-margin" type="text" matInput>
-          <mat-error *ngIf="formGroup.get('lastName').invalid">
-            {{getErrorMessage('lastName')}}
+          <input formControlName="nom" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="formGroup.get('nom').invalid">
+            {{getErrorMessage('nom')}}
           </mat-error>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
@@ -107,9 +107,9 @@
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre prénom
           </mat-label>
-          <input formControlName="firstName" class="partner-page__text-field-margin" type="text" matInput>
-          <mat-error *ngIf="formGroup.get('firstName').invalid">
-            {{getErrorMessage('firstName')}}
+          <input formControlName="prenom" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="formGroup.get('prenom').invalid">
+            {{getErrorMessage('prenom')}}
           </mat-error>
           <mat-icon matSuffix>person</mat-icon>
         </mat-form-field>
@@ -117,9 +117,9 @@
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre téléphone
           </mat-label>
-          <input formControlName="phone" class="partner-page__text-field-margin" type="text" matInput>
-          <mat-error *ngIf="formGroup.get('phone').invalid">
-            {{getErrorMessage('phone')}}
+          <input formControlName="telephone" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="formGroup.get('telephone').invalid">
+            {{getErrorMessage('telephone')}}
           </mat-error>
           <mat-icon matSuffix>phone</mat-icon>
         </mat-form-field>
@@ -136,18 +136,18 @@
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre ville</mat-label>
-          <input formControlName="city" class="partner-page__text-field-margin" type="text" matInput>
-          <mat-error *ngIf="formGroup.get('city').invalid">
-            {{getErrorMessage('city')}}
+          <input formControlName="ville" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="formGroup.get('ville').invalid">
+            {{getErrorMessage('ville')}}
           </mat-error>
           <mat-icon matSuffix>location_city</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="partner-page__text-field">
           <mat-label class="partner-page__text-field-margin"> Saisissez votre type d'activité</mat-label>
-          <input formControlName="activity" class="partner-page__text-field-margin" type="text" matInput>
-          <mat-error *ngIf="formGroup.get('activity').invalid">
-            {{getErrorMessage('activity')}}
+          <input formControlName="activite" class="partner-page__text-field-margin" type="text" matInput>
+          <mat-error *ngIf="formGroup.get('activite').invalid">
+            {{getErrorMessage('activite')}}
           </mat-error>
           <mat-icon matSuffix>room_service</mat-icon>
         </mat-form-field>

@@ -1,91 +1,112 @@
 <div class="stepper__container">
   <div class="stepper__step">
     <div class="stepper__step-circle-line-container">
-      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=1}">
+      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=0}">
         <img class="stepper__step-circle-image"
              src="../../../../assets/images/order_status_icon_stepper_validated.png">
       </div>
-      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state>=2}"></div>
+      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state>0}"></div>
     </div>
-    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=1}">
-      <span>Validée</span>
-      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times">{{times[0] | date: 'H:mm'}}</span>
+    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=0}">
+      <span>Reçue</span>
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times">{{times.date_confirmation | date: 'H:mm'}}</span>
     </div>
-    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times" style="font-weight: normal">{{times[0] | date: 'H:mm'}}</div>
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times" style="font-weight: normal">
+      {{times.date_confirmation | date: 'H:mm'}}</div>
   </div>
 
-  <div class="stepper__step">
+
+
+  <div class="stepper__step" *ngIf="state === 3">
     <div class="stepper__step-circle-line-container">
-      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=2}">
+      <div class="stepper__step-circle-filled">
+        <img class="stepper__step-circle-image"
+             src="../../../../assets/images/order_status_icon_stepper_validated.png">
+      </div>
+    </div>
+    <div class="stepper__step-text-filled">
+      <span>Refusée</span>
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.date_annuler">
+        {{times.date_annuler | date: 'H:mm'}}</span>
+    </div>
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.date_annuler" style="font-weight: normal">
+      {{times.date_annuler | date: 'H:mm'}}</div>
+  </div>
+
+
+
+  <div class="stepper__step" *ngIf="state !== 3">
+    <div class="stepper__step-circle-line-container">
+      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=1}">
         <img class="stepper__step-circle-image"
              src="../../../../assets/images/order_status_icon_stepper_ready.png">
       </div>
-      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state>=3}"></div>
+      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state>1}"></div>
     </div>
-    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=2}">
-      <span>Préparée</span>
-      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.length>1">
-        {{times[1] | date: 'H:mm'}}
+    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=1}">
+      <span>Accéptée</span>
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.date_acceptation">
+        {{times.date_acceptation | date: 'H:mm'}}
       </span>
     </div>
-    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.length>1" style="font-weight: normal">
-      {{times[1] | date: 'H:mm'}}
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.date_acceptation" style="font-weight: normal">
+      {{times.date_acceptation | date: 'H:mm'}}
     </div>
   </div>
 
-  <div *ngIf="serviceType==='DELIVERY'" class="stepper__step">
+  <div *ngIf="serviceType==='DELIVERY' && state !== 3" class="stepper__step">
     <div class="stepper__step-circle-line-container">
-      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=3}">
+      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state===2 || state===4}">
         <img src="../../../../assets/images/order_status_icon_stepper_sent.png"
              class="stepper__step-circle-image"
              style="margin-left: -2px; margin-top: -2px">
       </div>
-      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state>=4}"></div>
+      <div class="stepper__line" [ngClass]="{'stepper__line-filled' : state===2}"></div>
     </div>
-    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=3}">
+    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state===2 || state===4}">
       <span>Expédiée</span>
-      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.length>2">
-        {{times[2] | date: 'H:mm'}}
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.date_livreur">
+        {{times.date_livreur | date: 'H:mm'}}
       </span>
     </div>
-    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.length>2" style="font-weight: normal">
-      {{times[2] | date: 'H:mm'}}
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.date_livreur" style="font-weight: normal">
+      {{times.date_livreur | date: 'H:mm'}}
     </div>
   </div>
 
-  <div *ngIf="serviceType === 'DELIVERY'" class="stepper__step">
+  <div *ngIf="serviceType === 'DELIVERY' && state !== 3" class="stepper__step">
     <div class="stepper__step-circle-line-container">
-      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=4}">
+      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state===2}">
         <img src="../../../../assets/images/order_status_icon_stepper_delivered.png"
              class="stepper__step-circle-image">
       </div>
     </div>
-    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=4}">
+    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state===2}">
       <span>Livrée</span>
-      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.length>3">
-        {{times[3] | date: 'H:mm'}}
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.date_livre">
+        {{times.date_livre | date: 'H:mm'}}
       </span>
     </div>
-    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.length>3" style="font-weight: normal">
-      {{times[3] | date: 'H:mm'}}
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.date_livre" style="font-weight: normal">
+      {{times.date_livre | date: 'H:mm'}}
     </div>
   </div>
 
-  <div *ngIf="serviceType === 'TAKEAWAY'" class="stepper__step">
+  <div *ngIf="serviceType === 'TAKEAWAY' && state !== 3" class="stepper__step">
     <div class="stepper__step-circle-line-container">
-      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state>=4}">
+      <div class="stepper__step-circle" [ngClass]="{'stepper__step-circle-filled' : state===2}">
         <img src="../../../../assets/images/order_status_icon_stepper_delivered.png"
              class="stepper__step-circle-image">
       </div>
     </div>
-    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state>=4}">
+    <div class="stepper__step-text" [ngClass]="{'stepper__step-text-filled' : state===2}">
       <span>Récupérée</span>
-      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.length>2">
-        {{times[3] | date: 'H:mm'}}
+      <span class="stepper__step-text-filled-hour-mobile" *ngIf="times && times.date_livre">
+        {{times.date_livre | date: 'H:mm'}}
       </span>
     </div>
-    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.length>2" style="font-weight: normal">
-      {{times[3] | date: 'H:mm'}}
+    <div class="stepper__step-text-filled-hour-desktop" *ngIf="times && times.date_livre" style="font-weight: normal">
+      {{times.date_livre | date: 'H:mm'}}
     </div>
   </div>
 

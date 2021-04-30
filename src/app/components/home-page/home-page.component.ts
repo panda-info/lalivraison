@@ -8,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomePageComponent implements OnInit {
 
   selectedCategory = 'Tout';
+  selectedCity: string = null;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  handleCityEmitted($event: string): void {
+    this.selectedCity = $event;
+  }
 }

@@ -1,17 +1,22 @@
 <div class="newsletter-zone__container">
   <div class="newsletter-zone__text">Inscrivez-vous à notre newsletter</div>
-  <div class="newsletter-zone__form-zone">
+  <form [formGroup]="formGroup" class="newsletter-zone__form-zone">
     <mat-form-field class="newsletter-zone__text-field">
       <mat-label class="delivrer-page__text-field-margin"> Saisissez votre email
       </mat-label>
-      <input class="delivrer-page__text-field-margin" type="text" matInput>
+      <input formControlName="email" class="delivrer-page__text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('email').invalid">
+        {{getErrorMessage()}}
+      </mat-error>
       <mat-icon matSuffix>alternate_email</mat-icon>
     </mat-form-field>
 
     <button class="newsletter-zone__form-zone-button"
             mat-raised-button
+            [disabled]="formGroup.invalid"
+            (click)="submit()"
             color="primary">
       S'inscrire
     </button>
-  </div>
+  </form>
 </div>

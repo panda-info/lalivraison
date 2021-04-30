@@ -1,10 +1,15 @@
 <div class="home-page__container">
   <app-swiper class="home-page__swiper"></app-swiper>
-  <app-location-chooser class="home-page__location-chooser"></app-location-chooser>
+  <app-location-chooser (emittedCity)="handleCityEmitted($event)"
+                        class="home-page__location-chooser">
+  </app-location-chooser>
+  <!--{{selectedCity | json}}-->
+
   <app-carousel-categories [(selectedCategory)]="selectedCategory"
                            class="home-page__carousel-categories">
   </app-carousel-categories>
   <app-restaurants [category]="selectedCategory"
+                   [city]="selectedCity"
                    class="home-page__restaurants">
   </app-restaurants>
   <app-join-us class="home-page__join-us"></app-join-us>

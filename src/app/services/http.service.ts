@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 @Injectable({
@@ -11,20 +11,27 @@ export class HttpService {
   }
 
   getSwiperImages(): Observable<string[]> {
-    return this.http.get<string[]>('api/home/swiper-image');
-    // return this.http.get<string[]>('api/banners/read');
+    // return this.http.get<string[]>('api/home/swiper-image');
+    return this.http.get<string[]>('api/banners/read');
   }
 
   getCategories(): Observable<any[]> {
-    return this.http.get<string[]>('api/home/categories');
+    // return this.http.get<string[]>('api/home/categories');
+    return this.http.get<string[]>('api/categories/read');
   }
 
   getCities(): Observable<any[]> {
-    return this.http.get<string[]>('api/home/cities');
+    // return this.http.get<string[]>('api/home/cities');
+    return this.http.get<string[]>('api/locations/read');
   }
 
-  getRestaurants(category: string, page: number, pageSize: number): Observable<any[]> {
-    return this.http.get<string[]>(`api/home/restaurants?category=${category}&page=${page}&pageSize=${pageSize}`);
+  getRestaurants(category: string, page: number, city?: string, cityPage?: number): Observable<any[]> {
+    // return this.http.get<string[]>(`api/home/restaurants?category=${category}&page=${page}&pageSize=${pageSize}`);
+    let url = `api/restaurants/read?category=${category}&page=${page}`;
+    if (cityPage) {
+      url += `&city=${city}&cityPage=${cityPage}`;
+    }
+    return this.http.get<string[]>(url);
   }
 
   getRestaurant(restaurantId: string, districtId: string): Observable<any> {
@@ -35,20 +42,27 @@ export class HttpService {
     return this.http.get<any>(url);
   }
 
+  postNewsLetter(email: any): Observable<any> {
+    return this.http.post<any>('api/newsletter/create', email);
+  }
+
   getOrderStatus(orderId: string): Observable<any[]> {
-    return this.http.get<string[]>(`api/suivi-commande/${orderId}`);
+    // return this.http.get<string[]>(`api/suivi-commande/${orderId}`);
+    return this.http.get<string[]>(`api/suivicommande/read?id_commande=${orderId}`);
   }
 
   getOrderStatusSummary(orderId: string): Observable<any[]> {
-    return this.http.get<string[]>(`api/suivi-commande/${orderId}/summary`);
+    // return this.http.get<string[]>(`api/suivi-commande/${orderId}/summary`);
+    return this.http.get<string[]>(`api/suivicommande/summary?id_commande=${orderId}`);
   }
 
   postPartner(partner: any): Observable<any> {
-    return this.http.post<any>('api/devenir-partenaire', partner);
+    return this.http.post<any>('api/dpartenaire/create', partner);
   }
 
   postDelivrer(delivrer: any): Observable<any> {
-    return this.http.post<any>('api/devenir-livreur', delivrer);
+    // return this.http.post<any>('api/devenir-livreur', delivrer);
+    return this.http.post<any>('api/dlivreur/create', delivrer);
   }
 
   postCheckout(checkout: any): Observable<any> {

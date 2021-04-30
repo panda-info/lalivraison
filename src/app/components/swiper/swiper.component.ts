@@ -8,27 +8,29 @@ import {HttpService} from '../../services/http.service';
   styleUrls: ['./swiper.component.scss']
 })
 export class SwiperComponent implements OnInit, OnDestroy {
-  public currentImageIndex = 3
+  public currentImageIndex = 0
   private interval;
-  images: string[];
+  images: any[];
 
   constructor(private http: HttpClient, private httpService: HttpService) { }
 
   ngOnInit(): void {
-    this.httpService.getSwiperImages().subscribe((images: string[]) => {
-      this.images = images;
+    this.httpService.getSwiperImages().subscribe((images: any) => {
+      console.log('----------------------', images)
+      this.images = images.banner;
       this.interval = setInterval(() => {
         this.nextImage();
       }, 4000);
     });
+
   }
 
   nextImage(): void {
-    this.currentImageIndex = ++this.currentImageIndex % 6;
+    this.currentImageIndex = ++this.currentImageIndex % this.images.length;
   }
 
   previousImage(): void {
-    this.currentImageIndex = (--this.currentImageIndex + 6) % 6;
+    this.currentImageIndex = (--this.currentImageIndex + this.images.length) % this.images.length;
   }
 
   ngOnDestroy(): void {

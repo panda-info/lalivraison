@@ -13,7 +13,7 @@
     <mat-icon matSuffix style="border-top: 3px transparent solid !important;">location_city</mat-icon>
     <mat-label style="">Choisissez votre ville</mat-label>
     <mat-select [(value)]="city" (selectionChange)="handleCityChange()">
-      <mat-option *ngFor="let c of getCities()" [value]="c">{{c}}</mat-option>
+      <mat-option *ngFor="let c of getCities()" [value]="c">{{c.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 

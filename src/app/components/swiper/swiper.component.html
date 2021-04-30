@@ -21,7 +21,10 @@
 
       <!--<img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">-->
 
-      <img *ngIf="images && images.length" [src]="'data:image/png;base64,' + images[currentImageIndex]" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">
+      <img *ngIf="images && images.length"
+           [src]="images[currentImageIndex].image"
+           style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;"
+           alt="images">
 
       <!--<div class="swiper__button-right">-->
         <!--<button mat-icon-button (click)="nextImage()">-->
@@ -49,33 +52,11 @@
     </div>
 
     <!--les 4 cercles de scooling-->
-    <div class="swiper__scroll-circles-container">
-      <div (click)="setCurrentImageIndex(0)"
+    <div *ngIf="images && images.length" class="swiper__scroll-circles-container" [ngStyle]="{'width': 15*images.length +'px'}">
+      <div *ngFor="let image of images; let i = index" (click)="setCurrentImageIndex(i)"
            class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 0">
+           [class.swiper__scroll-circle-selected]="currentImageIndex === i">
       </div>
-      <div (click)="setCurrentImageIndex(1)"
-           class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 1">
-      </div>
-      <div (click)="setCurrentImageIndex(2)"
-           class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 2">
-      </div>
-      <div (click)="setCurrentImageIndex(3)"
-           class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 3">
-      </div>
-      <div (click)="setCurrentImageIndex(4)"
-           class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 4">
-      </div>
-      <div (click)="setCurrentImageIndex(5)"
-           class="swiper__scroll-circle"
-           [class.swiper__scroll-circle-selected]="currentImageIndex === 5">
-      </div>
-    </div>
-
   </div>
 
   <!--bouton fleche droite-->

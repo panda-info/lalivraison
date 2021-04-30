@@ -16,14 +16,14 @@ export class PartnerPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
+      nom: ['', [Validators.required, Validators.minLength(3)]],
+      prenom: ['', [Validators.required, Validators.minLength(3)]],
+      telephone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
         Validators.pattern('0(6|7)[0-9]*$')]],
       email: ['', [Validators.required, Validators.email,
         Validators.pattern('^([a-zA-Z0-9.!#$%&’*+\\/=?^_`{|}~-]+)@([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)+$')]],
-      city: ['', [Validators.required, Validators.minLength(3)]],
-      activity: ['', [Validators.required, Validators.minLength(3)]]
+      ville: ['', [Validators.required, Validators.minLength(3)]],
+      activite: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
 
@@ -31,7 +31,10 @@ export class PartnerPageComponent implements OnInit {
     this.snackBar.openFromComponent(MessageComponent, {
       duration: 3500,
     });
-    this.httpService.postPartner(this.formGroup.value).subscribe(result => this.formGroup.reset());
+    this.httpService.postPartner(this.formGroup.value).subscribe(result => {
+      console.log('********************', result);
+      this.formGroup.reset();
+    });
   }
 
   getErrorMessage(field: string): string {

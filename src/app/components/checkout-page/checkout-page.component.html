@@ -9,8 +9,8 @@
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre nom</mat-label>
       <input formControlName="lastName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
-      <mat-error *ngIf="formGroup.get('lastName').invalid">
-        {{getErrorMessage('lastName')}}
+      <mat-error *ngIf="formGroup.get('nom').invalid">
+        {{getErrorMessage('nom')}}
       </mat-error>
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
@@ -18,8 +18,8 @@
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre prénom</mat-label>
       <input formControlName="firstName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
-      <mat-error *ngIf="formGroup.get('firstName').invalid">
-        {{getErrorMessage('firstName')}}
+      <mat-error *ngIf="formGroup.get('prenom').invalid">
+        {{getErrorMessage('prenom')}}
       </mat-error>
       <mat-icon matSuffix>person</mat-icon>
     </mat-form-field>
@@ -27,8 +27,8 @@
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre téléphone</mat-label>
       <input formControlName="phone" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
-      <mat-error *ngIf="formGroup.get('phone').invalid">
-        {{getErrorMessage('phone')}}
+      <mat-error *ngIf="formGroup.get('telephone').invalid">
+        {{getErrorMessage('telephone')}}
       </mat-error>
       <mat-icon matSuffix>phone</mat-icon>
     </mat-form-field>

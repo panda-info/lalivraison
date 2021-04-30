@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {BasketItemDialogComponent} from '../basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
 import {BasketService} from '../../services/basket.service';
@@ -10,7 +10,9 @@ import {HttpService} from '../../services/http.service';
   styleUrls: ['./location-chooser.component.scss']
 })
 export class LocationChooserComponent implements OnInit {
-  city: string;
+
+  @Output() emittedCity: EventEmitter<any> = new EventEmitter<any>();
+  city: any;
   district: string;
 
   cities: any[];
@@ -44,25 +46,34 @@ export class LocationChooserComponent implements OnInit {
   ngOnInit(): void {
     this.city = this.basketService.getLocation().city;
     this.district = this.basketService.getLocation().district;
-    this.httpService.getCities().subscribe((cities: any[]) => this.cities = cities);
+    this.httpService.getCities().subscribe((cities: any[]) => {
+      this.cities = cities.map(city => {
+        const returnedCity = city;
+        city.page = 0;
+        return returnedCity;
+      });
+    });
   }
 
   getCities(): string[] {
-    if (this.cities) {
-      return this.cities.map(city => city.name);
-    }
+    // if (this.cities) {
+    //   return this.cities.map(city => city.name);
+    // }
+    return this.cities;
   }
 
   getDistricts(): string[] {
     if (this.city) {
-      return this.cities.filter(city => city.name === this.city)[0].districts.map(district => district.name);
+      return this.cities.find(city => city.name === this.city.name).districts
+      .map(district => district.name);
     }
   }
 
   handleCityChange(): void {
-    this.district = this.cities.filter(city => city.name === this.city)[0].districts[0];
+    this.district = this.cities.find(city => city.name === this.city.name).districts[0].name;
     this.basketService.getLocation().city = this.city;
     this.basketService.getLocation().district = this.district;
+    this.emittedCity.emit(this.city);
   }
 
   handleDistrictChange(): void {

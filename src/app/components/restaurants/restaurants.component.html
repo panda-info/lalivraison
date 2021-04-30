@@ -3,10 +3,10 @@
     Restaurants&nbsp;&nbsp;
     <img src="../../../assets/images/categories/restaurants.png" class="restaurants__title-image">
   </div>
-  <div class="restaurants__body-container">
-    <div class="restaurants__body"  *ngIf="restaurants.length">
+  <div class="restaurants__body-container" *ngIf="restaurants.length">
+    <div class="restaurants__body">
       <app-restaurant *ngFor="let restaurant of getRestaurants()"
-                      [image]="'data:image/png;base64,' + restaurant.image"
+                      [image]="restaurant.image"
                       [city]="restaurant.city"
                       [name]="restaurant.name | uppercase"
                       [delivery]="restaurant.delivery"

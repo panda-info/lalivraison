@@ -16,17 +16,19 @@ export class DelivrerPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.formGroup = this.fb.group({
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      phone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
+      nom: ['', [Validators.required, Validators.minLength(3)]],
+      prenom: ['', [Validators.required, Validators.minLength(3)]],
+      telephone: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10),
         Validators.pattern('0(6|7)[0-9]*$')]],
-      email: ['', [Validators.required, Validators.email,
-        Validators.pattern('^([a-zA-Z0-9.!#$%&’*+\\/=?^_`{|}~-]+)@([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)+$')]],
-      city: ['', [Validators.required, Validators.minLength(3)]],
-      scooter: ['', Validators.required],
-      drivingLicence: ['', Validators.required],
-      student: ['', Validators.required],
-      smartPhone: ['', Validators.required]
+      // email: ['', [Validators.required, Validators.email,
+      //   Validators.pattern('^([a-zA-Z0-9.!#$%&’*+\\/=?^_`{|}~-]+)@([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)+$')]],
+      age: ['', [Validators.required, Validators.maxLength(2),
+        Validators.minLength(2), Validators.pattern(/^[0-9]\d*$/)]],
+      ville: ['', [Validators.required, Validators.minLength(3)]],
+      moto: ['', Validators.required],
+      permis: ['', Validators.required],
+      etudiant: ['', Validators.required],
+      mobile: ['', Validators.required]
     });
   }
 
