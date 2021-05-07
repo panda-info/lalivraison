@@ -25,6 +25,6 @@ export class Item {
     this.restaurant = restaurant;
     this.itemType = itemType;
     this.compositions = compositions;
-    this.categories = categories
+    this.categories = categories;
   }
 }

@@ -8,7 +8,7 @@
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre nom</mat-label>
-      <input formControlName="lastName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="nom" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
       <mat-error *ngIf="formGroup.get('nom').invalid">
         {{getErrorMessage('nom')}}
       </mat-error>
@@ -17,7 +17,7 @@
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre prénom</mat-label>
-      <input formControlName="firstName" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="prenom" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
       <mat-error *ngIf="formGroup.get('prenom').invalid">
         {{getErrorMessage('prenom')}}
       </mat-error>
@@ -26,7 +26,7 @@
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre téléphone</mat-label>
-      <input formControlName="phone" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="telephone" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
       <mat-error *ngIf="formGroup.get('telephone').invalid">
         {{getErrorMessage('telephone')}}
       </mat-error>
@@ -44,36 +44,41 @@
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Saisissez votre adresse</mat-label>
-      <input formControlName="address" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
-      <mat-error *ngIf="formGroup.get('address').invalid">
-        {{getErrorMessage('address')}}
+      <input formControlName="adresse" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <mat-error *ngIf="formGroup.get('adresse').invalid">
+        {{getErrorMessage('adresse')}}
       </mat-error>
       <mat-icon matSuffix>home</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Quartier</mat-label>
-      <input formControlName="district" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
+      <input formControlName="quartier" class="checkout-page__info-zone-text-field-margin" type="text" matInput>
       <mat-icon matSuffix>room</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="checkout-page__info-zone-text-field">
       <mat-label class="checkout-page__info-zone-text-field-margin"> Ville</mat-label>
-      <input formControlName="city" class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
+      <input formControlName="ville" class="checkout-page__info-zone-text-field-margin" type="text" matInput disabled>
       <mat-icon matSuffix>location_city</mat-icon>
     </mat-form-field>
 
-    <mat-button-toggle-group formControlName="payment" class="checkout-page__info-zone-toggle">
-      <mat-button-toggle value="CARD" class="checkout-page__info-zone-toggle-button">
+    <mat-button-toggle-group formControlName="moyen_paiement" class="checkout-page__info-zone-toggle">
+      <mat-button-toggle value="1" class="checkout-page__info-zone-toggle-button">
         Payer en ligne&nbsp;&nbsp;&nbsp;<mat-icon>payment</mat-icon>
       </mat-button-toggle>
-      <mat-button-toggle value="CASH" class="checkout-page__info-zone-toggle-button">
+      <mat-button-toggle value="0" class="checkout-page__info-zone-toggle-button">
         Payer en espèce&nbsp;&nbsp;&nbsp;<mat-icon>payments</mat-icon>
       </mat-button-toggle>
-      <mat-error *ngIf="formGroup.get('payment').invalid">
-        {{getErrorMessage('payment')}}
+      <mat-error *ngIf="formGroup.get('moyen_paiement').invalid">
+        {{getErrorMessage('moyen_paiement')}}
       </mat-error>
     </mat-button-toggle-group>
+
+    <mat-form-field class="checkout-page__info-zone-text-field" style="height: fit-content !important">
+      <mat-label class="checkout-page__info-zone-text-field-margin">Note de livraison</mat-label>
+      <textarea formControlName="note" matInput maxlength="200" ></textarea>
+    </mat-form-field>
 
     <button class="checkout-page__info-zone-button"
             mat-raised-button

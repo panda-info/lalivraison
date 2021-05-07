@@ -57,6 +57,10 @@
     overflow-y: auto;
     overflow-x: hidden;
 
+    ::ng-deep .mat-radio-label-content {
+      color: black !important;
+    }
+
     &-items-container {
       display: flex;
       flex-direction: column;
@@ -84,9 +88,13 @@
           border-radius: 5px;
           height: 35px;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
+          //flex-direction: column;
+          //justify-content: center;
           padding-left: 10px;
+          //display: flex;
+          justify-content: space-between;
+          //color: black;
+          //background-color: lightgreen;
         }
       }
 

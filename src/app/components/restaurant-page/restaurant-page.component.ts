@@ -26,7 +26,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
 
   restaurant: any;
 
-  restaurantDescriptionOpened = false;
+  // restaurantDescriptionOpened = false;
   selectedHeading = 'Tout';
   visibleHeading = 'Entrées';
   allHeadings = [];
@@ -35,6 +35,15 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   intersectionObserver: IntersectionObserver;
   // emitter: EventEmitter<IntersectionObserverEntry> = new EventEmitter();
   // @ViewChildren(SelectedHeadingComponent) viewChildren!: QueryList<ChildDirective>;
+
+  seeMoreClicked = false;
+
+  getDescription(): string {
+    if (!this.seeMoreClicked) {
+      return this.restaurant.description.substring(0, 100) + ' ...';
+    }
+    return this.restaurant.description;
+  }
 
   constructor(public dialog: MatDialog, private route: ActivatedRoute, private router: Router,
               public basketService: BasketService, private httpService: HttpService,
@@ -82,17 +91,20 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.httpService.getRestaurant('1', '11')
+    // this.httpService.getRestaurant('1', '11')
+    this.httpService.getRestaurant('294', '11')
+    // this.httpService.getRestaurant('529', '11')
     .subscribe(restaurant => {
+      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ', restaurant)
       this.restaurant = restaurant
       let index = 0;
-      this.allHeadings = this.restaurant.headings.map(heading => { return {name: heading.name, index: index++, ratio: 0}; });
+      this.allHeadings = this.restaurant.categories.map(heading => { return {name: heading.cat_name, index: index++, ratio: 0}; });
     });
   }
 
-  showRestaurantDescription(): void {
-    this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
-  }
+  // showRestaurantDescription(): void {
+  //   this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
+  // }
 
   setSelectedHeading(selectedHeading: string): void {
     this.viewportScroller.scrollToAnchor(selectedHeading);

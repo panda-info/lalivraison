@@ -8,7 +8,7 @@
             [mat-dialog-close]="true">
       <mat-icon class="basket-item-dialog__top-close-button-icon">close</mat-icon>
     </button>
-    <img [src]="'data:image/png;base64,' + data.item.image"
+    <img [src]="data.item.image"
          class="basket-item-dialog__top-image">
   </div>
 
@@ -26,7 +26,7 @@
     <!--Compositions-->
     <div *ngIf="data.item.compositions">
       <div *ngFor="let composition of data.item.compositions"
-           class="basket-item-dialog__content-items-container">
+           class="">
         <div class="basket-item-dialog__content-items-container-composition-name">
           {{composition.name}}
         </div>
@@ -45,17 +45,17 @@
 
 
     <!--Déclinaisons-->
-    <div *ngIf="data.item.declinations">
+    <div *ngIf="data.item.declinations && data.item.declinations.length > 1">
       <mat-radio-group class="basket-item-dialog__content-items-container"
                        disabled
                        [(ngModel)]="data.item.declinations.selectedValue">
-        <mat-radio-button *ngFor="let declination of data.item.declinations.values"
+        <mat-radio-button *ngFor="let declination of data.item.declinations"
                           class="basket-item-dialog__content-items-container-declination-item"
                           color="primary"
                           [value]="declination">
           <div class="basket-item-dialog__content-items-container-declination-item-label">
-            <span>{{declination.name}}</span>
-            <span>{{declination.price}} Dhs</span>
+            <span>{{declination.label}}</span>
+            <span>{{declination.prix}} Dhs</span>
           </div>
         </mat-radio-button>
 
@@ -64,21 +64,30 @@
 
 
     <!--Formule-->
-    <div *ngIf="data.item.categories">
-      <mat-radio-group *ngFor="let category of data.item.categories"
-                       disabled
-                       [(ngModel)]="category.selectedItem"
+                       <!--[(ngModel)]="category.selectedItem"-->
+    <div *ngIf="data.item.compositions">
+      <!--{{data.item | json}}-->
+      <div *ngFor="let category of data.item.compositions"
                        class="basket-item-dialog__content-items-container">
         <div class="basket-item-dialog__content-items-container-formula-name">
-          {{category.name}}
+          {{category.titre}}
         </div>
-        <mat-radio-button *ngFor="let i of category.items"
+        <mat-checkbox *ngFor="let i of category.composants"
+                          disabled
                           class="basket-item-dialog__content-items-container-formula-label"
                           color="primary"
-                          [value]="i">
-          &nbsp;&nbsp;&nbsp;&nbsp;{{i.name}}
-        </mat-radio-button>
-      </mat-radio-group>
+                          [(ngModel)]="i.selected">
+          <div style="margin-left: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 260px;">
+            <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+            <span>{{i.name}}</span>
+            <span>{{i.price}} Dhs</span>
+          </div>
+        </mat-checkbox>
+      </div>
     </div>
 
 

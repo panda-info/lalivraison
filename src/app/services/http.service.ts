@@ -35,11 +35,11 @@ export class HttpService {
   }
 
   getRestaurant(restaurantId: string, districtId: string): Observable<any> {
-    let url = `api/restaurant?restaurantId=${restaurantId}`;
-    if (districtId) {
-      url += `&districtId=${districtId}`;
-    }
-    return this.http.get<any>(url);
+    // let url = `api/restaurant?restaurantId=${restaurantId}`;
+    // if (districtId) {
+    //   url += `&districtId=${districtId}`;
+    // }
+    return this.http.get<any>(`api/Restaurant_Menu/read?restaurant_id=${restaurantId}`);
   }
 
   postNewsLetter(email: any): Observable<any> {
@@ -66,6 +66,7 @@ export class HttpService {
   }
 
   postCheckout(checkout: any): Observable<any> {
-    return this.http.post<any>('api/checkout', checkout);
+    // return this.http.post<any>('api/checkout', checkout);
+    return this.http.post<any>('api/checkout/create', checkout);
   }
 }

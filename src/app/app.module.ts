@@ -40,7 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {DelivrerPageComponent} from './components/delivrer-page/delivrer-page.component';
 import {PartnerPageComponent} from './components/partner-page/partner-page.component';
 import {HttpClientModule} from '@angular/common/http';
-import { DeferLoadDirective } from './directives/defer-load.directive';
+import {DeferLoadDirective} from './directives/defer-load.directive';
 
 
 const routes: Routes = [
@@ -107,7 +107,7 @@ const routes: Routes = [
     MatDialogModule,
     MatRadioModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

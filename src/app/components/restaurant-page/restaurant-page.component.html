@@ -2,8 +2,8 @@
   <div class="restaurant-page__presentation">
 
     <div class="restaurant-page__presentation-images-container">
-      <img [src]="'data:image/png;base64,' + restaurant.image" class="restaurant-page__presentation-image">
-      <img [src]="'data:image/png;base64,' + restaurant.subImage"
+      <img [src]="restaurant.background" class="restaurant-page__presentation-image">
+      <img [src]="restaurant.image"
            class="restaurant-page__presentation-sub-image"/>
     </div>
 
@@ -15,11 +15,11 @@
           <!--{{restaurant.name}}-->
         <!--</span>-->
         <span class="restaurant-page__presentation-restaurant-name">
-          {{restaurant.name}}
+          {{restaurant.designation}}
         </span>
-        <span class="restaurant-page__presentation-restaurant-speciality">{{restaurant.kitchenType}}</span>
+        <span class="restaurant-page__presentation-restaurant-speciality">{{restaurant.category}}</span>
       </div>
-      <span class="restaurant-page__presentation-restaurant-phone">{{restaurant.phoneNumber}}</span>
+      <span class="restaurant-page__presentation-restaurant-phone">{{restaurant.num_telephone}}</span>
       <button class="restaurant-page__presentation-restaurant-show-details-button"
               mat-button (click)="showRestaurantDescription()">
         <mat-icon style="display: flex; align-items: center; justify-content: center; font-size: 40px">
@@ -35,7 +35,7 @@
       <div class="restaurant-page__presentation-restaurant-time">
         <mat-icon class="restaurant-page__presentation-restaurant-time-icon">access_time</mat-icon>
         <span class="restaurant-page__presentation-restaurant-time-text">
-          {{restaurant.openTime}}h - {{restaurant.closeTime}}h
+          {{restaurant.heure_ouverture.replace("00", "")}} - {{restaurant.heure_fermeture.replace("00", "")}}
         </span>
       </div>
     </div>
@@ -43,15 +43,20 @@
     <div class="restaurant-page__presentation-restaurant-description-container"
          style="">
       <div class="restaurant-page__presentation-restaurant-description"
-           [ngClass]="{'restaurant-page__presentation-restaurant-description-opened' : restaurantDescriptionOpened===true}">
-        NIKKEI met un point d'honneur à développer
-        une large gamme de sushis, de plateaux... &nbsp;
-        <span class="restaurant-page__presentation-restaurant-description-details">Plus</span>
+           [ngClass]="{'restaurant-page__presentation-restaurant-description-opened' : seeMoreClicked===true}">
+        {{getDescription()}}
+        <span *ngIf="restaurant.description.length > 100"
+              (click)="seeMoreClicked = !seeMoreClicked"
+              class="restaurant-page__presentation-restaurant-description-details">
+          {{seeMoreClicked ? 'Réduire' : 'Plus'}}
+        </span>
 
       </div>
       <div class="restaurant-page__presentation-restaurant-time-mobile">
         <mat-icon class="restaurant-page__presentation-restaurant-time-icon">access_time</mat-icon>
-        <span class="restaurant-page__presentation-restaurant-time-text">{{restaurant.openTime}}h - {{restaurant.closeTime}}h</span>
+        <span class="restaurant-page__presentation-restaurant-time-text">
+          {{restaurant.heure_ouverture}} - {{restaurant.heure_fermeture}}
+        </span>
       </div>
     </div>
 
@@ -73,11 +78,11 @@
           <!--</div>-->
                <!--[id]="heading.name"-->
           <div class="restaurant-page__presentation-restaurant-menu-item"
-               *ngFor="let heading of restaurant.headings"
-               (click)="setSelectedHeading(heading.name)"
+               *ngFor="let heading of restaurant.categories"
+               (click)="setSelectedHeading(heading.cat_name)"
                [ngClass]="{'restaurant-page__presentation-restaurant-menu-item-selected' :
-               visibleHeading===heading.name}">
-            {{heading.name}}
+               visibleHeading===heading.cat_name}">
+            {{heading.cat_name}}
           </div>
         </div>
         <div class="restaurant-page__presentation-restaurant-menu-scroll-button">
@@ -115,9 +120,9 @@
 
       <!--<ng-container *ngIf="intersectionObserver">-->
         <app-selected-heading class="restaurant-page__presentation-selected-heading"
-                              [id]="h.name"
-                              *ngFor="let h of restaurant.headings"
-                              [highlightTitle]="highlightTitle(h.name)"
+                              [id]="h.cat_name"
+                              *ngFor="let h of restaurant.categories"
+                              [highlightTitle]="highlightTitle(h.cat_name)"
                               [heading]="h">
                               <!--style="padding-bottom: 5px; border: 1px red solid"-->
         </app-selected-heading>
@@ -148,6 +153,7 @@
       <div class="restaurant-page__basket-items">
 
         <div *ngFor="let item of basketService.items" class="restaurant-page__basket-item" style="margin-top: 10px">
+          <!--{{item | json}}-->
           <div class="restaurant-page__basket-item-remove">
             <button (click)="removeItem(item)"
                     mat-icon-button class="restaurant-page__basket-item-remove-button">
@@ -157,9 +163,14 @@
           <div class="restaurant-page__basket-item-body">
             <img class="restaurant-page__basket-item-body-image"
                  (click)="showDialogDetails(item)"
-                 [src]="'data:image/png;base64,' + item.image">
+                 [src]="item.image">
             <div class="restaurant-page__basket-item-body-details">
-              <span class="restaurant-page__basket-item-body-details-name">{{item.name}}</span>
+              <span class="restaurant-page__basket-item-body-details-name">
+                {{item.name}}
+                <span *ngIf="!item.compositions">
+                  {{item.declinations.selectedValue.label | lowercase}}
+                </span>
+              </span>
               <div class="restaurant-page__basket-item-body-details-count-price">
                 <div class="restaurant-page__basket-item-body-details-count">
                   <mat-icon (click)="decrementItemCount(item)"
@@ -171,7 +182,14 @@
                     add
                   </mat-icon>
                 </div>
-                <span class="restaurant-page__basket-item-body-details-price">{{item.unitPrice * item.count}} Dhs</span>
+                <span *ngIf="!item.compositions"
+                      class="restaurant-page__basket-item-body-details-price">
+                  {{item.count * item.declinations.selectedValue.prix}} Dhs
+                </span>
+                <span *ngIf="item.compositions"
+                      class="restaurant-page__basket-item-body-details-price">
+                  {{item.count * item.unitPrice}} Dhs
+                </span>
               </div>
             </div>
           </div>

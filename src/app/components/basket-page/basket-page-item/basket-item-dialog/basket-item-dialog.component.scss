@@ -84,9 +84,9 @@
           border-radius: 5px;
           height: 35px;
           display: flex;
-          flex-direction: column;
-          justify-content: center;
-          padding-left: 10px;
+          flex-direction: row;
+          justify-content: space-between;
+          //padding-left: 10px;
         }
       }
 

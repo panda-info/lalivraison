@@ -43,6 +43,8 @@
       font-size: 13px;
       font-weight: bold;
       width: 110%;
+      max-height: 40px;
+      overflow-y: hidden;
     }
 
     &-price {

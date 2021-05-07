@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {BasketService} from '../../services/basket.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -11,7 +11,6 @@ import {HttpService} from '../../services/http.service';
   styleUrls: ['./checkout-page.component.scss']
 })
 export class CheckoutPageComponent implements OnInit {
-
   formGroup: FormGroup;
 
   constructor(private router: Router, public basketService: BasketService, private fb: FormBuilder,
@@ -26,10 +25,11 @@ export class CheckoutPageComponent implements OnInit {
         Validators.pattern('0(6|7)[0-9]*$')]],
       email: ['', [Validators.required, Validators.email,
         Validators.pattern('^([a-zA-Z0-9.!#$%&’*+\\/=?^_`{|}~-]+)@([a-zA-Z0-9-]+)(\\.[a-zA-Z0-9-]+)+$')]],
-      address: ['', [Validators.required, Validators.minLength(3)]],
-      district: [{value: 'Maarif', disabled: true}, Validators.required],
-      city: [{value: 'Casablanca', disabled: true}, [Validators.required, Validators.minLength(3)]],
-      payment: ['', Validators.required],
+      adresse: ['', [Validators.required, Validators.minLength(3)]],
+      quartier: [{value: 'Maarif', disabled: true}, Validators.required],
+      ville: [{value: 'Casablanca', disabled: true}, [Validators.required, Validators.minLength(3)]],
+      moyen_paiement: ['', Validators.required],
+      note: [''],
     });
   }
 
@@ -42,14 +42,31 @@ export class CheckoutPageComponent implements OnInit {
 
   validate(): void {
     const checkout = this.formGroup.getRawValue();
-    checkout.items = this.basketService.items.map(item => {return {id: item.id, count: item.count}; });
-    // checkout.service = {type: this.basketService.service, fees: }
-    this.httpService.postCheckout(checkout).subscribe(result => this.router.navigate(['/suivi-commande']));
+    // checkout.items = this.basketService.items.map(item => {return {id: item.id, count: item.count}; });
+    checkout.items = [
+      {id_produit: 67, count: 1}, // produit normal
+      {id_produit: 44, id_declinaison: 173, count: 3}, // declinaison
+      {
+        // formule
+        id_produit: 50,
+        formule: [
+          {
+            id_titre: 3616,
+            produits: [38763, 38762],
+          },
+          {
+            id_titre: 3615,
+            produits: [38756, 38755],
+          }
+        ],
+        count: 5}
+    ];
+    this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
   }
 
   private checkEmptyBasket(): void {
-    if (this.basketService.count() === 0) {
-      this.router.navigate(['/']);
-    }
+    // if (this.basketService.count() === 0) {
+    //   this.router.navigate(['/']);
+    // }
   }
 }

@@ -47,7 +47,7 @@ export class RestaurantsComponent implements OnInit {
     }
     if (this.city) {
       restaurants =
-        this.restaurants.filter(restaurant => restaurant.city === this.city);
+        this.restaurants.filter(restaurant => restaurant.city === this.city.name);
     }
     return restaurants;
   }

@@ -1,3 +1,4 @@
+<!--{{data.item | json}}-->
 <div class="selected-heading-item-dialog__container">
 
   <div class="selected-heading-item-dialog__top">
@@ -7,14 +8,14 @@
               [mat-dialog-close]="true">
         <mat-icon class="selected-heading-item-dialog__top-close-button-icon">close</mat-icon>
       </button>
-    <img [src]="'data:image/png;base64,' + data.item.image"
+    <img [src]="data.item.image"
          class="selected-heading-item-dialog__top-image">
   </div>
 
   <div class="selected-heading-item-dialog__content">
 
     <div class="selected-heading-item-dialog__lower-zone-name">
-      {{data.item.name | uppercase}}
+      {{data.item.designation | uppercase}}
     </div>
 
     <div class="selected-heading-item-dialog__lower-zone-description">
@@ -43,16 +44,16 @@
 
 
     <!--Déclinaisons-->
-    <div *ngIf="data.item.declinations">
+    <div *ngIf="!item.formule.length && data.item.declinaisons && data.item.declinaisons.length > 1">
       <mat-radio-group [(ngModel)]="selectedDeclination"
                        class="selected-heading-item-dialog__content-items-container">
-        <mat-radio-button *ngFor="let declination of data.item.declinations.values"
+        <mat-radio-button *ngFor="let declination of data.item.declinaisons"
                           class="selected-heading-item-dialog__content-items-container-declination-item"
                           color="primary"
                           [value]="declination">
           <div class="selected-heading-item-dialog__content-items-container-declination-item-label">
-            <span>{{declination.name}}</span>
-            <span>{{declination.price}} Dhs</span>
+            <span>{{declination.label}}</span>
+            <span>{{declination.prix}} Dhs</span>
           </div>
         </mat-radio-button>
 
@@ -61,20 +62,45 @@
 
 
     <!--Formule-->
-    <div *ngIf="item.formula">
-      <mat-radio-group *ngFor="let category of selectedFormula"
-                       [(ngModel)]="category.selectedItem"
+                       <!--[(ngModel)]="category.selectedItem"-->
+    <div *ngIf="item.formule.length">
+      <div *ngFor="let category of selectedComposition"
                        class="selected-heading-item-dialog__content-items-container">
         <div class="selected-heading-item-dialog__content-items-container-formula-name">
-          {{category.name}}
+          {{category.titre | uppercase}}
+          <span *ngIf="category.requis === 0" style="font-size: 16px">({{category.nb_choix}} choix max)</span>
+          <span *ngIf="showErrorMessage(category)"
+                style="font-size: 16px; color: #f44336">
+            ({{category.requis}} choix obligatoire)
+          </span>
         </div>
-        <mat-radio-button *ngFor="let i of category.items"
-                          class="selected-heading-item-dialog__content-items-container-formula-label"
-                          color="primary"
-                          [value]="i">
-          &nbsp;&nbsp;&nbsp;&nbsp;{{i.name}}
-        </mat-radio-button>
-      </mat-radio-group>
+        <!--<mat-radio-group *ngIf="category.nb_choix === 1">-->
+          <!--<mat-radio-button *ngFor="let i of category.composants"-->
+                            <!--class="selected-heading-item-dialog__content-items-container-formula-label"-->
+                            <!--color="primary"-->
+                            <!--[value]="i">-->
+            <!--&lt;!&ndash;&nbsp;&nbsp;&nbsp;&nbsp;{{i.designation}} {{i.prix}}&ndash;&gt;-->
+            <!--<div style="display: flex; justify-content: space-between; width: 280px">-->
+              <!--<span>{{i.designation}} {{i.label}}</span>-->
+              <!--<span>{{i.prix}} Dhs</span>-->
+            <!--</div>-->
+          <!--</mat-radio-button>-->
+        <!--</mat-radio-group>-->
+
+        <!--<ng-container *ngIf="category.nb_choix > 1">-->
+          <mat-checkbox *ngFor="let i of category.composants"
+                        [id]="category.titre+'__'+i.id"
+                        (change)="updatePrice($event)"
+                        [(ngModel)]="i.selected"
+                        class="selected-heading-item-dialog__content-items-container-composition-item"
+                        color="primary">
+            <div class="selected-heading-item-dialog__content-items-container-composition-item-label">
+              <span>{{i.name}}</span>
+              <span>{{i.price}} Dhs</span>
+            </div>
+          </mat-checkbox>
+        <!--</ng-container>-->
+      </div>
     </div>
 
 
@@ -82,11 +108,12 @@
 
   <div class="selected-heading-item-dialog__bottom">
     <div class="selected-heading-item-dialog__bottom-container">
-      <div class="selected-heading-item-dialog__bottom-price" *ngIf="!data.item.declinations">
-        {{data.item.price * itemCount}} Dhs
+      <div class="selected-heading-item-dialog__bottom-price" *ngIf="data.item.declinaisons.length===1">
+        {{data.item.prix * itemCount}} Dhs
       </div>
-      <div class="selected-heading-item-dialog__bottom-price" *ngIf="data.item.declinations && selectedDeclination">
-        {{selectedDeclination.price * itemCount}} Dhs
+      <div class="selected-heading-item-dialog__bottom-price"
+           *ngIf="data.item.declinaisons.length>1 && selectedDeclination">
+        {{selectedDeclination.prix * itemCount}} Dhs
       </div>
 
       <div class="selected-heading-item-dialog__bottom-counter">

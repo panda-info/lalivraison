@@ -28,10 +28,12 @@ export class SelectedHeadingItemComponent implements OnInit {
   constructor(private snackBar: MatSnackBar, public dialog: MatDialog, private basketService: BasketService) { }
 
   ngOnInit(): void {
+    console.log('^^^^^^^^^^^^^^^^^^^^^^^', this.headingItem);
   }
 
   addToBasket(): void {
-    if (this.headingItem.declinations || this.headingItem.formula || this.headingItem.compositions) {
+    if ((this.headingItem.declinaisons && this.headingItem.declinaisons.length > 1)
+      || this.headingItem.formule.length) {
       this.dialog.open(SelectedHeadingItemDialogComponent, {
         // height: '480px',
         // height: '100%',
@@ -47,10 +49,26 @@ export class SelectedHeadingItemComponent implements OnInit {
     } else {
       // let item = ;
       // console.log('>>>>>>>>>>>>>>>>>>', item)
-      this.basketService.addItem(new Item(this.headingItem.id, this.headingItem.name.toUpperCase(),
-        this.headingItem.price, 1, this.headingItem.image, this.headingItem.description,
-        this.headingItem.restaurant, this.headingItem.type as ItemType, null, null))
-      this.snackBar.open(this.headingItem.name.toUpperCase(), 'Ajouté(e) au panier', {
+
+
+      // this.basketService.addItem(new Item(this.headingItem.id, this.headingItem.designation.toUpperCase(),
+      //   this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
+      //   this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null))
+
+
+      const item1 = new Item(this.headingItem.id_produit, this.headingItem.designation,
+        this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
+        this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null);
+
+      const declinations = this.headingItem.declinaisons;
+      declinations.selectedValue = this.headingItem.declinaisons[0];
+      item1.declinations = declinations;
+      item1.unitPrice = declinations.selectedValue.prix;
+      item1.id = declinations.selectedValue.produit_id;
+      this.basketService.addItem(item1);
+
+
+      this.snackBar.open(this.headingItem.designation.toUpperCase(), 'Ajouté(e) au panier', {
         duration: 2000,
       });
     }
