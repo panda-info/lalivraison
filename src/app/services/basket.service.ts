@@ -22,7 +22,7 @@ export class BasketService {
     // this.service = Service.Takeaway;
   }
 
-  incrementItemCount(item: Item): void {
+  incrementItemCount(item: any): void {
     const items = this.items.filter(element => element.id === item.id);
     if (items.length) {
       ++items[0].count;
@@ -30,7 +30,7 @@ export class BasketService {
     }
   }
 
-  addItem(item: Item): void {
+  addItem(item: any): void {
     const items = this.items.filter(element => element.id === item.id);
     if (items.length) {
       items[0].count += item.count;
@@ -41,7 +41,7 @@ export class BasketService {
     console.log('###############', this.items);
   }
 
-  decrementItemCount(item: Item): void {
+  decrementItemCount(item: any): void {
     const index = this.items.findIndex(element => element.id === item.id);
     if (index > -1) {
       if (this.items[index].count > 1) {

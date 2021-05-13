@@ -56,9 +56,20 @@ export class SelectedHeadingItemComponent implements OnInit {
       //   this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null))
 
 
-      const item1 = new Item(this.headingItem.id_produit, this.headingItem.designation,
-        this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
-        this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null);
+      // const item1 = new Item(this.headingItem.id_produit, this.headingItem.designation,
+      //   this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
+      //   this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null);
+
+      const item1 = new Item();
+      item1.id = this.headingItem.id_produit;
+      item1.id_produit = this.headingItem.id_produit;
+      item1.id_prix = this.headingItem.id_prix;
+      item1.name = this.headingItem.designation;
+      item1.unitPrice = this.headingItem.prix;
+      item1.count = 1;
+      item1.image = this.headingItem.image;
+      item1.description = this.headingItem.description;
+      item1.restaurant_id = this.headingItem.restaurant_id;
 
       const declinations = this.headingItem.declinaisons;
       declinations.selectedValue = this.headingItem.declinaisons[0];

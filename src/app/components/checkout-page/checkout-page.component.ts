@@ -42,26 +42,49 @@ export class CheckoutPageComponent implements OnInit {
 
   validate(): void {
     const checkout = this.formGroup.getRawValue();
-    // checkout.items = this.basketService.items.map(item => {return {id: item.id, count: item.count}; });
-    checkout.items = [
-      {id_produit: 67, count: 1}, // produit normal
-      {id_produit: 44, id_declinaison: 173, count: 3}, // declinaison
-      {
-        // formule
-        id_produit: 50,
-        formule: [
-          {
-            id_titre: 3616,
-            produits: [38763, 38762],
-          },
-          {
-            id_titre: 3615,
-            produits: [38756, 38755],
-          }
-        ],
-        count: 5}
-    ];
-    this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
+    console.log('______________________', this.basketService.items)
+    checkout.items = this.basketService.items.map(item => {
+      return {
+        id_produit: item.id_produit,
+        id_prix: item.id_prix,
+        restaurant_id: item.restaurant_id,
+        count: item.count,
+        composants: item.compositions.flatMap(composition =>
+          composition.composants.filter(composant => composant.selected === true)
+          .map(composant => {
+            return {
+              id_titre: composant.id_titre,
+              id_prix: composant.id_prix,
+              id_produit: composant.id_produit,
+              id_tpf: composant.id_tpf,
+            };
+          }))
+      };
+    });
+    checkout.restaurant_id = checkout.items[0].restaurant_id;
+    checkout.status = checkout.moyen_paiement === '0' ? 0 : -1;
+    checkout.service = this.basketService.service;
+    console.log('**********************', checkout)
+
+    // checkout.items = [
+    //   {id_produit: 67, count: 1}, // produit normal
+    //   {id_produit: 44, id_declinaison: 173, count: 3}, // declinaison
+    //   {
+    //     // formule
+    //     id_produit: 50,
+    //     formule: [
+    //       {
+    //         id_titre: 3616,
+    //         produits: [38763, 38762],
+    //       },
+    //       {
+    //         id_titre: 3615,
+    //         produits: [38756, 38755],
+    //       }
+    //     ],
+    //     count: 5}
+    // ];
+    // this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
   }
 
   private checkEmptyBasket(): void {

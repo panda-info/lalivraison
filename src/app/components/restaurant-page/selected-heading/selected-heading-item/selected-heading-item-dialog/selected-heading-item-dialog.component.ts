@@ -53,6 +53,10 @@ export class SelectedHeadingItemDialogComponent implements OnInit, OnDestroy {
                 name: item.designation + ' ' + item.label,
                 price: item.prix,
                 id: item.id_prix,
+                id_titre: composition.id_titre,
+                id_prix: item.id_prix,
+                id_produit: item.id_produit,
+                id_tpf: item.id_tpf,
                 selected: false
               };
             })
@@ -63,6 +67,7 @@ export class SelectedHeadingItemDialogComponent implements OnInit, OnDestroy {
     }
     this.item = this.data.item;
   }
+
 
   disableButton(): boolean {
     // if (this.data.item.compositions) {
@@ -84,11 +89,25 @@ export class SelectedHeadingItemDialogComponent implements OnInit, OnDestroy {
     this.snackBar.open(this.data.item.designation.toUpperCase(), 'Ajouté(e) au panier', {
       duration: 2000,
     });
-    console.log('?????????????????????????????', this.data.item.prix);
-    let item1 = new Item(this.data.item.id_produit, this.data.item.designation,
-      this.data.item.prix, this.itemCount, this.data.item.image, this.data.item.description,
-      this.data.item.restaurant_id, this.data.item.category as ItemType, this.selectedComposition, this.selectedFormula);
-    // if (this.data.item.declinaisons.length > 1) {
+    // console.log('?????????????????????????????', this.data.item.prix);
+    // let item1 = new Item(this.data.item.id_produit, this.data.item.designation,
+    //   this.data.item.prix, this.itemCount, this.data.item.image, this.data.item.description,
+    //   this.data.item.restaurant_id, this.data.item.category as ItemType, this.selectedComposition, this.selectedFormula); //working !!!!
+
+
+    const item1 = new Item();
+    item1.id = this.data.item.id_produit;
+    item1.id_produit = this.data.item.id_produit;
+    item1.id_prix = this.data.item.id_prix;
+    item1.name = this.data.item.designation;
+    item1.unitPrice = this.data.item.prix;
+    item1.count = this.itemCount;
+    item1.image = this.data.item.image;
+    item1.description = this.data.item.description;
+    item1.restaurant_id = this.data.item.restaurant_id;
+    item1.compositions = this.selectedComposition;
+
+
     if (!this.data.item.formule.length) {
       const declinations = this.data.item.declinaisons;
       declinations.selectedValue = this.selectedDeclination;

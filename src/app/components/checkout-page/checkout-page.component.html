@@ -105,7 +105,7 @@
 
         <div *ngFor="let item of basketService.items" class="checkout-page__order-zone-frame-item">
           <img class="checkout-page__order-zone-frame-item-image"
-               [src]="'data:image/png;base64,' + item.image">
+               [src]="item.image">
           <div class="checkout-page__order-zone-frame-item-details">
             <span class="checkout-page__order-zone-frame-item-details-name">{{item.name}}</span>
             <div class="checkout-page__order-zone-frame-item-details-text">

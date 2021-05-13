@@ -94,6 +94,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
     // this.httpService.getRestaurant('1', '11')
     this.httpService.getRestaurant('294', '11')
     // this.httpService.getRestaurant('529', '11')
+    // this.httpService.getRestaurant('65', '11')
     .subscribe(restaurant => {
       console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ', restaurant)
       this.restaurant = restaurant
