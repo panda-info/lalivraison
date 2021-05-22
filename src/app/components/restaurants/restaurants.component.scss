@@ -6,6 +6,7 @@
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   &title {
@@ -16,6 +17,7 @@
     display: flex;
     align-items: center;
     height: 10%;
+    width: 100%;
 
     &-image {
       height: 45px;
@@ -25,11 +27,16 @@
   }
 
   &body {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-column-gap: 8px;
-    grid-row-gap: 20px;
+    //display: grid;
+    //grid-template-columns: repeat(4, 1fr);
+    //grid-column-gap: 8px;
+    //grid-row-gap: 20px;
     width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    //background-color: lightpink;
+
 
     &-container {
       display: flex;
@@ -73,7 +80,8 @@
 
   &restaurant {
     height: 250px;
-    width: 180px;
+    //width: 180px;
+    width: 360px;
     border-radius: 10px;
     -webkit-overflow-scrolling: touch;
     //-webkit-box-shadow: 0px 2px 5px 1px rgba(179,172,179,1);
@@ -84,6 +92,8 @@
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+
+    margin: 0 12px 12px 0;
 
 
     &:hover {
@@ -98,17 +108,17 @@
   }
 }
 
-@media (max-width: 1443px) {
+@media (max-width: 1627px) {
 
   .restaurants__ {
 
     &body {
-      grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 15px;
+      //grid-template-columns: repeat(3, 1fr);
+      //grid-column-gap: 15px;
     }
 
     &restaurant {
-      width: 360px;
+      //width: 360px;
     }
 
   }
@@ -119,11 +129,11 @@
   .restaurants__ {
 
     &body {
-      grid-template-columns: repeat(4, 1fr);
+      //grid-template-columns: repeat(4, 1fr);
     }
 
     &restaurant {
-      width: 250px;
+      //width: 250px;
     }
 
   }
@@ -134,7 +144,7 @@
   .restaurants__ {
 
     &restaurant {
-      width: 220px;
+      //width: 220px;
     }
 
   }
@@ -145,18 +155,18 @@
   .restaurants__ {
 
     &restaurant {
-      width: 180px;
+      //width: 180px;
     }
 
   }
 }
 
-@media (max-width: 970px) {
+@media (max-width: 1230px) {
 
   .restaurants__ {
 
     &body {
-      grid-template-columns: repeat(3, 1fr);
+      //grid-template-columns: repeat(2, 1fr);
     }
 
   }
@@ -167,7 +177,7 @@
   .restaurants__ {
 
     &body {
-      grid-column-gap: 5px;
+      //grid-column-gap: 5px;
     }
 
   }
@@ -178,7 +188,7 @@
   .restaurants__ {
 
     &body {
-      grid-template-columns: repeat(2, 1fr);
+      //grid-template-columns: repeat(2, 1fr);
       overflow-y: scroll;
     }
 
@@ -203,6 +213,7 @@
       //width: 220px;
       display: flex;
       flex-direction: row;
+      flex-wrap: nowrap;
       overflow-y: hidden;
       //height: 190px  !important;
       min-height: 100% !important;
@@ -240,6 +251,7 @@
     }
 
     &restaurant {
+      margin: 0;
       min-width: 320px;
       margin-right: 10px;
       //height: 100%;
