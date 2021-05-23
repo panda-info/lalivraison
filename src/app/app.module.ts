@@ -46,7 +46,7 @@ import {DeferLoadDirective} from './directives/defer-load.directive';
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'home', component: HomePageComponent },
-  { path: 'restaurant/:name', component: RestaurantPageComponent },
+  { path: 'restaurant/:id', component: RestaurantPageComponent },
   { path: 'checkout', component: CheckoutPageComponent },
   { path: 'suivi-commande', component: OrderDetailsPageComponent },
   { path: 'panier', component: BasketPageComponent },

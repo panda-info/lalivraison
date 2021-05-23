@@ -82,6 +82,7 @@
       margin-left: 15%;
       margin-top: -78px;
       border: white solid 4px;
+      background-color: white;
       object-fit: cover;
     }
 
@@ -157,6 +158,12 @@
         font-size: 14px;
         margin-top: 5px;
 
+        &-text {
+          &-mobile {
+            display: none;
+          }
+        }
+
         &-opened {
           width: 50%;
         }
@@ -180,6 +187,8 @@
 
         &-scroll-button {
           min-width: 43px;
+          display: flex;
+          align-items: center;
         }
 
         &-container {
@@ -202,7 +211,7 @@
 
         &-item {
           //height: 60px;
-          min-width: 90px;
+          //min-width: 90px;
           padding: 0 10px 0 10px;
           display: flex;
           align-items: center;
@@ -215,21 +224,25 @@
           text-align: center;
 
           &:hover {
-            border-bottom: 2px $blue-lalivraison solid;
-            cursor: pointer;
-            height: 33px;
+            //border-bottom: 2px $blue-lalivraison solid;
+            //cursor: pointer;
+            //height: 33px;
+            background-color: $blue-lalivraison;
+            border-radius: 10px;
           }
 
           &-selected {
             @extend .restaurant-page__presentation-restaurant-menu-item;
-            border-bottom: 4px $blue-lalivraison solid;
-            cursor: pointer;
-            height: 31px;
+            background-color: $blue-lalivraison;
+            border-radius: 10px;
+              //border-bottom: 4px $blue-lalivraison solid;
+              //cursor: pointer;
+              //height: 31px;
 
             &:hover {
-              border-bottom: 4px $blue-lalivraison solid;
-              cursor: pointer;
-              height: 31px;
+              //border-bottom: 4px $blue-lalivraison solid;
+              //cursor: pointer;
+              //height: 31px;
             }
           }
 
@@ -599,6 +612,21 @@
         &description {
           display: none;
 
+          &-text {
+
+            &-desktop {
+              display: none;
+            }
+
+            &-mobile {
+              display: inline;
+            }
+          }
+
+          &-details {
+            display: none;
+          }
+
           &-container {
             display: flex;
             flex-direction: column;
@@ -656,13 +684,16 @@
             font-size: 20px;
 
             &:hover {
-              border: none;
-              height: 35px;
+              //background-color: white !important;
+              //border-radius: 0;
             }
 
             &-selected {
-              border-bottom: 4px $blue-lalivraison solid !important;
-              height: 31px !important;
+              //border-radius: 0;
+              //background-color: white !important;
+              //height: calc(100% - 4px);
+              //border-bottom: 4px $blue-lalivraison solid !important;
+              //height: 31px !important;
             }
           }
         }

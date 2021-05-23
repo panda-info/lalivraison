@@ -41,10 +41,16 @@
     </div>
 
     <div class="restaurant-page__presentation-restaurant-description-container"
+         *ngIf="restaurant.description && restaurant.description.length"
          style="">
       <div class="restaurant-page__presentation-restaurant-description"
-           [ngClass]="{'restaurant-page__presentation-restaurant-description-opened' : seeMoreClicked===true}">
-        {{getDescription()}}
+           [ngClass]="{'restaurant-page__presentation-restaurant-description-opened' : restaurantDescriptionOpened===true}">
+        <span class="restaurant-page__presentation-restaurant-description-text-desktop">
+          {{getDescription()}}
+        </span>
+        <span class="restaurant-page__presentation-restaurant-description-text-mobile">
+          {{restaurant.description}}
+        </span>
         <span *ngIf="restaurant.description.length > 100"
               (click)="seeMoreClicked = !seeMoreClicked"
               class="restaurant-page__presentation-restaurant-description-details">

@@ -1,8 +1,11 @@
 <div class="carousel-item__container"
      [ngClass]="{'carousel-item__container-selected' : selected===true}">
   <div class="carousel-item__upper-zone">
-    <div class="carousel-item__circle">
-      <img [src]="imageSource" class="carousel-item__image">
+    <div class="carousel-item__circle"
+         [ngClass]="{'carousel-item__circle-selected' : selected===true}">
+      <img [src]="imageSource"
+           [ngClass]="{'carousel-item__image-selected' : selected===true}"
+           class="carousel-item__image">
     </div>
   </div>
   <div class="carousel-item__down-zone">{{text}}</div>

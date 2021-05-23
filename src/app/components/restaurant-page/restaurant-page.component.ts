@@ -4,7 +4,6 @@ import {BasketService} from '../../services/basket.service';
 import {Item} from '../../models/item';
 import {BasketItemDialogComponent} from '../basket-page/basket-page-item/basket-item-dialog/basket-item-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
-import {Service} from '../../models/service.enum';
 import {HttpService} from '../../services/http.service';
 import {ViewportScroller} from '@angular/common';
 import {SelectedHeadingComponent} from './selected-heading/selected-heading.component';
@@ -26,7 +25,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
 
   restaurant: any;
 
-  // restaurantDescriptionOpened = false;
+  restaurantDescriptionOpened = false;
   selectedHeading = 'Tout';
   visibleHeading = 'Entrées';
   allHeadings = [];
@@ -39,7 +38,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   seeMoreClicked = false;
 
   getDescription(): string {
-    if (!this.seeMoreClicked) {
+    if (!this.seeMoreClicked && this.restaurant.description.length > 100) {
       return this.restaurant.description.substring(0, 100) + ' ...';
     }
     return this.restaurant.description;
@@ -93,19 +92,23 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     // this.httpService.getRestaurant('1', '11')
     // this.httpService.getRestaurant('294', '11')
-    this.httpService.getRestaurant('529', '11')
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ', id)
+    if (!id || isNaN(+id)) {
+      this.router.navigate(['/home']);
+    }
+    this.httpService.getRestaurant(id, '11')
     // this.httpService.getRestaurant('65', '11')
     .subscribe(restaurant => {
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>> ', restaurant)
       this.restaurant = restaurant
       let index = 0;
       this.allHeadings = this.restaurant.categories.map(heading => { return {name: heading.cat_name, index: index++, ratio: 0}; });
     });
   }
 
-  // showRestaurantDescription(): void {
-  //   this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
-  // }
+  showRestaurantDescription(): void {
+    this.restaurantDescriptionOpened = !this.restaurantDescriptionOpened;
+  }
 
   setSelectedHeading(selectedHeading: string): void {
     this.viewportScroller.scrollToAnchor(selectedHeading);
