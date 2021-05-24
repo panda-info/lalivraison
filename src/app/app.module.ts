@@ -41,6 +41,7 @@ import {DelivrerPageComponent} from './components/delivrer-page/delivrer-page.co
 import {PartnerPageComponent} from './components/partner-page/partner-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {DeferLoadDirective} from './directives/defer-load.directive';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 const routes: Routes = [
@@ -108,6 +109,7 @@ const routes: Routes = [
     MatRadioModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -50,6 +50,8 @@
     margin-right: auto;
     //overflow: hidden;
     padding-bottom: 10px;
+    min-height: 250px;
+    //display: flex;
   }
 
   &join-us {
@@ -93,27 +95,33 @@
   .home-page__ {
 
     &swiper {
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
     }
 
     &location-chooser {
-      width: 100%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
     }
 
     &carousel-categories {
       min-height: 230px;
-      width: 95%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
     }
 
     &join-us {
-      height: 0;
-      min-height: 215px;
+      //height: 0;
+      //min-height: 215px;
+      //height: 570px;
+      width: 85%;
+    }
+
+    &restaurants {
+      width: 90%;
     }
 
     &body {
@@ -149,7 +157,7 @@
       margin-top: 25px;
       width: 95%;
       //min-height: 320px;
-      min-height: 295px;
+      height: 295px !important;
       padding-bottom: 0;
       overflow: hidden;
       //background-color: lightpink;
@@ -158,7 +166,7 @@
     &join-us {
       margin-top: 25px;
       width: 95%;
-      min-height: 210px;
+      height: 210px;
       padding-bottom: 70px;
       //background-color: lightgoldenrodyellow;
     }

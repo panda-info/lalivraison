@@ -4,7 +4,12 @@
     Catégories&nbsp;&nbsp;
     <img src="../../../assets/images/categories/categories.png" class="carousel__title-image">
   </div>
-  <div class="carousel__items-container">
+  <mat-spinner style="margin: auto"
+               strokeWidth="6"
+               diameter="60"
+               *ngIf="!categories">
+  </mat-spinner>
+  <div *ngIf="categories" class="carousel__items-container">
 
     <div class="carousel__items-container-button-left">
       <button style="z-index: 99" mat-icon-button (click)="scrollLeft(carouselItems)">

@@ -154,7 +154,7 @@
         width: 320px;
         min-height: 50px;
         border-radius: 10px;
-        padding: 20px 25px 10px 25px;
+        padding: 20px 25px 20px 25px;
         font-size: 14px;
         margin-top: 5px;
 
@@ -178,7 +178,7 @@
       }
 
       &menu {
-        min-height: 35px;
+        min-height: 45px;
         display: flex;
         overflow-x: scroll;
         overflow-y: hidden;
@@ -211,35 +211,39 @@
 
         &-item {
           //height: 60px;
-          //min-width: 90px;
+          //min-width: 140px;
+          min-width: fit-content;
           padding: 0 10px 0 10px;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 700;
-          letter-spacing: 1.8px;
+          //letter-spacing: 1.8px;
           margin-right: 10px;
           //background-color: $blue-lalivraison;
           text-align: center;
 
           &:hover {
             //border-bottom: 2px $blue-lalivraison solid;
-            //cursor: pointer;
+            cursor: pointer;
             //height: 33px;
-            background-color: $blue-lalivraison;
-            border-radius: 10px;
+            color: $blue-lalivraison;
+            //border-radius: 10px;
           }
 
           &-selected {
             @extend .restaurant-page__presentation-restaurant-menu-item;
             background-color: $blue-lalivraison;
-            border-radius: 10px;
-              //border-bottom: 4px $blue-lalivraison solid;
+            border-radius: 30px;
+            //border-left: 4px $blue-lalivraison solid;
+            //border-right: 4px $blue-lalivraison solid;
+            color: white;
               //cursor: pointer;
               //height: 31px;
 
             &:hover {
+              color: white;
               //border-bottom: 4px $blue-lalivraison solid;
               //cursor: pointer;
               //height: 31px;
@@ -354,8 +358,10 @@
       align-items: center;
       width: 100%;
       //height: 405px;
-      //overflow-y: scroll;
-      height: fit-content;
+      overflow-y: scroll;
+      //height: fit-content;
+      max-height: 300px;
+
     }
 
     &-item {
@@ -539,6 +545,10 @@
 
     &basket {
 
+      &-items {
+        max-height: 280px;
+      }
+
       &-item {
         min-height: 100px;
 
@@ -564,7 +574,15 @@
       display: none;
     }
 
+    &presentation {
+      width: 90%;
+      margin-left: 0;
+      padding-right: 0;
+    }
+
     &basket {
+
+      display: none;
 
       &-item {
         min-height: 85px;
@@ -582,6 +600,12 @@
     }
   }
 }
+
+//@media (max-width: 480px) {
+//  .restaurant-page__ {
+//
+//  }
+//}
 
 @media (max-width: 480px) {
   .restaurant-page__ {
@@ -609,8 +633,13 @@
 
       &-restaurant- {
 
+        &name {
+          display: block;
+        }
+
         &description {
           display: none;
+          text-align: center;
 
           &-text {
 
@@ -681,7 +710,7 @@
           }
 
           &item {
-            font-size: 20px;
+            font-size: 18px;
 
             &:hover {
               //background-color: white !important;
@@ -689,6 +718,8 @@
             }
 
             &-selected {
+              color: white !important;
+              //color: black;
               //border-radius: 0;
               //background-color: white !important;
               //height: calc(100% - 4px);
@@ -700,9 +731,9 @@
       }
     }
 
-    &basket {
-      display: none;
-    }
+    //&basket {
+    //  display: none;
+    //}
 
     &about-zone {
       min-height: 350px;

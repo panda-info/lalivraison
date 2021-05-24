@@ -18,6 +18,8 @@ export class RestaurantsComponent implements OnInit {
   // pageSize = 12;
   page = 0;
 
+  showSpinnerForGetMore = false;
+
   private cities = [
     {name: 'CASABLANCA', page: 0},
     {name: 'RABAT', page: 0},
@@ -53,16 +55,21 @@ export class RestaurantsComponent implements OnInit {
   }
 
   getMore(): void {
+    this.showSpinnerForGetMore = true;
     if (this.city) {
       this.httpService.getRestaurants(this.category, this.page, this.city,
         this.cities.find(city => city.name === this.city).page++)
-      .subscribe((restaurants: any[]) =>
-        restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+      .subscribe((restaurants: any[]) => {
+          restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+          this.showSpinnerForGetMore = false;
+        }
       );
     } else {
       this.httpService.getRestaurants(this.category, this.page++)
-      .subscribe((restaurants: any[]) =>
-        restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+      .subscribe((restaurants: any[]) => {
+          restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+          this.showSpinnerForGetMore = false;
+        }
       );
     }
   }

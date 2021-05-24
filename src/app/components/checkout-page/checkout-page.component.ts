@@ -44,12 +44,19 @@ export class CheckoutPageComponent implements OnInit {
     const checkout = this.formGroup.getRawValue();
     console.log('______________________', this.basketService.items)
     checkout.items = this.basketService.items.map(item => {
+      const returned = item;
+      if (item.declinations && item.declinations.length) {
+        returned.id_prix = item.declinations.selectedValue.id;
+      }
+      return returned;
+    })
+    checkout.items = checkout.items.map(item => {
       return {
         id_produit: item.id_produit,
         id_prix: item.id_prix,
         restaurant_id: item.restaurant_id,
         count: item.count,
-        composants: item.compositions.flatMap(composition =>
+        composants: item.compositions ? item.compositions.flatMap(composition =>
           composition.composants.filter(composant => composant.selected === true)
           .map(composant => {
             return {
@@ -58,7 +65,7 @@ export class CheckoutPageComponent implements OnInit {
               id_produit: composant.id_produit,
               id_tpf: composant.id_tpf,
             };
-          }))
+          })) : []
       };
     });
     checkout.restaurant_id = checkout.items[0].restaurant_id;
@@ -84,7 +91,7 @@ export class CheckoutPageComponent implements OnInit {
     //     ],
     //     count: 5}
     // ];
-    // this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
+    this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
   }
 
   private checkEmptyBasket(): void {

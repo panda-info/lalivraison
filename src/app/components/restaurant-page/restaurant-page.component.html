@@ -1,3 +1,8 @@
+<mat-spinner style="margin: auto"
+             strokeWidth="6"
+             diameter="60"
+             *ngIf="!restaurant">
+</mat-spinner>
 <div class="restaurant-page__container" *ngIf="restaurant">
   <div class="restaurant-page__presentation">
 
@@ -14,7 +19,7 @@
               <!--[containerTitle]="restaurant.headings[0].name">-->
           <!--{{restaurant.name}}-->
         <!--</span>-->
-        <span class="restaurant-page__presentation-restaurant-name">
+        <span class="restaurant-page__presentation-rest aurant-name">
           {{restaurant.designation}}
         </span>
         <span class="restaurant-page__presentation-restaurant-speciality">{{restaurant.category}}</span>

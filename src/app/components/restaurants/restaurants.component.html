@@ -3,8 +3,13 @@
     Restaurants&nbsp;&nbsp;
     <img src="../../../assets/images/categories/restaurants.png" class="restaurants__title-image">
   </div>
-  <div class="restaurants__body-container" *ngIf="restaurants.length">
-    <div class="restaurants__body">
+  <div class="restaurants__body-container">
+    <mat-spinner style="margin: auto"
+                 strokeWidth="6"
+                 diameter="60"
+                 *ngIf="!restaurants.length">
+    </mat-spinner>
+    <div class="restaurants__body" *ngIf="restaurants.length">
       <app-restaurant *ngFor="let restaurant of getRestaurants()"
                       [image]="restaurant.image"
                       [city]="restaurant.city"
@@ -19,15 +24,29 @@
         <button class="restaurants__body-button-mobile"
                 mat-icon-button
                 (click)="getMore()"
+                *ngIf="showSpinnerForGetMore === false"
                 color="primary">
           <mat-icon>add</mat-icon>
         </button>
+        <mat-spinner style="margin: auto"
+                     strokeWidth="4"
+                     diameter="40"
+                     *ngIf="showSpinnerForGetMore === true">
+        </mat-spinner>
       </div>
     </div>
     <div class="restaurants__body-button-container">
       <button class="restaurants__body-button"
+              *ngIf="showSpinnerForGetMore === false && restaurants.length"
               (click)="getMore()"
-              mat-raised-button color="primary" >Voir plus</button>
+              mat-raised-button color="primary">
+        Voir plus
+      </button>
+      <mat-spinner style="margin: auto"
+                   strokeWidth="4"
+                   diameter="40"
+                   *ngIf="showSpinnerForGetMore === true">
+      </mat-spinner>
     </div>
   </div>
 </div>

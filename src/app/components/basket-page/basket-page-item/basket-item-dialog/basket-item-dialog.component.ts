@@ -15,7 +15,7 @@ export class BasketItemDialogComponent implements OnInit {
     console.log('<<<<<<<<<<<<<<<<', this.data.item);
   }
 
-  navigateToRestautant(): void {
-    this.router.navigate(['/restaurant/' + this.data.item.restaurant]);
+  navigateToRestaurant(): void {
+    this.router.navigate(['/restaurant/' + this.data.item.restaurant_id]);
   }
 }

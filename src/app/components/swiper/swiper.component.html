@@ -21,6 +21,12 @@
 
       <!--<img src="../../../assets/images/swipper/{{currentImageIndex}}_swiper.png" style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;">-->
 
+      <mat-spinner style="margin: auto"
+                   strokeWidth="6"
+                   diameter="60"
+                   *ngIf="!images">
+      </mat-spinner>
+
       <img *ngIf="images && images.length"
            [src]="images[currentImageIndex].image"
            style="height: 100%; width: 100%; border-radius: 13px; object-fit: cover;"
