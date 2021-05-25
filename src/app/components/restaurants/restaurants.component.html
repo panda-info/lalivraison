@@ -7,10 +7,10 @@
     <mat-spinner style="margin: auto"
                  strokeWidth="6"
                  diameter="60"
-                 *ngIf="!restaurants.length">
+                 *ngIf="!restaurants">
     </mat-spinner>
-    <div class="restaurants__body" *ngIf="restaurants.length">
-      <app-restaurant *ngFor="let restaurant of getRestaurants()"
+    <div class="restaurants__body" *ngIf="restaurants">
+      <app-restaurant *ngFor="let restaurant of restaurants"
                       [image]="restaurant.image"
                       [city]="restaurant.city"
                       [name]="restaurant.name | uppercase"
@@ -37,7 +37,7 @@
     </div>
     <div class="restaurants__body-button-container">
       <button class="restaurants__body-button"
-              *ngIf="showSpinnerForGetMore === false && restaurants.length"
+              *ngIf="showSpinnerForGetMore === false && restaurants && category==='Tout'"
               (click)="getMore()"
               mat-raised-button color="primary">
         Voir plus

@@ -1,12 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {HttpService} from '../../services/http.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-restaurants',
   templateUrl: './restaurants.component.html',
   styleUrls: ['./restaurants.component.scss']
 })
-export class RestaurantsComponent implements OnInit {
+export class RestaurantsComponent implements OnInit, OnChanges {
 
   @Input()
   category: string;
@@ -14,8 +15,7 @@ export class RestaurantsComponent implements OnInit {
   @Input()
   city: any;
 
-  restaurants = [];
-  // pageSize = 12;
+  restaurants = undefined;
   page = 0;
 
   showSpinnerForGetMore = false;
@@ -32,12 +32,23 @@ export class RestaurantsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.httpService.getRestaurants(this.category, this.page++)
-    .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+  //   this.httpService.getRestaurants(this.category, '', this.page++)
+  //   .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('*****************$', changes);
+    this.page = 0;
+    if (this.city) {
+      this.httpService.getRestaurants(this.category, this.city.name, this.page++)
+      .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+    } else {
+      this.httpService.getRestaurants(this.category, 'Tout', this.page++)
+      .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+    }
   }
 
   // ngOnChanges(changes: SimpleChanges): void {
-    // console.log('*****************$', changes);
     // console.log('$$$$$$$$$$$$$$$$$$', this.city);
   // }
 
@@ -54,18 +65,36 @@ export class RestaurantsComponent implements OnInit {
     return restaurants;
   }
 
+  // getMore(): void {
+  //   this.showSpinnerForGetMore = true;
+  //   if (this.city) {
+  //     this.httpService.getRestaurants(this.category, this.page, this.city,
+  //       this.cities.find(city => city.name === this.city).page++)
+  //     .subscribe((restaurants: any[]) => {
+  //         restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+  //         this.showSpinnerForGetMore = false;
+  //       }
+  //     );
+  //   } else {
+  //     this.httpService.getRestaurants(this.category, this.page++)
+  //     .subscribe((restaurants: any[]) => {
+  //         restaurants.forEach(restaurant => this.restaurants.push(restaurant))
+  //         this.showSpinnerForGetMore = false;
+  //       }
+  //     );
+  //   }
+  // }
   getMore(): void {
     this.showSpinnerForGetMore = true;
     if (this.city) {
-      this.httpService.getRestaurants(this.category, this.page, this.city,
-        this.cities.find(city => city.name === this.city).page++)
+      this.httpService.getRestaurants(this.category, this.city.name, this.page++)
       .subscribe((restaurants: any[]) => {
           restaurants.forEach(restaurant => this.restaurants.push(restaurant))
           this.showSpinnerForGetMore = false;
         }
       );
     } else {
-      this.httpService.getRestaurants(this.category, this.page++)
+      this.httpService.getRestaurants(this.category, 'Tout', this.page++)
       .subscribe((restaurants: any[]) => {
           restaurants.forEach(restaurant => this.restaurants.push(restaurant))
           this.showSpinnerForGetMore = false;

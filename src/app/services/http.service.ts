@@ -25,20 +25,24 @@ export class HttpService {
     return this.http.get<string[]>('api/locations/read');
   }
 
-  getRestaurants(category: string, page: number, city?: string, cityPage?: number): Observable<any[]> {
-    // return this.http.get<string[]>(`api/home/restaurants?category=${category}&page=${page}&pageSize=${pageSize}`);
-    let url = `api/restaurants/read?category=${category}&page=${page}`;
-    if (cityPage) {
-      url += `&city=${city}&cityPage=${cityPage}`;
+  getRestaurants(category: string, city: string, page: number): Observable<any[]> {
+    let url = `api/restaurants/read?category=${category}`;
+    if (city) {
+      url += `&city=${city}`;
     }
+    url += `&page=${page}`;
     return this.http.get<string[]>(url);
   }
 
+  // getRestaurants(category: string, page: number, city?: string, cityPage?: number): Observable<any[]> {
+  //   let url = `api/restaurants/read?category=${category}&page=${page}`;
+  //   if (cityPage) {
+  //     url += `&city=${city}&cityPage=${cityPage}`;
+  //   }
+  //   return this.http.get<string[]>(url);
+  // }
+  //
   getRestaurant(restaurantId: string, districtId: string): Observable<any> {
-    // let url = `api/restaurant?restaurantId=${restaurantId}`;
-    // if (districtId) {
-    //   url += `&districtId=${districtId}`;
-    // }
     return this.http.get<any>(`api/Restaurant_Menu/read?restaurant_id=${restaurantId}`);
   }
 
