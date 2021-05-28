@@ -8,5 +8,8 @@
            class="carousel-item__image">
     </div>
   </div>
-  <div class="carousel-item__down-zone">{{text}}</div>
+  <div [ngClass]="{'carousel-item__down-zone-selected' : selected===true}"
+       class="carousel-item__down-zone">
+    {{text}}
+  </div>
 </div>

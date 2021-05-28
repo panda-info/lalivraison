@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BasketService} from '../../services/basket.service';
 import {HttpService} from '../../services/http.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-order-details-page',
@@ -11,13 +12,18 @@ export class OrderDetailsPageComponent implements OnInit, OnDestroy {
   orderStatus: any;
   private interval;
 
-  constructor(public basketService: BasketService, private httpService: HttpService) { }
+  constructor(public basketService: BasketService, private httpService: HttpService,
+              private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.httpService.getOrderStatus('29176').subscribe(orderStatus => {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (!id || isNaN(+id)) {
+      this.router.navigate(['/home']);
+    }
+    this.httpService.getOrderStatus(id).subscribe(orderStatus => {
       this.orderStatus = orderStatus;
       this.interval = setInterval(() => {
-        this.httpService.getOrderStatusSummary('29176').subscribe((orderStatusRefresh: any) => {
+        this.httpService.getOrderStatusSummary(id).subscribe((orderStatusRefresh: any) => {
           console.log('#################### ', orderStatusRefresh)
           console.log('@@@@@@@@@@@@@@@@@@@@ ', this.orderStatus)
           this.orderStatus.times = orderStatusRefresh.times;

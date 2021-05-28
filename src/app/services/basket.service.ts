@@ -78,4 +78,9 @@ export class BasketService {
   getLocation(): Location {
     return this.location;
   }
+
+  clear(): void {
+    this.itemsCount = 0;
+    this.items = [];
+  }
 }

@@ -39,12 +39,19 @@ export class RestaurantsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     console.log('*****************$', changes);
     this.page = 0;
+    this.showSpinnerForGetMore = true;
     if (this.city) {
       this.httpService.getRestaurants(this.category, this.city.name, this.page++)
-      .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+      .subscribe((restaurants: any[]) => {
+        this.restaurants = restaurants;
+        // this.showSpinnerForGetMore = false;
+      });
     } else {
       this.httpService.getRestaurants(this.category, 'Tout', this.page++)
-      .subscribe((restaurants: any[]) => this.restaurants = restaurants);
+      .subscribe((restaurants: any[]) => {
+        this.restaurants = restaurants;
+        // this.showSpinnerForGetMore = false;
+      });
     }
   }
 

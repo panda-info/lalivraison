@@ -24,6 +24,7 @@
       -webkit-box-shadow: 0px 0px 3px 0px;
       -moz-box-shadow: 0px 0px 5px 0px;
       box-shadow: 0px 0px 5px 0px;
+      //color: white;
 
       &:hover {
         color: $black-lalivraison !important;
@@ -82,6 +83,7 @@
 
     &-selected {
       box-shadow: none;
+      border-radius: 50%;
     }
   }
 
@@ -93,6 +95,10 @@
     align-items: center;
     justify-content: center;
     color: inherit;
+
+    &-selected {
+      color: white;
+    }
   }
 }
 

@@ -90,7 +90,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 
   .home-page__ {
 
@@ -122,6 +122,10 @@
 
     &restaurants {
       width: 90%;
+    }
+
+    &newsletter-zone {
+      width: 83%;
     }
 
     &body {

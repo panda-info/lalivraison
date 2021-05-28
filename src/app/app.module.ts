@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'home', component: HomePageComponent },
   { path: 'restaurant/:id', component: RestaurantPageComponent },
   { path: 'checkout', component: CheckoutPageComponent },
-  { path: 'suivi-commande', component: OrderDetailsPageComponent },
+  { path: 'suivi-commande/:id', component: OrderDetailsPageComponent },
   { path: 'panier', component: BasketPageComponent },
   { path: 'devenir-livreur', component: DelivrerPageComponent },
   { path: 'devenir-partenaire', component: PartnerPageComponent },

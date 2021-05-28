@@ -9,6 +9,7 @@
                  diameter="60"
                  *ngIf="!restaurants">
     </mat-spinner>
+    {{showSpinnerForGetMore}}
     <div class="restaurants__body" *ngIf="restaurants">
       <app-restaurant *ngFor="let restaurant of restaurants"
                       [image]="restaurant.image"

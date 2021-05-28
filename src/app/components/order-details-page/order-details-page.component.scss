@@ -127,7 +127,9 @@
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: fit-content;
+        //height: fit-content;
+        max-height: 650px;
+        overflow-y: scroll;
       }
 
       &-bill {

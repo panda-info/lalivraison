@@ -91,7 +91,11 @@ export class CheckoutPageComponent implements OnInit {
     //     ],
     //     count: 5}
     // ];
-    this.httpService.postCheckout(checkout).subscribe(result => {}/*this.router.navigate(['/suivi-commande'])*/);
+    this.httpService.postCheckout(checkout).subscribe(result => {
+      console.log('------------', result);
+      this.basketService.clear();
+      this.router.navigate(['/suivi-commande/' + result.commande]);
+    });
   }
 
   private checkEmptyBasket(): void {
