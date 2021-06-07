@@ -1,16 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {MatDialog} from '@angular/material/dialog';
-import {SelectedHeadingItemDialogComponent} from './selected-heading-item-dialog/selected-heading-item-dialog.component';
-import {Router} from '@angular/router';
-import {BasketService} from '../../../../services/basket.service';
-import {Item} from '../../../../models/item';
-import {ItemType} from '../../../../models/item-type.enum';
+import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { SelectedHeadingItemDialogComponent } from './selected-heading-item-dialog/selected-heading-item-dialog.component';
+import { Router } from '@angular/router';
+import { BasketService } from '../../../../services/basket.service';
+import { Item } from '../../../../models/item';
+import { ItemType } from '../../../../models/item-type.enum';
 
 @Component({
   selector: 'app-selected-heading-item',
   templateUrl: './selected-heading-item.component.html',
-  styleUrls: ['./selected-heading-item.component.scss']
+  styleUrls: ['./selected-heading-item.component.scss'],
 })
 export class SelectedHeadingItemComponent implements OnInit {
   // @Input()
@@ -25,15 +25,22 @@ export class SelectedHeadingItemComponent implements OnInit {
   @Input()
   headingItem: any;
 
-  constructor(private snackBar: MatSnackBar, public dialog: MatDialog, private basketService: BasketService) { }
+  constructor(
+    private snackBar: MatSnackBar,
+    public dialog: MatDialog,
+    private basketService: BasketService
+  ) {}
 
   ngOnInit(): void {
-    console.log('^^^^^^^^^^^^^^^^^^^^^^^', this.headingItem);
+    // console.log('^^^^^^^^^^^^^^^^^^^^^^^', this.headingItem);
   }
 
   addToBasket(): void {
-    if ((this.headingItem.declinaisons && this.headingItem.declinaisons.length > 1)
-      || this.headingItem.formule.length) {
+    if (
+      (this.headingItem.declinaisons &&
+        this.headingItem.declinaisons.length > 1) ||
+      this.headingItem.formule.length
+    ) {
       this.dialog.open(SelectedHeadingItemDialogComponent, {
         // height: '480px',
         // height: '100%',
@@ -43,18 +50,16 @@ export class SelectedHeadingItemComponent implements OnInit {
         autoFocus: false,
         // hasBackdrop: false,
         data: {
-          item: this.headingItem
-        }
+          item: this.headingItem,
+        },
       });
     } else {
       // let item = ;
       // console.log('>>>>>>>>>>>>>>>>>>', item)
 
-
       // this.basketService.addItem(new Item(this.headingItem.id, this.headingItem.designation.toUpperCase(),
       //   this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
       //   this.headingItem.restaurant_id, this.headingItem.category as ItemType, null, null))
-
 
       // const item1 = new Item(this.headingItem.id_produit, this.headingItem.designation,
       //   this.headingItem.prix, 1, this.headingItem.image, this.headingItem.description,
@@ -78,10 +83,13 @@ export class SelectedHeadingItemComponent implements OnInit {
       item1.id = declinations.selectedValue.produit_id;
       this.basketService.addItem(item1);
 
-
-      this.snackBar.open(this.headingItem.designation.toUpperCase(), 'Ajouté(e) au panier', {
-        duration: 2000,
-      });
+      this.snackBar.open(
+        this.headingItem.designation.toUpperCase(),
+        'Ajouté(e) au panier',
+        {
+          duration: 2000,
+        }
+      );
     }
   }
 
@@ -94,8 +102,8 @@ export class SelectedHeadingItemComponent implements OnInit {
       autoFocus: false,
       // hasBackdrop: false,
       data: {
-        item: this.headingItem
-      }
+        item: this.headingItem,
+      },
     });
   }
 }

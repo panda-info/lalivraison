@@ -1,13 +1,13 @@
 @import "~src/sass/variables";
 
 .restaurants__ {
-
   &container {
     min-height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: Gilory;
   }
 
   &title {
@@ -37,7 +37,6 @@
     align-items: flex-start;
     flex-wrap: wrap;
     //background-color: lightpink;
-
 
     &-container {
       display: flex;
@@ -70,7 +69,6 @@
       }
 
       &-mobile {
-
         &-container {
           display: none;
           height: 120px;
@@ -89,30 +87,24 @@
     //-moz-box-shadow: 0px 2px 5px 1px rgba(179,172,179,1);
     //box-shadow: 0px 2px 5px 1px rgba(179,172,179,1);
 
-
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 
     margin: 0 12px 12px 0;
 
-
     &:hover {
       cursor: pointer;
       will-change: transform;
       transform: scale(1.03);
-      animation-timing-function: cubic-bezier(.075,.82,.165,1);
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
       outline: none;
-
-
     }
   }
 }
 
 @media (max-width: 1627px) {
-
   .restaurants__ {
-
     &body {
       //grid-template-columns: repeat(3, 1fr);
       //grid-column-gap: 15px;
@@ -121,14 +113,11 @@
     &restaurant {
       //width: 360px;
     }
-
   }
 }
 
 @media (min-width: 1441px) {
-
   .restaurants__ {
-
     &body {
       //grid-template-columns: repeat(4, 1fr);
     }
@@ -136,58 +125,43 @@
     &restaurant {
       width: 335px;
     }
-
   }
 }
 
 @media (max-width: 1320px) {
-
   .restaurants__ {
-
     &restaurant {
       //width: 220px;
     }
-
   }
 }
 
 @media (max-width: 1200px) {
-
   .restaurants__ {
-
     &restaurant {
       //width: 180px;
     }
-
   }
 }
 
 @media (max-width: 1230px) {
-
   .restaurants__ {
-
     &body {
       //grid-template-columns: repeat(2, 1fr);
     }
-
   }
 }
 
 @media (max-width: 740px) {
-
   .restaurants__ {
-
     &body {
       //grid-column-gap: 5px;
     }
-
   }
 }
 
 @media (max-width: 768px) {
-
   .restaurants__ {
-
     &body {
       //grid-template-columns: repeat(2, 1fr);
       overflow-y: scroll;
@@ -199,13 +173,11 @@
       width: 320px;
       margin: 5px 0px 5px 10px;
     }
-
   }
 }
 
 @media (max-width: 480px) {
   .restaurants__ {
-
     &title {
       height: 20%;
       letter-spacing: 0px;
@@ -251,7 +223,6 @@
           border-radius: 30px;
         }
       }
-
     }
 
     &restaurant {
@@ -271,6 +242,5 @@
         animation-timing-function: unset;
       }
     }
-
   }
 }

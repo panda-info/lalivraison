@@ -1,14 +1,20 @@
 <div class="selected-heading__container">
-  <div *ngIf="heading.produits"
-       [ngClass]="{'selected-heading__title-highlighted' : highlightTitle===true}"
-       class="selected-heading__title">
-    {{heading.cat_name}}
+  <div
+    *ngIf="heading.produits"
+    [ngClass]="{
+      'selected-heading__title-highlighted': highlightTitle === true
+    }"
+    class="selected-heading__title"
+    [attr.id]="heading.cat_name.split(' ')[0]"
+  >
+    {{ heading.cat_name }}
   </div>
   <div class="selected-heading__body">
-    <app-selected-heading-item class="selected-heading__body-item"
-                               *ngFor="let item of heading.produits"
-                               [headingItem]="item">
+    <app-selected-heading-item
+      class="selected-heading__body-item"
+      *ngFor="let item of heading.produits"
+      [headingItem]="item"
+    >
     </app-selected-heading-item>
   </div>
-
 </div>

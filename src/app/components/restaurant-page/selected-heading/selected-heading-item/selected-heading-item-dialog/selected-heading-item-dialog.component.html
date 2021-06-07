@@ -1,146 +1,207 @@
 <!--{{data.item | json}}-->
 <div class="selected-heading-item-dialog__container">
-
   <div class="selected-heading-item-dialog__top">
-
-      <button mat-icon-button
-              class="selected-heading-item-dialog__top-close-button"
-              [mat-dialog-close]="true">
-        <mat-icon class="selected-heading-item-dialog__top-close-button-icon">close</mat-icon>
-      </button>
-    <img [src]="data.item.image"
-         class="selected-heading-item-dialog__top-image">
+    <button
+      mat-icon-button
+      class="selected-heading-item-dialog__top-close-button"
+      [mat-dialog-close]="true"
+    >
+      <mat-icon class="selected-heading-item-dialog__top-close-button-icon"
+        >close</mat-icon
+      >
+    </button>
+    <img
+      [src]="data.item.image"
+      class="selected-heading-item-dialog__top-image"
+    />
   </div>
 
   <div class="selected-heading-item-dialog__content">
-
     <div class="selected-heading-item-dialog__lower-zone-name">
-      {{data.item.designation | uppercase}}
+      {{ data.item.designation | uppercase }}
     </div>
 
     <div class="selected-heading-item-dialog__lower-zone-description">
-      {{data.item.description}}
+      {{ data.item.description }}
     </div>
 
     <!--Compositions-->
     <div *ngIf="item.compositions">
-      <div *ngFor="let composition of selectedComposition"
-           class="selected-heading-item-dialog__content-items-container">
-        <div class="selected-heading-item-dialog__content-items-container-composition-name">
-          {{composition.name}}
+      <div
+        *ngFor="let composition of selectedComposition"
+        class="selected-heading-item-dialog__content-items-container"
+      >
+        <div
+          class="
+            selected-heading-item-dialog__content-items-container-composition-name
+          "
+        >
+          {{ composition.name }}
         </div>
-        <mat-checkbox *ngFor="let i of composition.items"
-                      (change)="updatePrice()"
-                      [(ngModel)]="i.selected"
-                      class="selected-heading-item-dialog__content-items-container-composition-item"
-                      color="primary">
-          <div class="selected-heading-item-dialog__content-items-container-composition-item-label">
-            <span>{{i.name}}</span>
-            <span>{{i.price}} Dhs</span>
+        <mat-checkbox
+          *ngFor="let i of composition.items"
+          (change)="updatePrice()"
+          [(ngModel)]="i.selected"
+          class="
+            selected-heading-item-dialog__content-items-container-composition-item
+          "
+          color="primary"
+        >
+          <div
+            class="
+              selected-heading-item-dialog__content-items-container-composition-item-label
+            "
+          >
+            <span>{{ i.name }}</span>
+            <span>{{ i.price }} Dhs</span>
           </div>
         </mat-checkbox>
       </div>
     </div>
 
-
     <!--Déclinaisons-->
-    <div *ngIf="!item.formule.length && data.item.declinaisons && data.item.declinaisons.length > 1">
-      <mat-radio-group [(ngModel)]="selectedDeclination"
-                       class="selected-heading-item-dialog__content-items-container">
-        <mat-radio-button *ngFor="let declination of data.item.declinaisons"
-                          class="selected-heading-item-dialog__content-items-container-declination-item"
-                          color="primary"
-                          [value]="declination">
-          <div class="selected-heading-item-dialog__content-items-container-declination-item-label">
-            <span>{{declination.label}}</span>
-            <span>{{declination.prix}} Dhs</span>
+    <div
+      *ngIf="
+        !item.formule.length &&
+        data.item.declinaisons &&
+        data.item.declinaisons.length > 1
+      "
+    >
+      <mat-radio-group
+        [(ngModel)]="selectedDeclination"
+        class="selected-heading-item-dialog__content-items-container"
+      >
+        <mat-radio-button
+          *ngFor="let declination of data.item.declinaisons"
+          class="
+            selected-heading-item-dialog__content-items-container-declination-item
+          "
+          color="primary"
+          [value]="declination"
+        >
+          <div
+            class="
+              selected-heading-item-dialog__content-items-container-declination-item-label
+            "
+          >
+            <span>{{ declination.label }}</span>
+            <span>{{ declination.prix }} Dhs</span>
           </div>
         </mat-radio-button>
-
       </mat-radio-group>
     </div>
 
-
     <!--Formule-->
-                       <!--[(ngModel)]="category.selectedItem"-->
+    <!--[(ngModel)]="category.selectedItem"-->
     <div *ngIf="item.formule.length">
-      <div *ngFor="let category of selectedComposition"
-                       class="selected-heading-item-dialog__content-items-container">
-        <div class="selected-heading-item-dialog__content-items-container-formula-name">
-          {{category.titre | uppercase}}
-          <span *ngIf="category.requis === 0" style="font-size: 16px">({{category.nb_choix}} choix max)</span>
-          <span *ngIf="showErrorMessage(category)"
-                style="font-size: 16px; color: #f44336">
-            ({{category.requis}} choix obligatoire)
+      <div
+        *ngFor="let category of selectedComposition"
+        class="selected-heading-item-dialog__content-items-container"
+      >
+        <div
+          class="
+            selected-heading-item-dialog__content-items-container-formula-name
+          "
+        >
+          {{ category.titre | uppercase }}
+          <span *ngIf="category.requis === 0" style="font-size: 16px"
+            >({{ category.nb_choix }} choix max)</span
+          >
+          <span
+            *ngIf="showErrorMessage(category)"
+            style="font-size: 16px; color: #f44336"
+          >
+            ({{ category.requis }} choix obligatoire)
           </span>
         </div>
         <!--<mat-radio-group *ngIf="category.nb_choix === 1">-->
-          <!--<mat-radio-button *ngFor="let i of category.composants"-->
-                            <!--class="selected-heading-item-dialog__content-items-container-formula-label"-->
-                            <!--color="primary"-->
-                            <!--[value]="i">-->
-            <!--&lt;!&ndash;&nbsp;&nbsp;&nbsp;&nbsp;{{i.designation}} {{i.prix}}&ndash;&gt;-->
-            <!--<div style="display: flex; justify-content: space-between; width: 280px">-->
-              <!--<span>{{i.designation}} {{i.label}}</span>-->
-              <!--<span>{{i.prix}} Dhs</span>-->
-            <!--</div>-->
-          <!--</mat-radio-button>-->
+        <!--<mat-radio-button *ngFor="let i of category.composants"-->
+        <!--class="selected-heading-item-dialog__content-items-container-formula-label"-->
+        <!--color="primary"-->
+        <!--[value]="i">-->
+        <!--&lt;!&ndash;&nbsp;&nbsp;&nbsp;&nbsp;{{i.designation}} {{i.prix}}&ndash;&gt;-->
+        <!--<div style="display: flex; justify-content: space-between; width: 280px">-->
+        <!--<span>{{i.designation}} {{i.label}}</span>-->
+        <!--<span>{{i.prix}} Dhs</span>-->
+        <!--</div>-->
+        <!--</mat-radio-button>-->
         <!--</mat-radio-group>-->
 
         <!--<ng-container *ngIf="category.nb_choix > 1">-->
-          <mat-checkbox *ngFor="let i of category.composants"
-                        [id]="category.titre+'__'+i.id"
-                        (change)="updatePrice($event)"
-                        [(ngModel)]="i.selected"
-                        class="selected-heading-item-dialog__content-items-container-composition-item"
-                        color="primary">
-            <div class="selected-heading-item-dialog__content-items-container-composition-item-label">
-              <span>{{i.name}}</span>
-              <span>{{i.price}} Dhs</span>
-            </div>
-          </mat-checkbox>
+        <mat-checkbox
+          *ngFor="let i of category.composants"
+          [id]="category.titre + '__' + i.id"
+          (change)="updatePrice($event)"
+          [(ngModel)]="i.selected"
+          class="
+            selected-heading-item-dialog__content-items-container-composition-item
+          "
+          color="primary"
+        >
+          <div
+            class="
+              selected-heading-item-dialog__content-items-container-composition-item-label
+            "
+          >
+            <span>{{ i.name }}</span>
+            <span>{{ i.price }} Dhs</span>
+          </div>
+        </mat-checkbox>
         <!--</ng-container>-->
       </div>
     </div>
-
-
   </div>
 
   <div class="selected-heading-item-dialog__bottom">
     <div class="selected-heading-item-dialog__bottom-container">
-      <div class="selected-heading-item-dialog__bottom-price" *ngIf="data.item.declinaisons.length===1">
-        {{data.item.prix * itemCount}} Dhs
+      <div
+        class="selected-heading-item-dialog__bottom-price"
+        *ngIf="data.item.declinaisons.length === 1"
+      >
+        {{ displayedPrice * itemCount }} Dhs
       </div>
-      <div class="selected-heading-item-dialog__bottom-price"
-           *ngIf="data.item.declinaisons.length>1 && selectedDeclination">
-        {{selectedDeclination.prix * itemCount}} Dhs
+      <div
+        class="selected-heading-item-dialog__bottom-price"
+        *ngIf="data.item.declinaisons.length > 1 && selectedDeclination"
+      >
+        {{ selectedDeclination.prix * itemCount }} Dhs
       </div>
 
       <div class="selected-heading-item-dialog__bottom-counter">
-        <button mat-icon-button
-                style="background-color: #ed145b"
-                (click)="decrementCount()"
-                class="selected-heading-item-dialog__bottom-counter-button">
-          <mat-icon class="selected-heading-item-dialog__bottom-counter-button-icon">remove</mat-icon>
+        <button
+          mat-icon-button
+          style="background-color: #ed145b"
+          (click)="decrementCount()"
+          class="selected-heading-item-dialog__bottom-counter-button"
+        >
+          <mat-icon
+            class="selected-heading-item-dialog__bottom-counter-button-icon"
+            >remove</mat-icon
+          >
         </button>
-        <span style="font-weight: bold">{{itemCount}}</span>
-        <button mat-icon-button
-                (click)="incrementCount()"
-                class="selected-heading-item-dialog__bottom-counter-button">
-          <mat-icon class="selected-heading-item-dialog__bottom-counter-button-icon">add</mat-icon>
+        <span style="font-weight: bold">{{ itemCount }}</span>
+        <button
+          mat-icon-button
+          (click)="incrementCount()"
+          class="selected-heading-item-dialog__bottom-counter-button"
+        >
+          <mat-icon
+            class="selected-heading-item-dialog__bottom-counter-button-icon"
+            >add</mat-icon
+          >
         </button>
       </div>
 
-      <button [mat-dialog-close]="true"
-              (click)="addToBasket()"
-              [disabled]="disableButton()"
-              mat-icon-button
-              class="selected-heading-item-dialog__bottom-button"
-              color="primary">
+      <button
+        [mat-dialog-close]="true"
+        (click)="addToBasket()"
+        [disabled]="disableButton()"
+        mat-icon-button
+        class="selected-heading-item-dialog__bottom-button"
+        color="primary"
+      >
         <mat-icon>shopping_cart</mat-icon>
       </button>
     </div>
-
   </div>
-
 </div>

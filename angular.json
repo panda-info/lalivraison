@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lalivraison"
+    }
+  },
+  "defaultProject": "lalivraison",
+  "cli": {
+    "analytics": "c4702598-96d4-40da-99c8-4f8f74662ae1"
+  }
 }

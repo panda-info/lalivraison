@@ -1,11 +1,10 @@
 @import "~src/sass/variables";
 
 .carousel-item__ {
-
   &container {
     //background-color: $blue-lalivraison;
     height: 100%;
-    width: 90px;
+    width: 78px;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
@@ -18,12 +17,12 @@
     &-selected {
       //border: 1px gray solid;
       will-change: transform;
-      transform: scale(1.06);
-      animation-timing-function: cubic-bezier(.075,.82,.165,1);
+      transform: scale(1.02);
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
       background-color: $blue-lalivraison;
-      -webkit-box-shadow: 0px 0px 3px 0px;
-      -moz-box-shadow: 0px 0px 5px 0px;
-      box-shadow: 0px 0px 5px 0px;
+      // -webkit-box-shadow: 0px 0px 3px 0px;
+      // -moz-box-shadow: 0px 0px 5px 0px;
+      // box-shadow: 0px 0px 5px 0px;
 
       &:hover {
         color: $black-lalivraison !important;
@@ -40,7 +39,7 @@
       //padding: 0 5px 0 5px;
       will-change: transform;
       transform: scale(1.06);
-      animation-timing-function: cubic-bezier(.075,.82,.165,1);
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
       color: $blue-lalivraison;
     }
   }
@@ -65,19 +64,19 @@
     &-selected {
       height: 70px;
       width: 70px;
-      -webkit-box-shadow: 0px 0px 3px 0px;
-      -moz-box-shadow: 0px 0px 5px 0px;
-      box-shadow: 0px 0px 5px 0px;
+      // -webkit-box-shadow: 0px 0px 3px 0px;
+      // -moz-box-shadow: 0px 0px 5px 0px;
+      // box-shadow: 0px 0px 5px 0px;
     }
   }
 
   &image {
-    height: 90%;
-    width: 90%;
+    height: 45px;
+    width: 45px;
     border-radius: 25%;
-    -webkit-box-shadow: 0px 0px 3px 0px;
-    -moz-box-shadow: 0px 0px 5px 0px;
-    box-shadow: 0px 0px 5px 0px;
+    // -webkit-box-shadow: 0px 0px 3px 0px;
+    // -moz-box-shadow: 0px 0px 5px 0px;
+    // box-shadow: 0px 0px 5px 0px;
     //border: $blue-lalivraison 1px solid;
 
     &-selected {
@@ -97,9 +96,7 @@
 }
 
 @media (max-width: 480px) {
-
   .carousel-item__ {
-
     &container {
       width: 80px;
       height: 90%;

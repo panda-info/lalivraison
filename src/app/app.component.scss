@@ -1,5 +1,4 @@
 .app__ {
-
   &header {
     height: 10%;
     min-height: 75px;
@@ -7,7 +6,6 @@
     z-index: 100;
     //position: fixed;
     //top: 0;
-
   }
 
   &swiper {
@@ -65,17 +63,16 @@
     padding: 15px 30px 15px 30px;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
 }
 
 @media (max-width: 768px) {
-
   ::ng-deep input.mat-input-element {
     font-size: 18px !important;
   }
 
   .app__ {
-
     &swiper {
       width: 100%;
       margin-left: auto;
@@ -108,13 +105,10 @@
       padding-bottom: 50px;
     }
   }
-
 }
 
 @media (max-width: 480px) {
-
   .app__ {
-
     &header {
       min-height: 141px;
     }
@@ -148,9 +142,7 @@
     &newsletter-zone {
       display: none;
     }
-
   }
-
 }
 
 ::ng-deep input.mat-input-element {

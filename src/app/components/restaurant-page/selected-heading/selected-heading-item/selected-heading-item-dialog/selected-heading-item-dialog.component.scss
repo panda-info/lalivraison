@@ -1,6 +1,5 @@
 @import "~src/sass/variables";
 .selected-heading-item-dialog__ {
-
   &close-zone {
     display: flex;
     align-items: flex-end;
@@ -68,13 +67,12 @@
       margin-bottom: 10px;
 
       &-formula- {
-
         &name {
           width: 350px;
           margin-bottom: 10px;
           font-size: 18px;
           font-weight: bold;
-          color: #21CCBB;
+          color: #21ccbb;
           text-align: left;
           margin-left: 15px;
         }
@@ -99,13 +97,12 @@
       }
 
       &-composition- {
-
         &name {
           width: 340px;
           margin-bottom: 10px;
           font-size: 18px;
           font-weight: bold;
-          color: #21CCBB;
+          color: #21ccbb;
           text-align: left;
           margin-left: 15px;
         }
@@ -131,7 +128,6 @@
       }
 
       &-declination- {
-
         &item {
           width: 330px;
           margin-bottom: 10px;
@@ -157,12 +153,12 @@
     }
   }
 
-  &bottom  {
+  &bottom {
     height: 10%;
     width: 100%;
-    -webkit-box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
-    box-shadow: 0px -1px 10px -3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px -1px 10px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -1px 10px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -1px 10px -3px rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -211,7 +207,6 @@
       color: #3a3838;
       background-color: $blue-lalivraison;
     }
-
   }
 
   &upper-zone {
@@ -222,7 +217,6 @@
   }
 
   &lower-zone {
-
     &-name {
       font-size: 21px;
       font-weight: bold;
@@ -263,26 +257,22 @@
       }
     }
   }
-
 }
 
 @media (max-width: 480px) {
   .selected-heading-item-dialog__ {
-
     &top {
-
       .mat-icon-button {
         line-height: 42px;
       }
     }
 
-    &content-items-container-{
-
+    &content-items-container- {
       &declination {
-        &-item{
+        &-item {
           width: 260px;
 
-          &-label{
+          &-label {
             width: 200px;
           }
         }
@@ -311,7 +301,6 @@
           width: 260px;
         }
       }
-
     }
   }
 }
