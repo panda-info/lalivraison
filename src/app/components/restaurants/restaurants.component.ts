@@ -44,13 +44,13 @@ export class RestaurantsComponent implements OnInit, OnChanges {
       this.httpService.getRestaurants(this.category, this.city.name, this.page++)
       .subscribe((restaurants: any[]) => {
         this.restaurants = restaurants;
-        // this.showSpinnerForGetMore = false;
+        this.showSpinnerForGetMore = false;
       });
     } else {
       this.httpService.getRestaurants(this.category, 'Tout', this.page++)
       .subscribe((restaurants: any[]) => {
         this.restaurants = restaurants;
-        // this.showSpinnerForGetMore = false;
+        this.showSpinnerForGetMore = false;
       });
     }
   }

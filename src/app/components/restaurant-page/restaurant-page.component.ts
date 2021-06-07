@@ -58,7 +58,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit {
         threshold: [0, 0.2, 0.4, 0.6, 0.8, 1]
       });
       this.components.forEach(c => this.intersectionObserver.observe(c.nativeElement));
-    }, 400);
+    }, 2000);
   }
 
   private checkForIntersection = (entries: Array<IntersectionObserverEntry>, observer) => {
