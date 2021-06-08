@@ -129,23 +129,17 @@
           <div
             class="restaurant-page__presentation-restaurant-menu-item"
             *ngFor="let heading of families"
-            (click)="setSelectedHeading(heading.categories[0].cat_name)"
+            (click)="setSelectedHeading(heading.name)"
             [ngClass]="{
-              'restaurant-page__presentation-restaurant-menu-item-selected':
-                visibleHeading === heading.categories[0].cat_name
+              'restaurant-page__presentation-restaurant-menu-item-selected-family':
+                visibleFamilyHeading === heading.name
             }"
             [attr.id]="isFamily ? heading.name + 'ID' : heading.cat_name + 'ID'"
           >
-            <span class="restaurant-page__presentation--name">
-              {{
-                isFamily
-                  ? heading.name.slice(0, 11)
-                  : heading.cat_name.slice(0, 11)
-              }}
-            </span>
-            <span class="restaurant-page__presentation--rightArr">
-              &#10142;
-            </span>
+            <img
+              class="restaurant-page__presentation--img"
+              src="{{ heading.categories[0].image_family }}"
+            />
           </div>
         </div>
         <!-- -------Family-Block-------- -->

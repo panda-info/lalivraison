@@ -1,16 +1,20 @@
 <div class="selected-heading-item__container">
-
-  <img [src]="headingItem.image.endsWith('jpg') ? headingItem.image : '../../../assets/images/dish.jpeg'"
-       class="selected-heading-item__upper-zone" (click)="showItemDetails()">
+  <!-- <img [src]="headingItem.image.endsWith('jpg') ? headingItem.image : '../../../assets/images/dish.jpeg'" -->
+  <img
+    [src]="headingItem.image"
+    class="selected-heading-item__upper-zone"
+    (click)="showItemDetails()"
+  />
 
   <div class="selected-heading-item__lower-zone">
-    <div class="selected-heading-item__lower-zone-name">{{headingItem.designation | uppercase}}</div>
+    <div class="selected-heading-item__lower-zone-name">
+      {{ headingItem.designation | uppercase }}
+    </div>
     <div class="selected-heading-item__lower-zone-price">
       <span class="selected-heading-item__price">
-        {{headingItem.prix}}<span *ngIf="headingItem.prix!==null">Dhs</span>
+        {{ headingItem.prix }}<span *ngIf="headingItem.prix !== null">Dhs</span>
       </span>
       <mat-icon (click)="addToBasket()">add_circle</mat-icon>
     </div>
   </div>
-
 </div>

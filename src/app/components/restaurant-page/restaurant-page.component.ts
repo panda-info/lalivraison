@@ -48,6 +48,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
   restaurantDescriptionOpened = false;
   selectedHeading = 'Tout';
   visibleHeading = 'Entrées';
+  visibleFamilyHeading: any;
   allHeadings = [];
   completelyVisibleHeadings = [];
 
@@ -74,8 +75,6 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      console.log('window width:', window.innerWidth);
-
       this.intersectionObserver = new IntersectionObserver(
         (entries, observer) => {
           this.checkForIntersection(entries, observer);
@@ -91,7 +90,9 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
         {
           root: null,
           rootMargin:
-            window.innerWidth > 500 ? '0px 0px -75% 0px' : '-100px 0px 0px 0px',
+            window.innerWidth > 500
+              ? '-150px 0px -75% 0px'
+              : '-100px 0px 0px 0px',
           threshold: window.innerWidth > 500 ? 0 : [0.8, 0.9, 1],
         }
       );
@@ -105,30 +106,17 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
     entries: Array<IntersectionObserverEntry>,
     observer
   ) => {
-    // if (entries[0]?.intersectionRatio < 0.8) {
-    //   console.log('less than 0.8 here:', entries[0].intersectionRatio);
-    //   if (entries[0]?.target?.clientHeight >= window.innerHeight) {
-    //     console.log('higher than window');
-    //     if (entries[0].isIntersecting === true) {
-    //       this.visibleHeading = entries[0].target.id;
-    //     }
-
-    //     this.allHeadings.find(
-    //       (heading) => heading.name === entries[0].target.id
-    //     ).ratio = entries[0].intersectionRatio;
-    //   }
-    // } else if (entries[0]?.intersectionRatio >= 0.8) {
-    //   if (entries[0].isIntersecting === true) {
-    //     this.visibleHeading = entries[0].target.id;
-    //   }
-
-    //   this.allHeadings.find(
-    //     (heading) => heading.name === entries[0].target.id
-    //   ).ratio = entries[0].intersectionRatio;
-    // }
-    console.log('entries: ', entries[0]);
+    console.log(
+      'array of intersecting entries: ',
+      entries.filter((ent) => ent.isIntersecting)
+    );
     if (entries[0].isIntersecting === true) {
       this.visibleHeading = entries[0].target.id;
+      this.visibleFamilyHeading = this.families?.filter((family) =>
+        family.categories.find((cat) => cat.cat_name === entries[0].target.id)
+      )[0]?.name;
+      // console.log('the visible family heading:', this.visibleFamilyHeading);
+      this.openFamilySubMenu(this.visibleFamilyHeading, true);
     }
 
     this.allHeadings.find(
@@ -163,6 +151,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
       .filter((cat) => cat.family)
       .forEach((cat) => families.add(cat.familyname));
 
+    // console.log(categories);
     families.forEach((family) => {
       familiesCategories.push({
         name: family,
@@ -173,7 +162,7 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
     });
     this.families = familiesCategories;
 
-    console.log('familiesCategories:', familiesCategories);
+    // console.log('familiesCategories:', familiesCategories);
   }
 
   showRestaurantDescription(): void {
@@ -181,46 +170,31 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
   }
 
   setSelectedHeading(selectedHeading: string): void {
-    let elementById = document.getElementById(selectedHeading);
+    let elementById: any = document.getElementById(selectedHeading);
+    const isFamilyName = this.families?.find(
+      (family) => family.name === selectedHeading
+    );
 
-    if (this.isFamily) {
-      this.families = this.families.map((family) => {
-        if (
-          family.categories[0].cat_name === selectedHeading ||
-          family.categories.find(
-            (category) => selectedHeading === category.cat_name
-          )
-        ) {
-          return {
-            ...family,
-            open: !family.open,
-            family: true,
-          };
-        }
-        return {
-          ...family,
-          open: false,
-          family: true,
-        };
-      });
-      const openFamily = this.families.filter((family) => family.open);
-      if (openFamily.length) {
-        this.faimilyCategories = openFamily[0].categories;
-      } else {
-        this.faimilyCategories = [];
-      }
-      console.log('the actual family', this.families);
-      console.log('the actual categories', this.faimilyCategories);
+    if (isFamilyName) {
+      elementById = document.getElementById(
+        isFamilyName.categories[0].cat_name
+      );
+    }
+
+    if (this.isFamily && isFamilyName) {
+      this.openFamilySubMenu(selectedHeading, false);
     }
 
     if (elementById)
       elementById.scrollIntoView({
         behavior: 'smooth',
-        block: 'center',
+        block: window.innerWidth > 500 ? 'start' : 'end',
       });
+
+    console.log('selected heading: ', selectedHeading);
     setTimeout(() => {
       this.selectedHeading = selectedHeading;
-      this.visibleHeading = selectedHeading;
+      this.visibleFamilyHeading = selectedHeading;
     }, 600);
   }
 
@@ -229,6 +203,29 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
       left: 150,
       behavior: 'smooth',
     });
+  }
+
+  openFamilySubMenu(selectedHeading: string, state: boolean): void {
+    this.families = this.families?.map((family) => {
+      if (family.name === selectedHeading) {
+        return {
+          ...family,
+          open: state ? state : !family.open,
+          family: true,
+        };
+      }
+      return {
+        ...family,
+        open: false,
+        family: true,
+      };
+    });
+    const openFamily = this.families?.filter((family) => family.open);
+    if (openFamily?.length) {
+      this.faimilyCategories = openFamily[0].categories;
+    } else {
+      this.faimilyCategories = [];
+    }
   }
 
   scrollLeft(): void {
@@ -294,7 +291,6 @@ export class RestaurantPageComponent implements OnInit, AfterViewInit, DoCheck {
     return false;
   }
   highlightTitle(headingName: string): boolean {
-    console.log(this.visibleHeading);
     return headingName === this.visibleHeading;
   }
 
